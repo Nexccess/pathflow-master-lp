@@ -1,12 +1,12 @@
 /**
  * api/diagnose.js
- * Gemini API を用いた相続コンサルティング特化 AI 診断エンドポイント
+ * Gemini API を用いた店舗別 AI 業務改善診断エンドポイント（多店舗対応版）
  *
  * 環境変数:
  *   GEMINI_API_KEY  — Google AI Studio API Key
  *
  * リクエスト (POST):
- *   { answers: string[] }  // 5問の回答
+ *   { storeId: string, answers: string[] }  // storeId未指定時は _default テンプレートを使用
  *
  * レスポンス:
  *   { score, level, summary, issues, nextAction }
@@ -14,19 +14,37 @@
 
 export const config = { runtime: 'edge' };
 
+import storesData from '../data/stores.json';
+
 const GEMINI_MODELS = ['gemini-1.5-flash', 'gemini-1.5-pro'];
 const GEMINI_BASE   = 'https://generativelanguage.googleapis.com/v1beta/models';
 
-const QUESTIONS = [
-  '相続の準備状況（遺言書の有無、財産の把握度）',
-  '主な財産の種類と概算総額',
-  '法定相続人の人数と関係性（配偶者・子・兄弟など）',
-  '事業承継の有無・自社株の状況',
-  '最も気になっている課題・懸念事項',
-];
+const DEFAULT_STORE_KEY = '_default';
 
-const SYSTEM_PROMPT = `あなたは相続コンサルティングの専門AI診断システムです。
-ユーザーの5つの回答を分析し、相続における課題と優先アクションを特定してください。
+/**
+ * storeId から店舗別設定（questions / systemPromptExtra 等）を取得。
+ * 未登録の場合は _default にフォールバックする。
+ */
+function resolveStoreConfig(storeId) {
+  const fallback = storesData[DEFAULT_STORE_KEY];
+  if (!storeId) return { ...fallback, storeId: null };
+
+  const store = storesData[storeId];
+  if (!store) return { ...fallback, storeId };
+
+  // 店舗固有の questions / systemPromptExtra が未設定の項目は _default で補完
+  return {
+    ...fallback,
+    ...store,
+    storeId,
+  };
+}
+
+function buildSystemPrompt(storeConfig) {
+  const storeLabel = storeConfig.storeName ? `店舗名: ${storeConfig.storeName}\n` : '';
+  return `あなたは店舗経営改善コンサルティングの専門AI診断システムです。
+${storeLabel}ユーザーの5つの回答を分析し、経営における課題と優先アクションを特定してください。
+${storeConfig.systemPromptExtra || ''}
 
 以下のJSON形式のみで回答してください。マークダウンやコードブロックは使用しないこと。
 
@@ -42,15 +60,21 @@ const SYSTEM_PROMPT = `あなたは相続コンサルティングの専門AI診�
 - 0〜39: リスクが高い（レベルA）
 - 40〜69: 対策が必要（レベルB）
 - 70〜100: 基礎はあるが最適化の余地あり（レベルC）`;
+}
 
-async function callGemini(apiKey, model, answers) {
-  const userContent = QUESTIONS.map((q, i) => `Q${i + 1}. ${q}\nA: ${answers[i] || '未回答'}`).join('\n\n');
+async function callGemini(apiKey, model, answers, storeConfig) {
+  const questions = storeConfig.questions;
+  const systemPrompt = buildSystemPrompt(storeConfig);
+
+  const userContent = questions
+    .map((q, i) => `Q${i + 1}. ${q}\nA: ${answers[i] || '未回答'}`)
+    .join('\n\n');
 
   const body = {
     contents: [
       { role: 'user', parts: [{ text: userContent }] },
     ],
-    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+    systemInstruction: { parts: [{ text: systemPrompt }] },
     generationConfig: {
       temperature: 0.3,
       maxOutputTokens: 1024,
@@ -114,52 +138,65 @@ export default async function handler(req) {
     return new Response(JSON.stringify({ error: 'リクエストボディの解析に失敗しました。' }), { status: 400, headers });
   }
 
-  const { answers } = body;
+  const { storeId, answers } = body;
   if (!Array.isArray(answers) || answers.length !== 5) {
     return new Response(JSON.stringify({ error: '5問分の回答が必要です。' }), { status: 400, headers });
   }
 
+  const storeConfig = resolveStoreConfig(storeId);
+
   let lastError = null;
   for (const model of GEMINI_MODELS) {
     try {
-      const result = await callGemini(apiKey, model, answers);
-      return new Response(JSON.stringify({ ...result, model }), { status: 200, headers });
+      const result = await callGemini(apiKey, model, answers, storeConfig);
+      return new Response(JSON.stringify({ ...result, model, storeId: storeConfig.storeId }), { status: 200, headers });
     } catch (e) {
       lastError = e;
     }
   }
 
   // フォールバック: 全モデル失敗時はルールベースで返却
-  const fallback = generateFallback(answers);
+  const fallback = generateFallback(answers, storeConfig);
   return new Response(
-    JSON.stringify({ ...fallback, _fallback: true, _error: lastError?.message }),
+    JSON.stringify({ ...fallback, storeId: storeConfig.storeId, _fallback: true, _error: lastError?.message }),
     { status: 200, headers }
   );
 }
 
 /**
- * Gemini 全失敗時のルールベースフォールバック
+ * Gemini 全失敗時のルールベースフォールバック（業種非依存の汎用ロジック）
  */
-function generateFallback(answers) {
+function generateFallback(answers, storeConfig) {
   let score = 60;
   const issues = [];
 
-  const [prepStatus, assetType, heirs, business, concern] = answers;
+  const [priority, repeatRate, reviews, booking, goal] = answers;
 
-  if (prepStatus && prepStatus.includes('なし')) { score -= 20; issues.push('遺言書が未作成のため、争族リスクが高い状態です'); }
-  if (assetType && assetType.includes('不動産')) { score -= 10; issues.push('不動産評価と小規模宅地特例の適用可否を確認する必要があります'); }
-  if (business && (business.includes('あり') || business.includes('株'))) { score -= 15; issues.push('自社株評価と後継者への集中移転スキームの検討が急務です'); }
+  if (repeatRate && (repeatRate.includes('低い') || repeatRate.includes('少ない'))) {
+    score -= 20;
+    issues.push('リピート率の低さが、売上の安定化を阻害している可能性があります');
+  }
+  if (reviews && (reviews.includes('していない') || reviews.includes('なし'))) {
+    score -= 10;
+    issues.push('口コミ・Google評価への対応が、新規顧客獲得の機会損失につながっています');
+  }
+  if (booking && booking.includes('手動')) {
+    score -= 10;
+    issues.push('予約・顧客管理が手動運用のため、スタッフの負担増と機会損失のリスクがあります');
+  }
 
   score = Math.max(10, Math.min(90, score));
   const level = score < 40 ? 'A（緊急対応推奨）' : score < 70 ? 'B（早期対応推奨）' : 'C（計画的対応）';
 
-  if (issues.length === 0) issues.push('現状の把握と将来の相続税試算が必要です');
+  if (issues.length === 0) issues.push('現状の可視化と、継続的な改善サイクルの構築が必要です');
+
+  const storeLabel = storeConfig.storeName ? `${storeConfig.storeName}様の` : '';
 
   return {
     score,
     level,
-    summary: `現状分析の結果、相続準備スコアは${score}点です。${concern || '課題'}について専門家との相談を推奨します。`,
+    summary: `${storeLabel}現状分析の結果、経営改善スコアは${score}点です。${goal || '今後の目標'}の実現に向けて、専門家との相談を推奨します。`,
     issues,
-    nextAction: 'まず財産の全体像を把握し、相続税の試算と遺言書作成の必要性を専門家に確認してください。',
+    nextAction: 'まず口コミ対応とリピート施策の現状を棚卸しし、優先度の高い施策から着手してください。',
   };
 }
