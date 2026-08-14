@@ -1,0 +1,27 @@
+{
+  "storeId": "44",
+  "facts": {
+    "storeName": "NAIL MEN",
+    "category": "メンズネイルサロン",
+    "subtype": "mens_nail",
+    "address": "横浜",
+    "phone": null,
+    "officialWebsite": null,
+    "hours": [],
+    "rating": 4.9,
+    "reviewCount": 210,
+    "paymentMethods": [],
+    "menus": [],
+    "verifiedFacts": ["メンズ専門", "個室"]
+  },
+  "reviewEvidence": {
+    "positive": [],
+    "negative": [],
+    "notes": ["レビュー本文原文はこの入力には含まれていない。具体的な接客品質・技術品質を推測しないこと。"]
+  },
+  "generationContext": {
+    "industryPack": "beauty",
+    "targetAudience": "来店を検討しているエンドユーザー",
+    "goal": "予約前の希望整理を助ける受付ヒアリング付きLP"
+  }
+}
