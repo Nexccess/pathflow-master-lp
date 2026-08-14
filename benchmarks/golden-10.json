@@ -1,12 +1,12 @@
 {
-  "benchmarkVersion": "1.0",
+  "benchmarkVersion": "1.1",
   "purpose": "Human-verified policy targets for Step3/Qwen evaluation. This file is not a source-of-truth for unverified menus, hours, prices or review text.",
   "stores": [
     {"storeId":"37","storeName":"カットファクトリー横浜天理ビル店","rating":3.5,"reviewCount":74,"expectedQualityClaimMode":"facts_only","notes":["Use verified facts only; prior prototype was incorrectly styled as premium.","Known positioning facts used in prior review: JPY 1,300, speed-oriented, cash only. Re-verify before production use."]},
     {"storeId":"38","storeName":"ロストシティ横浜","rating":4.6,"reviewCount":172,"expectedQualityClaimMode":"evidence_allowed","notes":[]},
     {"storeId":"40","storeName":"大河原理容店","rating":4.7,"reviewCount":15,"expectedQualityClaimMode":"evidence_allowed","notes":["Prior human review selected a local/community tone."]},
     {"storeId":"43","storeName":"NICENAIL横浜店","rating":4.0,"reviewCount":163,"expectedQualityClaimMode":"facts_only","notes":["Negative quality complaints existed in the reviewed source set; do not convert them into promotional wording."]},
-    {"storeId":"44","storeName":"NAIL MEN","rating":4.9,"reviewCount":210,"expectedQualityClaimMode":"evidence_allowed","notes":["Verified/previously accepted facts include men's specialty and private room; re-verify before production publication."]},
+    {"storeId":"44","storeName":"NAIL MEN","rating":4.9,"reviewCount":210,"expectedQualityClaimMode":"facts_only","notes":["The benchmark input contains rating/count plus verified facts (men's specialty, private room) but no positive review text. Rating/count alone does not authorize concrete service-quality claims. Re-verify before production publication."]},
     {"storeId":"45","storeName":"TRU NAIL&EYE","rating":4.5,"reviewCount":101,"expectedQualityClaimMode":"evidence_allowed","notes":[]},
     {"storeId":"46","storeName":"I-nails WEST","rating":4.9,"reviewCount":259,"expectedQualityClaimMode":"evidence_allowed","notes":["Prior human review accepted multilingual support; re-verify before production publication."]},
     {"storeId":"48","storeName":"ROCOCO Nail","rating":4.8,"reviewCount":27,"expectedQualityClaimMode":"evidence_allowed","notes":[]},
