@@ -3,6 +3,9 @@
     "api/diagnose.js": {
       "maxDuration": 30
     },
+    "api/reception.js": {
+      "maxDuration": 30
+    },
     "api/save-shigyou.js": {
       "maxDuration": 30
     },
@@ -12,12 +15,12 @@
   },
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "source": "/p/:id",
+      "destination": "/pages/lite.html?id=:id"
     },
     {
-      "source": "/(.*)",
-      "destination": "/$1"
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     }
   ]
 }
