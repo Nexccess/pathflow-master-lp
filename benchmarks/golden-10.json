@@ -1,17 +1,19 @@
 {
-  "benchmarkVersion": "1.1",
-  "purpose": "Human-verified policy targets for Step3/Qwen evaluation. This file is not a source-of-truth for unverified menus, hours, prices or review text.",
+  "benchmarkVersion": "2.0",
+  "vertical": "nail",
+  "mode": "limited_source",
+  "purpose": "Nail-only golden set for Step3/Qwen. All ten inputs are grounded in the current leads DB snapshot and intentionally contain no review text, so qualityClaimMode must remain facts_only. This benchmark tests vertical consistency, receptionist questions, grounding and QA before review enrichment.",
   "stores": [
-    {"storeId":"37","storeName":"カットファクトリー横浜天理ビル店","rating":3.5,"reviewCount":74,"expectedQualityClaimMode":"facts_only","notes":["Use verified facts only; prior prototype was incorrectly styled as premium.","Known positioning facts used in prior review: JPY 1,300, speed-oriented, cash only. Re-verify before production use."]},
-    {"storeId":"38","storeName":"ロストシティ横浜","rating":4.6,"reviewCount":172,"expectedQualityClaimMode":"evidence_allowed","notes":[]},
-    {"storeId":"40","storeName":"大河原理容店","rating":4.7,"reviewCount":15,"expectedQualityClaimMode":"evidence_allowed","notes":["Prior human review selected a local/community tone."]},
-    {"storeId":"43","storeName":"NICENAIL横浜店","rating":4.0,"reviewCount":163,"expectedQualityClaimMode":"facts_only","notes":["Negative quality complaints existed in the reviewed source set; do not convert them into promotional wording."]},
-    {"storeId":"44","storeName":"NAIL MEN","rating":4.9,"reviewCount":210,"expectedQualityClaimMode":"facts_only","notes":["The benchmark input contains rating/count plus verified facts (men's specialty, private room) but no positive review text. Rating/count alone does not authorize concrete service-quality claims. Re-verify before production publication."]},
-    {"storeId":"45","storeName":"TRU NAIL&EYE","rating":4.5,"reviewCount":101,"expectedQualityClaimMode":"evidence_allowed","notes":[]},
-    {"storeId":"46","storeName":"I-nails WEST","rating":4.9,"reviewCount":259,"expectedQualityClaimMode":"evidence_allowed","notes":["Prior human review accepted multilingual support; re-verify before production publication."]},
-    {"storeId":"48","storeName":"ROCOCO Nail","rating":4.8,"reviewCount":27,"expectedQualityClaimMode":"evidence_allowed","notes":[]},
-    {"storeId":"50","storeName":"NICENAIL西口店","rating":4.2,"reviewCount":46,"expectedQualityClaimMode":"facts_only","notes":["Negative billing/additional-charge complaints existed in the reviewed source set; do not use or euphemize them in promotional copy."]},
-    {"storeId":"51","storeName":"I-nails EAST","rating":5.0,"reviewCount":112,"expectedQualityClaimMode":"evidence_allowed","notes":["Prior human review accepted multilingual support; re-verify before production publication."]}
+    {"storeId":"44","storeName":"NAIL MEN【メンズネイル/爪/ネイル/横浜/メンズ/メンズ専門】","area":"横浜駅","rating":4.9,"reviewCount":207,"expectedQualityClaimMode":"facts_only","notes":["High rating/high volume; verified facts inherited for test: メンズ専門, 個室."]},
+    {"storeId":"43","storeName":"NICENAIL横浜店","area":"横浜駅","rating":4.0,"reviewCount":162,"expectedQualityClaimMode":"facts_only","notes":["Large review count; no review text in this phase."]},
+    {"storeId":"56","storeName":"ネイルステーション ルミネ横浜店","area":"横浜駅","rating":3.5,"reviewCount":502,"expectedQualityClaimMode":"facts_only","notes":["Very large review count with moderate rating; no review text in this phase."]},
+    {"storeId":"451","storeName":"ダッシングディバ アトレ川崎店","area":"川崎駅","rating":3.3,"reviewCount":26,"expectedQualityClaimMode":"facts_only","notes":["Moderate-low rating and small-medium review count."]},
+    {"storeId":"452","storeName":"FASTNAIL ミューザ川崎店","area":"川崎駅","rating":3.8,"reviewCount":217,"expectedQualityClaimMode":"facts_only","notes":["Large review count and chain-style store name; do not infer services from brand."]},
+    {"storeId":"1418","storeName":"NICENAIL船橋駅前店","area":"船橋駅","rating":4.0,"reviewCount":149,"expectedQualityClaimMode":"facts_only","notes":["Cross-region chain example."]},
+    {"storeId":"1428","storeName":"Gravis Lange（グラビスランジュ）船橋店","area":"船橋駅","rating":4.9,"reviewCount":19,"expectedQualityClaimMode":"facts_only","notes":["High rating but small review count; rating alone must not unlock quality claims."]},
+    {"storeId":"1891","storeName":"ネイルサロン ABCネイル浦和店","area":"浦和駅","rating":2.7,"reviewCount":12,"expectedQualityClaimMode":"facts_only","notes":["Low-rating edge case; do not turn rating into negative promo content."]},
+    {"storeId":"1896","storeName":"NICENAIL浦和西口店","area":"浦和駅","rating":3.9,"reviewCount":48,"expectedQualityClaimMode":"facts_only","notes":["Cross-region chain example with medium review count."]},
+    {"storeId":"2381","storeName":"QBNail plus 大宮マルイ店","area":"大宮駅","rating":4.7,"reviewCount":64,"expectedQualityClaimMode":"facts_only","notes":["High-rating medium-volume example; do not infer services from store name."]}
   ],
   "passCriteria": {
     "qualityClaimModeAccuracy": 1.0,
@@ -19,6 +21,8 @@
     "unsupportedMenuReferenceCount": 0,
     "unsupportedClaimCount": 0,
     "ownerPerspectiveQuestionCount": 0,
+    "structureErrorCount": 0,
     "requiredReceptionPerspective": "end_customer"
-  }
+  },
+  "nextBenchmark": "After review/source enrichment, add evidence_allowed cases inside the same nail vertical."
 }
