@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathflow.org/schema/store-card.schema.json",
+  "title": "Path-Flow Store Card",
+  "type": "object",
+  "required": ["schemaVersion", "storeId", "source", "facts", "evidence", "policy", "experience", "validation"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {"type": "string", "const": "1.0"},
+    "storeId": {"type": "string", "minLength": 1},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capturedAt", "references"],
+      "properties": {
+        "capturedAt": {"type": ["string", "null"]},
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "ref"],
+            "properties": {
+              "kind": {"type": "string", "enum": ["places", "official_site", "review", "manual_verified", "other"]},
+              "ref": {"type": "string"},
+              "note": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "facts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["storeName", "category", "address", "phone", "hours", "rating", "reviewCount", "paymentMethods", "menus", "verifiedFacts"],
+      "properties": {
+        "storeName": {"type": "string"},
+        "category": {"type": "string"},
+        "subtype": {"type": ["string", "null"]},
+        "address": {"type": ["string", "null"]},
+        "phone": {"type": ["string", "null"]},
+        "officialWebsite": {"type": ["string", "null"]},
+        "hours": {"type": "array", "items": {"type": "string"}},
+        "rating": {"type": ["number", "null"], "minimum": 0, "maximum": 5},
+        "reviewCount": {"type": ["integer", "null"], "minimum": 0},
+        "paymentMethods": {"type": "array", "items": {"type": "string"}},
+        "menus": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name"],
+            "properties": {
+              "name": {"type": "string"},
+              "price": {"type": ["string", "null"]},
+              "note": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "verifiedFacts": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["positiveThemes", "negativeThemes", "qualityClaimEvidence"],
+      "properties": {
+        "positiveThemes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["theme", "evidence"],
+            "properties": {
+              "theme": {"type": "string"},
+              "evidence": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "negativeThemes": {
+          "description": "Stored only for exclusion/QA. Never feed directly into promotional copy generation.",
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "qualityClaimEvidence": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["qualityClaimMode", "doNotPromote", "allowedRecommendationScope"],
+      "properties": {
+        "qualityClaimMode": {"type": "string", "enum": ["evidence_allowed", "facts_only"]},
+        "doNotPromote": {"type": "array", "items": {"type": "string"}},
+        "allowedRecommendationScope": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "experience": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["headline", "lead", "features", "flow", "reception"],
+      "properties": {
+        "headline": {"type": "string"},
+        "lead": {"type": "string"},
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title", "text", "evidenceRefs"],
+            "properties": {
+              "title": {"type": "string"},
+              "text": {"type": "string"},
+              "evidenceRefs": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "flow": {"type": "array", "items": {"type": "string"}},
+        "reception": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["intro", "questions", "recommendationPolicy", "ctaLabel"],
+          "properties": {
+            "intro": {"type": "string"},
+            "questions": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 7,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "text", "options"],
+                "properties": {
+                  "id": {"type": "string"},
+                  "text": {"type": "string"},
+                  "options": {"type": "array", "minItems": 2, "items": {"type": "string"}}
+                }
+              }
+            },
+            "recommendationPolicy": {"type": "string"},
+            "ctaLabel": {"type": "string"}
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unsupportedClaims", "negativeReviewLeak", "factConflicts", "unsupportedMenuReferences", "status"],
+      "properties": {
+        "unsupportedClaims": {"type": "array", "items": {"type": "string"}},
+        "negativeReviewLeak": {"type": "boolean"},
+        "factConflicts": {"type": "array", "items": {"type": "string"}},
+        "unsupportedMenuReferences": {"type": "array", "items": {"type": "string"}},
+        "status": {"type": "string", "enum": ["PASS", "PASS_WITH_LIMITED_SOURCE_DATA", "REVIEW", "FAIL"]}
+      }
+    }
+  }
+}
