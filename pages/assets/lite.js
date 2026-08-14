@@ -2,19 +2,35 @@
   const qs = new URLSearchParams(location.search);
   const storeId = qs.get('id') || location.pathname.split('/').filter(Boolean).pop();
   let store = null;
+  let industryPack = null;
   let current = 0;
   let answers = [];
 
   const $ = (id) => document.getElementById(id);
 
   async function loadStore() {
-    const res = await fetch('/data/store-profiles.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error('店舗データを読み込めませんでした。');
-    const all = await res.json();
+    const [storeRes, nailPackRes] = await Promise.all([
+      fetch('/data/store-profiles.json', { cache: 'no-store' }),
+      fetch('/data/industry-packs/nail.json', { cache: 'no-store' })
+    ]);
+    if (!storeRes.ok) throw new Error('店舗データを読み込めませんでした。');
+    const all = await storeRes.json();
     store = all[String(storeId)];
     if (!store) throw new Error(`店舗ID ${storeId} は未登録です。`);
+
+    if (nailPackRes.ok && String(store.facts.category || '').includes('ネイル')) {
+      industryPack = await nailPackRes.json();
+    }
+
     renderStore();
     renderQuestions();
+  }
+
+  function getQuestions() {
+    if (industryPack?.questionSet?.length) {
+      return industryPack.questionSet.map(q => ({ id: q.id, text: q.label, options: q.options }));
+    }
+    return store.experience.reception.questions;
   }
 
   function renderStore() {
@@ -27,7 +43,9 @@
     $('storeName').textContent = f.storeName;
     $('category').textContent = f.category;
     $('rating').textContent = f.rating ? `${f.rating} (${f.reviewCount || '—'}件)` : '—';
-    $('receptionIntro').textContent = e.reception.intro;
+    $('receptionIntro').textContent = industryPack
+      ? '5つだけ聞かせてください。正解を当てる診断ではなく、予約前に希望を整理するための受付です。'
+      : e.reception.intro;
 
     $('features').innerHTML = e.features.map(x => `
       <article class="card"><h3>${escapeHtml(x.title)}</h3><p>${escapeHtml(x.text)}</p></article>
@@ -39,7 +57,7 @@
   }
 
   function renderQuestions() {
-    const list = store.experience.reception.questions;
+    const list = getQuestions();
     answers = new Array(list.length).fill(null);
     $('questions').innerHTML = list.map((q, qi) => `
       <section class="question ${qi === 0 ? 'active' : ''}" data-index="${qi}">
@@ -73,7 +91,7 @@
   }
 
   function updateControls() {
-    const total = store.experience.reception.questions.length;
+    const total = getQuestions().length;
     $('backBtn').style.visibility = current === 0 ? 'hidden' : 'visible';
     $('nextBtn').textContent = current === total - 1 ? '受付結果を見る' : '次へ';
     $('progressBar').style.width = `${((current + 1) / total) * 100}%`;
@@ -88,7 +106,7 @@
       alert('一つ選んでください。');
       return;
     }
-    const total = store.experience.reception.questions.length;
+    const total = getQuestions().length;
     if (current < total - 1) {
       showQuestion(current + 1);
       return;
