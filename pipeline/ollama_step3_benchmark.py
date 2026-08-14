@@ -4,7 +4,7 @@
 This script is deliberately local-only:
 - reads prepared store input JSON files
 - sends them to Ollama on localhost
-- validates JSON structure at a practical minimum
+- validates JSON structure and grounding quality
 - compares quality-claim policy against benchmarks/golden-10.json
 - writes per-store outputs and a summary report
 
@@ -15,7 +15,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import time
 import urllib.error
 import urllib.request
@@ -25,6 +24,9 @@ from typing import Any
 DEFAULT_MODEL = "hf.co/Qwen/Qwen2.5-7B-Instruct-GGUF:latest"
 DEFAULT_OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
 OWNER_PERSPECTIVE_TERMS = ("売上", "集客", "リピート率", "広告", "経営", "顧客獲得", "利益")
+PLACEHOLDER_TERMS = ("strong/weak", "strong", "weak")
+UNVERIFIED_SERVICE_TERMS = ("入会", "会員", "ネイルケア", "メンテナンス", "コース", "プラン")
+GENERIC_FEATURE_TITLES = ("目的", "見え方の希望", "利用シーン", "利用経験", "予約前に整理したいこと")
 
 
 def load_json(path: Path) -> Any:
@@ -53,7 +55,23 @@ def build_prompt(system_prompt: str, source: dict[str, Any]) -> str:
     )
 
 
-def practical_validate(output: dict[str, Any]) -> list[str]:
+def compact_text(value: Any) -> str:
+    return json.dumps(value, ensure_ascii=False)
+
+
+def confirmed_source_text(source: dict[str, Any]) -> str:
+    facts = source.get("facts") or {}
+    pieces: list[str] = []
+    pieces.extend(str(x) for x in (facts.get("verifiedFacts") or []))
+    for menu in facts.get("menus") or []:
+        if isinstance(menu, dict):
+            pieces.extend(str(v) for v in menu.values() if v)
+        else:
+            pieces.append(str(menu))
+    return " ".join(pieces)
+
+
+def practical_validate(output: dict[str, Any], source: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     required_top = {"schemaVersion", "storeId", "source", "facts", "evidence", "policy", "experience", "validation"}
     missing = required_top - set(output)
@@ -64,10 +82,37 @@ def practical_validate(output: dict[str, Any]) -> list[str]:
     if policy.get("qualityClaimMode") not in {"evidence_allowed", "facts_only"}:
         errors.append("invalid_qualityClaimMode")
 
-    reception = ((output.get("experience") or {}).get("reception") or {})
+    experience = output.get("experience") or {}
+    if not str(experience.get("headline") or "").strip():
+        errors.append("empty_headline")
+
+    policy_text = compact_text(policy).lower()
+    if any(term.lower() in policy_text for term in PLACEHOLDER_TERMS):
+        errors.append("placeholder_policy_term")
+
+    reception = experience.get("reception") or {}
     questions = reception.get("questions") or []
     if not (3 <= len(questions) <= 7):
         errors.append("question_count_out_of_range")
+
+    verified_facts = set(str(x) for x in ((source.get("facts") or {}).get("verifiedFacts") or []))
+    if policy.get("qualityClaimMode") == "facts_only":
+        for feature in experience.get("features") or []:
+            title = str(feature.get("title") or "")
+            refs = [str(x) for x in (feature.get("evidenceRefs") or [])]
+            if title in GENERIC_FEATURE_TITLES:
+                errors.append("generic_question_used_as_feature:" + title)
+            if not refs:
+                errors.append("feature_without_evidence:" + title)
+            elif verified_facts and not any(ref in verified_facts for ref in refs):
+                errors.append("feature_evidence_not_verified:" + title)
+
+    source_confirmed = confirmed_source_text(source)
+    if not ((source.get("facts") or {}).get("menus") or []):
+        exp_text = compact_text(experience)
+        for term in UNVERIFIED_SERVICE_TERMS:
+            if term in exp_text and term not in source_confirmed:
+                errors.append("unverified_service_term:" + term)
 
     return errors
 
@@ -82,7 +127,7 @@ def owner_perspective_count(output: dict[str, Any]) -> int:
     return count
 
 
-def score_one(output: dict[str, Any], golden: dict[str, Any]) -> dict[str, Any]:
+def score_one(output: dict[str, Any], golden: dict[str, Any], source: dict[str, Any]) -> dict[str, Any]:
     validation = output.get("validation") or {}
     actual_mode = (output.get("policy") or {}).get("qualityClaimMode")
     expected_mode = golden["expectedQualityClaimMode"]
@@ -97,7 +142,7 @@ def score_one(output: dict[str, Any], golden: dict[str, Any]) -> dict[str, Any]:
         "unsupportedMenuReferenceCount": len(validation.get("unsupportedMenuReferences") or []),
         "factConflictCount": len(validation.get("factConflicts") or []),
         "ownerPerspectiveQuestionCount": owner_perspective_count(output),
-        "structureErrors": practical_validate(output),
+        "structureErrors": practical_validate(output, source),
     }
 
 
@@ -155,10 +200,14 @@ def main() -> None:
             (args.output_dir / f"{store_id}.json").write_text(
                 json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8"
             )
-            scored = score_one(output, golden)
+            scored = score_one(output, golden, source)
             scored.update({"status": "OK", "elapsedSeconds": elapsed})
             results.append(scored)
-            print(f"  -> {scored['actualQualityClaimMode']} / {elapsed}s")
+            suffix = "PASS" if not scored["structureErrors"] else "CHECK"
+            print(f"  -> {scored['actualQualityClaimMode']} / {elapsed}s / {suffix}")
+            if scored["structureErrors"]:
+                for error in scored["structureErrors"]:
+                    print(f"     ! {error}")
         except Exception as exc:
             results.append({"storeId": store_id, "storeName": golden["storeName"], "status": "ERROR", "error": str(exc)})
             print(f"  -> ERROR: {exc}")
