@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0",
+  "storeId": "44",
+  "source": {
+    "capturedAt": null,
+    "sourceType": "google_maps_and_public_web",
+    "sourceReferences": []
+  },
+  "facts": {
+    "storeName": "",
+    "category": "",
+    "address": "",
+    "phone": "",
+    "hours": [],
+    "rating": null,
+    "reviewCount": null,
+    "paymentMethods": [],
+    "menus": [],
+    "otherVerifiedFacts": []
+  },
+  "reviewAnalysis": {
+    "positivePatterns": [],
+    "qualityClaimAllowed": false,
+    "qualityClaimEvidence": [],
+    "doNotPromote": [],
+    "notes": []
+  },
+  "experience": {
+    "headline": "",
+    "lead": "",
+    "features": [],
+    "flow": [],
+    "reception": {
+      "intro": "",
+      "questions": [],
+      "recommendationPolicy": "",
+      "ctaLabel": ""
+    }
+  },
+  "validation": {
+    "unsupportedClaims": [],
+    "negativeReviewLeak": false,
+    "factConflicts": [],
+    "unsupportedMenuReferences": [],
+    "status": "PENDING"
+  }
+}
