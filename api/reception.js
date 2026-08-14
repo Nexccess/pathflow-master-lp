@@ -7,12 +7,40 @@ export const config = { runtime: 'edge' };
 
 import storeProfiles from '../data/store-profiles.json';
 import nailPack from '../data/industry-packs/nail.json';
+import nailTestStores from '../data/nail-test-stores.json';
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 const GEMINI_MODELS = ['gemini-2.5-flash-lite'];
 
+function hydrateNailStore(raw) {
+  return {
+    storeId: String(raw.storeId),
+    facts: {
+      storeName: raw.storeName,
+      category: raw.category || 'ネイルサロン',
+      address: raw.address || '',
+      phone: raw.phone || '',
+      hours: [],
+      rating: raw.rating,
+      reviewCount: raw.reviewCount,
+      paymentMethods: [],
+      menus: [],
+      otherVerifiedFacts: raw.verifiedFacts || []
+    },
+    experience: {
+      reception: {
+        recommendationPolicy: nailPack.recommendationPolicy,
+        ctaLabel: 'この内容で相談してみる',
+        questions: []
+      }
+    }
+  };
+}
+
 function resolveStore(storeId) {
-  return storeProfiles[String(storeId)] || null;
+  const id = String(storeId);
+  if (nailTestStores[id]) return hydrateNailStore(nailTestStores[id]);
+  return storeProfiles[id] || null;
 }
 
 function resolveIndustryPack(store) {
@@ -21,9 +49,7 @@ function resolveIndustryPack(store) {
 
 function resolveQuestions(store) {
   const pack = resolveIndustryPack(store);
-  if (pack?.questionSet?.length) {
-    return pack.questionSet.map(q => ({ id: q.id, text: q.label, options: q.options }));
-  }
+  if (pack?.questionSet?.length) return pack.questionSet.map(q => ({ id: q.id, text: q.label, options: q.options }));
   return store.experience.reception.questions;
 }
 
@@ -32,7 +58,7 @@ function buildSystemPrompt(store) {
   const verifiedFacts = [
     `店舗名: ${store.facts.storeName}`,
     `業種: ${store.facts.category}`,
-    ...store.facts.otherVerifiedFacts.map((x) => `確認済み事実: ${x}`),
+    ...((store.facts.otherVerifiedFacts || []).map((x) => `確認済み事実: ${x}`)),
   ].join('\n');
 
   const industryRules = pack ? `\n【ネイル業種共通方針】\n${pack.principles.map(x => `- ${x}`).join('\n')}\n\n【共通案内ルール】\n${pack.recommendationPolicy}` : '';
@@ -68,9 +94,7 @@ ${store.experience.reception.recommendationPolicy}
 
 async function callGemini(apiKey, store, answers) {
   const questions = resolveQuestions(store);
-  const userContent = questions.map((q, i) => {
-    return `Q${i + 1}. ${q.text}\nA: ${answers[i] || '未回答'}`;
-  }).join('\n\n');
+  const userContent = questions.map((q, i) => `Q${i + 1}. ${q.text}\nA: ${answers[i] || '未回答'}`).join('\n\n');
 
   let lastError = null;
   for (const model of GEMINI_MODELS) {
@@ -81,11 +105,7 @@ async function callGemini(apiKey, store, answers) {
         body: JSON.stringify({
           contents: [{ role: 'user', parts: [{ text: userContent }] }],
           systemInstruction: { parts: [{ text: buildSystemPrompt(store) }] },
-          generationConfig: {
-            temperature: 0.2,
-            maxOutputTokens: 700,
-            responseMimeType: 'application/json'
-          }
+          generationConfig: { temperature: 0.2, maxOutputTokens: 700, responseMimeType: 'application/json' }
         })
       });
 
@@ -143,9 +163,7 @@ export default async function handler(req) {
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    return new Response(JSON.stringify({ ...fallback(store, answers), _error: 'GEMINI_API_KEY missing' }), { status: 200, headers });
-  }
+  if (!apiKey) return new Response(JSON.stringify({ ...fallback(store, answers), _error: 'GEMINI_API_KEY missing' }), { status: 200, headers });
 
   try {
     const result = await callGemini(apiKey, store, answers);
