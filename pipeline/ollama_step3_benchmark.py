@@ -4,9 +4,10 @@
 This script is deliberately local-only:
 - reads prepared store input JSON files
 - sends them to Ollama on localhost
+- applies a deterministic grounding repair layer
 - validates JSON structure and grounding quality
 - compares quality-claim policy against benchmarks/golden-10.json
-- writes per-store outputs and a summary report
+- writes raw and repaired outputs plus a summary report
 
 It does NOT fetch Google/website data and does NOT deploy anything.
 """
@@ -69,6 +70,108 @@ def confirmed_source_text(source: dict[str, Any]) -> str:
         else:
             pieces.append(str(menu))
     return " ".join(pieces)
+
+
+def safe_facts_only_questions() -> list[dict[str, Any]]:
+    """A conservative receptionist fallback that expresses user intent, not store services."""
+    return [
+        {
+            "id": "purpose",
+            "text": "今回は、どんなことを相談したいですか？",
+            "options": ["見た目を整えたい", "少し変化をつけたい", "初めてなので相談したい", "まだ決めていない"],
+        },
+        {
+            "id": "preference",
+            "text": "仕上がりのイメージはありますか？",
+            "options": ["自然な印象にしたい", "少し変化を楽しみたい", "相談しながら決めたい", "まだ決めていない"],
+        },
+        {
+            "id": "scene",
+            "text": "どんな場面を意識していますか？",
+            "options": ["仕事や日常", "特別な予定", "特に決めていない", "相談したい"],
+        },
+        {
+            "id": "experience",
+            "text": "こうしたお店の利用経験はありますか？",
+            "options": ["初めて", "利用したことがある", "よく分からない", "相談したい"],
+        },
+    ]
+
+
+def repair_grounding(output: dict[str, Any], source: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
+    """Deterministically remove known hallucination patterns without hiding the raw model output."""
+    repaired = json.loads(json.dumps(output, ensure_ascii=False))
+    repairs: list[str] = []
+
+    facts = source.get("facts") or {}
+    policy = repaired.get("policy") or {}
+    experience = repaired.get("experience") or {}
+    source_menus = facts.get("menus") or []
+    verified_facts = [str(x) for x in (facts.get("verifiedFacts") or [])]
+
+    # Never allow policy placeholders to leak into production data.
+    if any(term.lower() in compact_text(policy).lower() for term in PLACEHOLDER_TERMS):
+        policy["doNotPromote"] = [
+            "入力で確認できない品質・効果・サービスを訴求しない",
+            "ネガティブな口コミ内容を販促表現へ転用しない",
+        ]
+        policy["allowedRecommendationScope"] = [
+            "来店客の希望を整理し、予約・問い合わせ時に伝えやすくする範囲"
+        ]
+        repairs.append("policy_placeholders_replaced")
+
+    # facts_only features are not creative copy: rebuild them from verified facts only.
+    if policy.get("qualityClaimMode") == "facts_only":
+        safe_features = [
+            {
+                "title": fact,
+                "text": f"確認済み情報として「{fact}」があります。",
+                "evidenceRefs": [fact],
+            }
+            for fact in verified_facts
+        ]
+        if experience.get("features") != safe_features:
+            experience["features"] = safe_features
+            repairs.append("facts_only_features_rebuilt")
+
+        if not str(experience.get("headline") or "").strip():
+            store_name = str(facts.get("storeName") or "この店舗")
+            experience["headline"] = f"{store_name}｜予約前の希望整理"
+            repairs.append("empty_headline_repaired")
+
+        # If no services/menus are verified, use a deterministic intent-only reception set.
+        if not source_menus:
+            exp_text = compact_text(experience)
+            source_confirmed = confirmed_source_text(source)
+            has_unverified_service = any(
+                term in exp_text and term not in source_confirmed for term in UNVERIFIED_SERVICE_TERMS
+            )
+            if has_unverified_service:
+                reception = experience.get("reception") or {}
+                reception["questions"] = safe_facts_only_questions()
+                reception["intro"] = "こんにちは。予約や問い合わせの前に、ご希望を簡単に整理します。"
+                reception["recommendationPolicy"] = (
+                    "回答を要約し、予約・問い合わせ時に伝えると相談が進めやすい希望を1つ提案する。"
+                    "未確認のメニュー・価格・効果は出さない。"
+                )
+                reception["ctaLabel"] = "この内容で相談してみる"
+                experience["reception"] = reception
+                experience["flow"] = [
+                    "相談したいことを整理する",
+                    "仕上がりのイメージを整理する",
+                    "利用する場面を整理する",
+                    "利用経験を確認する",
+                ]
+                repairs.append("unverified_service_terms_removed")
+
+    repaired["policy"] = policy
+    repaired["experience"] = experience
+
+    validation = repaired.get("validation") or {}
+    if repairs and validation.get("status") == "PASS":
+        validation["status"] = "PASS_WITH_LIMITED_SOURCE_DATA"
+    repaired["validation"] = validation
+    return repaired, repairs
 
 
 def practical_validate(output: dict[str, Any], source: dict[str, Any]) -> list[str]:
@@ -195,16 +298,23 @@ def main() -> None:
         try:
             response = post_json(args.url, payload)
             raw = response.get("response", "")
-            output = json.loads(raw)
+            raw_output = json.loads(raw)
             elapsed = round(time.perf_counter() - started, 2)
+            (args.output_dir / f"{store_id}.raw.json").write_text(
+                json.dumps(raw_output, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            output, repairs = repair_grounding(raw_output, source)
             (args.output_dir / f"{store_id}.json").write_text(
                 json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8"
             )
             scored = score_one(output, golden, source)
-            scored.update({"status": "OK", "elapsedSeconds": elapsed})
+            scored.update({"status": "OK", "elapsedSeconds": elapsed, "repairs": repairs})
             results.append(scored)
             suffix = "PASS" if not scored["structureErrors"] else "CHECK"
-            print(f"  -> {scored['actualQualityClaimMode']} / {elapsed}s / {suffix}")
+            repair_note = f" / repaired:{len(repairs)}" if repairs else ""
+            print(f"  -> {scored['actualQualityClaimMode']} / {elapsed}s / {suffix}{repair_note}")
+            for repair in repairs:
+                print(f"     ~ {repair}")
             if scored["structureErrors"]:
                 for error in scored["structureErrors"]:
                     print(f"     ! {error}")
@@ -224,6 +334,7 @@ def main() -> None:
         "unsupportedMenuReferenceCount": sum(int(r.get("unsupportedMenuReferenceCount", 0)) for r in completed),
         "ownerPerspectiveQuestionCount": sum(int(r.get("ownerPerspectiveQuestionCount", 0)) for r in completed),
         "structureErrorCount": sum(len(r.get("structureErrors") or []) for r in completed),
+        "repairCount": sum(len(r.get("repairs") or []) for r in completed),
         "results": results,
     }
     (args.output_dir / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
