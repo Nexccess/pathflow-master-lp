@@ -1,11 +1,12 @@
 /**
  * Path-Flow Lite reception endpoint
  * End-user interview -> gentle guidance.
- * This is intentionally separate from the legacy business-management diagnosis.
+ * Nail stores share one industry question/prompt policy; store facts remain store-specific.
  */
 export const config = { runtime: 'edge' };
 
 import storeProfiles from '../data/store-profiles.json';
+import nailPack from '../data/industry-packs/nail.json';
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 const GEMINI_MODELS = ['gemini-2.5-flash-lite'];
@@ -14,12 +15,27 @@ function resolveStore(storeId) {
   return storeProfiles[String(storeId)] || null;
 }
 
+function resolveIndustryPack(store) {
+  return String(store?.facts?.category || '').includes('ネイル') ? nailPack : null;
+}
+
+function resolveQuestions(store) {
+  const pack = resolveIndustryPack(store);
+  if (pack?.questionSet?.length) {
+    return pack.questionSet.map(q => ({ id: q.id, text: q.label, options: q.options }));
+  }
+  return store.experience.reception.questions;
+}
+
 function buildSystemPrompt(store) {
+  const pack = resolveIndustryPack(store);
   const verifiedFacts = [
     `店舗名: ${store.facts.storeName}`,
     `業種: ${store.facts.category}`,
     ...store.facts.otherVerifiedFacts.map((x) => `確認済み事実: ${x}`),
   ].join('\n');
+
+  const industryRules = pack ? `\n【ネイル業種共通方針】\n${pack.principles.map(x => `- ${x}`).join('\n')}\n\n【共通案内ルール】\n${pack.recommendationPolicy}` : '';
 
   return `あなたは店舗サイト上の「受付・ヒアリング担当」です。店舗経営者へのコンサルタントではありません。
 来店を検討しているエンドユーザーの回答を先に聞き、希望を整理し、次に何を相談するとよいかを穏やかに案内してください。
@@ -32,6 +48,7 @@ function buildSystemPrompt(store) {
 - 店舗の経営課題、売上、リピート率、集客改善などは一切扱わない。
 - 確認済みでないメニュー名、価格、施術、効果、品質、資格、設備を作らない。
 - 医療的な診断・治療効果を述べない。
+${industryRules}
 
 【確認済み情報】
 ${verifiedFacts}
@@ -50,7 +67,7 @@ ${store.experience.reception.recommendationPolicy}
 }
 
 async function callGemini(apiKey, store, answers) {
-  const questions = store.experience.reception.questions;
+  const questions = resolveQuestions(store);
   const userContent = questions.map((q, i) => {
     return `Q${i + 1}. ${q.text}\nA: ${answers[i] || '未回答'}`;
   }).join('\n\n');
@@ -89,13 +106,13 @@ async function callGemini(apiKey, store, answers) {
 
 function fallback(store, answers) {
   const purpose = answers[0] || '希望';
-  const visibility = answers[1] || '仕上がり';
+  const appearance = answers[1] || '見た目のイメージ';
   const scene = answers[2] || '利用シーン';
   return {
-    headline: 'まずは、希望をそのまま伝えて相談するのがよさそうです。',
-    summary: `「${purpose}」という目的で、「${visibility}」を意識されているようです。${scene}での使いやすさも含めて相談すると整理しやすそうです。`,
-    suggestion: '予約・問い合わせ時に、今回選んだ内容をそのまま伝えてください。具体的なメニュー名を決めてから相談する必要はありません。',
-    reason: '今はメニューを決め打ちするより、希望する見え方や利用場面を先に共有する方が、相談の出発点を作りやすいためです。',
+    headline: '希望をそのまま伝えて相談するのがよさそうです。',
+    summary: `今回は「${purpose}」が近く、見た目は「${appearance}」を意識されているようです。「${scene}」という場面も一緒に伝えると整理しやすそうです。`,
+    suggestion: '予約・問い合わせ時に、今回選んだ希望をそのまま伝えてください。具体的なメニュー名を決めてから相談する必要はありません。',
+    reason: 'メニューを先に決め打ちするより、希望する見え方や利用場面を共有する方が、相談の入口を作りやすいためです。',
     nextAction: store.experience.reception.ctaLabel,
     _fallback: true
   };
@@ -119,8 +136,9 @@ export default async function handler(req) {
   const store = resolveStore(body.storeId);
   if (!store) return new Response(JSON.stringify({ error: 'Store not found' }), { status: 404, headers });
 
+  const questions = resolveQuestions(store);
   const answers = body.answers;
-  if (!Array.isArray(answers) || answers.length !== store.experience.reception.questions.length) {
+  if (!Array.isArray(answers) || answers.length !== questions.length) {
     return new Response(JSON.stringify({ error: '回答数が一致しません。' }), { status: 400, headers });
   }
 
