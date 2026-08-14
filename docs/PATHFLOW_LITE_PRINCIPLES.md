@@ -10,6 +10,8 @@ Core principle: **まず聞く。**
 
 Technology is subordinate to the user experience and business objective. AI, static HTML, rules, spreadsheets, APIs, or other tools may be used as appropriate. Internal technical sophistication has no value unless it improves the experience visible to the end user or the economics of delivery.
 
+Path-Flow Lite is also a test bed for reception/diagnosis UX. Improvements proven here may be transferred back into the full Path-Flow product. The full product remains the reference implementation for booking, Google integrations, data storage and analytics; Lite is where reception behavior can be changed quickly and tested at scale.
+
 ## 2. Two users, two moments of value
 
 ### Business owner
@@ -170,7 +172,7 @@ If not, defer it.
 
 1. Use store 44 as the first vertical slice.
 2. Define the structured business profile / production JSON.
-3. Replace business-management diagnosis with end-user reception behavior in an isolated development branch.
+3. Replace business-management diagnosis with end-user reception behavior.
 4. Produce one complete experience.
 5. Validate it for factuality, owner credibility, reception quality, end-user experience, and generation time.
 6. Expand to the existing 10 test businesses.
@@ -178,8 +180,8 @@ If not, defer it.
 8. Test real outreach and measure the funnel.
 9. Expand to the 921-business first market only after the production line is proven.
 
-## 12. Deployment safety
+## 12. Environment / deployment role
 
-Production deployment must preserve the complete project contents. Do not treat deployment as a partial-file patch if the deployment mechanism replaces the full project payload.
+`pathflow-master-lp` is the mutable mass-production and experiment environment. The full Path-Flow implementations are maintained separately.
 
-Changes should be developed and reviewed away from `main` before production deployment.
+The mass-production environment may therefore be restructured aggressively when that improves the production model. However, deployment mechanics must still preserve the full project payload when the deployment tool replaces rather than patches the remote project.
