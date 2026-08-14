@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Path-Flow Lite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#171412;--paper:#f5f2ec;--wine:#8b2e2e;--muted:#6f6862;--line:#d9d2c8;--white:#fff}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hiragino Sans","Yu Gothic",sans-serif}main{max-width:1100px;margin:auto}.hero{min-height:74vh;padding:32px 28px 64px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,#1c1816,#3a2d28);color:white}.eyebrow,.mono{font-family:"IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}.eyebrow{font-size:12px;opacity:.75}.hero h1{font-family:Fraunces,serif;font-size:clamp(42px,8vw,88px);line-height:.98;max-width:900px;margin:90px 0 22px}.hero p{font-size:18px;line-height:1.9;max-width:720px;color:#eee7df}.meta{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}.meta div{padding:22px;border-right:1px solid var(--line)}.meta div:last-child{border-right:0}.meta small{display:block;color:var(--muted);font-family:"IBM Plex Mono",monospace;margin-bottom:6px}.meta strong{font-size:20px}.section{padding:72px 28px}.section h2{font-family:Fraunces,serif;font-size:42px;margin:0 0 30px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border:1px solid var(--line);padding:24px;min-height:160px}.card h3{font-size:20px;margin-top:0}.card p{line-height:1.8;color:#4b4540}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}.flow div{background:var(--paper);padding:24px}.flow b{font-family:"Archivo Black",sans-serif;font-size:34px;color:var(--wine);display:block;margin-bottom:12px}.reception{background:var(--ink);color:white;padding:72px 28px}.reception-inner{max-width:760px;margin:auto}.reception h2{font-family:Fraunces,serif;font-size:48px;margin:0 0 12px}.reception .intro{color:#d8d2ca;line-height:1.8;margin-bottom:32px}.question{display:none}.question.active{display:block}.question h3{font-size:24px;line-height:1.5}.options{display:grid;gap:10px;margin-top:20px}.option{appearance:none;border:1px solid #665e58;background:#26211e;color:white;padding:16px;text-align:left;font-size:16px;cursor:pointer}.option:hover,.option.selected{border-color:white;background:#3a312d}.progress{height:3px;background:#423a35;margin:24px 0 36px}.progress span{display:block;background:var(--wine);height:100%;width:0;transition:.25s}.controls{display:flex;gap:12px;margin-top:24px}.btn{border:0;padding:14px 20px;font-weight:700;cursor:pointer}.btn.primary{background:var(--wine);color:white}.btn.secondary{background:#2e2825;color:white}.result{display:none;background:white;color:var(--ink);padding:28px;margin-top:26px}.result.show{display:block}.result h3{font-family:Fraunces,serif;font-size:30px;margin-top:0}.result dl{margin:0}.result dt{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-top:20px}.result dd{margin:5px 0 0;line-height:1.8}.notice{font-size:12px;color:#aaa;margin-top:20px;line-height:1.7}@media(max-width:760px){.meta,.features,.flow{grid-template-columns:1fr}.meta div{border-right:0;border-bottom:1px solid var(--line)}.hero{min-height:65vh}.hero h1{margin-top:60px}.section,.reception{padding:52px 20px}.reception h2{font-size:38px}}
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="eyebrow" id="eyebrow">PATH-FLOW LITE</div>
+    <div><h1 id="headline">Loading...</h1><p id="lead"></p></div>
+  </section>
+  <section class="meta">
+    <div><small>STORE</small><strong id="storeName">—</strong></div>
+    <div><small>CATEGORY</small><strong id="category">—</strong></div>
+    <div><small>GOOGLE</small><strong id="rating">—</strong></div>
+  </section>
+  <section class="section">
+    <div class="eyebrow">WHY THIS STORE</div><h2>公開情報から見える、この店の特徴。</h2>
+    <div class="features" id="features"></div>
+  </section>
+  <section class="section">
+    <div class="eyebrow">HOW IT WORKS</div><h2>まず聞いて、それから案内する。</h2>
+    <div class="flow" id="flow"></div>
+  </section>
+  <section class="reception" id="reception">
+    <div class="reception-inner">
+      <div class="eyebrow">AI RECEPTION</div><h2>何を選べばいいか、少し整理しましょう。</h2>
+      <p class="intro" id="receptionIntro"></p>
+      <div class="progress"><span id="progressBar"></span></div>
+      <div id="questions"></div>
+      <div class="controls"><button class="btn secondary" id="backBtn" type="button">戻る</button><button class="btn primary" id="nextBtn" type="button">次へ</button></div>
+      <div class="result" id="result"><h3 id="resultHeadline"></h3><dl><dt>整理すると</dt><dd id="resultSummary"></dd><dt>こんな伝え方がよさそうです</dt><dd id="resultSuggestion"></dd><dt>理由</dt><dd id="resultReason"></dd><dt>次の一歩</dt><dd id="resultAction"></dd></dl></div>
+      <p class="notice">この受付は、公開情報と回答内容をもとに相談の入口を整理するものです。未確認のメニュー・価格・施術内容を断定しない設計です。</p>
+    </div>
+  </section>
+</main>
+<script src="/pages/assets/lite.js" defer></script>
+</body>
+</html>
