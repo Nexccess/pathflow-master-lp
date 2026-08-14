@@ -38,7 +38,7 @@
       },
       experience: {
         eyebrow: 'NAIL RECEPTION',
-        headline: '何を選ぶか決まっていなくても、まず希望を整理できます。',
+        headline: '何を選ぶか\n決まってますか？\n決まってなくても、希望は整理できます。',
         lead: '5つだけ聞かせてください。予約前に、どんなことを相談したいか一緒に整理します。',
         features: features.slice(0, 3),
         flow: ['希望を少しだけ聞く','重視したいことを整理する','相談しやすい方向を提案する','その内容を持って予約・問い合わせへ'],
@@ -79,7 +79,7 @@
     const f = store.facts;
     document.title = `${f.storeName}｜Path-Flow Lite`;
     $('eyebrow').textContent = e.eyebrow || 'PATH-FLOW LITE';
-    $('headline').textContent = e.headline;
+    $('headline').textContent = industryPack ? '何を選ぶか\n決まってますか？\n決まってなくても、希望は整理できます。' : e.headline;
     $('lead').textContent = e.lead;
     $('storeName').textContent = f.storeName;
     $('category').textContent = f.category;
