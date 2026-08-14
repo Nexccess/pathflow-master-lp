@@ -1,15 +1,22 @@
 {
   "storeId": "44",
+  "source": {
+    "capturedAt": "2026-08-09T01:24:02.915368",
+    "references": [
+      {"kind": "places", "ref": "ChIJdWn2gCFdGGARcHsji2MHX68"},
+      {"kind": "official_site", "ref": "https://nailman.jp/"}
+    ]
+  },
   "facts": {
-    "storeName": "NAIL MEN",
-    "category": "メンズネイルサロン",
-    "subtype": "mens_nail",
-    "address": "横浜",
-    "phone": null,
-    "officialWebsite": null,
+    "storeName": "NAIL MEN【メンズネイル/爪/ネイル/横浜/メンズ/メンズ専門】",
+    "category": "ネイルサロン",
+    "subtype": "nail",
+    "address": "日本、〒220-0073 神奈川県横浜市西区岡野１丁目１２−１１ ＳＩビル ６Ｆ",
+    "phone": "045-624-8887",
+    "officialWebsite": "https://nailman.jp/",
     "hours": [],
     "rating": 4.9,
-    "reviewCount": 210,
+    "reviewCount": 207,
     "paymentMethods": [],
     "menus": [],
     "verifiedFacts": ["メンズ専門", "個室"]
@@ -17,11 +24,12 @@
   "reviewEvidence": {
     "positive": [],
     "negative": [],
-    "notes": ["レビュー本文原文はこの入力には含まれていない。具体的な接客品質・技術品質を推測しないこと。"]
+    "notes": ["この入力には口コミ本文を含めない。評価値・件数だけから接客品質・技術品質を推測しないこと。"]
   },
   "generationContext": {
-    "industryPack": "beauty",
+    "industryPack": "nail",
     "targetAudience": "来店を検討しているエンドユーザー",
-    "goal": "予約前の希望整理を助ける受付ヒアリング付きLP"
+    "goal": "予約前の希望整理を助ける受付ヒアリング付きLP",
+    "benchmarkMode": "limited_source"
   }
 }
