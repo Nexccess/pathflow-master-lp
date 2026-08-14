@@ -111,6 +111,7 @@ def main() -> None:
     parser.add_argument("--schema", type=Path, default=Path("data/schema/store-card.schema.json"))
     parser.add_argument("--output-dir", type=Path, default=Path("benchmark-output"))
     parser.add_argument("--limit", type=int, default=0, help="0 = all available golden stores")
+    parser.add_argument("--store-id", help="Run only one golden store, e.g. --store-id 44")
     args = parser.parse_args()
 
     golden_doc = load_json(args.golden)
@@ -119,7 +120,13 @@ def main() -> None:
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
     results: list[dict[str, Any]] = []
-    stores = golden_doc["stores"][: args.limit or None]
+    stores = golden_doc["stores"]
+    if args.store_id:
+        stores = [store for store in stores if str(store["storeId"]) == str(args.store_id)]
+        if not stores:
+            raise SystemExit(f"store id {args.store_id} is not present in the golden set")
+    elif args.limit:
+        stores = stores[: args.limit]
 
     for index, golden in enumerate(stores, 1):
         store_id = golden["storeId"]
