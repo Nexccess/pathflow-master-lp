@@ -26,19 +26,27 @@
 - policy.doNotPromote と allowedRecommendationScope には、strong/weak のような抽象的プレースホルダーを入れず、実際の禁止事項・許容範囲を日本語で具体的に書く。
 - reception.questions[*].id は空文字禁止。purpose / preference / scene / experience / priority 等の短い英数字IDを付ける。
 
+experience.features の特別ルール:
+- features は「その店舗について確認できた特徴」を表示する欄であり、質問項目や利用者の希望を書く欄ではない。
+- facts_only の場合、features は原則として facts.verifiedFacts からだけ作る。
+- verifiedFacts が ["メンズ専門", "個室"] なら、features はこの2事実だけを扱う。「目的」「見え方の希望」「利用シーン」「利用経験」などを feature にしてはいけない。
+- features.title は原則として verifiedFacts の文言そのものを使う。
+- features.text は「メンズ専門として案内されています」「個室という確認済み情報があります」程度に留める。便益・感情・品質へ膨らませない。
+- feature.evidenceRefs には、その feature の根拠となった verifiedFacts の文字列をそのまま入れる。evidenceRefs が空になる feature は作らない。
+
 品質訴求判定:
 - evidence_allowed: 肯定的口コミや確認済み事実に、品質表現を支える具体的証拠がある場合。
 - facts_only: 証拠が不足する場合、または品質に関する否定的口コミが複数あり、積極的品質訴求が不適切な場合。
 
 facts_only のときの experience:
-- features.title は原則として verifiedFacts の文言そのものを使う。
-- features.text は「確認済み情報として『○○』があります。」程度に留め、便益・感情・品質へ膨らませない。
-- evidenceRefs は該当する verifiedFacts の文字列を入れる。
+- headline は空欄にしない。店舗名・カテゴリ・受付目的の範囲で中立的に書く。
+- lead は「予約前の希望整理を手伝う受付」であることを自然な日本語で伝える。
 - 受付質問は「目的」「見え方の希望」「利用シーン」「利用経験」「予約前に整理したいこと」を中心にする。
 - 質問や選択肢は、入力で確認できないサービス・メニュー・会員制度の存在を前提にしない。
 - 「ネイルケア」「メンテナンス」など、カテゴリから連想したサービス名も入力 facts.menus / verifiedFacts に無いなら作らない。
 - 未確認の価格や所要時間を前提にせず、「価格や時間も含めて相談したい」のように相談事項として扱う。
-- 選択肢は、確認済みサービスを当てに行くのではなく、来店客の希望を整理する表現にする。
+- 選択肢は店舗サービスではなく、来店客側の希望として表現する。例: 「身だしなみとして整えたい」「見た目をきれいにしたい」「デザインを楽しみたい」「初めてなので相談したい」「自然に見せたい」「少し変化を楽しみたい」「まだ決めていない」。
+- 「ビジネス用ネイル」「プライベート用ネイル」のように、未確認サービス名に見える名詞化を避ける。「仕事で目立ちすぎないようにしたい」「普段の生活で楽しみたい」のように希望として書く。
 
 受付文の品質:
 - 日本語として自然で短くする。purpose/purpose_of_visit のような内部ラベルを experience.flow に表示しない。
@@ -53,5 +61,6 @@ facts_only のときの experience:
 - unsupportedClaims が1件でもある場合、validation.status は PASS にしてはいけない。REVIEW または FAIL とする。
 - unsupportedMenuReferences / factConflicts も同様に実際の内容を列挙する。
 - 最終出力前に experience を再確認し、根拠のない表現を削除できるなら削除して unsupportedClaims=[] にする。
+- 最終確認として、headline が空でないこと、strong/weak がどこにも残っていないこと、features が店舗事実だけで構成されていること、未確認のサービス・会員制度を示唆していないことを確認する。
 
 出力は data/schema/store-card.schema.json に適合させること。
