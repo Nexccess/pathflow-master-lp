@@ -1,0 +1,96 @@
+{
+  "44": {
+    "schemaVersion": "1.0",
+    "storeId": "44",
+    "facts": {
+      "storeName": "NAIL MEN",
+      "category": "メンズネイルサロン",
+      "address": "横浜",
+      "phone": "",
+      "hours": [],
+      "rating": 4.9,
+      "reviewCount": 210,
+      "paymentMethods": [],
+      "menus": [],
+      "otherVerifiedFacts": [
+        "メンズ専門",
+        "個室"
+      ]
+    },
+    "reviewAnalysis": {
+      "positivePatterns": [],
+      "qualityClaimAllowed": true,
+      "qualityClaimEvidence": [
+        "Google評価 4.9 / 210件という引き継ぎ済み確認値"
+      ],
+      "doNotPromote": [],
+      "notes": [
+        "現段階ではレビュー本文の原文データをこのリポジトリ内に保持していないため、具体的な接客品質・技術品質のコピーは生成しない"
+      ]
+    },
+    "experience": {
+      "eyebrow": "MEN'S NAIL RECEPTION",
+      "headline": "ネイル、何を選べばいいか分からなくても大丈夫。",
+      "lead": "いくつか希望を聞かせてください。今のあなたなら、どんな方向から相談すると話が早いかを整理します。",
+      "features": [
+        {
+          "title": "メンズ専門",
+          "text": "男性向けのネイルサロンとして案内されています。"
+        },
+        {
+          "title": "個室",
+          "text": "個室という公開・確認済み情報をもとに構成しています。"
+        },
+        {
+          "title": "Google評価 4.9",
+          "text": "210件の評価があるという確認済み情報を表示しています。"
+        }
+      ],
+      "flow": [
+        "希望を少しだけ聞く",
+        "重視したいことを整理する",
+        "相談しやすい方向を提案する",
+        "その内容を持って予約・問い合わせへ"
+      ],
+      "reception": {
+        "intro": "まず、いま一番近いものを選んでください。正解を当てる診断ではなく、相談内容を整理するための受付です。",
+        "questions": [
+          {
+            "id": "purpose",
+            "text": "今回、ネイルを考えた一番のきっかけは？",
+            "options": ["身だしなみとして整えたい", "爪の見た目をきれいにしたい", "デザインを楽しみたい", "初めてなので、まず相談したい"]
+          },
+          {
+            "id": "visibility",
+            "text": "仕上がりの見え方は、どれに近いですか？",
+            "options": ["できるだけ自然に", "少し変化が分かるくらい", "しっかりデザインを楽しみたい", "まだ決めていない"]
+          },
+          {
+            "id": "scene",
+            "text": "一番意識している場面は？",
+            "options": ["仕事・ビジネス", "普段の生活", "デート・イベント", "特に決めていない"]
+          },
+          {
+            "id": "experience",
+            "text": "ネイルサロンの利用経験は？",
+            "options": ["今回が初めて", "数回ある", "定期的に利用している", "よく分からないので相談したい"]
+          },
+          {
+            "id": "priority",
+            "text": "予約前に一番整理しておきたいことは？",
+            "options": ["自分に合う見た目", "周囲から浮かないこと", "どんな相談をすればいいか", "価格や時間も含めて相談したい"]
+          }
+        ],
+        "recommendationPolicy": "回答内容を要約し、ユーザーが予約・問い合わせ時に何を伝えると相談が進めやすいかを1つ提案する。確認済みでないメニュー名、価格、施術内容、効果を作らない。強い勧誘はしない。",
+        "ctaLabel": "この内容で相談してみる"
+      }
+    },
+    "validation": {
+      "unsupportedClaims": [],
+      "negativeReviewLeak": false,
+      "factConflicts": [],
+      "unsupportedMenuReferences": [],
+      "status": "PASS_WITH_LIMITED_SOURCE_DATA"
+    }
+  }
+}
