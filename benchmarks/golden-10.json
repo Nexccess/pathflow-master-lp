@@ -9,10 +9,10 @@
     {"storeId":"56","storeName":"ネイルステーション ルミネ横浜店","area":"横浜駅","rating":3.5,"reviewCount":502,"expectedQualityClaimMode":"facts_only","notes":["Very large review count with moderate rating; no review text in this phase."]},
     {"storeId":"451","storeName":"ダッシングディバ アトレ川崎店","area":"川崎駅","rating":3.3,"reviewCount":26,"expectedQualityClaimMode":"facts_only","notes":["Moderate-low rating and small-medium review count."]},
     {"storeId":"452","storeName":"FASTNAIL ミューザ川崎店","area":"川崎駅","rating":3.8,"reviewCount":217,"expectedQualityClaimMode":"facts_only","notes":["Large review count and chain-style store name; do not infer services from brand."]},
+    {"storeId":"940","storeName":"NICENAIL千葉駅前店","area":"千葉駅","rating":3.8,"reviewCount":89,"expectedQualityClaimMode":"facts_only","notes":["Adds Chiba coverage; no review text in this phase."]},
     {"storeId":"1418","storeName":"NICENAIL船橋駅前店","area":"船橋駅","rating":4.0,"reviewCount":149,"expectedQualityClaimMode":"facts_only","notes":["Cross-region chain example."]},
     {"storeId":"1428","storeName":"Gravis Lange（グラビスランジュ）船橋店","area":"船橋駅","rating":4.9,"reviewCount":19,"expectedQualityClaimMode":"facts_only","notes":["High rating but small review count; rating alone must not unlock quality claims."]},
     {"storeId":"1891","storeName":"ネイルサロン ABCネイル浦和店","area":"浦和駅","rating":2.7,"reviewCount":12,"expectedQualityClaimMode":"facts_only","notes":["Low-rating edge case; do not turn rating into negative promo content."]},
-    {"storeId":"1896","storeName":"NICENAIL浦和西口店","area":"浦和駅","rating":3.9,"reviewCount":48,"expectedQualityClaimMode":"facts_only","notes":["Cross-region chain example with medium review count."]},
     {"storeId":"2381","storeName":"QBNail plus 大宮マルイ店","area":"大宮駅","rating":4.7,"reviewCount":64,"expectedQualityClaimMode":"facts_only","notes":["High-rating medium-volume example; do not infer services from store name."]}
   ],
   "passCriteria": {
