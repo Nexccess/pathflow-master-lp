@@ -4,6 +4,10 @@
 This is intentionally a facts-only export for LP rendering/runtime reception.
 It never exports outreach fields such as email/form_url.
 
+Customer-facing contact fields are kept separate from sales outreach fields:
+- websiteUrl: verified public website from source DB
+- bookingUrl/contactUrl: reserved for separately verified customer routes
+
 Example:
     python pipeline/build_nail_catalog.py "C:\\path\\to\\leads_database(2).db"
 
@@ -93,6 +97,8 @@ def build_catalog(db_path: Path) -> dict[str, dict[str, Any]]:
             "address": row["address"] or "",
             "phone": row["phone"] or "",
             "websiteUrl": row["website_url"] or "",
+            "bookingUrl": "",
+            "contactUrl": "",
             "rating": row["rating"],
             "reviewCount": row["user_ratings_total"],
             "placeId": row["place_id"] or "",
@@ -116,6 +122,10 @@ def validate_catalog(catalog: dict[str, dict[str, Any]]) -> list[str]:
         review_count = item.get("reviewCount")
         if review_count is not None and int(review_count) < 0:
             errors.append(f"{store_id}: invalid reviewCount {review_count}")
+        for field in ("websiteUrl", "bookingUrl", "contactUrl"):
+            value = item.get(field) or ""
+            if value and not str(value).lower().startswith(("http://", "https://")):
+                errors.append(f"{store_id}: invalid {field}")
     return errors
 
 
@@ -158,6 +168,7 @@ def main() -> None:
     print(f"stores: {len(catalog)}")
     print(f"output: {args.output}")
     print("outreach fields exported: 0")
+    print("customer route fields: websiteUrl + verified bookingUrl/contactUrl slots")
 
 
 if __name__ == "__main__":
