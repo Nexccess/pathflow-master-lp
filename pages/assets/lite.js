@@ -8,6 +8,14 @@
   let lastResult = null;
 
   const $ = (id) => document.getElementById(id);
+  const nailChunkPaths = [
+    '/data/nail-stores/yokohama.json',
+    '/data/nail-stores/kawasaki.json',
+    '/data/nail-stores/chiba.json',
+    '/data/nail-stores/funabashi.json',
+    '/data/nail-stores/urawa.json',
+    '/data/nail-stores/omiya.json'
+  ];
 
   function hydrateNailStore(raw) {
     const verifiedFacts = raw.verifiedFacts || [];
@@ -58,15 +66,20 @@
     };
   }
 
+  async function loadNailStores() {
+    const responses = await Promise.all(nailChunkPaths.map(path => fetch(path, { cache: 'no-store' })));
+    const chunks = await Promise.all(responses.map(async response => response.ok ? response.json() : {}));
+    return Object.assign({}, ...chunks);
+  }
+
   async function loadStore() {
-    const [storeRes, nailPackRes, nailStoresRes] = await Promise.all([
+    const [storeRes, nailPackRes, nailStores] = await Promise.all([
       fetch('/data/store-profiles.json', { cache: 'no-store' }),
       fetch('/data/industry-packs/nail.json', { cache: 'no-store' }),
-      fetch('/data/nail-stores.json', { cache: 'no-store' })
+      loadNailStores()
     ]);
     if (!storeRes.ok) throw new Error('店舗データを読み込めませんでした。');
     const all = await storeRes.json();
-    const nailStores = nailStoresRes.ok ? await nailStoresRes.json() : {};
     store = nailStores[String(storeId)] ? hydrateNailStore(nailStores[String(storeId)]) : all[String(storeId)];
     if (!store) throw new Error(`店舗ID ${storeId} は未登録です。`);
 
@@ -125,7 +138,6 @@
       actions.push(`<a class="contact-action${primary ? ' primary' : ''}" href="${escapeAttr(url)}" ${externalAttrs(url)}>${escapeHtml(label)}</a>`);
     };
 
-    // Standard hand-off routes. Only call a site "official" when separately verified.
     pushAction(f.bookingUrl, 'Web予約へ', true);
     pushAction(f.contactUrl, 'Webで問い合わせる', !f.bookingUrl);
     if (f.phone) {
@@ -133,7 +145,7 @@
       pushAction(tel, '電話する', !f.bookingUrl && !f.contactUrl);
     }
     pushAction(f.officialWebsiteUrl, '公式サイトへ', !f.bookingUrl && !f.contactUrl && !f.phone);
-    pushAction(f.websiteUrl, f.officialWebsiteUrl ? '店舗案内ページへ' : '店舗案内ページへ', !f.bookingUrl && !f.contactUrl && !f.phone && !f.officialWebsiteUrl);
+    pushAction(f.websiteUrl, '店舗案内ページへ', !f.bookingUrl && !f.contactUrl && !f.phone && !f.officialWebsiteUrl);
 
     if (!actions.length) {
       actions.push('<a class="contact-action" href="#storeContact">連絡先を確認中です</a>');
