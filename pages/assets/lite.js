@@ -53,15 +53,15 @@
   }
 
   async function loadStore() {
-    const [storeRes, nailPackRes, testStoresRes] = await Promise.all([
+    const [storeRes, nailPackRes, nailStoresRes] = await Promise.all([
       fetch('/data/store-profiles.json', { cache: 'no-store' }),
       fetch('/data/industry-packs/nail.json', { cache: 'no-store' }),
-      fetch('/data/nail-test-stores.json', { cache: 'no-store' })
+      fetch('/data/nail-stores.json', { cache: 'no-store' })
     ]);
     if (!storeRes.ok) throw new Error('店舗データを読み込めませんでした。');
     const all = await storeRes.json();
-    const testStores = testStoresRes.ok ? await testStoresRes.json() : {};
-    store = testStores[String(storeId)] ? hydrateNailStore(testStores[String(storeId)]) : all[String(storeId)];
+    const nailStores = nailStoresRes.ok ? await nailStoresRes.json() : {};
+    store = nailStores[String(storeId)] ? hydrateNailStore(nailStores[String(storeId)]) : all[String(storeId)];
     if (!store) throw new Error(`店舗ID ${storeId} は未登録です。`);
 
     if (nailPackRes.ok && String(store.facts.category || '').includes('ネイル')) industryPack = await nailPackRes.json();
