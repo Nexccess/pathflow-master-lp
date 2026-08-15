@@ -5,6 +5,7 @@
   let industryPack = null;
   let current = 0;
   let answers = [];
+  let lastResult = null;
 
   const $ = (id) => document.getElementById(id);
 
@@ -14,21 +15,24 @@
       title: fact,
       text: `確認済み情報として「${fact}」があります。`
     }));
-    features.push({
-      title: `Google評価 ${raw.rating}`,
-      text: `${raw.reviewCount}件の評価があるという公開情報を表示しています。`
-    });
-    if (features.length < 3) features.push({ title: '所在地', text: raw.address || '所在地情報を確認済みです。' });
-    if (features.length < 3) features.push({ title: '受付スタイル', text: '5つの質問で、予約前に伝えたい希望を整理します。' });
+    if (features.length < 3 && raw.address) {
+      features.push({ title: '所在地', text: raw.address });
+    }
+    if (features.length < 3) {
+      features.push({ title: '受付スタイル', text: '5つの質問で、予約前に伝えたい希望を整理します。' });
+    }
 
     return {
-      schemaVersion: '1.1',
+      schemaVersion: '1.2',
       storeId: String(raw.storeId),
       facts: {
         storeName: raw.storeName,
         category: raw.category || 'ネイルサロン',
         address: raw.address || '',
         phone: raw.phone || '',
+        websiteUrl: raw.websiteUrl || '',
+        bookingUrl: raw.bookingUrl || '',
+        contactUrl: raw.contactUrl || '',
         hours: [],
         rating: raw.rating,
         reviewCount: raw.reviewCount,
@@ -41,7 +45,7 @@
         headline: '何を選ぶか\n決まってますか？\n決まってなくても、希望は整理できます。',
         lead: '5つだけ聞かせてください。予約前に、どんなことを相談したいか一緒に整理します。',
         features: features.slice(0, 3),
-        flow: ['希望を少しだけ聞く','重視したいことを整理する','相談しやすい方向を提案する','その内容を持って予約・問い合わせへ'],
+        flow: ['希望を少しだけ聞く','一緒に整理する','その内容で店舗へ相談'],
         reception: {
           intro: '正解を当てる診断ではなく、予約前に希望を整理するための受付です。',
           questions: [],
@@ -67,6 +71,7 @@
     if (nailPackRes.ok && String(store.facts.category || '').includes('ネイル')) industryPack = await nailPackRes.json();
     renderStore();
     renderQuestions();
+    renderContactRoute();
   }
 
   function getQuestions() {
@@ -86,7 +91,53 @@
     $('rating').textContent = f.rating ? `${f.rating} (${f.reviewCount || '—'}件)` : '—';
     $('receptionIntro').textContent = '5つだけ聞かせてください。正解を当てる診断ではなく、予約前に希望を整理するための受付です。';
     $('features').innerHTML = e.features.map(x => `<article class="card"><h3>${escapeHtml(x.title)}</h3><p>${escapeHtml(x.text)}</p></article>`).join('');
-    $('flow').innerHTML = e.flow.map((x, i) => `<div><b>${String(i + 1).padStart(2, '0')}</b>${escapeHtml(x)}</div>`).join('');
+    $('flow').innerHTML = e.flow.map((x, i) => `<div><b>${String(i + 1).padStart(2, '0')}</b><span>${escapeHtml(x)}</span></div>`).join('');
+    $('contactStoreName').textContent = f.storeName;
+    $('contactAddress').textContent = f.address || '所在地は公式案内でご確認ください。';
+    $('contactPhone').textContent = f.phone ? `TEL ${f.phone}` : '電話番号は公式案内でご確認ください。';
+  }
+
+  function routeInfo() {
+    const f = store?.facts || {};
+    if (f.bookingUrl) return { url: f.bookingUrl, label: '予約ページへ', kind: 'booking' };
+    if (f.contactUrl) return { url: f.contactUrl, label: '店舗に問い合わせる', kind: 'contact' };
+    if (f.websiteUrl) return { url: f.websiteUrl, label: '公式サイトで確認する', kind: 'website' };
+    if (f.phone) return { url: `tel:${String(f.phone).replace(/[^0-9+]/g, '')}`, label: '電話で問い合わせる', kind: 'phone' };
+    return null;
+  }
+
+  function renderContactRoute() {
+    const f = store.facts;
+    const route = routeInfo();
+    const actions = [];
+
+    if (route) {
+      actions.push(`<a class="contact-action primary" href="${escapeAttr(route.url)}" ${/^https?:/i.test(route.url) ? 'target="_blank" rel="noopener noreferrer"' : ''}>${escapeHtml(route.label)}</a>`);
+    }
+    if (f.phone && route?.kind !== 'phone') {
+      const tel = `tel:${String(f.phone).replace(/[^0-9+]/g, '')}`;
+      actions.push(`<a class="contact-action" href="${escapeAttr(tel)}">電話する</a>`);
+    }
+    if (!actions.length) {
+      actions.push('<a class="contact-action" href="#storeContact">連絡先を確認中です</a>');
+    }
+    $('contactActions').innerHTML = actions.join('');
+
+    const topTargets = [$('heroRoute'), $('mobileRoute'), $('resultRoute')];
+    topTargets.forEach(el => {
+      if (!el) return;
+      if (route) {
+        el.href = route.url;
+        el.textContent = el.id === 'mobileRoute' ? (route.kind === 'booking' ? '予約する' : '店舗へ') : route.label;
+        if (/^https?:/i.test(route.url)) {
+          el.target = '_blank';
+          el.rel = 'noopener noreferrer';
+        }
+      } else {
+        el.href = '#storeContact';
+        el.textContent = el.id === 'mobileRoute' ? '店舗情報' : '店舗の連絡先を見る';
+      }
+    });
   }
 
   function renderQuestions() {
@@ -96,7 +147,7 @@
       <section class="question ${qi === 0 ? 'active' : ''}" data-index="${qi}">
         <div class="mono">QUESTION ${qi + 1} / ${list.length}</div>
         <h3>${escapeHtml(q.text)}</h3>
-        <div class="options">${q.options.map((opt, oi) => `<button type="button" class="option" data-q="${qi}" data-o="${oi}">${escapeHtml(opt)}</button>`).join('')}</div>
+        <div class="options">${q.options.map((opt, oi) => `<button type="button" class="option" data-q="${qi}" data-o="${oi}" aria-pressed="false">${escapeHtml(opt)}</button>`).join('')}</div>
       </section>`).join('');
 
     document.querySelectorAll('.option').forEach(btn => {
@@ -104,14 +155,19 @@
         const qi = Number(btn.dataset.q);
         const oi = Number(btn.dataset.o);
         answers[qi] = list[qi].options[oi];
-        document.querySelectorAll(`.option[data-q="${qi}"]`).forEach(x => x.classList.remove('selected'));
+        document.querySelectorAll(`.option[data-q="${qi}"]`).forEach(x => {
+          x.classList.remove('selected');
+          x.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('selected');
+        btn.setAttribute('aria-pressed', 'true');
       });
     });
 
     $('backBtn').addEventListener('click', back);
     $('nextBtn').addEventListener('click', next);
     $('editAnswersBtn')?.addEventListener('click', editAnswers);
+    $('copyResultBtn')?.addEventListener('click', copyResult);
     updateControls();
   }
 
@@ -124,7 +180,8 @@
   function updateControls() {
     const total = getQuestions().length;
     $('backBtn').style.visibility = current === 0 ? 'hidden' : 'visible';
-    $('nextBtn').textContent = current === total - 1 ? '受付結果を見る' : '次へ';
+    const remaining = total - current - 1;
+    $('nextBtn').textContent = current === total - 1 ? '受付結果を見る' : `次へ（あと${remaining}問）`;
     $('progressBar').style.width = `${((current + 1) / total) * 100}%`;
   }
 
@@ -154,6 +211,7 @@
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || '受付結果を取得できませんでした。');
+      lastResult = data;
       $('resultHeadline').textContent = data.headline || '';
       $('resultSummary').textContent = data.summary || '';
       $('resultSuggestion').textContent = data.suggestion || '';
@@ -170,8 +228,30 @@
     }
   }
 
+  async function copyResult() {
+    if (!lastResult) return;
+    const text = [
+      `店舗：${store.facts.storeName}`,
+      `希望：${lastResult.summary || ''}`,
+      `相談時の伝え方：${lastResult.suggestion || ''}`
+    ].join('\n');
+    try {
+      await navigator.clipboard.writeText(text);
+      const btn = $('copyResultBtn');
+      const old = btn.textContent;
+      btn.textContent = 'コピーしました';
+      setTimeout(() => { btn.textContent = old; }, 1600);
+    } catch {
+      alert('コピーできませんでした。文章を選択してコピーしてください。');
+    }
+  }
+
   function escapeHtml(value) {
     return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  }
+
+  function escapeAttr(value) {
+    return escapeHtml(value).replace(/`/g, '&#96;');
   }
 
   loadStore().catch(err => {
