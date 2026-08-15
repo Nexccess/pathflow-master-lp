@@ -31,6 +31,7 @@
         address: raw.address || '',
         phone: raw.phone || '',
         websiteUrl: raw.websiteUrl || '',
+        officialWebsiteUrl: raw.officialWebsiteUrl || '',
         bookingUrl: raw.bookingUrl || '',
         contactUrl: raw.contactUrl || '',
         placeId: raw.placeId || '',
@@ -94,16 +95,17 @@
     $('features').innerHTML = e.features.map(x => `<article class="card"><h3>${escapeHtml(x.title)}</h3><p>${escapeHtml(x.text)}</p></article>`).join('');
     $('flow').innerHTML = e.flow.map((x, i) => `<div><b>${String(i + 1).padStart(2, '0')}</b><span>${escapeHtml(x)}</span></div>`).join('');
     $('contactStoreName').textContent = f.storeName;
-    $('contactAddress').textContent = f.address || '所在地は公式案内でご確認ください。';
-    $('contactPhone').textContent = f.phone ? `TEL ${f.phone}` : '電話番号は公式案内でご確認ください。';
+    $('contactAddress').textContent = f.address || '所在地は店舗案内でご確認ください。';
+    $('contactPhone').textContent = f.phone ? `TEL ${f.phone}` : '電話番号は店舗案内でご確認ください。';
   }
 
   function routeInfo() {
     const f = store?.facts || {};
     if (f.bookingUrl) return { url: f.bookingUrl, label: 'Web予約へ', kind: 'booking' };
     if (f.contactUrl) return { url: f.contactUrl, label: 'Webで問い合わせる', kind: 'contact' };
-    if (f.websiteUrl) return { url: f.websiteUrl, label: '公式サイトへ', kind: 'website' };
     if (f.phone) return { url: `tel:${String(f.phone).replace(/[^0-9+]/g, '')}`, label: '電話で問い合わせる', kind: 'phone' };
+    if (f.officialWebsiteUrl) return { url: f.officialWebsiteUrl, label: '公式サイトへ', kind: 'official' };
+    if (f.websiteUrl) return { url: f.websiteUrl, label: '店舗案内ページへ', kind: 'website' };
     return null;
   }
 
@@ -123,21 +125,21 @@
       actions.push(`<a class="contact-action${primary ? ' primary' : ''}" href="${escapeAttr(url)}" ${externalAttrs(url)}>${escapeHtml(label)}</a>`);
     };
 
-    // Standard Path-Flow Lite hand-off routes. Show every verified route that exists.
+    // Standard hand-off routes. Only call a site "official" when separately verified.
     pushAction(f.bookingUrl, 'Web予約へ', true);
     pushAction(f.contactUrl, 'Webで問い合わせる', !f.bookingUrl);
     if (f.phone) {
       const tel = `tel:${String(f.phone).replace(/[^0-9+]/g, '')}`;
       pushAction(tel, '電話する', !f.bookingUrl && !f.contactUrl);
     }
-    pushAction(f.websiteUrl, '公式サイトへ', !f.bookingUrl && !f.contactUrl && !f.phone);
+    pushAction(f.officialWebsiteUrl, '公式サイトへ', !f.bookingUrl && !f.contactUrl && !f.phone);
+    pushAction(f.websiteUrl, f.officialWebsiteUrl ? '店舗案内ページへ' : '店舗案内ページへ', !f.bookingUrl && !f.contactUrl && !f.phone && !f.officialWebsiteUrl);
 
     if (!actions.length) {
       actions.push('<a class="contact-action" href="#storeContact">連絡先を確認中です</a>');
     }
     $('contactActions').innerHTML = actions.join('');
 
-    // Hero / mobile / result CTA use the best single verified route.
     const topTargets = [$('heroRoute'), $('mobileRoute'), $('resultRoute')];
     topTargets.forEach(el => {
       if (!el) return;
