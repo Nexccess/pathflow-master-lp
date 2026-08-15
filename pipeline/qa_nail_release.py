@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Release QA for Path-Flow Lite nail catalog.
 
-Checks the generated public catalog before mass release. This does not fetch the
-web and does not validate whether a third-party reservation page is still live;
-it only validates the data and route structure we are about to publish.
+Checks the public production data before mass release. This does not fetch the
+web and does not validate whether a third-party page is still live; it validates
+the data and route structure we are about to publish.
 
-Usage:
-    python pipeline/qa_nail_release.py data/nail-stores.json --expected-count 113
+Usage (production chunks):
+    python pipeline/qa_nail_release.py data/nail-stores --expected-count 113
+
+A single JSON catalog file is also accepted.
 """
 
 from __future__ import annotations
@@ -26,7 +28,8 @@ FORBIDDEN_PUBLIC_FIELDS = {
     "outreachFormUrl",
 }
 
-ROUTE_FIELDS = ("bookingUrl", "contactUrl", "websiteUrl")
+ROUTE_FIELDS = ("bookingUrl", "contactUrl", "officialWebsiteUrl", "websiteUrl")
+EXPECTED_CHUNKS = {"yokohama", "kawasaki", "chiba", "funabashi", "urawa", "omiya"}
 
 
 def is_http_url(value: str) -> bool:
@@ -42,10 +45,41 @@ def phone_is_plausible(value: str) -> bool:
     return not digits or 9 <= len(digits) <= 12
 
 
-def audit(catalog: dict, expected_count: int) -> tuple[list[str], dict]:
+def load_catalog(path: Path) -> tuple[dict, list[str]]:
     errors: list[str] = []
+    if path.is_file():
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            raise SystemExit("catalog root must be an object keyed by storeId")
+        return data, errors
+
+    if not path.is_dir():
+        raise SystemExit(f"catalog not found: {path}")
+
+    files = sorted(path.glob("*.json"))
+    slugs = {p.stem for p in files}
+    missing = EXPECTED_CHUNKS - slugs
+    if missing:
+        errors.append("missing regional chunks: " + ", ".join(sorted(missing)))
+
+    catalog: dict = {}
+    for file in files:
+        chunk = json.loads(file.read_text(encoding="utf-8"))
+        if not isinstance(chunk, dict):
+            errors.append(f"{file.name}: root must be an object")
+            continue
+        overlap = set(catalog).intersection(chunk)
+        if overlap:
+            errors.append(f"{file.name}: duplicate storeIds {sorted(overlap)[:10]}")
+        catalog.update(chunk)
+    return catalog, errors
+
+
+def audit(catalog: dict, expected_count: int, initial_errors: list[str] | None = None) -> tuple[list[str], dict]:
+    errors: list[str] = list(initial_errors or [])
     warnings: list[str] = []
     route_counts = Counter()
+    area_counts = Counter()
 
     if len(catalog) != expected_count:
         errors.append(f"expected {expected_count} stores, found {len(catalog)}")
@@ -57,6 +91,8 @@ def audit(catalog: dict, expected_count: int) -> tuple[list[str], dict]:
             errors.append(f"{store_id}: category is not ネイルサロン")
         if not str(item.get("storeName", "")).strip():
             errors.append(f"{store_id}: missing storeName")
+
+        area_counts[str(item.get("area") or "未設定")] += 1
 
         leaked = FORBIDDEN_PUBLIC_FIELDS.intersection(item.keys())
         if leaked:
@@ -102,6 +138,7 @@ def audit(catalog: dict, expected_count: int) -> tuple[list[str], dict]:
         "stores": len(catalog),
         "errors": len(errors),
         "warnings": len(warnings),
+        "area_counts": dict(area_counts),
         "route_counts": dict(route_counts),
         "warning_examples": warnings[:20],
     }
@@ -110,18 +147,12 @@ def audit(catalog: dict, expected_count: int) -> tuple[list[str], dict]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="QA Path-Flow nail release catalog")
-    parser.add_argument("catalog", type=Path)
+    parser.add_argument("catalog", type=Path, help="JSON file or regional chunk directory")
     parser.add_argument("--expected-count", type=int, default=113)
     args = parser.parse_args()
 
-    if not args.catalog.exists():
-        raise SystemExit(f"catalog not found: {args.catalog}")
-
-    catalog = json.loads(args.catalog.read_text(encoding="utf-8"))
-    if not isinstance(catalog, dict):
-        raise SystemExit("catalog root must be an object keyed by storeId")
-
-    errors, summary = audit(catalog, args.expected_count)
+    catalog, load_errors = load_catalog(args.catalog)
+    errors, summary = audit(catalog, args.expected_count, load_errors)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
     if errors:
