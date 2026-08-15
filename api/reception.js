@@ -7,7 +7,7 @@ export const config = { runtime: 'edge' };
 
 import storeProfiles from '../data/store-profiles.json';
 import nailPack from '../data/industry-packs/nail.json';
-import nailTestStores from '../data/nail-test-stores.json';
+import nailStores from '../data/nail-stores.json';
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 const GEMINI_MODELS = ['gemini-2.5-flash-lite'];
@@ -39,7 +39,7 @@ function hydrateNailStore(raw) {
 
 function resolveStore(storeId) {
   const id = String(storeId);
-  if (nailTestStores[id]) return hydrateNailStore(nailTestStores[id]);
+  if (nailStores[id]) return hydrateNailStore(nailStores[id]);
   return storeProfiles[id] || null;
 }
 
