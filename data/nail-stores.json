@@ -1,0 +1,70 @@
+{
+  "41": {
+    "storeId": "41",
+    "storeName": "Nail Salon Diva…横浜店(ネイルサロンディーバ横浜店)",
+    "category": "ネイルサロン",
+    "area": "横浜駅",
+    "address": "日本、〒220-0005 神奈川県横浜市西区南幸２丁目１２−５ 城勘ビル ４Ｆ",
+    "phone": "045-620-9070",
+    "websiteUrl": "https://rwg.kanzashi.com/l/47iff9547FT/kirei",
+    "rating": 4.9,
+    "reviewCount": 45,
+    "placeId": "ChIJPzJ0Bj1dGGAR16Ctx_3VSs0",
+    "verifiedFacts": []
+  },
+  "42": {
+    "storeId": "42",
+    "storeName": "【パラジェル登録サロン】 newi nail 横浜 【ネウィ・ネイル】",
+    "category": "ネイルサロン",
+    "area": "横浜駅",
+    "address": "日本、〒220-0073 神奈川県横浜市西区岡野１丁目１３−５ 横浜西口サンエースビル 6F",
+    "phone": "070-1498-4724",
+    "websiteUrl": "https://beauty.hotpepper.jp/kr/slnH000604163/",
+    "rating": 5.0,
+    "reviewCount": 47,
+    "placeId": "ChIJu-ENupZdGGARcwi-ANNvkTk",
+    "verifiedFacts": []
+  },
+  "43": {
+    "storeId": "43",
+    "storeName": "NICENAIL横浜店",
+    "category": "ネイルサロン",
+    "area": "横浜駅",
+    "address": "日本、〒220-0004 神奈川県横浜市西区北幸１丁目１１−１ 8階",
+    "phone": "045-311-9988",
+    "websiteUrl": "https://www.nice-nail.com/salon/kanto/yokohama/?utm_source=google_maps&utm_medium=local&utm_campaign=maps_reserve",
+    "rating": 4.0,
+    "reviewCount": 162,
+    "placeId": "ChIJu-QIOg5cGGARSULfAMqM_Ks",
+    "verifiedFacts": []
+  },
+  "44": {
+    "storeId": "44",
+    "storeName": "NAIL MEN【メンズネイル/爪/ネイル/横浜/メンズ/メンズ専門】",
+    "category": "ネイルサロン",
+    "area": "横浜駅",
+    "address": "日本、〒220-0073 神奈川県横浜市西区岡野１丁目１２−１１ ＳＩビル ６Ｆ",
+    "phone": "045-624-8887",
+    "websiteUrl": "https://nailman.jp/",
+    "rating": 4.9,
+    "reviewCount": 207,
+    "placeId": "ChIJlaj7z2xdGGAR7-ArLZVB52o",
+    "verifiedFacts": [
+      "メンズ専門",
+      "個室"
+    ]
+  },
+  "45": {
+    "storeId": "45",
+    "storeName": "TRU NAIL&EYE 横浜店(トゥルーネイル&アイ)",
+    "category": "ネイルサロン",
+    "area": "横浜駅",
+    "address": "日本、〒220-0073 神奈川県横浜市西区岡野１丁目１２−１７ ニッセイビル 3F",
+    "phone": "045-534-7580",
+    "websiteUrl": "https://tru.salon/salon/n-yokohama/?utm_source=GBP_Web&utm_medium=referral&utm_campaign=TRUNAILEYE_yokohama",
+    "rating": 4.5,
+    "reviewCount": 101,
+    "placeId": "ChIJuySFXQxcGGARM1Pdn6JZQJg",
+    "verifiedFacts": []
+  }
+}
