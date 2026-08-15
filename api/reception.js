@@ -7,7 +7,21 @@ export const config = { runtime: 'edge' };
 
 import storeProfiles from '../data/store-profiles.json';
 import nailPack from '../data/industry-packs/nail.json';
-import nailStores from '../data/nail-stores.json';
+import yokohamaStores from '../data/nail-stores/yokohama.json';
+import kawasakiStores from '../data/nail-stores/kawasaki.json';
+import chibaStores from '../data/nail-stores/chiba.json';
+import funabashiStores from '../data/nail-stores/funabashi.json';
+import urawaStores from '../data/nail-stores/urawa.json';
+import omiyaStores from '../data/nail-stores/omiya.json';
+
+const nailStores = {
+  ...yokohamaStores,
+  ...kawasakiStores,
+  ...chibaStores,
+  ...funabashiStores,
+  ...urawaStores,
+  ...omiyaStores,
+};
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 const GEMINI_MODELS = ['gemini-2.5-flash-lite'];
