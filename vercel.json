@@ -15,6 +15,10 @@
   },
   "rewrites": [
     {
+      "source": "/p/:id(9|11)",
+      "destination": "/generated/:id/index.html"
+    },
+    {
       "source": "/p/:id",
       "destination": "/pages/lite.html?id=:id"
     },
