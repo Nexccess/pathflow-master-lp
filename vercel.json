@@ -15,8 +15,12 @@
   },
   "rewrites": [
     {
-      "source": "/p/:id(9|11)",
-      "destination": "/generated/:id/index.html"
+      "source": "/p/9",
+      "destination": "/generated/9/index.html"
+    },
+    {
+      "source": "/p/11",
+      "destination": "/generated/11/index.html"
     },
     {
       "source": "/p/:id",
