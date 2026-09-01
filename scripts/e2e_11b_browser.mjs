@@ -33,7 +33,20 @@ async function runCase(browser, name, viewport) {
   });
 
   await waitForPreview(page);
-  await page.waitForSelector('#questionCard .option', { timeout: 20000 });
+
+  const configResponse = await page.request.get(`${base}/api/reception-config?storeId=9`);
+  const configText = await configResponse.text();
+  console.log(`${name}: page URL=${page.url()}`);
+  console.log(`${name}: title=${await page.title()}`);
+  console.log(`${name}: config status=${configResponse.status()} body=${configText.slice(0, 600)}`);
+
+  try {
+    await page.waitForSelector('#questionCard .option', { timeout: 20000 });
+  } catch (err) {
+    console.log(`${name}: body=${(await page.locator('body').innerText()).slice(0, 1600)}`);
+    console.log(`${name}: consoleErrors=${consoleErrors.join(' | ')}`);
+    throw err;
+  }
 
   for (let i = 0; i < 5; i++) {
     const options = page.locator('#questionCard .option');
@@ -57,9 +70,7 @@ async function runCase(browser, name, viewport) {
   if (!summary) throw new Error(`${name}: result summary missing`);
   if (contactHref !== 'https://violet.tokyo/salon/yokohama/') throw new Error(`${name}: contact URL mismatch: ${contactHref}`);
 
-  await page.locator('#contact').click({ modifiers: ['Control'] }).catch(async () => {
-    await page.locator('#contact').dispatchEvent('click');
-  });
+  await page.locator('#contact').dispatchEvent('click');
   await page.waitForTimeout(500);
 
   const requiredEvents = ['reception_open','reception_answer','reception_submit','reception_result','store_contact_click'];
