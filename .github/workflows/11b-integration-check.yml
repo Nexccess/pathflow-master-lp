@@ -1,0 +1,26 @@
+name: 11B Integration Check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'api/reception-config.js'
+      - 'api/reception-flow.js'
+      - 'data/reception-stores.json'
+      - 'pages/reception.html'
+      - 'reference_cases/violet_01/approved_creative_package.json'
+      - 'vercel.json'
+      - 'scripts/verify_11b_integration.py'
+      - '.github/workflows/11b-integration-check.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify 11B integration contract
+        run: python scripts/verify_11b_integration.py
