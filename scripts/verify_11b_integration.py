@@ -20,6 +20,9 @@ html = (ROOT / 'pages/reception.html').read_text(encoding='utf-8')
 flow = (ROOT / 'api/reception-flow.js').read_text(encoding='utf-8')
 config_api = (ROOT / 'api/reception-config.js').read_text(encoding='utf-8')
 track_api = (ROOT / 'api/track.js').read_text(encoding='utf-8')
+gas_receiver = (ROOT / 'integrations/gas-tracking/Code.gs').read_text(encoding='utf-8')
+gas_readme = (ROOT / 'integrations/gas-tracking/README.md').read_text(encoding='utf-8')
+tracking_test = (ROOT / 'scripts/test_tracking_webhook.mjs').read_text(encoding='utf-8')
 
 # Approved Creative Package gate
 require(manifest.get('creative_status') == 'APPROVED', 'Violet manifest must be APPROVED')
@@ -63,6 +66,19 @@ require('status(503)' in track_api, 'missing tracking configuration must not ret
 require('status(502)' in track_api, 'upstream tracking failure must not return success')
 require('upstream.ok' in track_api, 'tracking upstream response must be checked')
 
+# GAS receiver contract
+require('function doPost(e)' in gas_receiver, 'GAS doPost receiver missing')
+require("PATHFLOW_TRACKING_SPREADSHEET_ID" in gas_receiver, 'GAS spreadsheet Script Property missing')
+require("pathflow_tracking" in gas_receiver, 'GAS tracking sheet name missing')
+require('persisted: true' in gas_receiver, 'GAS receiver must confirm persistence')
+for header in ['received_at', 'event', 'store_id', 'path', 'payload_json']:
+    require(header in gas_receiver, f'GAS tracking schema missing: {header}')
+for event in ['reception_open', 'reception_answer', 'reception_submit', 'reception_result', 'store_contact_click']:
+    require(event in gas_receiver, f'GAS allowed event missing: {event}')
+require('GAS_WEBHOOK_URL' in gas_readme, 'GAS deployment documentation missing Vercel env var')
+require('TRACKING_CONFIRMED' in gas_readme, 'tracking confirmation criteria missing')
+require('GAS_WEBHOOK_URL' in tracking_test and 'persisted' in tracking_test, 'one-shot tracking test incomplete')
+
 # Vercel route must carry dynamic store id into independent reception UI
 rewrites = vercel.get('rewrites') or []
 route = next((r for r in rewrites if r.get('source') == '/p/:id/reception'), None)
@@ -85,6 +101,7 @@ print('- Approved Creative Package gate: PASS')
 print('- 5-question contract: PASS')
 print('- UI/API/Tracking wiring: PASS')
 print('- tracking persistence contract: PASS')
+print('- GAS tracking receiver contract: PASS')
 print('- official contact handoff: PASS')
 print('- mobile viewport baseline: PASS')
 print('- scope guard: PASS')
