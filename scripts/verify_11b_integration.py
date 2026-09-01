@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import json
-import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +19,7 @@ vercel = json.loads((ROOT / 'vercel.json').read_text(encoding='utf-8'))
 html = (ROOT / 'pages/reception.html').read_text(encoding='utf-8')
 flow = (ROOT / 'api/reception-flow.js').read_text(encoding='utf-8')
 config_api = (ROOT / 'api/reception-config.js').read_text(encoding='utf-8')
+track_api = (ROOT / 'api/track.js').read_text(encoding='utf-8')
 
 # Approved Creative Package gate
 require(manifest.get('creative_status') == 'APPROVED', 'Violet manifest must be APPROVED')
@@ -55,6 +55,14 @@ require('contactUrl: store.contactUrl' in flow, 'result -> store contact URL han
 require('GEMINI_API_KEY' in flow and 'fallback(store, answers)' in flow, 'AI fallback path missing')
 require('Store not found' in flow and 'Store not found' in config_api, 'unknown-store handling missing')
 
+# Tracking must be observable: never report success when persistence is unknown/failed.
+require('GAS_WEBHOOK_URL' in track_api, 'tracking persistence target missing')
+require('persisted: true' in track_api, 'tracking success must explicitly confirm persistence')
+require('persisted: false' in track_api, 'tracking failure must explicitly expose non-persistence')
+require('status(503)' in track_api, 'missing tracking configuration must not return success')
+require('status(502)' in track_api, 'upstream tracking failure must not return success')
+require('upstream.ok' in track_api, 'tracking upstream response must be checked')
+
 # Vercel route must carry dynamic store id into independent reception UI
 rewrites = vercel.get('rewrites') or []
 route = next((r for r in rewrites if r.get('source') == '/p/:id/reception'), None)
@@ -76,6 +84,7 @@ print('11B INTEGRATION CHECK: PASS')
 print('- Approved Creative Package gate: PASS')
 print('- 5-question contract: PASS')
 print('- UI/API/Tracking wiring: PASS')
+print('- tracking persistence contract: PASS')
 print('- official contact handoff: PASS')
 print('- mobile viewport baseline: PASS')
 print('- scope guard: PASS')
