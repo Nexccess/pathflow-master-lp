@@ -1,0 +1,32 @@
+name: 11B Live Browser E2E
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'pages/reception.html'
+      - 'api/reception-config.js'
+      - 'api/reception-flow.js'
+      - 'data/reception-stores.json'
+      - 'vercel.json'
+      - 'scripts/e2e_11b_browser.mjs'
+      - '.github/workflows/11b-live-browser-e2e.yml'
+  workflow_dispatch:
+
+jobs:
+  browser-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run desktop and mobile E2E against Vercel preview
+        env:
+          PATHFLOW_PREVIEW_URL: https://pathflow-master-lp-git-11b-integration-nax-naka.vercel.app
+        run: node scripts/e2e_11b_browser.mjs
