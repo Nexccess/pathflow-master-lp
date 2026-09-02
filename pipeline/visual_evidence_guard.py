@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""11A Visual Evidence Guard v0.1.
+"""11A Visual Evidence Guard v0.2.
 
 Validates that GENERATED visuals are explicitly classified as ILLUSTRATIVE and
 adds visitor-facing disclosure text to an already generated LP HTML.
+v0.2 keeps disclosures visually attached to the relevant image and increases
+readability without turning them into dominant creative elements.
+
 This script does not approve Commercial QA; it prepares the draft for human review.
 """
 from __future__ import annotations
-import argparse, json, re
+import argparse, json
 from pathlib import Path
 from typing import Any
 
@@ -34,16 +37,17 @@ def classify_errors(manifest: dict[str, Any]) -> list[str]:
     return errors
 
 
-def inject_once(html: str, pattern: str, disclosure: str) -> tuple[str, bool]:
-    regex = re.compile(pattern, re.S)
-    m = regex.search(html)
-    if not m:
+def inject_hero_disclosure(html: str) -> tuple[str, bool]:
+    marker = f'<figcaption class="visual-disclosure visual-disclosure--hero">{LIGHT_DISCLOSURE}</figcaption>'
+    start = html.find('<figure class="hero-visual">')
+    if start < 0:
         return html, False
-    marker = f'<p class="visual-disclosure">{disclosure}</p>'
-    if marker in m.group(0):
-        return html, True
-    replacement = m.group(0) + marker
-    return html[:m.start()] + replacement + html[m.end():], True
+    end = html.find('</figure>', start)
+    if end < 0:
+        return html, False
+    if marker not in html[start:end]:
+        html = html[:end] + marker + html[end:]
+    return html, True
 
 
 def inject_section_disclosures(html: str, lp: dict[str, Any], manifest: dict[str, Any]) -> tuple[str, list[str]]:
@@ -52,7 +56,7 @@ def inject_section_disclosures(html: str, lp: dict[str, Any], manifest: dict[str
 
     hero = assets.get("hero")
     if hero and hero.get("source_type") == "GENERATED" and hero.get("disclosure_level") == "LIGHT":
-        html, ok = inject_once(html, r'<figure class="hero-visual">.*?</figure>', LIGHT_DISCLOSURE)
+        html, ok = inject_hero_disclosure(html)
         if ok:
             injected.append("hero")
 
@@ -74,14 +78,44 @@ def inject_section_disclosures(html: str, lp: dict[str, Any], manifest: dict[str
         if end < 0:
             continue
         end += len('</div>')
-        disclosure_html = f'<p class="visual-disclosure visual-disclosure--full">{FULL_DISCLOSURE}</p>'
-        if disclosure_html not in html[start:end + len(disclosure_html) + 10]:
+        disclosure_html = (
+            f'<p class="visual-disclosure visual-disclosure--full" role="note">'
+            f'{FULL_DISCLOSURE}</p>'
+        )
+        nearby = html[end:end + len(disclosure_html) + 40]
+        if disclosure_html not in nearby:
             html = html[:end] + disclosure_html + html[end:]
         cursor = end + len(disclosure_html)
         injected.append(str(slot))
 
-    css = "\n.visual-disclosure{margin:.55rem 0 0;font-size:.72rem;line-height:1.55;color:var(--muted);opacity:.9}.visual-disclosure--full{max-width:52rem}\n"
-    if ".visual-disclosure{" not in html:
+    css = """
+.visual-disclosure{
+  box-sizing:border-box;
+  color:var(--muted);
+  font-size:clamp(.78rem,.74rem + .12vw,.86rem);
+  line-height:1.6;
+}
+.visual-disclosure--hero{
+  display:block;
+  margin:.7rem .1rem 0;
+  opacity:.96;
+}
+.visual-disclosure--full{
+  width:fit-content;
+  max-width:52rem;
+  margin:.7rem 0 1.35rem;
+  padding:.55rem .75rem;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:color-mix(in srgb,var(--surface) 88%,transparent);
+  opacity:.98;
+}
+@media(max-width:560px){
+  .visual-disclosure{font-size:.78rem}
+  .visual-disclosure--full{width:100%;padding:.55rem .65rem}
+}
+"""
+    if ".visual-disclosure--hero{" not in html:
         html = html.replace("</style>", css + "</style>", 1)
     return html, injected
 
@@ -110,7 +144,7 @@ def main() -> None:
 
     status = "PASS" if not errors else "REVIEW_REQUIRED"
     report = {
-        "schemaVersion": "11A-visual-evidence-guard-v0.1",
+        "schemaVersion": "11A-visual-evidence-guard-v0.2",
         "storeId": lp.get("storeId"),
         "status": status,
         "errors": errors,
