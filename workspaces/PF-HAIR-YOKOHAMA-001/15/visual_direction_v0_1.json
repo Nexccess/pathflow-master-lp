@@ -1,0 +1,65 @@
+{
+  "rule_version": "0.1",
+  "store_id": "15",
+  "store_name": "girasol",
+  "visual_direction_status": "READY_FOR_LP_GENERATION",
+  "visual_objective": {
+    "visual_objective": "髪の状態を理解してから整え方を選ぶ安心感を、落ち着いた大人向け美容表現として可視化する。",
+    "intended_first_impression": "落ち着き・信頼・上品さ・相談しやすさ",
+    "emotional_transition_to_support": "anxiety → reassurance → clarity"
+  },
+  "color_direction": {
+    "primary_color_direction": "deep muted green",
+    "secondary_color_direction": "warm ivory / soft beige",
+    "accent_color_direction": "muted gold / warm beige",
+    "background_direction": "warm low-contrast neutral",
+    "saturation_level": "LOW_TO_MEDIUM",
+    "contrast_level": "MEDIUM",
+    "evidence_or_reasoning": [
+      "Creative Concept requires calm consultation rather than trend-first energy.",
+      "Existing brand color evidence is insufficient, therefore category-safe neutral is combined with a calm trust-oriented accent direction.",
+      "Color must remain secondary to hair/result and consultation imagery."
+    ]
+  },
+  "typography_direction": {
+    "heading_style": "elegant serif / Mincho-oriented",
+    "body_style": "high-legibility Japanese sans-serif",
+    "emphasis_style": "restrained serif emphasis or medium-weight sans",
+    "tone": "adult / calm / editorial",
+    "legibility_constraints": ["mobile-first", "no decorative font for body copy", "high contrast for primary text"]
+  },
+  "photography_direction": {
+    "primary_subjects": ["mature adult hair style", "natural glossy texture", "consultation scene"],
+    "secondary_subjects": ["salon atmosphere", "care/treatment context"],
+    "future_state_visuals": ["manageable natural texture", "soft gloss", "calm adult beauty"],
+    "evidence_visuals": ["consultation", "hair/scalp-aware selection context", "salon atmosphere"],
+    "avoid_visuals": ["overly youthful trend-only imagery", "medical/scientific treatment imagery", "unrelated luxury stock photography"],
+    "usage_constraints": ["official public image usage is NOT_CONFIRMED; final commercial production needs approved/licensed/generated alternatives"]
+  },
+  "layout_density_direction": {
+    "overall_density": "LOW_TO_MEDIUM",
+    "whitespace_direction": "generous",
+    "hero_structure_direction": "large beauty visual plus concise problem/benefit message",
+    "visual_text_balance": "visual-led",
+    "card_usage_direction": "limited; use for concerns/values only",
+    "full_bleed_usage_direction": "use for future-state or salon proof imagery",
+    "section_variation_direction": "alternate concern, visual aspiration, philosophy, evidence, experience, diagnosis"
+  },
+  "category_profile": "BEAUTY",
+  "cta_treatment_direction": {
+    "visual_prominence": "HIGH_BUT_RESTRAINED",
+    "sticky_cta_behavior_direction": "compact persistent mobile CTA after hero; must not cover key visual/text content",
+    "obstruction_risk_limit": "LOW",
+    "button_tone": "deep green / high contrast / rounded but not oversized"
+  },
+  "visual_proof_contract": {
+    "proof_required": true,
+    "required_proof_types": ["future-state hair texture/style", "consultation experience", "salon atmosphere"],
+    "minimum_proof_role": "Customer must be able to imagine a more manageable, naturally polished future state and understand the consultation-led experience.",
+    "evidence_limitations": ["legacy review evidence is theme-level", "commercial reuse rights for current public images not confirmed"]
+  },
+  "genericness_check": {
+    "risk": "LOW_TO_MEDIUM",
+    "notes": "Direction remains specific only if future-state visuals and copy stay tied to condition-aware consultation; generic green salon styling alone would be insufficient."
+  }
+}
