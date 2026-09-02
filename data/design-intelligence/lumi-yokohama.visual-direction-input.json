@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "11A-visual-direction-input-v0.1",
+  "storeId": "lumi-yokohama",
+  "storeName": "Lumi Yokohama",
+  "sourceArtifact": "11A upstream interpretation/concept validation",
+  "evidenceRefs": [
+    "Creative Concept: proposal/choice-support salon",
+    "Validated direction: neutral charcoal / taupe / off-white",
+    "Validated tone: refined choice support / style comparison / medium density"
+  ],
+  "concept": "曖昧な希望のままでも、髪質・骨格から似合う方向を一緒に具体化する提案型サロン。",
+  "colorDirection": {
+    "primaryFamily": "neutral charcoal",
+    "secondaryFamily": "taupe",
+    "backgroundFamily": "off-white",
+    "accentPolicy": "restrained and structured; avoid generic pink/lavender beauty preset",
+    "contrastPolicy": "meet production accessibility contrast requirements"
+  },
+  "typographyDirection": {
+    "heading": "clean contemporary serif or restrained sans candidate",
+    "body": "structured high-legibility sans",
+    "decision": "Playfair Display / Inter may be compared but must not be adopted automatically"
+  },
+  "visualTone": ["refined", "structured", "choice-support", "contemporary", "calm confidence"],
+  "layoutDensity": "medium",
+  "photographyDirection": [
+    "style comparison and directional choice",
+    "hair texture / face-framing / silhouette clarity",
+    "refined editorial imagery without generic luxury cues"
+  ],
+  "compositionDirection": [
+    "structured comparison blocks",
+    "clear information hierarchy",
+    "ambiguity-to-choice narrative",
+    "avoid generic problem-solution SaaS composition",
+    "proof supports proposal logic rather than preset carousel dependency"
+  ],
+  "sectionPrinciples": [
+    "First impression communicates proposal and choice-support value",
+    "Customer ambiguity is translated into concrete style directions",
+    "Comparison/decision-support content is visually easy to scan",
+    "Evidence and store value support each recommendation direction",
+    "CTA placement follows decision readiness rather than generic template order"
+  ],
+  "motionDirection": "minimal and functional, reduced-motion compatible",
+  "decorativeTreatment": "clean lines, restrained contrast, controlled editorial detail; avoid soft-UI dominance and generic beauty gradients"
+}
