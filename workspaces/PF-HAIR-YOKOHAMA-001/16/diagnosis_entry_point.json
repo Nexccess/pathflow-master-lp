@@ -1,0 +1,10 @@
+{
+  "store_id": "16",
+  "store_name": "Frais Tout",
+  "status": "READY",
+  "entry_copy": "似合う形と、今の髪の状態。どちらも5問で整理します。",
+  "entry_promise": "施術を選ぶ前に、自分が優先したいことを整理する",
+  "question_focus": ["なりたい印象", "髪のくせ・扱いづらさ", "ダメージへの不安", "ケア・リラックスの希望", "仕上がりで優先したいこと"],
+  "result_direction": "似合わせ・扱いやすさ・ケア希望を相談メモとして整理し、店舗問い合わせへつなぐ",
+  "not_a_medical_diagnosis": true
+}
