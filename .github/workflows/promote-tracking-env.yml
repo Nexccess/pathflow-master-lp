@@ -1,0 +1,73 @@
+name: Promote Tracking Env to Production
+
+on:
+  push:
+    branches:
+      - production-tracking-probe
+    paths:
+      - '.github/workflows/promote-tracking-env.yml'
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: team_zg03ChGE3G43ldXdHA1teSst
+      VERCEL_PROJECT_ID: prj_lvDlySRFjmSzNNeKp1O5EpNKDRj4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull verified Preview environment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          vercel env pull preview.env --yes --environment=preview --git-branch=11b-integration --token="$VERCEL_TOKEN" >/dev/null
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          src = Path('preview.env').read_text(encoding='utf-8').splitlines()
+          value = None
+          for line in src:
+              if line.startswith('GAS_WEBHOOK_URL='):
+                  raw = line.split('=', 1)[1].strip()
+                  try:
+                      value = json.loads(raw)
+                  except Exception:
+                      value = raw.strip("'\"")
+                  break
+          if not value:
+              raise SystemExit('GAS_WEBHOOK_URL missing from verified Preview environment')
+          Path('gas_webhook_value.txt').write_text(value, encoding='utf-8')
+          PY
+          value=$(cat gas_webhook_value.txt)
+          echo "::add-mask::$value"
+          test -n "$value"
+          case "$value" in
+            https://script.google.com/macros/s/*/exec) ;;
+            *) echo 'Unexpected GAS webhook URL format'; exit 1 ;;
+          esac
+
+      - name: Add Production GAS_WEBHOOK_URL without logging value
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          cat gas_webhook_value.txt | vercel env add GAS_WEBHOOK_URL production --sensitive --token="$VERCEL_TOKEN" >/dev/null
+          rm -f gas_webhook_value.txt preview.env
+
+      - name: Pull Production environment and build
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN" >/dev/null
+          vercel build --prod --token="$VERCEL_TOKEN"
+
+      - name: Deploy Production with tracking environment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
