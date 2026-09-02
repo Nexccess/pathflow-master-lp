@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "11A-lp-input-v0.1",
+  "storeId": "lumi-yokohama",
+  "storeName": "Lumi 横浜駅店",
+  "metaDescription": "Lumi 横浜駅店の11A Creative QA用LPドラフト。曖昧な希望を骨格・髪質・扱いやすさから具体化する提案価値をEvidenceに基づき整理。",
+  "layoutMode": "structured",
+  "theme": {
+    "background": "#F5F3EF",
+    "surface": "#FFFFFF",
+    "text": "#272727",
+    "mutedText": "#68635F",
+    "primary": "#343434",
+    "accent": "#98897E",
+    "border": "#D9D4CF",
+    "radius": "12px",
+    "shadow": "0 10px 30px rgba(0,0,0,.05)",
+    "headingFont": "'Helvetica Neue', Arial, sans-serif",
+    "bodyFont": "'Yu Gothic', 'Hiragino Kaku Gothic ProN', sans-serif"
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "eyebrow": "Lumi Yokohama",
+      "title": "曖昧なイメージのままでも、似合う方向は一緒に具体化できる。",
+      "body": "髪型やカラーを決め切れていなくても、骨格・髪質・普段の扱いやすさを手がかりに相談できる提案型の美容室。",
+      "bullets": ["横浜駅東口から徒歩5分と公式案内", "骨格・髪質を踏まえた提案", "平日10:00〜22:00と公式案内"],
+      "claimBlocks": [
+        {"claimClass": "GENERATED_COPY", "sourceRefs": ["message_strategy.core_message", "visual_direction.creativeConcept"]},
+        {"claimClass": "FACT", "sourceRefs": ["store_intelligence.store_facts.access", "store_intelligence.store_facts.positioning", "store_intelligence.store_facts.hours"]}
+      ]
+    },
+    {
+      "id": "choice",
+      "type": "comparison",
+      "eyebrow": "Choice Support",
+      "title": "“どうしたいか”が曖昧でも、判断材料から整理する。",
+      "body": "Lumiの口コミでは、ざっくりした要望を汲み取りながら、骨格・髪質や顔まわりを踏まえて提案する点が評価されています。",
+      "items": [
+        {"label": "Direction 01", "title": "雰囲気から考える", "body": "まずは、なりたい印象や避けたい印象を言葉にする。"},
+        {"label": "Direction 02", "title": "骨格・髪質から考える", "body": "顔まわり、髪質、普段の扱い方を判断材料にする。"},
+        {"label": "Direction 03", "title": "毎日から考える", "body": "仕上がった瞬間だけでなく、日常で扱いやすい方向を選ぶ。"}
+      ],
+      "claimBlocks": [
+        {"claimClass": "REVIEW_EVIDENCE", "sourceRefs": ["customer_voice.themes.曖昧な希望を汲み取るカウンセリング", "customer_voice.themes.骨格・髪質に合わせた提案"]},
+        {"claimClass": "GENERATED_COPY", "sourceRefs": ["message_strategy.supporting_messages"]}
+      ]
+    },
+    {
+      "id": "proof",
+      "type": "proof",
+      "eyebrow": "Customer Voice",
+      "title": "相談から仕上がりまで、口コミに表れている評価。",
+      "body": "口コミ原文を転載せず、確認できた評価傾向だけを整理しています。",
+      "items": [
+        {"theme": "曖昧な希望への対応", "summary": "ざっくりした要望や迷いがある状態でも、希望を聞き取りながら似合う方向へ提案してもらえたという評価が複数見られます。"},
+        {"theme": "骨格・髪質への提案", "summary": "骨格や髪質を踏まえたアドバイス、顔立ちに合うレイヤー、カラーの悩みへの提案が評価されています。"},
+        {"theme": "仕上がり・扱いやすさ", "summary": "カラーやカットの仕上がり、質感、日常で扱いやすいスタイルへの満足が確認されています。"},
+        {"theme": "相談時の安心", "summary": "初めての施術で不安がある場面でも、質問に丁寧に答えてもらえたという声があります。"}
+      ],
+      "claimBlocks": [
+        {"claimClass": "REVIEW_EVIDENCE", "sourceRefs": ["customer_voice.themes", "evidence_map.sources.customer_reviews"]}
+      ]
+    },
+    {
+      "id": "info",
+      "type": "info",
+      "eyebrow": "Store Information",
+      "title": "相談しやすい時間とアクセス。",
+      "items": [
+        {"label": "Access", "value": "横浜駅東口から徒歩5分と公式案内"},
+        {"label": "Address", "value": "神奈川県横浜市西区平沼1-38-21 コスモ横浜東口102"},
+        {"label": "Hours", "value": "平日10:00〜22:00 / 土日祝10:00〜20:00"}
+      ],
+      "claimBlocks": [
+        {"claimClass": "FACT", "sourceRefs": ["store_intelligence.store_facts.address", "store_intelligence.store_facts.access", "store_intelligence.store_facts.hours"]}
+      ]
+    },
+    {
+      "id": "cta",
+      "type": "cta",
+      "eyebrow": "11A Diagnosis Entry Placeholder",
+      "title": "なりたい雰囲気と、今の悩みを整理する。",
+      "body": "診断AIはまだ組み込みません。11Aでは、将来5問ヒアリングへ接続する入口だけをデザイン上確保します。",
+      "label": "希望を整理する",
+      "claimBlocks": [
+        {"claimClass": "GENERATED_COPY", "sourceRefs": ["message_strategy.cta_intent", "information_priority.priority_order"]}
+      ]
+    }
+  ]
+}
