@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "11A-design-intelligence-assessment-v0.1",
+  "storeId": "girasol",
+  "sourceAdapterArtifact": "generated/design-intelligence/raw/girasol.uiux.md",
+  "assessmentBasis": {
+    "creativeConcept": "髪を無理に変える前に、今の状態から一緒に整え方を考える、大人の相談型サロン。",
+    "knownVisualDirection": [
+      "deep muted green",
+      "warm ivory",
+      "adult calm consultation",
+      "natural gloss",
+      "low-medium density"
+    ],
+    "comparisonObservation": "UI/UX Pro Max raw recommendation was materially identical to Lumi Yokohama despite different concept/query."
+  },
+  "candidates": [
+    {
+      "candidateId": "girasol-pattern-hero-testimonials-cta",
+      "category": "pattern",
+      "candidateScope": "STORE_SENSITIVE",
+      "recommendation": "Hero + Testimonials + CTA; Hero > Problem statement > Solution overview > Testimonials carousel > CTA",
+      "evidenceAlignment": "PARTIAL",
+      "creativeConceptAlignment": "PARTIAL",
+      "storeSpecificity": "LOW",
+      "genericnessRisk": "HIGH",
+      "claimSafety": "PASS",
+      "existingBrandAlignment": "PARTIAL",
+      "reasons": [
+        "Social proof is compatible with review evidence, but the exact section formula is an industry-generic conversion pattern.",
+        "The identical recommendation for Lumi shows insufficient store specificity."
+      ],
+      "revisionInstruction": "Do not adopt the section formula unchanged. Rebuild section order from girasol evidence, consultation-led concept, and information priority."
+    },
+    {
+      "candidateId": "girasol-style-soft-ui-evolution",
+      "category": "style",
+      "candidateScope": "STORE_SENSITIVE",
+      "recommendation": "Soft UI Evolution with subtle depth, improved shadows, hybrid modern aesthetics",
+      "evidenceAlignment": "PARTIAL",
+      "creativeConceptAlignment": "PARTIAL",
+      "storeSpecificity": "LOW",
+      "genericnessRisk": "HIGH",
+      "claimSafety": "PASS",
+      "existingBrandAlignment": "PARTIAL",
+      "reasons": [
+        "The style is described as suitable for enterprise/SaaS/health/wellness rather than being derived from girasol evidence.",
+        "The same style was returned for Lumi."
+      ],
+      "revisionInstruction": "Use only the low-noise/subtle-depth principle if it supports the calm consultation concept; do not make Soft UI the governing visual style."
+    },
+    {
+      "candidateId": "girasol-colors-pink-lavender",
+      "category": "colors",
+      "candidateScope": "STORE_SENSITIVE",
+      "recommendation": "Soft pink + lavender luxury: #EC4899 / #F9A8D4 / #8B5CF6 / #FDF2F8",
+      "evidenceAlignment": "CONFLICT",
+      "creativeConceptAlignment": "CONFLICT",
+      "storeSpecificity": "LOW",
+      "genericnessRisk": "HIGH",
+      "claimSafety": "PASS",
+      "existingBrandAlignment": "CONFLICT",
+      "reasons": [
+        "Known girasol direction is deep muted green + warm ivory, derived from the adult calm consultation concept.",
+        "Pink/lavender is a generic beauty recommendation and was identically returned for Lumi."
+      ],
+      "revisionInstruction": "Reject palette. Retain girasol evidence-led deep muted green / warm ivory direction unless newer store evidence justifies revision."
+    },
+    {
+      "candidateId": "girasol-typography-playfair-inter",
+      "category": "typography",
+      "candidateScope": "STORE_SENSITIVE",
+      "recommendation": "Playfair Display headings + Inter body",
+      "evidenceAlignment": "PARTIAL",
+      "creativeConceptAlignment": "PARTIAL",
+      "storeSpecificity": "MEDIUM",
+      "genericnessRisk": "MEDIUM",
+      "claimSafety": "PASS",
+      "existingBrandAlignment": "PARTIAL",
+      "reasons": [
+        "Editorial sophistication may support an adult premium tone, but the pair was not derived from store-specific evidence and was also returned for Lumi."
+      ],
+      "revisionInstruction": "Treat as a candidate only. Compare against a calmer, less fashion-editorial typography direction before Visual Direction is fixed."
+    },
+    {
+      "candidateId": "girasol-accessibility-motion",
+      "category": "accessibility",
+      "candidateScope": "UNIVERSAL_GUARDRAIL",
+      "recommendation": "Text contrast 4.5:1 minimum, visible keyboard focus, keyboard-accessible controls, prefers-reduced-motion support",
+      "evidenceAlignment": "PASS",
+      "creativeConceptAlignment": "PASS",
+      "storeSpecificity": "NOT_REQUIRED",
+      "genericnessRisk": "NOT_APPLICABLE",
+      "claimSafety": "PASS",
+      "existingBrandAlignment": "NOT_APPLICABLE",
+      "reasons": [
+        "These are cross-store UX/accessibility guardrails and are expected to remain consistent."
+      ],
+      "revisionInstruction": null
+    },
+    {
+      "candidateId": "girasol-responsive-checklist",
+      "category": "responsive",
+      "candidateScope": "UNIVERSAL_GUARDRAIL",
+      "recommendation": "Validate responsive behavior at 375px, 768px, 1024px, and 1440px; clickable elements need clear pointer/interaction states",
+      "evidenceAlignment": "PASS",
+      "creativeConceptAlignment": "PASS",
+      "storeSpecificity": "NOT_REQUIRED",
+      "genericnessRisk": "NOT_APPLICABLE",
+      "claimSafety": "PASS",
+      "existingBrandAlignment": "NOT_APPLICABLE",
+      "reasons": [
+        "Responsive and interaction QA are production-wide fixed requirements rather than store creative decisions."
+      ],
+      "revisionInstruction": null
+    }
+  ]
+}
