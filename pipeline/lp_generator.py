@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""11A LP Generator v0.3.
+"""11A LP Generator v0.4.
 
 Generates a store-specific HTML LP from validated copy, Visual Direction, and a
-commercial-usage-aware visual asset manifest. v0.3 adds store-specific
-composition profiles and explicit Japanese headline line control.
+commercial-usage-aware visual asset manifest. v0.4 keeps store-specific
+composition profiles while making them fluid across wide desktop, intermediate,
+and mobile widths.
 
 It intentionally does not perform 11B diagnosis logic, tracking, deployment,
 Sales Ready, or approval.
@@ -103,21 +104,78 @@ def render_document(lp:dict[str,Any],visual:dict[str,Any],manifest:dict[str,Any]
     sections="\n".join(RENDERERS[s["type"]](s,assets,lp) for s in lp["sections"])
     store=esc(lp.get("storeName")); meta=esc(lp.get("metaDescription")); fh=esc(t.get("headingFont","Georgia, serif")); fb=esc(t.get("bodyFont","Arial, sans-serif"))
     return f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{meta}"><title>{store}</title><style>
-:root{{--bg:{esc(t['background'])};--surface:{esc(t['surface'])};--text:{esc(t['text'])};--muted:{esc(t['mutedText'])};--primary:{esc(t['primary'])};--accent:{esc(t['accent'])};--border:{esc(t.get('border','#d7d7d7'))};--radius:{esc(t.get('radius','24px'))};--shadow:{esc(t.get('shadow','0 18px 50px rgba(0,0,0,.08)'))}}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--text);font-family:{fb};line-height:1.75}}main{{overflow:hidden}}.section{{width:min(1120px,calc(100% - 40px));margin:auto;padding:88px 0}}.eyebrow{{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}}h1,h2,h3{{font-family:{fh};line-height:1.12;margin:0 0 20px}}h1{{font-size:clamp(2.55rem,5.2vw,5.4rem)}}h2{{font-size:clamp(2rem,4vw,4rem);max-width:16ch}}.controlled-title{{max-width:none}}.title-line{{display:block;white-space:nowrap}}p{{margin:0 0 18px}}.lead{{font-size:clamp(1.05rem,1.7vw,1.3rem);max-width:38rem;color:var(--muted)}}.hero-points{{padding-left:1.2rem;color:var(--muted)}}.hero-visual{{margin:0;overflow:hidden}}.hero-image,.section-image{{width:100%;height:100%;object-fit:cover;display:block}}.section-head{{max-width:760px;margin-bottom:38px}}.section-media{{height:min(48vw,520px);overflow:hidden;border-radius:var(--radius);margin:0 0 34px}}.card-grid,.compare-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}}.card,.compare-item,.proof-item{{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}}.card-kicker,.compare-label,.proof-theme{{font-size:.78rem;color:var(--accent);font-weight:700;letter-spacing:.08em}}.proof-list{{display:grid;gap:14px;max-width:920px}}.proof-item{{display:grid;grid-template-columns:220px 1fr;gap:28px}}.info-list{{border-top:1px solid var(--border);max-width:820px}}.info-row{{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--border)}}.cta{{text-align:center;background:var(--primary);color:white;border-radius:var(--radius);padding-inline:32px;margin-bottom:72px}}.cta h2,.cta p{{margin-inline:auto}}button{{margin-top:16px;border:0;border-radius:999px;padding:16px 28px;background:var(--surface);color:var(--text);font-weight:700}}
-body[data-composition="editorial-offset"] .hero{{min-height:82vh;display:grid;grid-template-columns:.92fr 1.08fr;align-items:center;gap:72px}}body[data-composition="editorial-offset"] .hero-copy{{padding-left:2vw}}body[data-composition="editorial-offset"] .hero-visual{{height:min(70vh,680px);border-radius:var(--radius)}}body[data-composition="editorial-offset"] .hero h1{{color:var(--primary)}}
-body[data-composition="image-led"] .hero{{display:grid;grid-template-columns:1fr;gap:44px;padding-top:54px}}body[data-composition="image-led"] .hero-visual{{order:-1;width:100%;height:min(58vh,620px);border-radius:8px}}body[data-composition="image-led"] .hero-copy{{width:min(860px,100%);margin-left:auto;margin-right:auto;display:grid;grid-template-columns:1.15fr .85fr;column-gap:56px;align-items:start}}body[data-composition="image-led"] .hero-copy .eyebrow,body[data-composition="image-led"] .hero-copy h1{{grid-column:1}}body[data-composition="image-led"] .hero-copy .lead,body[data-composition="image-led"] .hero-copy .hero-points{{grid-column:2}}body[data-composition="image-led"] .hero-copy .lead{{grid-row:1 / span 2;padding-top:34px}}body[data-composition="image-led"] .hero-copy .hero-points{{grid-row:3;margin-top:-12px}}
-body[data-layout="structured"] .card,body[data-layout="structured"] .compare-item{{border-radius:8px;box-shadow:none}}body[data-layout="structured"] .section-media{{border-radius:8px}}
-@media(max-width:980px){{.section{{width:min(100% - 32px,760px);padding:68px 0}}body[data-composition="editorial-offset"] .hero{{min-height:auto;grid-template-columns:1fr;gap:34px;padding-top:60px}}body[data-composition="editorial-offset"] .hero-copy{{padding-left:0}}body[data-composition="editorial-offset"] .hero-visual{{height:min(70vh,620px)}}body[data-composition="image-led"] .hero{{gap:28px;padding-top:32px}}body[data-composition="image-led"] .hero-visual{{height:min(52vh,520px)}}body[data-composition="image-led"] .hero-copy{{display:block;width:100%}}body[data-composition="image-led"] .hero-copy .lead{{padding-top:0}}h1{{font-size:clamp(2.3rem,7.5vw,4.3rem)}}.title-line{{white-space:normal;word-break:auto-phrase}}.card-grid,.compare-grid{{grid-template-columns:1fr}}.proof-item,.info-row{{grid-template-columns:1fr;gap:6px}}}}
-@media(max-width:560px){{.section{{width:min(100% - 24px,520px);padding:54px 0}}h1{{font-size:clamp(2.1rem,11vw,3.6rem)}}.hero-visual,.section-media{{height:58vh}}}}
+:root{{--bg:{esc(t['background'])};--surface:{esc(t['surface'])};--text:{esc(t['text'])};--muted:{esc(t['mutedText'])};--primary:{esc(t['primary'])};--accent:{esc(t['accent'])};--border:{esc(t.get('border','#d7d7d7'))};--radius:{esc(t.get('radius','24px'))};--shadow:{esc(t.get('shadow','0 18px 50px rgba(0,0,0,.08)'))}}}
+*{{box-sizing:border-box}}
+body{{margin:0;background:var(--bg);color:var(--text);font-family:{fb};line-height:1.75}}
+main{{overflow:hidden}}
+.section{{width:min(1280px,calc(100% - 64px));margin:auto;padding:88px 0}}
+.eyebrow{{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}}
+h1,h2,h3{{font-family:{fh};line-height:1.12;margin:0 0 20px}}
+h1{{font-size:clamp(2.7rem,4.3vw,4.9rem)}}
+h2{{font-size:clamp(2rem,3.4vw,3.7rem);max-width:16ch}}
+.controlled-title{{max-width:none}}
+.title-line{{display:block;white-space:normal;overflow-wrap:normal;word-break:keep-all}}
+p{{margin:0 0 18px}}
+.lead{{font-size:clamp(1.02rem,1.3vw,1.25rem);max-width:42rem;color:var(--muted)}}
+.hero-points{{padding-left:1.2rem;color:var(--muted)}}
+.hero-copy{{min-width:0}}
+.hero-visual{{min-width:0;margin:0;overflow:hidden}}
+.hero-image,.section-image{{width:100%;height:100%;object-fit:cover;display:block}}
+.section-head{{max-width:760px;margin-bottom:38px}}
+.section-media{{height:min(46vw,560px);overflow:hidden;border-radius:var(--radius);margin:0 0 34px}}
+.card-grid,.compare-grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}}
+.card,.compare-item,.proof-item{{min-width:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}}
+.card-kicker,.compare-label,.proof-theme{{font-size:.78rem;color:var(--accent);font-weight:700;letter-spacing:.08em}}
+.proof-list{{display:grid;gap:14px;max-width:920px}}
+.proof-item{{display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px}}
+.info-list{{border-top:1px solid var(--border);max-width:820px}}
+.info-row{{display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid var(--border)}}
+.cta{{text-align:center;background:var(--primary);color:white;border-radius:var(--radius);padding-inline:32px;margin-bottom:72px}}
+.cta h2,.cta p{{margin-inline:auto}}
+button{{margin-top:16px;border:0;border-radius:999px;padding:16px 28px;background:var(--surface);color:var(--text);font-weight:700}}
+
+body[data-composition="editorial-offset"] .hero{{min-height:82vh;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(420px,.88fr);align-items:center;gap:clamp(40px,5vw,84px)}}
+body[data-composition="editorial-offset"] .hero-copy{{padding-left:clamp(0px,1vw,18px)}}
+body[data-composition="editorial-offset"] .hero-visual{{height:min(68vh,680px);border-radius:var(--radius)}}
+body[data-composition="editorial-offset"] .hero h1{{color:var(--primary);max-width:10.5em}}
+
+body[data-composition="image-led"] .hero{{display:grid;grid-template-columns:1fr;gap:42px;padding-top:52px}}
+body[data-composition="image-led"] .hero-visual{{order:-1;width:min(1100px,100%);height:min(58vh,620px);margin-inline:auto;border-radius:8px}}
+body[data-composition="image-led"] .hero-copy{{width:min(980px,100%);margin-inline:auto;display:block}}
+body[data-composition="image-led"] .hero-copy h1{{max-width:12em}}
+body[data-composition="image-led"] .hero-copy .lead{{max-width:48rem}}
+body[data-composition="image-led"] .hero-points{{max-width:48rem}}
+
+body[data-layout="structured"] .card,body[data-layout="structured"] .compare-item{{border-radius:8px;box-shadow:none}}
+body[data-layout="structured"] .section-media{{border-radius:8px}}
+
+@media(max-width:1100px){{
+  .section{{width:min(100% - 40px,860px);padding:72px 0}}
+  body[data-composition="editorial-offset"] .hero{{min-height:auto;grid-template-columns:1fr;gap:34px;padding-top:60px}}
+  body[data-composition="editorial-offset"] .hero-copy{{padding-left:0}}
+  body[data-composition="editorial-offset"] .hero-visual{{height:min(68vh,620px)}}
+  body[data-composition="image-led"] .hero{{gap:30px;padding-top:34px}}
+  body[data-composition="image-led"] .hero-visual{{height:min(54vh,540px)}}
+  h1{{font-size:clamp(2.35rem,6.8vw,4.25rem)}}
+  .card-grid,.compare-grid{{grid-template-columns:1fr}}
+  .proof-item,.info-row{{grid-template-columns:1fr;gap:6px}}
+}}
+
+@media(max-width:560px){{
+  .section{{width:min(100% - 24px,520px);padding:54px 0}}
+  h1{{font-size:clamp(2.05rem,10.5vw,3.5rem)}}
+  .hero-visual,.section-media{{height:58vh}}
+}}
+
 @media(prefers-reduced-motion:reduce){{*{{animation:none!important;transition:none!important}}}}
 </style></head><body data-layout="{mode}" data-density="{density}" data-composition="{profile}"><main>{sections}</main></body></html>'''
 
 def main()->None:
-    p=argparse.ArgumentParser(description="Generate one 11A store-specific LP draft with photography and composition gates")
+    p=argparse.ArgumentParser(description="Generate one 11A store-specific LP draft with photography and fluid composition gates")
     p.add_argument("lp_input",type=Path); p.add_argument("visual_direction",type=Path); p.add_argument("asset_manifest",type=Path); p.add_argument("--output",type=Path,required=True); p.add_argument("--report",type=Path)
     a=p.parse_args(); lp=load_json(a.lp_input); visual=load_json(a.visual_direction); manifest=load_json(a.asset_manifest); errors,asset_errors=validate(lp,visual,manifest)
     status="INVALID_INPUT" if errors else ("BLOCKED_ASSET_REQUIREMENTS" if asset_errors else "PASS")
-    report={"schemaVersion":"11A-lp-generator-report-v0.3","storeId":lp.get("storeId"),"status":status,"errors":errors,"assetErrors":asset_errors,"compositionProfile":lp.get("compositionProfile"),"output":str(a.output),"creativeStatus":"DRAFT" if status=="PASS" else "NOT_GENERATED","pathFlowStatus":"NOT_APPLICABLE_11A"}
+    report={"schemaVersion":"11A-lp-generator-report-v0.4","storeId":lp.get("storeId"),"status":status,"errors":errors,"assetErrors":asset_errors,"compositionProfile":lp.get("compositionProfile"),"output":str(a.output),"creativeStatus":"DRAFT" if status=="PASS" else "NOT_GENERATED","pathFlowStatus":"NOT_APPLICABLE_11A"}
     if a.report:
         a.report.parent.mkdir(parents=True,exist_ok=True); a.report.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps(report,ensure_ascii=False,indent=2))
