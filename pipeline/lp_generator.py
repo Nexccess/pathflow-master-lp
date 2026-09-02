@@ -6,7 +6,7 @@ commercial-usage-aware visual asset manifest. It intentionally does not perform
 11B diagnosis logic, tracking, deployment, Sales Ready, or approval.
 """
 from __future__ import annotations
-import argparse, html, json
+import argparse, html, json, os
 from pathlib import Path
 from typing import Any
 
@@ -79,8 +79,12 @@ def render_cta(s:dict[str,Any],assets:dict[str,dict[str,Any]])->str:
 
 RENDERERS={"hero":render_hero,"cards":render_cards,"proof":render_proof,"comparison":render_comparison,"info":render_info,"cta":render_cta}
 
-def render_document(lp:dict[str,Any],visual:dict[str,Any],manifest:dict[str,Any])->str:
+def render_document(lp:dict[str,Any],visual:dict[str,Any],manifest:dict[str,Any],output_path:Path)->str:
     t=lp["theme"]; mode=esc(lp.get("layoutMode","organic")); density=esc((visual.get("storeSpecificDirection") or {}).get("layoutDensity","medium")); assets=asset_index(manifest)
+    for asset in assets.values():
+        src=str(asset.get("src") or "").strip()
+        if src:
+            asset["src"]=os.path.relpath(Path(src),start=output_path.parent).replace("\\","/")
     sections="\n".join(RENDERERS[s["type"]](s,assets) for s in lp["sections"])
     store=esc(lp.get("storeName")); meta=esc(lp.get("metaDescription")); fh=esc(t.get("headingFont","Georgia, serif")); fb=esc(t.get("bodyFont","Arial, sans-serif"))
     return f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{meta}"><title>{store}</title><style>
@@ -98,5 +102,5 @@ def main()->None:
         a.report.parent.mkdir(parents=True,exist_ok=True); a.report.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps(report,ensure_ascii=False,indent=2))
     if status!="PASS": raise SystemExit(3 if asset_errors and not errors else 2)
-    a.output.parent.mkdir(parents=True,exist_ok=True); a.output.write_text(render_document(lp,visual,manifest),encoding="utf-8")
+    a.output.parent.mkdir(parents=True,exist_ok=True); a.output.write_text(render_document(lp,visual,manifest,a.output),encoding="utf-8")
 if __name__=="__main__": main()
