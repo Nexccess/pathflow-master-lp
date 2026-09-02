@@ -1,0 +1,92 @@
+name: Promote Tracking Env via Vercel API
+
+on:
+  push:
+    branches:
+      - production-tracking-probe
+    paths:
+      - '.github/workflows/promote-tracking-env-api.yml'
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: team_zg03ChGE3G43ldXdHA1teSst
+      VERCEL_PROJECT_ID: prj_lvDlySRFjmSzNNeKp1O5EpNKDRj4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Retrieve verified Preview secret via authenticated Vercel API
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error \
+            -H "Authorization: Bearer $VERCEL_TOKEN" \
+            "https://api.vercel.com/v10/projects/${VERCEL_PROJECT_ID}/env?decrypt=true&teamId=${VERCEL_ORG_ID}" \
+            -o vercel-env.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('vercel-env.json').read_text(encoding='utf-8'))
+          envs = data.get('envs') or data.get('env') or []
+          match = None
+          for item in envs:
+              if item.get('key') != 'GAS_WEBHOOK_URL':
+                  continue
+              targets = item.get('target') or []
+              if 'preview' in targets and not item.get('gitBranch'):
+                  match = item
+                  break
+          if not match:
+              raise SystemExit('Project-wide Preview GAS_WEBHOOK_URL not found')
+          value = match.get('value')
+          if not value or value == '[SENSITIVE]':
+              raise SystemExit('Vercel API did not return decrypted GAS_WEBHOOK_URL')
+          if not (value.startswith('https://script.google.com/macros/s/') and value.endswith('/exec')):
+              raise SystemExit('Unexpected GAS webhook URL format')
+          Path('gas_webhook_value.txt').write_text(value, encoding='utf-8')
+          PY
+          value=$(cat gas_webhook_value.txt)
+          echo "::add-mask::$value"
+          rm -f vercel-env.json
+
+      - name: Create Production sensitive variable via Vercel API
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          value = Path('gas_webhook_value.txt').read_text(encoding='utf-8')
+          payload = [{
+              'key': 'GAS_WEBHOOK_URL',
+              'value': value,
+              'type': 'sensitive',
+              'target': ['production'],
+              'comment': 'Promoted from verified Preview tracking configuration for Sales Ready'
+          }]
+          Path('env-create.json').write_text(json.dumps(payload), encoding='utf-8')
+          PY
+          curl --fail --silent --show-error \
+            -X POST \
+            -H "Authorization: Bearer $VERCEL_TOKEN" \
+            -H 'Content-Type: application/json' \
+            --data-binary @env-create.json \
+            "https://api.vercel.com/v10/projects/${VERCEL_PROJECT_ID}/env?teamId=${VERCEL_ORG_ID}" \
+            -o /dev/null
+          rm -f gas_webhook_value.txt env-create.json
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Rebuild and deploy Production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN" >/dev/null
+          vercel build --prod --token="$VERCEL_TOKEN"
+          vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
