@@ -1,0 +1,10 @@
+{
+  "store_id": "15",
+  "store_name": "girasol",
+  "status": "READY",
+  "entry_copy": "今の髪の悩みと、できれば避けたいことを5問で整理します。",
+  "entry_promise": "メニューを決める前の希望整理",
+  "question_focus": ["一番気になる髪悩み", "普段の扱いづらさ", "カラー・白髪の希望", "ダメージへの不安", "仕上がりで優先したいこと"],
+  "result_direction": "回答をもとに相談時に伝えたい希望を短く整理し、店舗問い合わせへつなぐ",
+  "not_a_medical_diagnosis": true
+}
