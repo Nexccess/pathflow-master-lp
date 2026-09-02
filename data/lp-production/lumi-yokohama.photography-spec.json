@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "11A-photography-spec-v0.1",
+  "storeId": "lumi-yokohama",
+  "storeName": "Lumi Yokohama",
+  "status": "READY_FOR_ASSET_GENERATION",
+  "visualDirectionRefs": [
+    "neutral charcoal / taupe / off-white",
+    "refined choice support",
+    "style comparison",
+    "medium density"
+  ],
+  "globalRules": {
+    "purpose": "11A commercial LP visual proof",
+    "photoStyle": "clean contemporary Japanese salon editorial photography with structured composition",
+    "audience": "women who have not fully decided hairstyle/color and want help translating vague preferences into concrete choices",
+    "avoid": [
+      "generic luxury-only imagery",
+      "pink/lavender beauty preset",
+      "soft-UI or SaaS visual language",
+      "overly dark moody salon imagery",
+      "extreme fashion poses",
+      "visible third-party logos or copyrighted salon branding not supplied by the store"
+    ],
+    "textInImage": false,
+    "commercialUsagePolicy": "Generated or acquired assets remain UNKNOWN until usage rights are explicitly confirmed. Do not mark CONFIRMED automatically."
+  },
+  "assets": [
+    {
+      "slot": "hero",
+      "aspectRatio": "4:5",
+      "composition": "Japanese woman in her late 20s-40s, natural light, refined contemporary hair, clear face-framing silhouette, structured negative space for copy",
+      "prompt": "Photorealistic contemporary beauty editorial in a clean Japanese hair salon. Japanese woman in her late 20s to 40s with a refined, natural hairstyle that clearly shows face-framing shape and hair texture. Bright soft natural light, off-white background, restrained taupe and neutral charcoal details, approachable and sophisticated rather than luxurious. Realistic hair texture, no text, no logos. Leave structured negative space for landing-page headline. Avoid pink/lavender gradients, dark luxury mood and extreme fashion posing.",
+      "alt": "明るいサロン空間で顔まわりと髪の質感が分かる女性スタイル"
+    },
+    {
+      "slot": "consultation",
+      "aspectRatio": "3:2",
+      "composition": "mirror-side dialogue using hairstyle references or gestures to compare directions; collaborative choice-making",
+      "prompt": "Photorealistic documentary-style consultation scene in a clean contemporary Japanese hair salon. A Japanese female client and stylist talk naturally in front of a mirror, comparing hairstyle directions through gestures and subtle reference discussion. The scene communicates collaborative decision support based on face shape, hair texture and everyday styling. Bright off-white light, restrained taupe and neutral charcoal details, calm confidence, no visible logos or text.",
+      "alt": "鏡の前で似合う方向を一緒に具体化する女性客と美容師"
+    },
+    {
+      "slot": "style_set",
+      "aspectRatio": "16:9",
+      "composition": "three clearly differentiated style directions demonstrating face framing, texture and practical wearability; structured comparison layout",
+      "prompt": "Photorealistic editorial triptych for a contemporary Japanese hair salon showing three distinct but realistic hairstyle directions for Japanese women. Each image clearly differs in face-framing shape, texture and silhouette while remaining wearable and refined. Bright clean off-white palette with restrained taupe and charcoal details, realistic shine and texture, structured comparison feel, no text, no logos, no exaggerated before-after styling.",
+      "alt": "顔まわり・質感・シルエットの異なる3つのスタイル方向"
+    }
+  ]
+}
