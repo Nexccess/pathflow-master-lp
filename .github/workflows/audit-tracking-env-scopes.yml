@@ -1,0 +1,32 @@
+name: Audit Tracking Env Scopes
+
+on:
+  push:
+    branches:
+      - production-tracking-probe
+    paths:
+      - '.github/workflows/audit-tracking-env-scopes.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: team_zg03ChGE3G43ldXdHA1teSst
+      VERCEL_PROJECT_ID: prj_lvDlySRFjmSzNNeKp1O5EpNKDRj4
+    steps:
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Audit variable names only
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          for env in production preview development; do
+            echo "=== $env ==="
+            vercel env ls "$env" --token="$VERCEL_TOKEN" 2>&1 | grep -E 'GAS_WEBHOOK_URL|Environment Variables|No Environment|NAME|Target' || true
+          done
+          echo '=== preview branch scopes ==='
+          for branch in 11b-integration sales-ready-violet-production main; do
+            echo "--- $branch ---"
+            vercel env ls preview "$branch" --token="$VERCEL_TOKEN" 2>&1 | grep -E 'GAS_WEBHOOK_URL|Environment Variables|No Environment|NAME|Target' || true
+          done
