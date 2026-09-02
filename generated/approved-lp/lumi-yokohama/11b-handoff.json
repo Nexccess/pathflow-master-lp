@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "11A-to-11B-handoff-v0.1",
+  "storeId": "lumi-yokohama",
+  "sourceStage": "11A_APPROVED_LP",
+  "approvedLp": {
+    "path": "generated\\approved-lp\\lumi-yokohama\\index.html",
+    "sha256": "91806e8877724183d6bb8eac89e5fd5e0373c11e5675b9e97f7b9c1f2e4d00d5"
+  },
+  "diagnosisIntegration": {
+    "status": "NOT_IMPLEMENTED_11A",
+    "owner": "11B",
+    "requiredFlow": [
+      "LP",
+      "5-question diagnosis",
+      "response processing",
+      "result",
+      "inquiry",
+      "tracking"
+    ]
+  },
+  "visualEvidencePolicy": "11A-visual-evidence-role-v0.1",
+  "salesReady": "BLOCKED",
+  "liveSend": "BLOCKED",
+  "releaseGate": "Kei must personally verify LP -> diagnosis -> result -> inquiry E2E before Sales Ready / Live Send approval."
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "11A-approved-lp-v0.1",
+  "storeId": "lumi-yokohama",
+  "storeName": "Lumi 横浜駅店",
+  "status": "APPROVED_11A",
+  "approvedAt": "2026-09-02T14:02:42.035060+00:00",
+  "approvedBy": "Kei",
+  "qa": {
+    "hardGate": "PASS",
+    "assetGate": "PASS",
+    "designQa": "PASS",
+    "visualEvidenceGuard": "PASS",
+    "commercialQa": "PASS"
+  },
+  "artifact": {
+    "path": "generated\\approved-lp\\lumi-yokohama\\index.html",
+    "sha256": "91806e8877724183d6bb8eac89e5fd5e0373c11e5675b9e97f7b9c1f2e4d00d5"
+  },
+  "salesReady": "BLOCKED",
+  "liveSend": "BLOCKED",
+  "nextStage": "11B_DIAGNOSIS_INTEGRATION"
+}

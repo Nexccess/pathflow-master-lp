@@ -2,34 +2,49 @@
   "schemaVersion": "11A-visual-asset-manifest-v0.1",
   "storeId": "lumi-yokohama",
   "storeName": "Lumi Yokohama",
-  "status": "ASSETS_REQUIRED",
+  "status": "READY_FOR_LP_GENERATOR",
   "assets": [
     {
       "slot": "hero",
       "brief": "自然光を感じる明るい仕上がり。曖昧な希望でも相談できる親しみと洗練を両立",
-      "src": "",
-      "alt": "",
-      "source_type": "UNKNOWN",
-      "commercial_usage_status": "UNKNOWN",
-      "generation_status": "NOT_GENERATED"
+      "src": "generated/assets/photography/lumi-yokohama/hero.webp",
+      "alt": "明るい自然光の中で顔まわりと髪の質感を見せる女性の美容イメージ",
+      "source_type": "GENERATED",
+      "commercial_usage_status": "CONFIRMED",
+      "generation_status": "GENERATED",
+      "evidence_role": "ILLUSTRATIVE",
+      "store_evidence_status": "NOT_STORE_EVIDENCE",
+      "disclosure_level": "LIGHT"
     },
     {
       "slot": "consultation",
       "brief": "鏡越しに会話しながら似合う形を具体化しているカウンセリング場面",
-      "src": "",
-      "alt": "",
-      "source_type": "UNKNOWN",
-      "commercial_usage_status": "UNKNOWN",
-      "generation_status": "NOT_GENERATED"
+      "src": "generated/assets/photography/lumi-yokohama/consultation.webp",
+      "alt": "似合う方向を一緒に具体化する美容室でのカウンセリングシーン",
+      "source_type": "GENERATED",
+      "commercial_usage_status": "CONFIRMED",
+      "generation_status": "GENERATED",
+      "evidence_role": "ILLUSTRATIVE",
+      "store_evidence_status": "NOT_STORE_EVIDENCE",
+      "disclosure_level": "FULL"
     },
     {
       "slot": "style_set",
       "brief": "艶感・扱いやすさ・自然な女性らしさが伝わる複数スタイル",
-      "src": "",
-      "alt": "",
-      "source_type": "UNKNOWN",
-      "commercial_usage_status": "UNKNOWN",
-      "generation_status": "NOT_GENERATED"
+      "src": "generated/assets/photography/lumi-yokohama/style-set.webp",
+      "alt": "顔まわりやシルエットの違いを比較できる女性向けヘアスタイル例",
+      "source_type": "GENERATED",
+      "commercial_usage_status": "CONFIRMED",
+      "generation_status": "GENERATED",
+      "evidence_role": "ILLUSTRATIVE",
+      "store_evidence_status": "NOT_STORE_EVIDENCE",
+      "disclosure_level": "FULL"
     }
-  ]
+  ],
+  "visualEvidencePolicy": {
+    "schemaVersion": "11A-visual-evidence-role-v0.1",
+    "generatedVisualPolicy": "GENERATED visuals must be treated as ILLUSTRATIVE and never as store evidence",
+    "heroDisclosure": "LIGHT",
+    "evidenceSectionDisclosure": "FULL"
+  }
 }

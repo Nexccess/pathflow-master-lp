@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "11A-to-11B-handoff-v0.1",
+  "storeId": "girasol",
+  "sourceStage": "11A_APPROVED_LP",
+  "approvedLp": {
+    "path": "generated\\approved-lp\\girasol\\index.html",
+    "sha256": "dd42a41e7dceef88896db7d03a82ad563f0108c81efad97345d29af3ff9a227d"
+  },
+  "diagnosisIntegration": {
+    "status": "NOT_IMPLEMENTED_11A",
+    "owner": "11B",
+    "requiredFlow": [
+      "LP",
+      "5-question diagnosis",
+      "response processing",
+      "result",
+      "inquiry",
+      "tracking"
+    ]
+  },
+  "visualEvidencePolicy": "11A-visual-evidence-role-v0.1",
+  "salesReady": "BLOCKED",
+  "liveSend": "BLOCKED",
+  "releaseGate": "Kei must personally verify LP -> diagnosis -> result -> inquiry E2E before Sales Ready / Live Send approval."
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "11A-approved-lp-v0.1",
+  "storeId": "girasol",
+  "storeName": "girasol",
+  "status": "APPROVED_11A",
+  "approvedAt": "2026-09-02T14:02:41.879050+00:00",
+  "approvedBy": "Kei",
+  "qa": {
+    "hardGate": "PASS",
+    "assetGate": "PASS",
+    "designQa": "PASS",
+    "visualEvidenceGuard": "PASS",
+    "commercialQa": "PASS"
+  },
+  "artifact": {
+    "path": "generated\\approved-lp\\girasol\\index.html",
+    "sha256": "dd42a41e7dceef88896db7d03a82ad563f0108c81efad97345d29af3ff9a227d"
+  },
+  "salesReady": "BLOCKED",
+  "liveSend": "BLOCKED",
+  "nextStage": "11B_DIAGNOSIS_INTEGRATION"
+}

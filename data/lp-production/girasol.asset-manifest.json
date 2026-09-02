@@ -2,34 +2,49 @@
   "schemaVersion": "11A-visual-asset-manifest-v0.1",
   "storeId": "girasol",
   "storeName": "girasol",
-  "status": "ASSETS_REQUIRED",
+  "status": "READY_FOR_LP_GENERATOR",
   "assets": [
     {
       "slot": "hero",
       "brief": "大人女性の自然な艶髪。落ち着きと安心感を優先し、過度に若いモデルや派手色は避ける",
-      "src": "",
-      "alt": "",
-      "source_type": "UNKNOWN",
-      "commercial_usage_status": "UNKNOWN",
-      "generation_status": "NOT_GENERATED"
+      "src": "generated/assets/photography/girasol/hero.webp",
+      "alt": "自然光の中で艶のある髪を見せる大人女性の美容イメージ",
+      "source_type": "GENERATED",
+      "commercial_usage_status": "CONFIRMED",
+      "generation_status": "GENERATED",
+      "evidence_role": "ILLUSTRATIVE",
+      "store_evidence_status": "NOT_STORE_EVIDENCE",
+      "disclosure_level": "LIGHT"
     },
     {
       "slot": "consultation",
       "brief": "髪や頭皮の状態を確認しながら相談していることが伝わる静かなカウンセリング場面",
-      "src": "",
-      "alt": "",
-      "source_type": "UNKNOWN",
-      "commercial_usage_status": "UNKNOWN",
-      "generation_status": "NOT_GENERATED"
+      "src": "generated/assets/photography/girasol/consultation.webp",
+      "alt": "髪の状態を確認しながら相談する落ち着いたカウンセリングシーン",
+      "source_type": "GENERATED",
+      "commercial_usage_status": "CONFIRMED",
+      "generation_status": "GENERATED",
+      "evidence_role": "ILLUSTRATIVE",
+      "store_evidence_status": "NOT_STORE_EVIDENCE",
+      "disclosure_level": "FULL"
     },
     {
       "slot": "style_set",
       "brief": "白髪・うねり・広がり・艶不足を抱える人が自分事化しやすい、自然な仕上がりの複数スタイル",
-      "src": "",
-      "alt": "",
-      "source_type": "UNKNOWN",
-      "commercial_usage_status": "UNKNOWN",
-      "generation_status": "NOT_GENERATED"
+      "src": "generated/assets/photography/girasol/style-set.webp",
+      "alt": "自然な艶と扱いやすさを意識した大人女性向けヘアスタイル例",
+      "source_type": "GENERATED",
+      "commercial_usage_status": "CONFIRMED",
+      "generation_status": "GENERATED",
+      "evidence_role": "ILLUSTRATIVE",
+      "store_evidence_status": "NOT_STORE_EVIDENCE",
+      "disclosure_level": "FULL"
     }
-  ]
+  ],
+  "visualEvidencePolicy": {
+    "schemaVersion": "11A-visual-evidence-role-v0.1",
+    "generatedVisualPolicy": "GENERATED visuals must be treated as ILLUSTRATIVE and never as store evidence",
+    "heroDisclosure": "LIGHT",
+    "evidenceSectionDisclosure": "FULL"
+  }
 }
