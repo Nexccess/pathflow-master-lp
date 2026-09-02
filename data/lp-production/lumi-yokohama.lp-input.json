@@ -1,15 +1,17 @@
 {
-  "schemaVersion": "11A-lp-input-v0.2",
+  "schemaVersion": "11A-lp-input-v0.3",
   "storeId": "lumi-yokohama",
   "storeName": "Lumi 横浜駅店",
   "metaDescription": "Lumi 横浜駅店の11A Creative QA用LPドラフト。曖昧な希望を骨格・髪質・扱いやすさから具体化する提案価値をEvidenceに基づき整理。",
   "layoutMode": "structured",
+  "compositionProfile": "image-led",
+  "heroObjectPosition": "50% 42%",
   "theme": {
     "background": "#F5F3EF", "surface": "#FFFFFF", "text": "#272727", "mutedText": "#68635F", "primary": "#343434", "accent": "#98897E", "border": "#D9D4CF", "radius": "12px", "shadow": "0 10px 30px rgba(0,0,0,.05)", "headingFont": "'Helvetica Neue', Arial, sans-serif", "bodyFont": "'Yu Gothic', 'Hiragino Kaku Gothic ProN', sans-serif"
   },
   "sections": [
     {
-      "id":"hero","type":"hero","eyebrow":"Lumi Yokohama","title":"曖昧なイメージのままでも、似合う方向は一緒に具体化できる。","body":"髪型やカラーを決め切れていなくても、骨格・髪質・普段の扱いやすさを手がかりに相談できる提案型の美容室。","bullets":["横浜駅東口から徒歩5分と公式案内","骨格・髪質を踏まえた提案","平日10:00〜22:00と公式案内"],"claimBlocks":[{"claimClass":"GENERATED_COPY","sourceRefs":["message_strategy.core_message","visual_direction.creativeConcept"]},{"claimClass":"FACT","sourceRefs":["store_intelligence.store_facts.access","store_intelligence.store_facts.positioning","store_intelligence.store_facts.hours"]}]
+      "id":"hero","type":"hero","eyebrow":"Lumi Yokohama","title":"曖昧なイメージのままでも、似合う方向は一緒に具体化できる。","titleLines":["曖昧なイメージのままでも、","似合う方向は","一緒に具体化できる。"],"body":"髪型やカラーを決め切れていなくても、骨格・髪質・普段の扱いやすさを手がかりに相談できる提案型の美容室。","bullets":["横浜駅東口から徒歩5分と公式案内","骨格・髪質を踏まえた提案","平日10:00〜22:00と公式案内"],"claimBlocks":[{"claimClass":"GENERATED_COPY","sourceRefs":["message_strategy.core_message","visual_direction.creativeConcept"]},{"claimClass":"FACT","sourceRefs":["store_intelligence.store_facts.access","store_intelligence.store_facts.positioning","store_intelligence.store_facts.hours"]}]
     },
     {
       "id":"choice","type":"comparison","assetSlot":"style_set","eyebrow":"Choice Support","title":"“どうしたいか”が曖昧でも、判断材料から整理する。","body":"Lumiの口コミでは、ざっくりした要望を汲み取りながら、骨格・髪質や顔まわりを踏まえて提案する点が評価されています。","items":[{"label":"Direction 01","title":"雰囲気から考える","body":"まずは、なりたい印象や避けたい印象を言葉にする。"},{"label":"Direction 02","title":"骨格・髪質から考える","body":"顔まわり、髪質、普段の扱い方を判断材料にする。"},{"label":"Direction 03","title":"毎日から考える","body":"仕上がった瞬間だけでなく、日常で扱いやすい方向を選ぶ。"}],"claimBlocks":[{"claimClass":"REVIEW_EVIDENCE","sourceRefs":["customer_voice.themes.曖昧な希望を汲み取るカウンセリング","customer_voice.themes.骨格・髪質に合わせた提案"]},{"claimClass":"GENERATED_COPY","sourceRefs":["message_strategy.supporting_messages"]}]
