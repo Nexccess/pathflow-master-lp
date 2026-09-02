@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "11A-visual-asset-manifest-v0.1",
+  "storeId": "lumi-yokohama",
+  "storeName": "Lumi Yokohama",
+  "status": "ASSETS_REQUIRED",
+  "assets": [
+    {
+      "slot": "hero",
+      "brief": "自然光を感じる明るい仕上がり。曖昧な希望でも相談できる親しみと洗練を両立",
+      "src": "",
+      "alt": "",
+      "source_type": "UNKNOWN",
+      "commercial_usage_status": "UNKNOWN",
+      "generation_status": "NOT_GENERATED"
+    },
+    {
+      "slot": "consultation",
+      "brief": "鏡越しに会話しながら似合う形を具体化しているカウンセリング場面",
+      "src": "",
+      "alt": "",
+      "source_type": "UNKNOWN",
+      "commercial_usage_status": "UNKNOWN",
+      "generation_status": "NOT_GENERATED"
+    },
+    {
+      "slot": "style_set",
+      "brief": "艶感・扱いやすさ・自然な女性らしさが伝わる複数スタイル",
+      "src": "",
+      "alt": "",
+      "source_type": "UNKNOWN",
+      "commercial_usage_status": "UNKNOWN",
+      "generation_status": "NOT_GENERATED"
+    }
+  ]
+}
