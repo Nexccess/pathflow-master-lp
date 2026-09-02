@@ -1,15 +1,17 @@
 {
-  "schemaVersion": "11A-lp-input-v0.2",
+  "schemaVersion": "11A-lp-input-v0.3",
   "storeId": "girasol",
   "storeName": "girasol",
   "metaDescription": "girasolの11A Creative QA用LPドラフト。髪や頭皮への配慮、相談のしやすさ、毎日の扱いやすさをEvidenceに基づき整理。",
   "layoutMode": "organic",
+  "compositionProfile": "editorial-offset",
+  "heroObjectPosition": "38% 50%",
   "theme": {
     "background": "#F4F0E6", "surface": "#FBF8F1", "text": "#20372F", "mutedText": "#5F6E67", "primary": "#29483E", "accent": "#9B7B52", "border": "#D8D0C0", "radius": "28px", "shadow": "0 18px 48px rgba(32,55,47,.08)", "headingFont": "Georgia, 'Times New Roman', serif", "bodyFont": "'Yu Gothic', 'Hiragino Kaku Gothic ProN', sans-serif"
   },
   "sections": [
     {
-      "id": "hero", "type": "hero", "eyebrow": "girasol / Yokohama", "title": "髪を無理に変える前に、今の状態から一緒に考える。", "body": "傷ませたくない。白髪やうねり、広がりも気になる。そんな迷いを、髪と頭皮の状態を見ながら整理していく相談型の美容室。", "bullets": ["横浜駅徒歩3分と案内", "髪・頭皮の状態を見ながら相談", "髪質改善・ケア・カラーを選択肢として提案"],
+      "id": "hero", "type": "hero", "eyebrow": "girasol / Yokohama", "title": "髪を無理に変える前に、今の状態から一緒に考える。", "titleLines": ["髪を無理に変える前に、", "今の状態から", "一緒に考える。"], "body": "傷ませたくない。白髪やうねり、広がりも気になる。そんな迷いを、髪と頭皮の状態を見ながら整理していく相談型の美容室。", "bullets": ["横浜駅徒歩3分と案内", "髪・頭皮の状態を見ながら相談", "髪質改善・ケア・カラーを選択肢として提案"],
       "claimBlocks": [{"claimClass":"GENERATED_COPY","sourceRefs":["message_strategy.core_message","visual_direction.creativeConcept"]},{"claimClass":"FACT","sourceRefs":["store_intelligence.store_facts.access","store_intelligence.store_facts.positioning"]}]
     },
     {
