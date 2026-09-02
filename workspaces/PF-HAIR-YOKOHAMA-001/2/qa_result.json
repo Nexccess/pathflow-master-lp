@@ -1,10 +1,19 @@
 {
   "store_id": "2",
   "store_name": "EARTH 横浜店",
-  "decision": "REVIEW_REQUIRED",
-  "commercial_qa": "PASS_WITH_REVIEW",
-  "design_qa": "PASS_WITH_REVIEW",
-  "checks": {"store_specific_message":"PASS","customer_voice_grounding":"PASS","diagnosis_role":"PASS","mobile_first_structure":"PASS","persistent_diagnosis_cta":"PASS","violet_template_copy":"PASS_NOT_COPIED","final_visual_quality":"HUMAN_REVIEW_REQUIRED","official_image_display":"BROWSER_REVIEW_REQUIRED"},
-  "review_reason": "Initial validation store. Visual attractiveness and commercial impression must be reviewed by Kei before approval.",
+  "decision": "REVISION_REQUIRED",
+  "commercial_qa": "HOLD",
+  "design_qa": "REVISION_REQUIRED",
+  "checks": {
+    "store_specific_message": "PASS",
+    "customer_voice_grounding": "PASS",
+    "diagnosis_role": "PASS_CONCEPT",
+    "mobile_first_structure": "PASS_STRUCTURE",
+    "persistent_diagnosis_cta": "FAIL_PLACEHOLDER_LINK",
+    "violet_template_copy": "PASS_NOT_COPIED",
+    "final_visual_quality": "FAIL_BELOW_REFERENCE_QUALITY_BAR",
+    "official_image_display": "NOT_YET_BROWSER_CONFIRMED"
+  },
+  "review_reason": "Direction audit detected that the draft is still too close to a simple text/card LP and does not yet meet the commercial visual quality bar established by Violet Reference Case #01. The diagnosis CTA is also still a placeholder link. Revise creative before browser/Human Review.",
   "sales_eligible": false
 }
