@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "11A-photography-spec-v0.1",
+  "storeId": "girasol",
+  "storeName": "girasol",
+  "status": "READY_FOR_ASSET_GENERATION",
+  "visualDirectionRefs": [
+    "deep muted green / warm ivory",
+    "adult calm consultation",
+    "natural gloss",
+    "low-medium density"
+  ],
+  "globalRules": {
+    "purpose": "11A commercial LP visual proof",
+    "photoStyle": "natural editorial salon photography; realistic Japanese beauty-salon context",
+    "audience": "adult women, especially customers concerned about hair/scalp condition and age-related texture changes",
+    "avoid": [
+      "generic pink/lavender beauty advertising",
+      "teen/very-young fashion model emphasis",
+      "neon or glossy tech UI aesthetics",
+      "over-retouched plastic hair texture",
+      "medical treatment imagery or therapeutic implication",
+      "visible third-party logos or copyrighted salon branding not supplied by the store"
+    ],
+    "textInImage": false,
+    "commercialUsagePolicy": "Generated or acquired assets remain UNKNOWN until usage rights are explicitly confirmed. Do not mark CONFIRMED automatically."
+  },
+  "assets": [
+    {
+      "slot": "hero",
+      "aspectRatio": "4:5",
+      "composition": "single adult Japanese woman, natural glossy hair, calm three-quarter portrait, generous negative space for copy, warm ivory salon light with restrained deep-green environmental accents",
+      "prompt": "Photorealistic editorial beauty photograph in a refined Japanese hair salon. Adult Japanese woman around her 40s-50s with natural healthy-looking glossy hair, elegant but not glamorous, calm expression, subtle age-appropriate styling. Warm ivory natural light, restrained deep muted green environmental accents, quiet premium atmosphere, realistic hair texture, no extreme retouching, no visible brand logos, no text. Composition leaves generous negative space for landing-page headline. Avoid pink, lavender, neon, youthful trend-ad styling and medical treatment cues.",
+      "alt": "落ち着いたサロン空間で自然な艶髪を見せる大人女性"
+    },
+    {
+      "slot": "consultation",
+      "aspectRatio": "3:2",
+      "composition": "stylist and adult woman seated at mirror; consultation focused on hair/scalp condition; quiet natural interaction rather than posing",
+      "prompt": "Photorealistic documentary-style consultation scene inside a refined Japanese hair salon. Adult Japanese female client seated at a mirror while a stylist carefully discusses her hair condition and styling concerns. Calm, attentive body language, no forced smiles, no treatment claims, no medical equipment. Warm ivory light with muted green accents, natural textures, quiet premium mood, realistic salon environment, no visible logos or text.",
+      "alt": "髪の状態を確認しながら相談する大人女性と美容師"
+    },
+    {
+      "slot": "style_set",
+      "aspectRatio": "16:9",
+      "composition": "three-image editorial set showing natural manageable finishes for grey blending, waviness/frizz and gloss concerns; consistent adult audience",
+      "prompt": "Photorealistic editorial triptych for a Japanese hair salon showing three adult Japanese women with naturally finished, manageable hairstyles. Emphasize realistic shine, controlled waviness or frizz, soft grey-blending/color nuance and everyday wearability. Mature, calm, refined styling; consistent warm ivory palette with restrained deep green accents. No exaggerated before-after claims, no text, no logos, no plastic AI hair texture.",
+      "alt": "大人女性の自然で扱いやすい仕上がりを示すスタイル例"
+    }
+  ]
+}
