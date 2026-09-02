@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathflow.local/schemas/store_intelligence_input.schema.json",
+  "title": "Path-Flow Store Intelligence Input Schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "store_intelligence_status",
+    "identity",
+    "customer_voice",
+    "store_facts",
+    "brand_visual_facts",
+    "visual_assets",
+    "claim_safety",
+    "evidence_registry",
+    "unknown_missing"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "store_intelligence_status": {
+      "enum": ["READY_FOR_INTERPRETATION", "INSUFFICIENT", "CONFLICT_REVIEW_REQUIRED"]
+    },
+    "identity": {
+      "type": "object",
+      "required": ["store_id", "campaign_id", "store_name", "category", "area", "official_website_url"],
+      "properties": {
+        "store_id": {"type": ["string", "integer"]},
+        "campaign_id": {"type": "string"},
+        "store_name": {"type": "string", "minLength": 1},
+        "category": {"type": "string", "minLength": 1},
+        "area": {"type": "string", "minLength": 1},
+        "official_website_url": {"type": ["string", "null"]},
+        "brand_name": {"type": ["string", "null"]},
+        "group_name": {"type": ["string", "null"]},
+        "branch_name": {"type": ["string", "null"]},
+        "google_maps_url": {"type": ["string", "null"]},
+        "hotpepper_url": {"type": ["string", "null"]},
+        "instagram_url": {"type": ["string", "null"]},
+        "other_public_urls": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "contact_location": {"type": "object", "additionalProperties": true},
+    "services": {"type": "object", "additionalProperties": true},
+    "customer_voice": {
+      "type": "object",
+      "required": ["review_sources", "positive_voice_samples", "repeated_praise_themes", "repeated_concern_themes", "repeated_desire_themes"],
+      "properties": {
+        "review_sources": {"type": "array"},
+        "review_count_observed": {"type": ["integer", "null"], "minimum": 0},
+        "rating_observed": {"type": ["number", "null"]},
+        "positive_voice_samples": {"type": "array"},
+        "negative_or_anxiety_voice_samples": {"type": "array"},
+        "recurring_keywords": {"type": "array", "items": {"type": "string"}},
+        "repeated_praise_themes": {"type": "array"},
+        "repeated_concern_themes": {"type": "array"},
+        "repeated_desire_themes": {"type": "array"},
+        "repeated_experience_themes": {"type": "array"},
+        "repeated_result_themes": {"type": "array"}
+      },
+      "additionalProperties": true
+    },
+    "store_facts": {
+      "type": "object",
+      "properties": {
+        "stated_store_philosophy": {"type": "array"},
+        "stated_strengths": {"type": "array"},
+        "facilities": {"type": "array"},
+        "staff_features": {"type": "array"},
+        "accessibility_features": {"type": "array"},
+        "location_features": {"type": "array"},
+        "awards_or_credentials": {"type": "array"},
+        "explicit_target_statements": {"type": "array"}
+      },
+      "additionalProperties": true
+    },
+    "brand_visual_facts": {
+      "type": "object",
+      "required": ["logo_available", "existing_primary_colors", "website_visual_tone_observed", "photo_subjects_observed"],
+      "properties": {
+        "logo_available": {"type": "boolean"},
+        "logo_source": {"type": ["string", "null"]},
+        "existing_primary_colors": {"type": "array", "items": {"type": "string"}},
+        "existing_secondary_colors": {"type": "array", "items": {"type": "string"}},
+        "typography_observed": {"type": ["string", "null"]},
+        "website_visual_tone_observed": {"type": "array", "items": {"type": "string"}},
+        "interior_visual_tone_observed": {"type": "array", "items": {"type": "string"}},
+        "exterior_visual_tone_observed": {"type": "array", "items": {"type": "string"}},
+        "photo_subjects_observed": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "visual_assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["asset_id", "asset_type", "subject", "commercial_usage_status"],
+        "properties": {
+          "asset_id": {"type": "string"},
+          "asset_type": {"type": "string"},
+          "source_url_or_repo_path": {"type": ["string", "null"]},
+          "subject": {"type": "string"},
+          "orientation": {"type": ["string", "null"]},
+          "resolution_if_known": {"type": ["string", "null"]},
+          "visual_quality": {"enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+          "commercial_usage_status": {"enum": ["CONFIRMED", "NOT_CONFIRMED", "RESTRICTED", "UNKNOWN"]},
+          "evidence_source": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "competitor_market_context": {"type": "object", "additionalProperties": true},
+    "claim_safety": {
+      "type": "object",
+      "required": ["prohibited_claims", "unverified_claims", "fact_conflicts"],
+      "properties": {
+        "prohibited_claims": {"type": "array"},
+        "unverified_claims": {"type": "array"},
+        "medical_or_treatment_risk_terms": {"type": "array"},
+        "guarantee_risk_terms": {"type": "array"},
+        "fact_conflicts": {"type": "array"}
+      },
+      "additionalProperties": true
+    },
+    "evidence_registry": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "evidence_type", "source_name", "supported_fields", "confidence"],
+        "properties": {
+          "evidence_id": {"type": "string"},
+          "evidence_type": {"enum": ["OFFICIAL", "REVIEW", "GOOGLE", "SNS", "THIRD_PARTY", "IMAGE"]},
+          "source_name": {"type": "string"},
+          "source_url": {"type": ["string", "null"]},
+          "captured_at_or_checked_at": {"type": ["string", "null"]},
+          "supported_fields": {"type": "array", "items": {"type": "string"}},
+          "confidence": {"enum": ["HIGH", "MEDIUM", "LOW"]},
+          "notes": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "unknown_missing": {
+      "type": "object",
+      "required": ["missing_required_fields", "unresolved_conflicts", "insufficient_visual_assets", "insufficient_customer_voice"],
+      "properties": {
+        "missing_required_fields": {"type": "array", "items": {"type": "string"}},
+        "missing_optional_fields": {"type": "array", "items": {"type": "string"}},
+        "unresolved_conflicts": {"type": "array"},
+        "insufficient_visual_assets": {"type": "boolean"},
+        "insufficient_customer_voice": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

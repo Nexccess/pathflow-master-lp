@@ -1,0 +1,10 @@
+{
+  "store_id": "5",
+  "store_name": "美容院 Lumi 横浜駅店",
+  "status": "READY",
+  "primary_cta": "希望を整理する（無料・5問）",
+  "primary_placement": ["Hero直下", "モバイル下部の常時表示", "相談力・口コミ提示後"],
+  "secondary_cta": "診断結果から店舗へ問い合わせる",
+  "cta_intent": "曖昧な希望を言語化してから相談へ進める",
+  "avoid": ["即予約だけを迫るCTA", "割引を主役にしたCTA"]
+}

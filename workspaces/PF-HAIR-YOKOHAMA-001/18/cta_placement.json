@@ -1,0 +1,10 @@
+{
+  "store_id": "18",
+  "store_name": "マーブルズ 横浜店",
+  "status": "READY",
+  "primary_cta": "希望を整理する（無料・5問）",
+  "primary_placement": ["Hero直下", "モバイル下部の常時表示", "スタイル・口コミ提示後"],
+  "secondary_cta": "診断結果から店舗へ問い合わせる",
+  "cta_intent": "変えたいところと残したいところを整理してから相談へ進む",
+  "avoid": ["女性だけを前提にしたCTA", "クーポン訴求を主役にするCTA"]
+}

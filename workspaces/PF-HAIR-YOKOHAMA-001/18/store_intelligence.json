@@ -1,0 +1,39 @@
+{
+  "campaign_id": "PF-HAIR-YOKOHAMA-001",
+  "store_id": "18",
+  "store_name": "marbles 横浜店",
+  "category": "美容室",
+  "research_status": "READY_FOR_MESSAGE_STRATEGY",
+  "observed_at": "2026-09-02",
+  "store_facts": {
+    "address": "神奈川県横浜市西区北幸1-5-3 アーバンヨコハマビル8F",
+    "access": "横浜駅西口徒歩2分と案内",
+    "positioning": [
+      "イルミナカラーやオイルカラーなどカラー提案",
+      "悩みに合わせた複数トリートメント",
+      "顧客と一緒にスタイルを見つける相談型訴求",
+      "メンズカット、白髪ぼかし、ヘッドスパ等も公開"
+    ],
+    "review_signal": {
+      "hotpepper_average_observed": 4.59,
+      "service": 4.7,
+      "finish": 4.6,
+      "price": 4.5,
+      "customer_mix_signal": "女性40代・50代以上のレビューが比較的多く、男性レビューも一定数ある"
+    }
+  },
+  "commercial_hypotheses": [
+    "カラーやケアを選びきれない人に、希望・悩みから方向を整理する導線が合う",
+    "若年層だけに寄せず、大人女性とメンズを含む幅広いユーザーを扱える",
+    "駅近と相談型のスタイル提案を安心材料として組み合わせやすい"
+  ],
+  "evidence_urls": [
+    "https://marbles-yokohama.com/",
+    "https://marbles-yokohama.com/coupon/",
+    "https://beauty.hotpepper.jp/slnH000192905/review/"
+  ],
+  "guardrails": [
+    "口コミ件数は取得時点で変動するため固定訴求する場合は再確認する",
+    "特定スタイリストへの高評価を店舗全体の保証に一般化しない"
+  ]
+}

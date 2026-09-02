@@ -1,0 +1,22 @@
+{
+  "store_id": "5",
+  "store_name": "美容院 Lumi 横浜駅店",
+  "status": "DRAFT_READY_FOR_RENDER",
+  "hero": {
+    "eyebrow": "YOKOHAMA EAST / PERSONAL HAIR DESIGN",
+    "headline": "うまく言えなくても、\n似合う髪は一緒に見つけられる。",
+    "subcopy": "『こんな感じ』しか決まっていなくても大丈夫。骨格や髪質、普段の過ごし方を見ながら、似合う形と扱いやすさを一緒に具体化します。",
+    "primary_cta": "希望を整理する（無料・5問）"
+  },
+  "sections": [
+    {"type": "problem_empathy", "title": "髪型の希望を、上手に説明できなくても。", "points": ["似合う髪型が分からない", "写真はあるけれど、自分に合うか不安", "毎朝のセットを少し楽にしたい"]},
+    {"type": "why_store", "title": "Lumiで相談しやすい理由", "items": ["骨格や髪質を見ながら形を考える", "曖昧な希望を会話の中で具体化する", "仕上がりだけでなく普段の扱いやすさも考える"]},
+    {"type": "customer_voice", "title": "『決めきれない』から始められる。", "summary": "公開口コミでは、曖昧な希望でも丁寧に汲み取ってもらえたこと、髪質や骨格を踏まえた提案、相談時の安心感が評価されています。"},
+    {"type": "style_direction", "title": "自分に似合う、ちょうどいい変化。", "copy": "大きく変える日も、少しだけ整える日も。自分らしさを残した仕上がりへ。"},
+    {"type": "diagnosis_entry", "title": "まず5問で、なりたい印象を整理。", "copy": "言葉にしづらい希望も、質問に答えるだけで相談しやすい形に整理できます。", "cta": "希望を整理する（無料・5問）"},
+    {"type": "store_contact", "title": "整理した希望を、そのまま相談へ。", "cta": "Lumi 横浜駅店に問い合わせる"}
+  ],
+  "floating_cta": "希望を整理する（無料・5問）",
+  "mobile_first": true,
+  "quality_note": "Violetの構成コピーではなく、Lumi固有の明るさ・相談力・似合わせを中心に設計"
+}
