@@ -24,13 +24,29 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify(event)
     });
 
+    const raw = await upstream.text().catch(() => '');
+    let upstreamResult = null;
+    try {
+      upstreamResult = raw ? JSON.parse(raw) : null;
+    } catch (_) {
+      upstreamResult = null;
+    }
+
     if (!upstream.ok) {
-      const detail = await upstream.text().catch(() => '');
       return res.status(502).json({
         ok: false,
         persisted: false,
         error: `Tracking upstream rejected event (${upstream.status})`,
-        detail: detail.slice(0, 200)
+        detail: raw.slice(0, 200)
+      });
+    }
+
+    if (!upstreamResult || upstreamResult.persisted !== true) {
+      return res.status(502).json({
+        ok: false,
+        persisted: false,
+        error: 'Tracking upstream did not confirm persistence',
+        detail: raw.slice(0, 200)
       });
     }
 
