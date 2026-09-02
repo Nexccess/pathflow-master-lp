@@ -1,0 +1,73 @@
+name: Extend Tracking Env Target to Production
+
+on:
+  push:
+    branches:
+      - production-tracking-probe
+    paths:
+      - '.github/workflows/extend-tracking-env-target.yml'
+
+jobs:
+  extend-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: team_zg03ChGE3G43ldXdHA1teSst
+      VERCEL_PROJECT_ID: prj_lvDlySRFjmSzNNeKp1O5EpNKDRj4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extend existing sensitive GAS_WEBHOOK_URL target
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error \
+            -H "Authorization: Bearer $VERCEL_TOKEN" \
+            "https://api.vercel.com/v10/projects/${VERCEL_PROJECT_ID}/env?teamId=${VERCEL_ORG_ID}" \
+            -o vercel-env.json
+          ENV_ID=$(python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('vercel-env.json').read_text(encoding='utf-8'))
+          envs = data.get('envs') or data.get('env') or []
+          for item in envs:
+              if item.get('key') == 'GAS_WEBHOOK_URL' and 'preview' in (item.get('target') or []) and not item.get('gitBranch'):
+                  print(item['id'])
+                  break
+          else:
+              raise SystemExit('Project-wide Preview GAS_WEBHOOK_URL not found')
+          PY
+          )
+          test -n "$ENV_ID"
+          curl --fail --silent --show-error \
+            -X PATCH \
+            -H "Authorization: Bearer $VERCEL_TOKEN" \
+            -H 'Content-Type: application/json' \
+            --data '{"target":["preview","production"]}' \
+            "https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}/env/${ENV_ID}?teamId=${VERCEL_ORG_ID}" \
+            -o patch-result.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('patch-result.json').read_text(encoding='utf-8'))
+          targets = data.get('target') or []
+          if 'preview' not in targets or 'production' not in targets:
+              raise SystemExit(f'Unexpected target result: {targets}')
+          if data.get('key') != 'GAS_WEBHOOK_URL':
+              raise SystemExit('Unexpected environment variable updated')
+          print('TRACKING_ENV_TARGET_EXTENDED')
+          PY
+          rm -f vercel-env.json patch-result.json
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Rebuild and deploy Production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN" >/dev/null
+          vercel build --prod --token="$VERCEL_TOKEN"
+          vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
