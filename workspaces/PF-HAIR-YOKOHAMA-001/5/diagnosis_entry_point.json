@@ -1,0 +1,10 @@
+{
+  "store_id": "5",
+  "store_name": "美容院 Lumi 横浜駅店",
+  "status": "READY",
+  "entry_copy": "うまく言葉にできない希望も、5問で整理できます。",
+  "entry_promise": "似合う形と扱いやすさを相談する前の希望整理",
+  "question_focus": ["なりたい印象", "今困っていること", "普段のスタイリング時間", "変えたい度合い", "仕上がりで優先したいこと"],
+  "result_direction": "回答を短い相談メモにまとめ、店舗問い合わせ時に使える形へつなぐ",
+  "not_a_medical_diagnosis": true
+}
