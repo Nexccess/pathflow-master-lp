@@ -1,0 +1,10 @@
+{
+  "store_id": "18",
+  "store_name": "マーブルズ 横浜店",
+  "status": "READY",
+  "entry_copy": "変えたいところと、残したいところ。5問で整理します。",
+  "entry_promise": "イメージを固めすぎず、相談しやすい状態をつくる",
+  "question_focus": ["変えたい度合い", "残したいポイント", "なりたい印象", "普段の手入れ", "カラー・カットで優先したいこと"],
+  "result_direction": "変化量と優先事項を相談メモとして整理し、店舗問い合わせへつなぐ",
+  "not_a_medical_diagnosis": true
+}
