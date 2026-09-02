@@ -20,7 +20,7 @@ jobs:
           status=$(curl --silent --show-error --output "$response_file" --write-out '%{http_code}' \
             --request POST 'https://pathflow-master-lp.vercel.app/api/track' \
             --header 'Content-Type: application/json' \
-            --data "{\"event\":\"sales_ready_production_probe\",\"store_id\":\"9\",\"source\":\"github-actions\",\"probe_run_id\":\"${RUN_ID}\"}")
+            --data "{\"event\":\"reception_open\",\"storeId\":\"9\",\"path\":\"/p/9/reception\",\"message\":\"sales_ready_production_probe_${RUN_ID}\",\"source\":\"github-actions\",\"probe_run_id\":\"${RUN_ID}\"}")
           body=$(cat "$response_file")
           echo "HTTP_STATUS=$status"
           echo "BODY=$body"
@@ -32,4 +32,3 @@ jobs:
               raise SystemExit(f"Tracking persistence not confirmed: {data}")
           print('PRODUCTION_TRACKING_CONFIRMED')
           PY
-# rerun after Production env target promotion
