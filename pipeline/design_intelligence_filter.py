@@ -5,7 +5,12 @@ This module does not invent semantic assessments. A preceding assessment step
 must compare each UI/UX Pro Max candidate against Store Intelligence,
 Interpretation, Creative Concept, and existing brand evidence.
 
-This gate converts those explicit assessments into an auditable disposition:
+The gate distinguishes two scopes:
+- STORE_SENSITIVE: visual/creative recommendations that must be store-specific.
+- UNIVERSAL_GUARDRAIL: UX/accessibility/responsive rules that may intentionally
+  be shared across stores.
+
+It converts explicit assessments into an auditable disposition:
 ACCEPT / MODIFY / REJECT / REVIEW_REQUIRED.
 """
 
@@ -19,11 +24,13 @@ from typing import Any
 ALLOWED = {
     "evidenceAlignment": {"PASS", "PARTIAL", "CONFLICT", "UNKNOWN"},
     "creativeConceptAlignment": {"PASS", "PARTIAL", "CONFLICT", "UNKNOWN"},
-    "storeSpecificity": {"HIGH", "MEDIUM", "LOW", "UNKNOWN"},
-    "genericnessRisk": {"LOW", "MEDIUM", "HIGH", "UNKNOWN"},
+    "storeSpecificity": {"HIGH", "MEDIUM", "LOW", "NOT_REQUIRED", "UNKNOWN"},
+    "genericnessRisk": {"LOW", "MEDIUM", "HIGH", "NOT_APPLICABLE", "UNKNOWN"},
     "claimSafety": {"PASS", "RISK", "FAIL", "UNKNOWN"},
     "existingBrandAlignment": {"PASS", "PARTIAL", "CONFLICT", "NOT_APPLICABLE", "UNKNOWN"},
 }
+
+ALLOWED_SCOPES = {"STORE_SENSITIVE", "UNIVERSAL_GUARDRAIL"}
 
 
 def validate_candidate(candidate: dict[str, Any]) -> list[str]:
@@ -32,6 +39,8 @@ def validate_candidate(candidate: dict[str, Any]) -> list[str]:
         value = candidate.get(field)
         if value not in allowed:
             errors.append(f"invalid_{field}:{value}")
+    if candidate.get("candidateScope") not in ALLOWED_SCOPES:
+        errors.append(f"invalid_candidateScope:{candidate.get('candidateScope')}")
     if not str(candidate.get("candidateId") or "").strip():
         errors.append("missing_candidateId")
     if not str(candidate.get("recommendation") or "").strip():
@@ -44,6 +53,7 @@ def validate_candidate(candidate: dict[str, Any]) -> list[str]:
 def disposition(candidate: dict[str, Any]) -> tuple[str, list[str]]:
     reasons: list[str] = []
 
+    scope = candidate["candidateScope"]
     evidence = candidate["evidenceAlignment"]
     concept = candidate["creativeConceptAlignment"]
     specificity = candidate["storeSpecificity"]
@@ -51,7 +61,7 @@ def disposition(candidate: dict[str, Any]) -> tuple[str, list[str]]:
     claim = candidate["claimSafety"]
     brand = candidate["existingBrandAlignment"]
 
-    # Hard reject conditions: unsafe claims or direct conflict with authoritative inputs.
+    # Hard reject conditions shared by both scopes.
     if claim == "FAIL":
         reasons.append("claim_safety_fail")
     if evidence == "CONFLICT":
@@ -60,7 +70,9 @@ def disposition(candidate: dict[str, Any]) -> tuple[str, list[str]]:
         reasons.append("creative_concept_conflict")
     if brand == "CONFLICT":
         reasons.append("existing_brand_conflict")
-    if specificity == "LOW" and genericness == "HIGH":
+
+    # Only creative/visual recommendations are required to be store-specific.
+    if scope == "STORE_SENSITIVE" and specificity == "LOW" and genericness == "HIGH":
         reasons.append("generic_industry_preset_risk")
 
     if reasons:
@@ -85,7 +97,6 @@ def disposition(candidate: dict[str, Any]) -> tuple[str, list[str]]:
     if claim == "RISK":
         return "REVIEW_REQUIRED", ["claim_safety_risk"]
 
-    # Modify when useful but not safe/strong enough to adopt unchanged.
     modify_reasons: list[str] = []
     if evidence == "PARTIAL":
         modify_reasons.append("partial_evidence_alignment")
@@ -93,12 +104,20 @@ def disposition(candidate: dict[str, Any]) -> tuple[str, list[str]]:
         modify_reasons.append("partial_creative_concept_alignment")
     if brand == "PARTIAL":
         modify_reasons.append("partial_existing_brand_alignment")
-    if specificity == "LOW":
-        modify_reasons.append("low_store_specificity")
-    if genericness == "HIGH":
-        modify_reasons.append("high_genericness_risk")
-    if genericness == "MEDIUM" and specificity != "HIGH":
-        modify_reasons.append("genericness_requires_store_specific_adaptation")
+
+    if scope == "STORE_SENSITIVE":
+        if specificity == "LOW":
+            modify_reasons.append("low_store_specificity")
+        if genericness == "HIGH":
+            modify_reasons.append("high_genericness_risk")
+        if genericness == "MEDIUM" and specificity != "HIGH":
+            modify_reasons.append("genericness_requires_store_specific_adaptation")
+    else:
+        # Universal guardrails are allowed to be identical across stores.
+        if specificity not in {"NOT_REQUIRED", "MEDIUM", "HIGH"}:
+            modify_reasons.append("universal_guardrail_specificity_should_be_not_required")
+        if genericness not in {"NOT_APPLICABLE", "LOW", "MEDIUM"}:
+            modify_reasons.append("universal_guardrail_genericness_should_be_not_applicable")
 
     if modify_reasons:
         return "MODIFY", modify_reasons
@@ -108,7 +127,7 @@ def disposition(candidate: dict[str, Any]) -> tuple[str, list[str]]:
 
 def filter_document(document: dict[str, Any]) -> dict[str, Any]:
     output: dict[str, Any] = {
-        "schemaVersion": "11A-design-intelligence-filter-v0.1",
+        "schemaVersion": "11A-design-intelligence-filter-v0.2",
         "storeId": document.get("storeId"),
         "sourceAdapterArtifact": document.get("sourceAdapterArtifact"),
         "status": "PASS",
@@ -142,14 +161,13 @@ def filter_document(document: dict[str, Any]) -> dict[str, Any]:
             {
                 "candidateId": candidate["candidateId"],
                 "category": candidate.get("category"),
+                "candidateScope": candidate["candidateScope"],
                 "recommendation": candidate["recommendation"],
                 "disposition": result,
                 "gateReasons": gate_reasons,
                 "assessmentReasons": candidate.get("reasons") or [],
                 "revisionInstruction": candidate.get("revisionInstruction"),
-                "originalAssessment": {
-                    key: candidate[key] for key in ALLOWED
-                },
+                "originalAssessment": {key: candidate[key] for key in ALLOWED},
             }
         )
         output["summary"][result] += 1
