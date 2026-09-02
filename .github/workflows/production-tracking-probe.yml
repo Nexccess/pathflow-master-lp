@@ -32,3 +32,4 @@ jobs:
               raise SystemExit(f"Tracking persistence not confirmed: {data}")
           print('PRODUCTION_TRACKING_CONFIRMED')
           PY
+# rerun after Production env target promotion
