@@ -1,0 +1,37 @@
+{
+  "campaign_id": "PF-HAIR-YOKOHAMA-001",
+  "store_id": "5",
+  "store_name": "Lumi 横浜駅店",
+  "category": "美容室",
+  "research_status": "READY_FOR_MESSAGE_STRATEGY",
+  "observed_at": "2026-09-02",
+  "store_facts": {
+    "address": "神奈川県横浜市西区平沼1-38-21 コスモ横浜東口102",
+    "access": "横浜駅東口から徒歩圏（公式案内は徒歩5分）",
+    "hours": "平日10:00〜22:00、土日祝10:00〜20:00",
+    "positioning": [
+      "髪質・骨格を踏まえた提案",
+      "カット・カラー・美髪/縮毛矯正・トリートメントの相談",
+      "オリジナルのシャンプー/トリートメントも展開",
+      "スタッフ数・店内写真が公式サイトで豊富に公開されている"
+    ],
+    "experience_signals": [
+      "口コミでは半個室寄りの落ち着いた空間への評価が見られる",
+      "席移動を減らすシャンプー体験への言及がある"
+    ]
+  },
+  "commercial_hypotheses": [
+    "イメージが曖昧な来店前ユーザーに、似合う方向性を一緒に整理する価値と相性が良い",
+    "髪質・骨格・日常の扱いやすさを含めた提案型の導線が適合する",
+    "20〜40代のスタイル変更・カラー・髪質改善相談に訴求余地がある"
+  ],
+  "evidence_urls": [
+    "https://lumi-style.jp/store/yokohama/",
+    "https://lumi-style.jp/",
+    "https://beauty.hotpepper.jp/slnH000462638/review/"
+  ],
+  "guardrails": [
+    "半個室等の設備表現は現行店舗仕様を再確認してから最終LPへ固定する",
+    "口コミ由来の仕上がり・安心感は個人の体験として扱う"
+  ]
+}
