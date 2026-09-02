@@ -20,12 +20,12 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Pull verified Preview environment
+      - name: Pull verified project-wide Preview environment
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           set -euo pipefail
-          vercel env pull preview.env --yes --environment=preview --git-branch=11b-integration --token="$VERCEL_TOKEN" >/dev/null
+          vercel env pull preview.env --yes --environment=preview --token="$VERCEL_TOKEN" >/dev/null
           python - <<'PY'
           import json
           from pathlib import Path
@@ -40,7 +40,7 @@ jobs:
                       value = raw.strip("'\"")
                   break
           if not value:
-              raise SystemExit('GAS_WEBHOOK_URL missing from verified Preview environment')
+              raise SystemExit('GAS_WEBHOOK_URL missing from project-wide Preview environment')
           Path('gas_webhook_value.txt').write_text(value, encoding='utf-8')
           PY
           value=$(cat gas_webhook_value.txt)
