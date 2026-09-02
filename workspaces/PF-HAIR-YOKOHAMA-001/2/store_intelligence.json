@@ -1,0 +1,42 @@
+{
+  "campaign_id": "PF-HAIR-YOKOHAMA-001",
+  "store_id": "2",
+  "store_name": "HAIR & MAKE EARTH 横浜店",
+  "category": "美容室",
+  "research_status": "READY_FOR_MESSAGE_STRATEGY",
+  "observed_at": "2026-09-02",
+  "store_facts": {
+    "address": "神奈川県横浜市神奈川区鶴屋町1-7-12 ハウスプラン横浜ビル1F",
+    "access": "横浜駅北西口から徒歩4分と案内",
+    "positioning": [
+      "インナーカラー・ハイライト・ブリーチ・韓国ヘア等の幅広いスタイル",
+      "TOKIOトリートメント等のケアメニュー",
+      "大手ブランドとして幅広い年代・男女に対応",
+      "カット・カラーだけでなく複数の美容メニューを展開"
+    ],
+    "review_signal": {
+      "hotpepper_average_observed": 4.65,
+      "hotpepper_review_count_observed": 722,
+      "atmosphere": 4.7,
+      "service": 4.7,
+      "finish": 4.7,
+      "price": 4.6,
+      "customer_mix_signal": "女性50代以上と男性レビューも多く、年代・性別が広い"
+    }
+  },
+  "commercial_hypotheses": [
+    "幅広いメニューの中から何を選ぶか迷う人に、来店前に希望を整理する機能が合う",
+    "トレンド志向と大人世代のケア需要を一つの固定訴求に混ぜず、回答に応じて整理する設計が適切",
+    "初回来店の緊張・似合うか分からない不安をカウンセリング前に整理できる価値がある"
+  ],
+  "evidence_urls": [
+    "https://hairmake-earth.com/",
+    "https://map.hairmake-earth.com/salon/area/kanagawa",
+    "https://beauty.hotpepper.jp/slnH000127899/",
+    "https://beauty.hotpepper.jp/slnH000127899/review/"
+  ],
+  "guardrails": [
+    "全国ブランド共通情報と横浜店固有情報を分離する",
+    "店舗ごとの取扱メニュー差があるため本番LPでは横浜店ページ基準で確認する"
+  ]
+}
