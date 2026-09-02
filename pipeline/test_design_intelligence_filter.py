@@ -9,6 +9,7 @@ from design_intelligence_filter import disposition, filter_document
 BASE = {
     "candidateId": "x",
     "category": "color",
+    "candidateScope": "STORE_SENSITIVE",
     "recommendation": "candidate",
     "evidenceAlignment": "PASS",
     "creativeConceptAlignment": "PASS",
@@ -32,11 +33,24 @@ class DesignIntelligenceFilterTests(unittest.TestCase):
         self.assertEqual(result, "REJECT")
         self.assertIn("store_evidence_conflict", reasons)
 
-    def test_rejects_generic_low_specificity_candidate(self) -> None:
+    def test_rejects_generic_low_specificity_store_candidate(self) -> None:
         candidate = dict(BASE, storeSpecificity="LOW", genericnessRisk="HIGH")
         result, reasons = disposition(candidate)
         self.assertEqual(result, "REJECT")
         self.assertIn("generic_industry_preset_risk", reasons)
+
+    def test_accepts_shared_universal_guardrail(self) -> None:
+        candidate = dict(
+            BASE,
+            category="accessibility",
+            candidateScope="UNIVERSAL_GUARDRAIL",
+            storeSpecificity="NOT_REQUIRED",
+            genericnessRisk="NOT_APPLICABLE",
+            existingBrandAlignment="NOT_APPLICABLE",
+        )
+        result, reasons = disposition(candidate)
+        self.assertEqual(result, "ACCEPT")
+        self.assertEqual(reasons, ["all_mandatory_filters_passed"])
 
     def test_unknown_never_silently_passes(self) -> None:
         candidate = dict(BASE, existingBrandAlignment="UNKNOWN")
@@ -54,6 +68,7 @@ class DesignIntelligenceFilterTests(unittest.TestCase):
         result = filter_document({"storeId": "girasol", "candidates": [dict(BASE)]})
         self.assertEqual(result["status"], "PASS")
         self.assertEqual(result["summary"]["ACCEPT"], 1)
+        self.assertEqual(result["candidates"][0]["candidateScope"], "STORE_SENSITIVE")
         self.assertEqual(result["candidates"][0]["originalAssessment"]["claimSafety"], "PASS")
 
 
