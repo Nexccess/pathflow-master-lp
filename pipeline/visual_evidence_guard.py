@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""11A Visual Evidence Guard v0.2.
+"""11A Visual Evidence Guard v0.3.
 
 Validates that GENERATED visuals are explicitly classified as ILLUSTRATIVE and
 adds visitor-facing disclosure text to an already generated LP HTML.
-v0.2 keeps disclosures visually attached to the relevant image and increases
-readability without turning them into dominant creative elements.
+v0.3 keeps disclosures visibly attached to the relevant image and makes the
+Hero figure a deliberate image+caption stack so the disclosure cannot drift
+into the copy grid.
 
 This script does not approve Commercial QA; it prepares the draft for human review.
 """
@@ -38,15 +39,25 @@ def classify_errors(manifest: dict[str, Any]) -> list[str]:
 
 
 def inject_hero_disclosure(html: str) -> tuple[str, bool]:
-    marker = f'<figcaption class="visual-disclosure visual-disclosure--hero">{LIGHT_DISCLOSURE}</figcaption>'
     start = html.find('<figure class="hero-visual">')
     if start < 0:
         return html, False
     end = html.find('</figure>', start)
     if end < 0:
         return html, False
-    if marker not in html[start:end]:
-        html = html[:end] + marker + html[end:]
+
+    figure_html = html[start:end + len('</figure>')]
+    marker = f'<figcaption class="visual-disclosure visual-disclosure--hero">{LIGHT_DISCLOSURE}</figcaption>'
+    if marker not in figure_html:
+        img_end = figure_html.find('>')
+        img_start = figure_html.find('<img ', img_end + 1)
+        if img_start < 0:
+            return html, False
+        img_close = figure_html.find('>', img_start)
+        if img_close < 0:
+            return html, False
+        figure_html = figure_html[:img_close + 1] + marker + figure_html[img_close + 1:]
+        html = html[:start] + figure_html + html[end + len('</figure>'):]
     return html, True
 
 
@@ -93,29 +104,53 @@ def inject_section_disclosures(html: str, lp: dict[str, Any], manifest: dict[str
   box-sizing:border-box;
   color:var(--muted);
   font-size:clamp(.78rem,.74rem + .12vw,.86rem);
-  line-height:1.6;
+  line-height:1.55;
+}
+.hero-visual{
+  overflow:visible !important;
+  display:flex !important;
+  flex-direction:column;
+  height:auto !important;
+}
+.hero-visual .hero-image{
+  width:100%;
+  height:auto !important;
+  aspect-ratio:4 / 5;
+  object-fit:cover;
+  flex:none;
+}
+body[data-composition="image-led"] .hero-visual .hero-image{
+  aspect-ratio:16 / 9;
 }
 .visual-disclosure--hero{
   display:block;
-  margin:.7rem .1rem 0;
-  opacity:.96;
+  margin:.65rem .1rem 0;
+  color:var(--muted);
+  opacity:1;
 }
 .visual-disclosure--full{
   width:fit-content;
   max-width:52rem;
   margin:.7rem 0 1.35rem;
-  padding:.55rem .75rem;
+  padding:.58rem .78rem;
   border:1px solid var(--border);
   border-radius:8px;
-  background:color-mix(in srgb,var(--surface) 88%,transparent);
-  opacity:.98;
+  background:var(--surface);
+  color:var(--text);
+  opacity:.82;
+}
+@media(max-width:1100px){
+  .hero-visual .hero-image{aspect-ratio:4 / 3}
+  body[data-composition="image-led"] .hero-visual .hero-image{aspect-ratio:16 / 10}
 }
 @media(max-width:560px){
   .visual-disclosure{font-size:.78rem}
   .visual-disclosure--full{width:100%;padding:.55rem .65rem}
+  .hero-visual .hero-image,
+  body[data-composition="image-led"] .hero-visual .hero-image{aspect-ratio:4 / 5}
 }
 """
-    if ".visual-disclosure--hero{" not in html:
+    if ".hero-visual .hero-image{" not in html:
         html = html.replace("</style>", css + "</style>", 1)
     return html, injected
 
@@ -144,7 +179,7 @@ def main() -> None:
 
     status = "PASS" if not errors else "REVIEW_REQUIRED"
     report = {
-        "schemaVersion": "11A-visual-evidence-guard-v0.2",
+        "schemaVersion": "11A-visual-evidence-guard-v0.3",
         "storeId": lp.get("storeId"),
         "status": status,
         "errors": errors,
