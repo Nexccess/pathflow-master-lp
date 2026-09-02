@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "11A-visual-asset-manifest-v0.1",
+  "storeId": "girasol",
+  "storeName": "girasol",
+  "status": "ASSETS_REQUIRED",
+  "assets": [
+    {
+      "slot": "hero",
+      "brief": "大人女性の自然な艶髪。落ち着きと安心感を優先し、過度に若いモデルや派手色は避ける",
+      "src": "",
+      "alt": "",
+      "source_type": "UNKNOWN",
+      "commercial_usage_status": "UNKNOWN",
+      "generation_status": "NOT_GENERATED"
+    },
+    {
+      "slot": "consultation",
+      "brief": "髪や頭皮の状態を確認しながら相談していることが伝わる静かなカウンセリング場面",
+      "src": "",
+      "alt": "",
+      "source_type": "UNKNOWN",
+      "commercial_usage_status": "UNKNOWN",
+      "generation_status": "NOT_GENERATED"
+    },
+    {
+      "slot": "style_set",
+      "brief": "白髪・うねり・広がり・艶不足を抱える人が自分事化しやすい、自然な仕上がりの複数スタイル",
+      "src": "",
+      "alt": "",
+      "source_type": "UNKNOWN",
+      "commercial_usage_status": "UNKNOWN",
+      "generation_status": "NOT_GENERATED"
+    }
+  ]
+}
