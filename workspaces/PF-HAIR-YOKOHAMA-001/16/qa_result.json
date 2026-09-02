@@ -1,0 +1,10 @@
+{
+  "store_id": "16",
+  "store_name": "Frais Tout",
+  "decision": "REVIEW_REQUIRED",
+  "commercial_qa": "PASS_WITH_REVIEW",
+  "design_qa": "PASS_WITH_REVIEW",
+  "checks": {"store_specific_message":"PASS","customer_voice_grounding":"PASS","diagnosis_role":"PASS","mobile_first_structure":"PASS","persistent_diagnosis_cta":"PASS","violet_template_copy":"PASS_NOT_COPIED","final_visual_quality":"HUMAN_REVIEW_REQUIRED","official_image_display":"BROWSER_REVIEW_REQUIRED"},
+  "review_reason": "Initial validation store. Visual attractiveness and commercial impression must be reviewed by Kei before approval.",
+  "sales_eligible": false
+}
