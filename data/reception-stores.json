@@ -6,36 +6,49 @@
     "contactUrl": "https://violet.tokyo/salon/yokohama/",
     "contactLabel": "お店に問い合わせる",
     "questions": [
-      {
-        "id": "change",
-        "text": "今回、一番変えたいのはどこですか？",
-        "options": ["顔まわり・印象", "長さ・シルエット", "カラー・透明感", "扱いやすさ・髪の状態", "まだ決めきれていない"]
-      },
-      {
-        "id": "image",
-        "text": "理想のイメージはどのくらい決まっていますか？",
-        "options": ["参考画像まで決まっている", "雰囲気だけ決まっている", "避けたい仕上がりだけある", "似合う方向を相談したい"]
-      },
-      {
-        "id": "avoid",
-        "text": "絶対に避けたいことはありますか？",
-        "options": ["短くしすぎたくない", "軽く・レイヤーを入れすぎたくない", "職場や学校で浮きたくない", "ダメージを増やしたくない", "特にない"]
-      },
-      {
-        "id": "styling",
-        "text": "普段のスタイリングはどのくらいできますか？",
-        "options": ["毎日アイロンやコテを使える", "5〜10分くらいならできる", "できるだけ簡単がいい", "ほぼ何もしなくてもまとまってほしい"]
-      },
-      {
-        "id": "consultation",
-        "text": "カウンセリングでは、どんな進め方が近いですか？",
-        "options": ["細かく希望を伝えたい", "画像を見ながらすり合わせたい", "似合う方向を提案してほしい", "髪の状態を見て一緒に決めたい"]
-      }
+      {"id":"change","text":"今回、一番変えたいのはどこですか？","options":["顔まわり・印象","長さ・シルエット","カラー・透明感","扱いやすさ・髪の状態","まだ決めきれていない"]},
+      {"id":"image","text":"理想のイメージはどのくらい決まっていますか？","options":["参考画像まで決まっている","雰囲気だけ決まっている","避けたい仕上がりだけある","似合う方向を相談したい"]},
+      {"id":"avoid","text":"絶対に避けたいことはありますか？","options":["短くしすぎたくない","軽く・レイヤーを入れすぎたくない","職場や学校で浮きたくない","ダメージを増やしたくない","特にない"]},
+      {"id":"styling","text":"普段のスタイリングはどのくらいできますか？","options":["毎日アイロンやコテを使える","5〜10分くらいならできる","できるだけ簡単がいい","ほぼ何もしなくてもまとまってほしい"]},
+      {"id":"consultation","text":"カウンセリングでは、どんな進め方が近いですか？","options":["細かく希望を伝えたい","画像を見ながらすり合わせたい","似合う方向を提案してほしい","髪の状態を見て一緒に決めたい"]}
     ],
     "systemPrompt": "来店検討者の5つの回答だけを整理し、美容師へ相談するときに伝えるとよい内容を簡潔にまとめる。確認できていない施術適性、似合う髪型、価格、効果、髪質診断を断定しない。専門判断が必要な内容は店舗スタッフへの相談につなげる。強い勧誘をしない。",
-    "resultPolicy": {
-      "headline": "希望を整理しました",
-      "disclaimer": "髪の状態や施術の可否は、実際に髪を確認した美容師の判断が必要です。"
-    }
+    "resultPolicy": {"headline":"希望を整理しました","disclaimer":"髪の状態や施術の可否は、実際に髪を確認した美容師の判断が必要です。"}
+  },
+  "1721": {
+    "storeId":"1721","storeKey":"soil-by-rommy","storeName":"soil by ROMMY.","category":"美容室","contactUrl":"","contactLabel":"予約・お問い合わせ",
+    "questions":[
+      {"id":"concern","text":"今、髪について一番気になっていることは？","options":["毎日のまとまり・扱いやすさ","長さやシルエット","白髪を含めた色の見え方","髪の状態を見ながら相談したい","まだうまく言葉にできていない"],"tags":[["EASY_MAINTENANCE","REPRODUCIBILITY"],["STYLE_DIRECTION","PERSONAL_FIT"],["COLOR_DIRECTION","PRESERVE_IDENTITY"],["HAIR_HEALTH","EXPERT_GUIDANCE"],["CONSULTATION","EXPERT_GUIDANCE"]]},
+      {"id":"priority","text":"仕上がりで、特に大切にしたいことは？","options":["朝、自分で扱いやすいこと","自分らしく自然に似合うこと","今の印象を少し変えること","髪の状態への配慮を優先すること"],"tags":[["EASY_MAINTENANCE","DAILY_STYLING","REPRODUCIBILITY"],["PERSONAL_FIT","PRESERVE_IDENTITY"],["STYLE_CHANGE","STYLE_DIRECTION"],["HAIR_HEALTH","EXPERT_GUIDANCE"]]},
+      {"id":"consultation","text":"お店では、どんな決め方が近いですか？","options":["希望をある程度伝えて細かく相談したい","悩みとイメージを話しながら一緒に決めたい","自分に合う方向を提案してほしい","まず髪の状態を見てもらってから決めたい"],"tags":[["CONSULTATION","PRESERVE_IDENTITY"],["CONSULTATION","EXPERT_GUIDANCE","PERSONAL_FIT"],["EXPERT_GUIDANCE","PERSONAL_FIT"],["HAIR_HEALTH","EXPERT_GUIDANCE"]]},
+      {"id":"home","text":"自宅でのスタイリングは、どんな状態が理想ですか？","options":["できるだけ手間をかけず整えたい","自分で再現できるやり方も知りたい","多少手をかけてもスタイルを楽しみたい","髪の状態に合わせて相談したい"],"tags":[["EASY_MAINTENANCE","DAILY_STYLING"],["REPRODUCIBILITY","STYLING_GUIDANCE"],["STYLE_DIRECTION","STYLE_CHANGE"],["EXPERT_GUIDANCE","HAIR_HEALTH"]]},
+      {"id":"intent","text":"今回の来店で、いちばん実現したいことは？","options":["毎日、無理なく整う状態に近づけたい","自分に合う形を相談しながら見つけたい","自分らしさを残しながら雰囲気を変えたい","髪の状態を見ながら無理のない方向を決めたい"],"tags":[["EASY_MAINTENANCE","REPRODUCIBILITY","DAILY_STYLING"],["PERSONAL_FIT","CONSULTATION","EXPERT_GUIDANCE"],["STYLE_CHANGE","PRESERVE_IDENTITY","PERSONAL_FIT"],["HAIR_HEALTH","EXPERT_GUIDANCE"]]}
+    ],
+    "tagLabels":{"EASY_MAINTENANCE":"毎日の扱いやすさ","REPRODUCIBILITY":"自宅での再現性","DAILY_STYLING":"朝のスタイリング負担","PERSONAL_FIT":"自分に似合うこと","PRESERVE_IDENTITY":"自分らしさを残すこと","STYLE_CHANGE":"自然な印象変化","STYLE_DIRECTION":"スタイルの方向性","HAIR_HEALTH":"髪の状態への配慮","CONSULTATION":"相談しながら決めること","EXPERT_GUIDANCE":"プロと一緒に決めること","STYLING_GUIDANCE":"自宅でのセット方法","COLOR_DIRECTION":"色の見え方"},
+    "resultPolicy":{"headline":"お客さまの希望を整理しました","disclaimer":"髪の状態や施術方法については、実際の状態を確認したうえで店舗へご相談ください。"}
+  },
+  "1854": {
+    "storeId":"1854","storeKey":"aube-hair-kanon-yokohama-2","storeName":"AUBE HAIR kanon 横浜2号店","category":"美容室","contactUrl":"","contactLabel":"予約・お問い合わせ",
+    "questions":[
+      {"id":"impression","text":"今回、どんな印象に近づけたいですか？","options":["やわらかく自然な印象","透明感のある軽やかな印象","動きのあるスタイル","まだ決めきれていない"],"tags":[["NATURAL_FIT","PRESERVE_IDENTITY"],["COLOR_DIRECTION","LIGHTNESS"],["LAYER_STYLE","STYLE_CHANGE"],["CONSULTATION","EXPERT_GUIDANCE"]]},
+      {"id":"priority","text":"仕上がりで一番優先したいのは？","options":["自分に似合うこと","カラーの見え方","髪の状態への配慮","選択肢を相談しながら決めること"],"tags":[["PERSONAL_FIT"],["COLOR_DIRECTION"],["HAIR_HEALTH"],["CONSULTATION","EXPERT_GUIDANCE"]]},
+      {"id":"decision","text":"スタイルはどのくらい決まっていますか？","options":["かなり具体的に決まっている","雰囲気だけ決まっている","避けたいことだけある","提案を受けながら決めたい"],"tags":[["PRESERVE_IDENTITY"],["CONSULTATION"],["PRESERVE_IDENTITY","CONSULTATION"],["EXPERT_GUIDANCE","PERSONAL_FIT"]]},
+      {"id":"experience","text":"お店での過ごし方は、どれが近いですか？","options":["静かに落ち着いて過ごしたい","必要な相談はしっかりしたい","会話をしながら決めたい","特にこだわりはない"],"tags":[["QUIET_TIME","RELAXATION"],["CONSULTATION"],["CONSULTATION","EXPERT_GUIDANCE"],["BALANCED_VALUE"]]},
+      {"id":"intent","text":"今回の来店で、いちばん整理したいことは？","options":["似合う方向を見つけたい","カラーとスタイルのバランスを決めたい","髪の状態も含めて相談したい","まだ決めきれない希望を一緒に整理したい"],"tags":[["PERSONAL_FIT","EXPERT_GUIDANCE"],["COLOR_DIRECTION","LAYER_STYLE"],["HAIR_HEALTH","EXPERT_GUIDANCE"],["CONSULTATION","EXPERT_GUIDANCE"]]}
+    ],
+    "tagLabels":{"NATURAL_FIT":"自然になじむ印象","PRESERVE_IDENTITY":"自分らしさを残すこと","COLOR_DIRECTION":"カラーの方向性","LIGHTNESS":"透明感・軽やかさ","LAYER_STYLE":"動きのあるスタイル","STYLE_CHANGE":"印象変化","CONSULTATION":"相談しながら決めること","EXPERT_GUIDANCE":"提案を受けながら決めること","PERSONAL_FIT":"自分に似合うこと","HAIR_HEALTH":"髪の状態への配慮","QUIET_TIME":"静かに過ごすこと","RELAXATION":"落ち着いた時間","BALANCED_VALUE":"過ごし方のバランス"},
+    "resultPolicy":{"headline":"お客さまの希望を整理しました","disclaimer":"髪の状態や施術方法については、実際の状態を確認したうえで店舗へご相談ください。"}
+  },
+  "1839": {
+    "storeId":"1839","storeKey":"frais-tout","storeName":"Frais Tout","category":"美容室","contactUrl":"","contactLabel":"予約・お問い合わせ",
+    "questions":[
+      {"id":"concern","text":"今、一番整えたいのはどれに近いですか？","options":["毎日の扱いやすさ","スタイルの形や動き","髪の状態・ケア","疲れをほどくような時間"],"tags":[["REPRODUCIBILITY","EASY_MAINTENANCE"],["STYLE_DIRECTION","STYLE_CHANGE"],["HAIR_HEALTH","CARE"],["RELAXATION","HEAD_SPA"]]},
+      {"id":"priority","text":"仕上がりで、より優先したいのは？","options":["自宅で再現しやすいこと","なりたい雰囲気を表現すること","髪の状態への配慮","扱いやすさと雰囲気の両立"],"tags":[["REPRODUCIBILITY","DAILY_STYLING"],["STYLE_DIRECTION","STYLE_CHANGE"],["HAIR_HEALTH","CARE"],["BALANCE","REPRODUCIBILITY","STYLE_DIRECTION"]]},
+      {"id":"style","text":"スタイルの希望はどのくらいありますか？","options":["ショートなど形をしっかり変えたい","ウルフなど動きのある雰囲気が気になる","カラーでアクセントを入れたい","まだ決めずに相談したい"],"tags":[["SHORT_STYLE","STYLE_CHANGE"],["WOLF_STYLE","STYLE_DIRECTION"],["INNER_COLOR","COLOR_DIRECTION"],["CONSULTATION","EXPERT_GUIDANCE"]]},
+      {"id":"care","text":"来店時に一緒に相談したいことは？","options":["自宅でのセット方法","髪の状態に合わせたケア","スタイルを保ちやすくする方法","リラックスして過ごせること"],"tags":[["STYLING_GUIDANCE","REPRODUCIBILITY"],["HAIR_HEALTH","CARE"],["EASY_MAINTENANCE","REPRODUCIBILITY"],["RELAXATION","HEAD_SPA"]]},
+      {"id":"intent","text":"今回、一番実現したいことは？","options":["毎日のセットを楽にしたい","なりたい雰囲気を楽しみたい","髪をいたわりながら整えたい","扱いやすさもスタイル性も大切にしたい"],"tags":[["EASY_MAINTENANCE","REPRODUCIBILITY"],["STYLE_DIRECTION","STYLE_CHANGE"],["HAIR_HEALTH","CARE"],["BALANCE","REPRODUCIBILITY","STYLE_DIRECTION"]]}
+    ],
+    "tagLabels":{"REPRODUCIBILITY":"毎日の再現性","EASY_MAINTENANCE":"扱いやすさ","STYLE_DIRECTION":"なりたい雰囲気","STYLE_CHANGE":"スタイルの変化","HAIR_HEALTH":"髪の状態への配慮","CARE":"ケアを大切にすること","RELAXATION":"リラックスできる時間","HEAD_SPA":"Head Spaへの関心","DAILY_STYLING":"日々のスタイリング負担","BALANCE":"扱いやすさとスタイル性の両立","SHORT_STYLE":"ショートの方向性","WOLF_STYLE":"ウルフ系の方向性","INNER_COLOR":"インナーカラーへの関心","COLOR_DIRECTION":"カラーの方向性","CONSULTATION":"相談しながら決めること","EXPERT_GUIDANCE":"提案を受けながら決めること","STYLING_GUIDANCE":"自宅でのセット方法"},
+    "resultPolicy":{"headline":"お客さまの希望を整理しました","disclaimer":"髪の状態や施術方法については、実際の状態を確認したうえで店舗へご相談ください。"}
   }
 }
