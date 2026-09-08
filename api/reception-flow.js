@@ -2,38 +2,59 @@ export const config = { runtime: 'edge' };
 
 import stores from '../data/reception-stores.json';
 
-const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
-const GEMINI_MODEL = 'gemini-2.5-flash-lite';
+const PRIORITY_WEIGHTS = [1.4, 2.0, 1.6, 1.4, 2.0];
 
-function fallback(store, answers) {
+function legacyFallback(store, answers) {
   const pairs = store.questions.map((q, i) => `${q.text} → ${answers[i]}`).join(' / ');
   return {
     headline: store.resultPolicy?.headline || '希望を整理しました',
-    summary: `今回の希望は「${answers[0]}」が中心です。イメージは「${answers[1]}」、避けたい点は「${answers[2]}」として整理できます。`,
-    suggestion: `普段のスタイリングは「${answers[3]}」、カウンセリングは「${answers[4]}」を希望していることを美容師へ伝えると、相談の入口が作りやすくなります。`,
+    prioritizedNeeds: answers.slice(0, 3),
+    summary: `今回のご回答をもとに、店舗で相談するときに大切にしたいことを整理しました。`,
+    consultationMessage: pairs,
+    suggestion: `特に大切にしたいものから店舗でお伝えいただくと、ご希望の方向性を確認しながら相談を進めやすくなると思います。`,
     specialistNote: store.resultPolicy?.disclaimer || '実際の状態確認が必要な内容は店舗スタッフへご相談ください。',
     handoffText: pairs,
     _fallback: true
   };
 }
 
-async function callGemini(apiKey, store, answers) {
-  const qa = store.questions.map((q, i) => `Q${i + 1}. ${q.text}\nA. ${answers[i]}`).join('\n\n');
-  const prompt = `${store.systemPrompt}\n\n以下のJSONだけを返してください。\n{\n  "headline": "<短い結論>",\n  "summary": "<回答の整理。2文以内>",\n  "suggestion": "<美容師に伝えるとよい内容。2文以内>",\n  "specialistNote": "<専門判断が必要な点を自然に店舗相談へつなぐ一文>",\n  "handoffText": "<店舗スタッフへそのまま渡せる短い相談メモ>"\n}`;
-
-  const res = await fetch(`${GEMINI_BASE}/${GEMINI_MODEL}:generateContent?key=${apiKey}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ role: 'user', parts: [{ text: qa }] }],
-      systemInstruction: { parts: [{ text: prompt }] },
-      generationConfig: { temperature: 0.2, maxOutputTokens: 700, responseMimeType: 'application/json' }
-    })
+function scoreSemanticTags(store, answers) {
+  const scores = new Map();
+  const evidence = [];
+  store.questions.forEach((q, qi) => {
+    const answer = answers[qi];
+    const oi = q.options.indexOf(answer);
+    if (oi < 0) throw new Error(`Invalid answer at Q${qi + 1}`);
+    const tags = Array.isArray(q.tags?.[oi]) ? q.tags[oi] : [];
+    const weight = PRIORITY_WEIGHTS[qi] || 1;
+    tags.forEach((tag, ti) => {
+      const bonus = ti === 0 ? 0.25 : 0;
+      scores.set(tag, (scores.get(tag) || 0) + weight + bonus);
+    });
+    evidence.push({ questionId: q.id, answer, tags });
   });
-  if (!res.ok) throw new Error(`Gemini error ${res.status}`);
-  const data = await res.json();
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
-  return JSON.parse(text.replace(/```json|```/g, '').trim());
+  return { scores, evidence };
+}
+
+function semanticResult(store, answers) {
+  const { scores, evidence } = scoreSemanticTags(store, answers);
+  const ranked = [...scores.entries()].sort((a, b) => b[1] - a[1]);
+  const top = ranked.slice(0, 3).map(([tag]) => tag);
+  const labels = top.map(tag => store.tagLabels?.[tag] || tag);
+  const fallbackLabels = labels.length ? labels : answers.slice(0, 3);
+  const consultationMessage = `今回大切にしたいことは「${fallbackLabels.join('・')}」です。実際の髪の状態を見ていただきながら、無理のない方向を相談したいです。`;
+  return {
+    headline: store.resultPolicy?.headline || 'お客さまの希望を整理しました',
+    intro: '今回のご回答をもとに、店舗で相談するときに大切にしたいことを整理しました。',
+    prioritizedNeeds: fallbackLabels,
+    summary: fallbackLabels.length === 1 ? `特に「${fallbackLabels[0]}」を大切にしたいようです。` : `「${fallbackLabels.join('」「')}」を大切にしたい方向として整理できます。`,
+    suggestion: 'この中でも、特に大切にしたいものから店舗でお伝えいただくと、ご希望の方向性を確認しながら相談を進めやすくなると思います。',
+    consultationMessage,
+    specialistNote: store.resultPolicy?.disclaimer || '髪の状態や施術方法については、実際の状態を確認したうえで店舗へご相談ください。',
+    handoffText: consultationMessage,
+    semanticEvidence: evidence,
+    matrixScores: Object.fromEntries(ranked)
+  };
 }
 
 export default async function handler(req) {
@@ -59,13 +80,10 @@ export default async function handler(req) {
     return new Response(JSON.stringify({ error: '5問すべての回答が必要です。' }), { status: 400, headers });
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  let result;
   try {
-    result = apiKey ? await callGemini(apiKey, store, answers) : fallback(store, answers);
+    const result = store.questions.every(q => Array.isArray(q.tags)) ? semanticResult(store, answers) : legacyFallback(store, answers);
+    return new Response(JSON.stringify({ ...result, storeId, storeName: store.storeName, contactUrl: store.contactUrl, contactLabel: store.contactLabel }), { status: 200, headers });
   } catch (err) {
-    result = { ...fallback(store, answers), _error: err?.message || 'generation failed' };
+    return new Response(JSON.stringify({ error: err?.message || 'Result generation failed' }), { status: 400, headers });
   }
-
-  return new Response(JSON.stringify({ ...result, storeId, contactUrl: store.contactUrl, contactLabel: store.contactLabel }), { status: 200, headers });
 }
