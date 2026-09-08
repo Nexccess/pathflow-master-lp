@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "11A-ready-manifest-v0.1",
+  "campaignId": "PF-HAIR-YOKOHAMA-SCALE-001",
+  "source": "21B formal READY handoff",
+  "productionRule": "ONE_LEAD_ONE_CUSTOMER_FACING_LP",
+  "stores": [
+    {"lead_id":1664,"store_id":"yellow-corn-yokohama","store_name":"イエローコーン 横浜店"},
+    {"lead_id":1687,"store_id":"toledo8-by-headlight-yokohama","store_name":"toledo8 by HEADLIGHT 横浜店"},
+    {"lead_id":1721,"store_id":"soil-by-rommy","store_name":"soil by ROMMY."},
+    {"lead_id":1791,"store_id":"garden-yokohama-est","store_name":"GARDEN YOKOHAMA est"},
+    {"lead_id":1839,"store_id":"frais-tout","store_name":"Frais Tout"},
+    {"lead_id":1854,"store_id":"aube-hair-kanon-yokohama2","store_name":"AUBE HAIR kanon 横浜2号店"},
+    {"lead_id":1855,"store_id":"asure","store_name":"Asure"},
+    {"lead_id":1858,"store_id":"corte-tanmachi","store_name":"corte 反町店"},
+    {"lead_id":1935,"store_id":"cocu","store_name":"cocu"},
+    {"lead_id":1938,"store_id":"section-yokohama-ishikawacho","store_name":"SECTION 横浜石川町"},
+    {"lead_id":1973,"store_id":"papepo","store_name":"PAPEPO"},
+    {"lead_id":2005,"store_id":"bokuno","store_name":"bokuno"},
+    {"lead_id":2055,"store_id":"yellow-corn-kanazawabunko","store_name":"イエローコーン 金沢文庫店"},
+    {"lead_id":2072,"store_id":"sante-higashikanagawa","store_name":"Sante 東神奈川"},
+    {"lead_id":2112,"store_id":"unix-mark-is-minatomirai","store_name":"UNIX MARK IS みなとみらい店"},
+    {"lead_id":2156,"store_id":"unix-mosaicmall-kohoku","store_name":"UNIX モザイクモール港北店"},
+    {"lead_id":2179,"store_id":"acca","store_name":"acca"},
+    {"lead_id":2181,"store_id":"38","store_name":"38"},
+    {"lead_id":2234,"store_id":"r-the-bibitto","store_name":"R The Bibitto"}
+  ]
+}
