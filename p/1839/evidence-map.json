@@ -1,0 +1,47 @@
+{
+  "lead_id": 1839,
+  "identity": {
+    "company_name": "フレイストート(Frais Tout)",
+    "address": "神奈川県横浜市西区北幸２-10-50 北幸山田ビル2階",
+    "phone": "045-620-3131",
+    "source_record_id": "slnH000211086"
+  },
+  "join_basis": {
+    "production_lead_id": 1839,
+    "source_candidate_id": 217,
+    "source_record_id": "slnH000211086",
+    "hotpepper_url": "https://beauty.hotpepper.jp/slnH000211086/"
+  },
+  "review_source": {
+    "file": "hotpepper-reviews.jsonl",
+    "records_used": 30,
+    "theme_observations": {
+      "consultation_or_proposal": 7,
+      "manageability_or_styling": 10,
+      "color": 8,
+      "care": 5,
+      "shampoo_headspa_relaxation": 10,
+      "atmosphere_service": 14
+    }
+  },
+  "store_evidence": {
+    "candidate_id": 217,
+    "status": "SUCCESS",
+    "source_url": "https://beauty.hotpepper.jp/slnH000211086/"
+  },
+  "existing_11a_row_preserved": {
+    "revision": 1,
+    "stage_11a_status": "APPROVED_11A",
+    "artifact_type": "DESIGN_IMAGE_ONLY",
+    "action": "READ_ONLY_PRESERVE"
+  },
+  "visual_state": "GENERATABLE",
+  "visual_assets": "AI_GENERATED_VISUAL_ASSETS_NOT_STORE_EVIDENCE",
+  "supplemental_11a_evidence": false,
+  "unresolved_conflict_count": 0,
+  "campaign": "PF-HAIR-YOKOHAMA-SCALE-001",
+  "source_run": "search-api-mixed600-v0",
+  "db_revision": 2,
+  "creative_revision": "FT1839-11A-PC-v6",
+  "store_id": null
+}

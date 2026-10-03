@@ -1,0 +1,50 @@
+{
+  "lead_id": 1839,
+  "store_id": null,
+  "store_name": "Frais Tout",
+  "canonical_store_name": "フレイストート(Frais Tout)",
+  "campaign": "PF-HAIR-YOKOHAMA-SCALE-001",
+  "source_run": "search-api-mixed600-v0",
+  "db_revision": 2,
+  "creative_revision": "FT1839-11A-PC-v6",
+  "status": "APPROVED_11A",
+  "human_approval": "APPROVED_BY_KEI",
+  "human_approved_at": "2026-09-12T03:08:58+09:00",
+  "primary_value": "迷い・希望・髪の悩みを聞き取り、日常で扱いやすい形へ整える相談・提案力",
+  "secondary_values": [
+    "透明感カラーとレイヤー/ショート等のスタイル提案",
+    "来店後も扱いやすい再現性",
+    "Aujua・髪質ケア・縮毛矯正",
+    "丁寧なシャンプー・ヘッドスパ",
+    "相談しやすく居心地のよい体験"
+  ],
+  "customer_voice_summary": "希望や悩みを丁寧に聞いたうえで提案してくれる / 来店後もスタイリングが楽・扱いやすい / シャンプーやヘッドスパ、接客が丁寧で居心地がよい",
+  "service_signals": [
+    "Aujua・髪質改善",
+    "透明感カラー",
+    "ショート・ウルフ",
+    "ヘッドスパ"
+  ],
+  "store_taste": "soft urban / feminine editorial / care-oriented / warm airy",
+  "image_color": [
+    "soft ivory",
+    "rose beige",
+    "wine rose",
+    "warm taupe",
+    "charcoal"
+  ],
+  "creative_concept": "まだ決めきれなくても、相談から、その人の毎日に扱いやすい髪へ。",
+  "creative_interpretation": "迷いを聞き、似合うだけでなく、その後の毎日まで扱いやすい形へ整える。",
+  "visual_direction_summary": "口コミ由来の相談・提案力を中心に、透明感のあるHair/Layer/Color/Texture、Care、Salon AtmosphereをVisual Peakとして構成。生成LPデザイン画像をVisual Blueprintとし、HTML/CSSで再現。",
+  "distinctive": "PENDING",
+  "visual_priority": [
+    "consultation/self-relevance",
+    "hair texture / layer / color / silhouette",
+    "care / shampoo / head spa",
+    "relaxing salon atmosphere"
+  ],
+  "creative_basis": "generated LP design image is the visual blueprint; no previous HTML/CSS reused",
+  "design_reference": "design-reference.png",
+  "approved_design": "approved-design.png",
+  "lp_sha256": "14e5e6621ba10272a91328147b49fd5b423b52d0a09b321247943e9ba9b87c14"
+}
