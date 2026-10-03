@@ -291,7 +291,7 @@ function renderResult() {
   });
 
   document.getElementById("resonanceIntro").textContent =
-    "あなたの回答を確定した後、Frais Toutの公開Evidenceと照合しました。";
+    "あなたの回答と、Frais Toutで実際に確認できた口コミ・店舗情報を照らし合わせました。";
 
   const resonancePoints =
     document.getElementById("resonancePoints");
@@ -304,7 +304,16 @@ function renderResult() {
     resonancePoints.appendChild(li);
   });
 
+  const resultTypeLabels = {
+    DIRECT_RESONANCE: "今回の相談ポイント",
+    PARTIAL_RESONANCE: "一緒に整理したいポイント",
+    CONSULTATION_REQUIRED: "お店で確認したいポイント"
+  };
+
   document.getElementById("resultType").textContent =
+    resultTypeLabels[resonance.type] || "";
+
+  document.getElementById("resultType").dataset.internalType =
     resonance.type;
 
   document.getElementById("resultMessage").textContent =
@@ -344,7 +353,7 @@ ctaButton.addEventListener("click", () => {
   sendAnalyticsEvent("cta_click", {
     destination: ctaButton.href,
     result_type:
-      document.getElementById("resultType").textContent || null
+      document.getElementById("resultType").dataset.internalType || null
   });
 });
 
