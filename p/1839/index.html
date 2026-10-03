@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Frais Tout｜横浜の美容室</title>
+<meta name="description" content="迷いを聞き、毎日に合う形へ。Frais Toutの相談・提案、スタイル、ケアをご紹介します。">
+<link rel="stylesheet" href="styles.css">
+<!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    const payload = {
+      api_key: amplitudeApiKey,
+      events: [
+        {
+          device_id: getDeviceId(),
+          event_type: "lp_view",
+          time: Date.now(),
+          event_properties: {"lead_id": "1839", "store_name": "Frais Tout", "lp_version": "FT1839-11A-PC-v6", "creative_revision": "FT1839-11A-PC-v6", "diagnosis_version": "1839-spec-v2-dryrun", "variant_code": "STANDARD_LP"}
+        }
+      ]
+    };
+
+    try {
+    fetch("https://api2.amplitude.com/2/httpapi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Amplitude HTTP " + response.status);
+      }
+
+      return response.json();
+    })
+    .then(function (result) {
+      console.log(
+        "[PathFlow] lp_view sent: lead_id=1839 events_ingested=" +
+        result.events_ingested
+      );
+    })
+    .catch(function (error) {
+      console.error("[PathFlow] Analytics send failed:", error);
+    });
+    } catch (error) { console.error("[PathFlow] Analytics send failed", error); }
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Frais Tout<span>HAIR SALON / YOKOHAMA</span></div>
+</header>
+
+<main>
+<section class="hero visual-peak">
+  <img src="assets/hero.jpg" alt="やわらかなレイヤーと透明感のあるヘアスタイルのイメージ">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <p class="eyebrow">FRAIS TOUT</p>
+    <h1>まだ決めきれなくても、<br>いい髪はつくれる。</h1>
+    <p>迷いも、悩みも、いまの気分も。<br>Frais Toutは、あなたの「ちょうどいい」を一緒に見つけます。</p>
+    <span class="script">Find your natural beauty</span>
+  </div>
+  <p class="hero-note">※掲載ビジュアルはイメージです。</p>
+</section>
+
+<section class="section consultation">
+  <div class="section-head">
+    <p class="eyebrow">COUNSELLING</p>
+    <h2>「短くする？」<br>「もう少し伸ばす？」<br>その迷いも、相談の一部。</h2>
+    <p>短くするか、もう少し伸ばすか。まだ答えが決まっていなくても大丈夫。希望や髪の悩みを聞きながら、毎日の扱いやすさまで考えて、今のあなたに合う形を一緒に探します。</p>
+    <span class="script accent-script">話すほど、きっと見つかる。</span>
+  </div>
+  <figure class="visual-block">
+    <img src="assets/consultation.jpg" alt="美容師と相談しながらヘアスタイルを考えるイメージ">
+    <figcaption>※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</figcaption>
+  </figure>
+</section>
+
+<section class="section style-section visual-peak">
+  <div class="section-head">
+    <p class="eyebrow">STYLE / COLOR</p>
+    <h2>迷いを聞く。<br>毎日に合う形、整える。</h2>
+    <p>透明感のあるカラー、レイヤー、ショートやウルフ。見た目の印象だけでなく、毎日のスタイリングが楽になることまで見据えて、バランスを整えます。</p>
+    <span class="script accent-script">Find your style</span>
+  </div>
+  <figure class="visual-block style-visual">
+    <img src="assets/style.jpg" alt="レイヤー、ショート、ロングのヘアスタイルイメージ">
+    <figcaption>※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</figcaption>
+  </figure>
+</section>
+
+<section class="section care-section">
+  <div class="section-head">
+    <p class="eyebrow">CARE / TREATMENT</p>
+    <h2>仕上がった日だけでなく、<br>その先の毎日へ。</h2>
+    <p>Aujua（オージュア）をはじめとした髪質ケアや縮毛矯正、ヘッドスパ。髪と頭皮の状態に合わせて、きれいが続きやすい毎日を考えます。</p>
+    <span class="script accent-script">Good hair, good days.</span>
+  </div>
+  <figure class="visual-block">
+    <img src="assets/care.jpg" alt="丁寧なシャンプーとヘッドスパのイメージ">
+    <figcaption>※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</figcaption>
+  </figure>
+</section>
+
+<section class="section voice-section rest">
+  <div class="section-head centered">
+    <p class="eyebrow">CUSTOMER VOICE</p>
+    <h2>うれしい声を、<br>たくさんいただいています。</h2>
+  </div>
+  <div class="voices">
+    <blockquote>「短くするか伸ばすか迷っていても、気持ちをくみ取って相談に乗ってもらえた。」<cite>40代・女性の口コミより要約</cite></blockquote>
+    <blockquote>「施術から一週間たっても、毎日のヘアセットが楽で助かっている。」<cite>20代・女性の口コミより要約</cite></blockquote>
+    <blockquote>「シャンプーやヘッドスパが丁寧で、気持ちよく過ごせた。」<cite>複数の口コミ傾向より要約</cite></blockquote>
+  </div>
+  <p class="voice-note">※口コミはCustomer Voiceとして要約したもので、効果や仕上がりを保証するものではありません。</p>
+</section>
+
+<section class="section salon-section visual-peak">
+  <div class="section-head">
+    <p class="eyebrow">SALON ATMOSPHERE</p>
+    <h2>相談しやすく、<br>肩の力を抜ける時間。</h2>
+    <p>初めてでも希望を話しやすく、リラックスして過ごせたという声も。髪のことだけでなく、毎日のことまで話したくなるような時間をイメージしました。</p>
+    <span class="script accent-script">A relaxing time</span>
+  </div>
+  <figure class="visual-block">
+    <img src="assets/salon.jpg" alt="自然光が入る落ち着いた美容室空間のイメージ">
+    <figcaption>※店内ビジュアルはAI生成のイメージです。実際の店内写真ではありません。</figcaption>
+  </figure>
+</section>
+
+<section class="section access-section">
+  <p class="eyebrow">STORE / ACCESS</p>
+  <h2 class="store-name">Frais Tout <span>フレイストート</span></h2>
+  <address>
+    <p>〒220-0004<br>神奈川県横浜市西区北幸2-10-50 北幸山田ビル2階</p>
+    <p><a href="tel:0456203131">045-620-3131</a></p>
+  </address>
+</section>
+
+<section class="final-cta visual-peak">
+  <p class="eyebrow">CONTACT</p>
+  <h2>決めきれないままでも、<br>まず相談から。</h2>
+  <p>髪のこと、少しでも気になったら。<br>あなたの「なりたい」を、一緒に見つけませんか？</p>
+  <div class="cta-stack">
+    <a class="btn primary" href="https://beauty.hotpepper.jp/slnH000211086/">予約・お問い合わせはこちら</a>
+    <a class="btn secondary" href="tel:0456203131">電話で相談する</a>
+  </div>
+</section>
+</main>
+<a class="floating-diagnosis-cta" href="./diagnosis/" target="_blank" rel="noopener" aria-label="ご希望を確認したい方">
+  <span class="floating-diagnosis-copy">
+    <span class="floating-diagnosis-main">ご希望を確認したい方</span>
+    <span class="floating-diagnosis-sub">約1分で希望を整理</span>
+  </span>
+  <span class="floating-diagnosis-arrow" aria-hidden="true">→</span>
+</a>
+</body>
+</html>
