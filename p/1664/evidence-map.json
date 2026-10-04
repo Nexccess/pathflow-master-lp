@@ -1,0 +1,50 @@
+{
+  "lead_id": 1664,
+  "sources": [
+    {
+      "type": "HOTPEPPER_STORE",
+      "url": "https://beauty.hotpepper.jp/slnH000126317/",
+      "supports": [
+        "identity",
+        "rating/review-count snapshot",
+        "service positioning",
+        "access"
+      ]
+    },
+    {
+      "type": "HOTPEPPER_KODAWARI",
+      "url": "https://beauty.hotpepper.jp/slnH000126317/kodawari/",
+      "supports": [
+        "design color",
+        "extension",
+        "female stylists",
+        "gray coverage"
+      ]
+    },
+    {
+      "type": "HOTPEPPER_REVIEW",
+      "url": "https://beauty.hotpepper.jp/slnH000126317/review/",
+      "supports": [
+        "consultation",
+        "care explanation",
+        "finish satisfaction",
+        "repeat intent"
+      ]
+    },
+    {
+      "type": "HOTPEPPER_MAP",
+      "url": "https://beauty.hotpepper.jp/slnH000126317/map/",
+      "supports": [
+        "address",
+        "access",
+        "phone"
+      ]
+    }
+  ],
+  "claim_safety": {
+    "market_superiority": "NOT_CLAIMED",
+    "distinctive": "PENDING",
+    "ai_visuals": "ILLUSTRATIVE_ONLY",
+    "review_copy_policy": "口コミの転載ではなくSignal/Valueへ要約変換"
+  }
+}

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <title>YELLOW CORN 横浜店｜Bleach / Color / Extension</title>
+  <meta name="description" content="ハイトーンを、相談しながら自分らしい形へ。YELLOW CORN 横浜店のブリーチ・カラー・エクステ。">
+  <link rel="stylesheet" href="styles.css">
+<!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    const payload = {
+      api_key: amplitudeApiKey,
+      events: [
+        {
+          device_id: getDeviceId(),
+          event_type: "lp_view",
+          time: Date.now(),
+          event_properties: {"lead_id":"1664","store_name":"YELLOW CORN 横浜店","lp_version":"YC1664-11A-PC-v1","creative_revision":"YC1664-11A-PC-v1","diagnosis_version":"1664-spec-v2","variant_code":"STANDARD_LP"}
+        }
+      ]
+    };
+
+    try {
+    fetch("https://api2.amplitude.com/2/httpapi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Amplitude HTTP " + response.status);
+      }
+
+      return response.json();
+    })
+    .then(function (result) {
+      console.log(
+        "[PathFlow] lp_view sent: lead_id=1664 events_ingested=" +
+        result.events_ingested
+      );
+    })
+    .catch(function (error) {
+      console.error("[PathFlow] Analytics send failed:", error);
+    });
+    } catch (error) { console.error("[PathFlow] Analytics send failed", error); }
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="YELLOW CORN 横浜店 トップへ">
+      <strong>YELLOW CORN</strong><span>YOKOHAMA</span>
+    </a>
+    <a class="mini-cta" href="https://beauty.hotpepper.jp/slnH000126317/" target="_blank" rel="noopener">予約する</a>
+  </header>
+
+  <main id="top">
+    <section class="hero dark">
+      <div class="hero-media">
+        <img src="assets/hero.webp" alt="ハイトーンヘアをイメージしたAI生成ビジュアル" width="1200" height="1800">
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">BLEACH × COLOR × EXTENSION</p>
+          <h1>変えたい。<br><em>でも、決めきれない。</em></h1>
+          <p class="lead">その迷いごと、相談から。<br>ハイトーンを、自分に似合う形へ。</p>
+          <a class="cta primary" href="https://beauty.hotpepper.jp/slnH000126317/" target="_blank" rel="noopener">空席・予約を確認する <span>→</span></a>
+        </div>
+      </div>
+      <p class="ai-note">※掲載ビジュアルはイメージです。</p>
+    </section>
+
+    <section class="section intro">
+      <p class="section-kicker">WHY YELLOW CORN</p>
+      <h2>“やってみたい”を、<br>似合うところまで一緒に。</h2>
+      <p class="body-copy">ブリーチ、ダブルカラー、エクステ。変化が大きいほど、色・ダメージ・長さ・その後のケアまで迷いは増えます。YELLOW CORN 横浜店の公開情報と口コミから見えるのは、デザインの幅だけではなく、相談と説明を重ねながら仕上がりへ近づける姿勢です。</p>
+      <div class="value-strip" aria-label="YELLOW CORN 横浜店で受け取れる価値">
+        <div><b>DESIGN</b><span>色も長さも、印象を大きく変えられる</span></div>
+        <div><b>CONSULT</b><span>決めきれなくても、相談から始められる</span></div>
+        <div><b>CARE</b><span>施術後のケアまで知って続けられる</span></div>
+        <div><b>ACCESS</b><span>横浜駅から徒歩約6分で通いやすい</span></div>
+      </div>
+    </section>
+
+    <section class="section consult dark">
+      <div class="image-wrap">
+        <img src="assets/consultation.webp" alt="カラー相談をイメージしたAI生成ビジュアル" width="1200" height="1800" loading="lazy">
+      </div>
+      <p class="ai-note light">※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</p>
+      <div class="content">
+        <p class="section-kicker">CONSULTATION</p>
+        <h2>最初から答えが<br>決まっていなくてもいい。</h2>
+        <p>「この色にしたい」だけでなく、「何が似合うかわからない」「ブリーチが初めて」「エクステのケアが不安」。そんな状態から相談できることを、LPの安心軸に置きました。</p>
+        <div class="micro-grid">
+          <div><b>01</b><span>髪の状態を確認</span></div>
+          <div><b>02</b><span>希望を言葉にする</span></div>
+          <div><b>03</b><span>仕上がりを一緒に決める</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services">
+      <p class="section-kicker">STYLE / SERVICE</p>
+      <h2>色も、長さも、<br>もっと自由に。</h2>
+      <div class="service-list">
+        <article><span>01</span><h3>BLEACH</h3><p>ハイトーン、ダブルカラー、ケアブリーチなど、明るさと色の表現を広げる選択肢。</p></article>
+        <article><span>02</span><h3>DESIGN COLOR</h3><p>ハイライトやインナーカラーなど、全体を変えすぎず印象を動かすデザインにも。</p></article>
+        <article><span>03</span><h3>EXTENSION</h3><p>色だけでなく長さやシルエットも変えたい時の、もうひとつのデザイン手段。</p></article>
+      </div>
+    </section>
+
+    <section class="style-section dark">
+      <div class="style-media">
+        <img src="assets/style.webp" alt="ラベンダー系ハイトーンヘアをイメージしたAI生成ビジュアル" width="1200" height="1800" loading="lazy">
+      </div>
+      <p class="ai-note light">※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</p>
+      <div class="style-copy">
+        <p class="section-kicker">VISUAL PROOF / STYLE</p>
+        <h2>顔ではなく、<br><em>Hairを主役に。</em></h2>
+        <p>Layer / Color / Texture / Silhouette。仕上がりを想像するためのVisualは、人物の顔より髪の質感と発色を優先します。</p>
+        <div class="swatches" aria-label="カラームード">
+          <i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="section voice">
+      <p class="section-kicker">CUSTOMER VOICE</p>
+      <h2>“また任せたい”の<span class="keep-word">理由。</span></h2>
+      <div class="voice-stack">
+        <article><span>01</span><p>カウンセリングや説明を丁寧に受けられた、という評価。</p></article>
+        <article><span>02</span><p>ブリーチやエクステ後のケアまで教えてもらえた、という評価。</p></article>
+        <article><span>03</span><p>相談しながら仕上がりへ近づけた、周囲からも好評だった、という評価。</p></article>
+      </div>
+      <p class="source-note">※公開口コミの傾向を要約したものです。個別口コミの転載ではありません。</p>
+    </section>
+
+    <section class="atmos dark">
+      <div class="atmos-media">
+        <img src="assets/atmosphere.webp" alt="サロン空間をイメージしたAI生成ビジュアル" width="1200" height="1800" loading="lazy">
+      </div>
+      <p class="ai-note light">※店内ビジュアルはAI生成のイメージです。実際の店内写真ではありません。</p>
+      <div class="content">
+        <p class="section-kicker">SALON ATMOSPHERE</p>
+        <h2>変わる前の時間も、<br>気負わずに。</h2>
+        <p>大きなスタイルチェンジほど、相談のしやすさは重要です。Visualは都会的なエネルギーを持たせつつ、緊張より「話しやすさ」が残る温度感にしています。</p>
+      </div>
+    </section>
+
+    <section class="section info">
+      <p class="section-kicker">STORE / ACCESS</p>
+      <h2>横浜駅から、<br>日常の延長で。</h2>
+      <dl>
+        <div><dt>STORE</dt><dd>YELLOW CORN 横浜店</dd></div>
+        <div><dt>ADDRESS</dt><dd>神奈川県横浜市西区岡野1-12-10<br>エーアイビル2F</dd></div>
+        <div><dt>ACCESS</dt><dd>横浜駅相鉄口から徒歩約6分</dd></div>
+        <div><dt>PHONE</dt><dd><a href="tel:0453210190">045-321-0190</a></dd></div>
+        <div><dt>HOURS</dt><dd>月〜金 11:00–20:30<br>土日祝 10:00–19:00</dd></div>
+      </dl>
+      <p class="source-note">※営業時間・店舗情報は公開店舗ページ確認時点の情報です。来店前に予約ページで最新情報をご確認ください。</p>
+    </section>
+
+    <section class="final dark">
+      <p class="section-kicker">YOUR HAIR, YOUR NEXT.</p>
+      <h2>迷っているなら、<br>まず相談できる予約から。</h2>
+      <p>変えたい気持ちを、似合うスタイルへ。</p>
+      <a class="cta primary" href="https://beauty.hotpepper.jp/slnH000126317/" target="_blank" rel="noopener">Hot Pepper Beautyで予約 <span>→</span></a>
+      <a class="cta ghost" href="tel:0453210190">電話で問い合わせる <span>045-321-0190</span></a>
+      <div class="footer-brand"><strong>YELLOW CORN</strong><span>YOKOHAMA</span></div>
+    </section>
+  </main>
+<a class="floating-diagnosis-cta" href="diagnosis/" target="_blank" rel="noopener" aria-label="ご希望を確認したい方">
+  <span class="floating-diagnosis-copy">
+    <span class="floating-diagnosis-main">ご希望を確認したい方</span>
+    <span class="floating-diagnosis-sub">約1分で希望を整理</span>
+  </span>
+  <span class="floating-diagnosis-arrow" aria-hidden="true">→</span>
+</a>
+</body>
+</html>

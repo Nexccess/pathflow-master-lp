@@ -1,0 +1,114 @@
+{
+  "lead_id": 1664,
+  "campaign": "PF-HAIR-YOKOHAMA-SCALE-001",
+  "source_run": "search-api-mixed600-v0",
+  "store_name": "YELLOW CORN 横浜店",
+  "identity": {
+    "hotpepper_url": "https://beauty.hotpepper.jp/slnH000126317/",
+    "review_source_url": "https://beauty.hotpepper.jp/slnH000126317/review/",
+    "address": "神奈川県横浜市西区岡野1-12-10 エーアイビル2F",
+    "phone": "045-321-0190",
+    "access": "横浜駅相鉄口から徒歩約6分",
+    "official_independent_site": null,
+    "identity_lock_note": "独立公式サイトは今回の確認範囲では不明。Hot Pepper Beauty店舗ページを主要公開Evidenceとして使用。"
+  },
+  "review_signals": [
+    "カウンセリングや施術説明が丁寧という評価が見られる",
+    "ブリーチやエクステ後のホームケア説明への評価が見られる",
+    "カラー・仕上がり満足に関する肯定的評価が見られる",
+    "相談内容を踏まえた提案への評価が見られる",
+    "再来意向・通いやすさに関する肯定的Signalが見られる"
+  ],
+  "customer_values": [
+    "ハイトーンに挑戦したい時も、状態や希望を相談しながら決められる安心感",
+    "色や長さを大きく変えるデザインでも、自分に似合う着地点を一緒に探せる",
+    "施術後のケアまで含めて、きれいな状態を続けるための情報を得られる",
+    "横浜駅徒歩圏で、デザイン性の高いカラーを日常の選択肢にできる"
+  ],
+  "service_signals": [
+    "ブリーチ",
+    "ダブルカラー",
+    "ブリーチカラー",
+    "ケアブリーチ",
+    "デザインカラー",
+    "エクステ",
+    "ハイライト",
+    "インナーカラー",
+    "グレイカラー・白髪カバー"
+  ],
+  "store_value_profile": {
+    "Product": "HIGH — ブリーチ/ダブルカラー/エクステ等のデザイン変化を強く訴求",
+    "Service": "HIGH — カウンセリング、説明、ケア案内のReview Signal",
+    "Experience": "MEDIUM_HIGH — 相談しやすさ、接客・雰囲気への肯定的Signal",
+    "Access": "MEDIUM_HIGH — 横浜駅相鉄口から徒歩約6分",
+    "Price": "MEDIUM/UNRESOLVED — Creative一次訴求の中心にする根拠は不足"
+  },
+  "primary_value": "ハイトーンを、相談しながら自分に似合う形へ落とせること",
+  "secondary_value": "デザインカラーやエクステで、髪の印象を大きく変えられること",
+  "store_taste": "energetic_editorial / urban / expressive / approachable",
+  "image_color": [
+    "charcoal",
+    "warm ivory",
+    "acid yellow",
+    "soft lavender",
+    "dusty rose"
+  ],
+  "creative_concept": "相談できる安心 × 振り切った変化",
+  "creative_interpretation": "YELLOW CORN 横浜店は、単に『派手髪ができる店』として見せるのではなく、ブリーチやエクステなど変化幅の大きい施術を、相談と説明を通じて自分に似合う形へ着地させられる場所として表現する。VisualはHair/Color/Textureを主役にし、Consultation Visualで不安を下げ、Customer Voiceで前半の価値をEvidenceへ戻す。",
+  "visual_direction_summary": "黒を基調に発色のあるハイトーンを主役化。HeroはHair Primary。中盤は相談シーンで安心を作り、Styleは顔よりHair/Layer/Color/Textureを強く見せる。終盤でCustomer VoiceとAccessを確認し、予約CTAへ接続する。",
+  "attention_flow": [
+    "Attract — ハイトーンの視覚インパクト",
+    "Recognize — 『変えたいけれど決めきれない』を自分ごと化",
+    "Trust — 相談・説明・ケアの安心",
+    "Desire — ブリーチ/カラー/エクステによる変化の可能性",
+    "Confirm — Review Signalと店舗情報で確認",
+    "Act — Hot Pepper Beauty予約導線"
+  ],
+  "visual_priority": {
+    "Hero": "Hair color / texture / silhouette",
+    "Large Visual": "Consultation relationship + style finish",
+    "Supporting Visual": "Atmosphere illustrative image",
+    "Supporting Copy": "Customer Value / Service Signal",
+    "Evidence Only": "review summary / access / hours / phone"
+  },
+  "preflight": {
+    "Specificity": {
+      "risk": "LOW",
+      "note": "ブリーチ×相談×エクステ×横浜徒歩圏の組合せで固有性を確保"
+    },
+    "Self-Relevance": {
+      "risk": "MEDIUM",
+      "note": "派手さだけで対象を狭めないよう『決めきれなくても相談できる』を前半に配置"
+    },
+    "Visual_Rhythm": {
+      "risk": "LOW",
+      "note": "Hero/StyleをPeak、相談/Voice/StoreをRestとして設計"
+    },
+    "Reality_Alignment": {
+      "risk": "MEDIUM",
+      "note": "AI人物・店内はIllustrative表記を徹底し実店舗写真扱いしない"
+    },
+    "Decision_Confidence": {
+      "risk": "MEDIUM",
+      "note": "独立公式サイト不明。Hot Pepper Beauty公開Evidence中心で構成"
+    }
+  },
+  "claim_safety": {
+    "market_superiority": "NOT_CLAIMED",
+    "distinctive": "PENDING",
+    "ai_visuals": "ILLUSTRATIVE_ONLY",
+    "review_copy_policy": "口コミの転載ではなくSignal/Valueへ要約変換"
+  },
+  "source_urls": [
+    "https://beauty.hotpepper.jp/slnH000126317/",
+    "https://beauty.hotpepper.jp/slnH000126317/kodawari/",
+    "https://beauty.hotpepper.jp/slnH000126317/stylist/",
+    "https://beauty.hotpepper.jp/slnH000126317/map/",
+    "https://beauty.hotpepper.jp/slnH000126317/review/PN2.html",
+    "https://beauty.hotpepper.jp/slnH000126317/review/PN4.html",
+    "https://beauty.hotpepper.jp/slnH000126317/review/PN6.html"
+  ],
+  "sales_ready": 0,
+  "customer_voice_summary": "公開口コミの傾向から、カウンセリングや施術説明の丁寧さ、ブリーチやエクステ後のケア案内、仕上がりへの満足、希望が決まりきっていない状態でも相談しながら進められること、再来意向や横浜駅からの通いやすさに関する肯定的な評価が確認できる。個別口コミの転載ではなく、1664 YELLOW CORN 横浜店のReview Signalを要約したもの。",
+  "revision": "YC1664-11A-PC-v1"
+}
