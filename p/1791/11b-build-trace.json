@@ -1,0 +1,66 @@
+{
+  "lead_id": 1791,
+  "canonical_revision": 1,
+  "lp_sha256": "f73db30215ca74eb9349d5af73538ecaad2904238f712e42c4338df690082d20",
+  "primary_accent": "#244d3d",
+  "theme_roles": {
+    "INK": "#18231f",
+    "BACKGROUND": "#f7f5f0",
+    "SURFACE": "#ffffff",
+    "MUTED": "#6b716d",
+    "LINE": "#cbd2cc",
+    "ACCENT_PRIMARY": "#244d3d",
+    "ACCENT_SECONDARY": "#476c59",
+    "ACCENT_TERTIARY": "#b49a62",
+    "INK_RGB": "24,35,31"
+  },
+  "floating": {
+    "FLOATING_COLOR_01": "#fffaf4",
+    "FLOATING_RGB_02": "167,108,131",
+    "FLOATING_RGB_03": "134,80,101",
+    "FLOATING_RGB_04": "255,255,255",
+    "FLOATING_RGB_05": "33,21,25",
+    "FLOATING_RGB_06": "175,121,142",
+    "FLOATING_RGB_07": "141,73,100"
+  },
+  "evidence_schema": "SOURCE_REFERENCE_ONLY",
+  "evidence_slots": [
+    {
+      "slot_key": "consultation",
+      "supported": false,
+      "text": "UNKNOWN",
+      "evidence_mode": "SOURCE_REFERENCE_ONLY",
+      "reason": "Evidence source exists, but no structured per-theme support is available for automatic Resonance scoring."
+    },
+    {
+      "slot_key": "fit_or_proposal",
+      "supported": false,
+      "text": "UNKNOWN",
+      "evidence_mode": "SOURCE_REFERENCE_ONLY",
+      "reason": "Evidence source exists, but no structured per-theme support is available for automatic Resonance scoring."
+    },
+    {
+      "slot_key": "manageability",
+      "supported": false,
+      "text": "UNKNOWN",
+      "evidence_mode": "SOURCE_REFERENCE_ONLY",
+      "reason": "Evidence source exists, but no structured per-theme support is available for automatic Resonance scoring."
+    },
+    {
+      "slot_key": "care",
+      "supported": false,
+      "text": "UNKNOWN",
+      "evidence_mode": "SOURCE_REFERENCE_ONLY",
+      "reason": "Evidence source exists, but no structured per-theme support is available for automatic Resonance scoring."
+    },
+    {
+      "slot_key": "communication_distance",
+      "supported": false,
+      "text": "UNKNOWN",
+      "evidence_mode": "SOURCE_REFERENCE_ONLY",
+      "reason": "Evidence source exists, but no structured per-theme support is available for automatic Resonance scoring."
+    }
+  ],
+  "db_write": false,
+  "publish": false
+}

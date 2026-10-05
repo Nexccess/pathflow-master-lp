@@ -1,0 +1,110 @@
+{
+  "lead_id": 1791,
+  "status": "PASS",
+  "release": "RELEASE_READY_11B",
+  "publish": "NOT_EXECUTED",
+  "canonical": {
+    "revision": 1,
+    "stage_11a_status": "APPROVED_11A",
+    "next_stage": "11B_DIAGNOSIS_INTEGRATION",
+    "lp_sha256": "f73db30215ca74eb9349d5af73538ecaad2904238f712e42c4338df690082d20",
+    "lp_integrity": "PASS"
+  },
+  "primary_accent": {
+    "value": "#244d3d",
+    "basis": "same-lead Approved LP CSS candidate review + full LP visual confirmation",
+    "fixed_for_run": true
+  },
+  "theme_roles": {
+    "INK": "#18231f",
+    "BACKGROUND": "#f7f5f0",
+    "SURFACE": "#ffffff",
+    "MUTED": "#6b716d",
+    "LINE": "#cbd2cc",
+    "ACCENT_PRIMARY": "#244d3d",
+    "ACCENT_SECONDARY": "#476c59",
+    "ACCENT_TERTIARY": "#b49a62",
+    "INK_RGB": "24,35,31"
+  },
+  "diagnosis": {
+    "schema_version": "11b-diagnosis-spec-v2",
+    "question_count": 4,
+    "evidence_schema": "SOURCE_REFERENCE_ONLY",
+    "supported_evidence_count": 0,
+    "unsupported_evidence_count": 5,
+    "result_behavior": "CONSULTATION_REQUIRED when no supported resonance evidence"
+  },
+  "gates": [
+    {
+      "gate": 1,
+      "name": "11A Intent Fidelity",
+      "status": "PASS",
+      "evidence": [
+        "Integrated LP restores byte-for-byte to Canonical lp_html after removing 11B Analytics/Floating CTA insertions.",
+        "Canonical lp_sha256 matched computed SHA-256."
+      ]
+    },
+    {
+      "gate": 2,
+      "name": "Visitor Self-Relevance",
+      "status": "PASS",
+      "evidence": [
+        "Four visitor-answer questions preserved from current Diagnosis Template.",
+        "Self Discovery uses visitor answers only."
+      ]
+    },
+    {
+      "gate": 3,
+      "name": "Flow Coherence",
+      "status": "PASS",
+      "evidence": [
+        "LP floating CTA routes to diagnosis/.",
+        "Diagnosis completed through Result and CTA in browser QA."
+      ]
+    },
+    {
+      "gate": 4,
+      "name": "Mobile Presentation / Visual Rhythm",
+      "status": "PASS",
+      "evidence": [
+        "LP: no horizontal overflow at 320/375/390/430px.",
+        "Diagnosis: no horizontal overflow at 320/375/390/430px.",
+        "390px full-page visual inspection completed for LP and Result."
+      ]
+    },
+    {
+      "gate": 5,
+      "name": "Integration Integrity",
+      "status": "PASS",
+      "evidence": [
+        "No unresolved placeholders.",
+        "Local references resolve.",
+        "Analytics and Floating CTA inserted once; Approved LP content otherwise unchanged."
+      ]
+    },
+    {
+      "gate": 6,
+      "name": "Technical Reliability",
+      "status": "PASS",
+      "evidence": [
+        "diagnosis/app.js node syntax check PASS.",
+        "HTML parse/reference check PASS.",
+        "Browser QA console/page errors: 0.",
+        "Events observed: lp_view; diagnosis_view/start; question_answered; diagnosis_progress; diagnosis_complete; result_view; cta_click."
+      ]
+    },
+    {
+      "gate": 7,
+      "name": "Safety / Isolation",
+      "status": "PASS",
+      "evidence": [
+        "lead_id 1791 retained throughout.",
+        "No 1664/1687/1839 or other tested store markers in product text.",
+        "Store name/address/Hot Pepper route matched current online store information.",
+        "No unsupported Resonance claims: adapter support is false for all scored slots."
+      ]
+    }
+  ],
+  "db_write": false,
+  "published": false
+}

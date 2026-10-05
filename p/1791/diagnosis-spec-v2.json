@@ -1,0 +1,195 @@
+{
+  "schema_version": "11b-diagnosis-spec-v2",
+  "lead_id": "1791",
+  "questions": [
+    {
+      "id": "priority",
+      "eyebrow": "01 / CURRENT PRIORITY",
+      "title": "今いちばん整えたいのは、どれですか？",
+      "help": "完成形ではなく、「今気になっていること」に近いものを選んでください。",
+      "answers": [
+        {
+          "value": "fit",
+          "label": "自分に似合う形を相談しながら決めたい"
+        },
+        {
+          "value": "manage",
+          "label": "朝のセットや普段の扱いを楽にしたい"
+        },
+        {
+          "value": "texture",
+          "label": "くせ・広がり・まとまりを整えたい"
+        },
+        {
+          "value": "change",
+          "label": "雰囲気を変えたいが、具体的にはまだ決めていない"
+        }
+      ]
+    },
+    {
+      "id": "decision",
+      "eyebrow": "02 / DECISION",
+      "title": "スタイルは、どのくらい決まっていますか？",
+      "help": "写真や髪型の名前まで決まっていなくても問題ありません。",
+      "answers": [
+        {
+          "value": "open",
+          "label": "ほとんど決まっていない。相談しながら考えたい"
+        },
+        {
+          "value": "rough",
+          "label": "なんとなくイメージはあるが、細部は相談したい"
+        },
+        {
+          "value": "clear",
+          "label": "かなり具体的に決まっている"
+        }
+      ]
+    },
+    {
+      "id": "daily",
+      "eyebrow": "03 / DAILY LIFE",
+      "title": "日常では、何を大切にしたいですか？",
+      "help": "サロン直後より、その後の毎日に近いものを選んでください。",
+      "answers": [
+        {
+          "value": "easy",
+          "label": "できるだけ手間をかけずに整えたい"
+        },
+        {
+          "value": "learn",
+          "label": "セット方法が分かれば、自分でも少し手をかけられる"
+        },
+        {
+          "value": "design",
+          "label": "多少手間がかかっても、デザインを優先したい"
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "eyebrow": "04 / COMMUNICATION",
+      "title": "相談するとき、どんな進め方が安心ですか？",
+      "help": "美容師との会話や提案の受け方について選んでください。",
+      "answers": [
+        {
+          "value": "guide",
+          "label": "希望を聞いてもらいながら、提案もしてほしい"
+        },
+        {
+          "value": "confirm",
+          "label": "自分の希望を中心に、認識を確認しながら進めたい"
+        },
+        {
+          "value": "minimal",
+          "label": "必要な確認だけで、静かに過ごしたい"
+        }
+      ]
+    }
+  ],
+  "self_discovery": {
+    "title_question": "priority",
+    "title_by_answer": {
+      "fit": "「似合う」を、相談しながら見つけたい",
+      "manage": "毎日の扱いやすさを優先したい",
+      "texture": "髪質やまとまりの悩みを整理したい",
+      "change": "雰囲気を変えたいが、答えはまだ決まっていない"
+    },
+    "consultation_points": {
+      "priority": {
+        "fit": "自分に合う長さ・形・顔まわりのバランスを相談したい",
+        "manage": "朝のセットや、自宅での扱いやすさを重視したい",
+        "texture": "くせ・広がり・まとまりについて、今の状態を見ながら相談したい",
+        "change": "今の雰囲気から変えたいが、具体的なスタイルは相談して決めたい"
+      },
+      "decision": {
+        "open": "完成形は決め切らず、会話しながら選択肢を整理したい",
+        "rough": "大まかなイメージを伝えて、細部を一緒に調整したい",
+        "clear": "希望するスタイルをベースに、実現方法を確認したい"
+      },
+      "daily": {
+        "easy": "日常では、できるだけ手間の少ない状態を維持したい",
+        "learn": "自宅で再現するためのセット方法も知りたい",
+        "design": "日常の手間より、デザインの完成度を優先したい"
+      },
+      "communication": {
+        "guide": "希望を聞いてもらったうえで、プロからの提案も受けたい",
+        "confirm": "自分の希望を軸に、認識を合わせながら進めたい",
+        "minimal": "必要な確認はしつつ、会話量は控えめにしたい"
+      }
+    },
+    "summary": "髪型そのものを先に決めるより、今の優先順位と日常での過ごし方を伝えてから相談すると、希望を共有しやすい状態です。"
+  },
+  "resonance": {
+    "conditions": [
+      {
+        "evidence_key": "consultation",
+        "any": [
+          {
+            "question_id": "decision",
+            "values": [
+              "open",
+              "rough"
+            ]
+          }
+        ]
+      },
+      {
+        "evidence_key": "fit_or_proposal",
+        "any": [
+          {
+            "question_id": "priority",
+            "values": [
+              "fit"
+            ]
+          },
+          {
+            "question_id": "communication",
+            "values": [
+              "guide"
+            ]
+          }
+        ]
+      },
+      {
+        "evidence_key": "manageability",
+        "any": [
+          {
+            "question_id": "priority",
+            "values": [
+              "manage"
+            ]
+          },
+          {
+            "question_id": "daily",
+            "values": [
+              "easy",
+              "learn"
+            ]
+          }
+        ]
+      },
+      {
+        "evidence_key": "care",
+        "any": [
+          {
+            "question_id": "priority",
+            "values": [
+              "texture"
+            ]
+          }
+        ]
+      }
+    ],
+    "thresholds": {
+      "direct_min": 3,
+      "partial_min": 1
+    },
+    "messages": {
+      "DIRECT_RESONANCE": "今回整理した相談内容と、店舗で確認されているEvidenceには複数の重なりがあります。具体的な施術内容は、髪の状態を見てもらいながら相談するのが適切です。",
+      "PARTIAL_RESONANCE": "相談内容の一部は店舗Evidenceと重なります。一方で、すべてを事前に判断できる情報はないため、希望を伝えて確認するのが適切です。",
+      "CONSULTATION_REQUIRED": "今回の希望について、公開Evidenceだけでは十分な一致を確認できません。これは失敗ではなく、専門家へ直接相談することが適切な状態です。"
+    },
+    "no_match_text": "今回の希望と直接照合できる十分な公開Evidenceは確認できませんでした。"
+  }
+}

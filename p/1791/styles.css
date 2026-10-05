@@ -1,0 +1,186 @@
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f7f5f0;color:#18231f;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.9;font-size:16px;overflow-x:hidden}a{color:inherit}img{width:100%;display:block}.topbar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:rgba(247,245,240,.94);backdrop-filter:blur(10px);border-bottom:1px solid #d9ddd7}.brand{display:flex;flex-direction:column;line-height:1}.brand-main{font-family:Georgia,serif;font-size:21px;letter-spacing:.24em}.brand-sub{font-size:9px;letter-spacing:.28em;margin-top:6px}.top-cta{font-size:12px;text-decoration:none;border-bottom:1px solid #284b3d;padding:5px 0}.section{padding:76px 22px}.eyebrow{font-family:Georgia,serif;font-size:11px;letter-spacing:.22em;color:#7b8c79;margin:0 0 14px}.light{color:#d7e0da}h1,h2,h3,p{margin-top:0}h1,h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:500;letter-spacing:.03em}h1{font-size:clamp(38px,11vw,55px);line-height:1.35;margin-bottom:20px}h1 em{font-style:normal;color:#476c59}h2{font-size:clamp(28px,7vw,38px);line-height:1.5;margin-bottom:24px;line-break:strict;word-break:normal}h3{font-size:18px;margin-bottom:8px}.lead,.intro{font-size:17px;max-width:34em}.primary-btn{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;background:#244d3d;color:#fff;padding:16px 22px;min-height:54px;margin-top:16px;letter-spacing:.05em;font-weight:700;border-radius:999px}.hero{padding-top:42px}.hero-copy{padding-bottom:35px}.hero-visual{margin:0 -22px}.hero-visual img{height:68vh;max-height:760px;object-fit:cover;object-position:50% 38%}.hero-visual figcaption,figure figcaption{font-size:12px;line-height:1.7;color:#6b716d;margin-top:8px;padding:0 2px}.signal-list{margin-top:34px;border-top:1px solid #cbd2cc}.signal-list article{padding:25px 0;border-bottom:1px solid #cbd2cc;display:grid;grid-template-columns:42px 1fr}.signal-list article span{font-family:Georgia,serif;color:#819184}.signal-list article h3,.signal-list article p{grid-column:2}.signal-list article p{font-size:16px;line-height:1.9}.consultation{background:#f0eee8}.consultation-copy .note{font-size:12px;line-height:1.7;color:#6b716d;margin-top:24px}.consultation-visual{margin:32px -22px 0}.consultation-visual img{height:560px;object-fit:cover;object-position:50% 45%}.style-visuals{display:grid;gap:24px;margin:28px 0 6px}.style-visuals figure{margin:0}.style-visuals img{height:420px;object-fit:cover}.style-copy article{padding:26px 0;border-top:1px solid #cdd4cf}.style-copy article p{font-size:16px;line-height:1.9}.voices{background:#ecebe4}.quote-stack{display:grid;gap:18px;margin-top:32px}.quote-stack blockquote{margin:0;padding:0 0 0 20px;border-left:2px solid #547662;font-family:"Yu Mincho",serif;font-size:20px;line-height:1.7}.source-note{font-size:12px;line-height:1.7;color:#727873;margin-top:26px}.atmosphere figure{margin:32px -22px 0}.atmosphere figure img{height:440px;object-fit:cover}.info{background:#fff}.info dl{margin:24px 0 0}.info dl div{padding:18px 0;border-top:1px solid #dde1dc}.info dt{font-size:11px;color:#728078;letter-spacing:.12em;margin-bottom:4px}.info dd{margin:0;font-size:15px}.final{text-align:left;background:#27483b;color:#fff;padding-bottom:92px}.final p:not(.eyebrow){max-width:28em}.gold{background:#b49a62;color:#fff}footer{padding:32px 22px 46px;background:#14231e;color:#dde5df}footer p{font-size:10px;margin-top:18px;color:#aebbb3}@media(min-width:700px){body{max-width:760px;margin:auto;box-shadow:0 0 80px rgba(0,0,0,.08)}.section{padding-left:54px;padding-right:54px}.hero-visual,.consultation-visual,.atmosphere figure{margin-left:-54px;margin-right:-54px}.topbar{padding-left:28px;padding-right:28px}}@media(max-width:360px){h1{font-size:36px}h2{font-size:27px}.section{padding-left:20px;padding-right:20px}.hero-visual,.consultation-visual,.atmosphere figure{margin-left:-20px;margin-right:-20px}.primary-btn{width:100%}}
+
+/* =========================================
+   PathFlow 11B Floating Diagnosis CTA
+   ========================================= */
+
+.floating-diagnosis-cta {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  min-width: 230px;
+  min-height: 64px;
+  padding: 11px 13px 11px 20px;
+
+  /* Inject the approved LP accent family. */
+  background:
+    linear-gradient(
+      145deg,
+      rgba(167,108,131, 0.56) 0%,
+      rgba(134,80,101, 0.52) 100%
+    );
+
+  color: #fffaf4;
+  text-decoration: none;
+
+  border: 1px solid rgba(255,255,255,0.34);
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 22px rgba(33,21,25, 0.14),
+    inset 0 1px 0 rgba(255,255,255,0.30);
+
+  backdrop-filter: blur(11px) saturate(115%);
+  -webkit-backdrop-filter: blur(11px) saturate(115%);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+/* subtle glossy highlight */
+.floating-diagnosis-cta::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 18px;
+  right: 18px;
+  height: 42%;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.20),
+      rgba(255,255,255,0.00)
+    );
+
+  pointer-events: none;
+}
+
+.floating-diagnosis-cta:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(175,121,142, 0.64) 0%,
+      rgba(141,73,100, 0.60) 100%
+    );
+
+  box-shadow:
+    0 10px 26px rgba(33,21,25, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.34);
+}
+
+.floating-diagnosis-cta:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.95);
+  outline-offset: 3px;
+}
+
+.floating-diagnosis-copy {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.floating-diagnosis-main {
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: .035em;
+  white-space: nowrap;
+}
+
+.floating-diagnosis-sub {
+  font-size: 9px;
+  line-height: 1.3;
+  font-weight: 400;
+  letter-spacing: .08em;
+  opacity: .78;
+  white-space: nowrap;
+}
+
+.floating-diagnosis-arrow {
+  position: relative;
+  z-index: 1;
+
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.40);
+
+  color: #fffaf4;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* small speech-tail character */
+.floating-diagnosis-cta::after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  bottom: -5px;
+
+  width: 15px;
+  height: 15px;
+
+  background: rgba(134,80,101, 0.52);
+
+  transform: rotate(45deg);
+  border-radius: 2px;
+
+  box-shadow: 4px 4px 10px rgba(33,21,25, 0.08);
+
+  z-index: -1;
+}
+
+@media (max-width: 640px) {
+  .floating-diagnosis-cta {
+    right: 13px;
+    bottom: 13px;
+
+    min-width: 205px;
+    min-height: 58px;
+
+    padding: 9px 10px 9px 17px;
+    gap: 12px;
+  }
+
+  .floating-diagnosis-main {
+    font-size: 13px;
+  }
+
+  .floating-diagnosis-sub {
+    font-size: 8px;
+  }
+
+  .floating-diagnosis-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+}
+
