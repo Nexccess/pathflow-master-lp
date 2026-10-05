@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="GARDEN YOKOHAMA est。まだ言葉にならないイメージも、相談しながらあなたに似合う髪へ。">
+<title>GARDEN YOKOHAMA est | Path-Flow Creative Candidate</title>
+<link rel="stylesheet" href="styles.css">
+<!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    const payload = {
+      api_key: amplitudeApiKey,
+      events: [
+        {
+          device_id: getDeviceId(),
+          event_type: "lp_view",
+          time: Date.now(),
+          event_properties: {
+            lead_id: "1791",
+            store_name: "ガーデンヨコハマエスト(GARDEN YOKOHAMA est)",
+            variant_code: "STANDARD_LP",
+            lp_version: "1",
+            diagnosis_version: "1791-spec-v2-dryrun"
+          }
+        }
+      ]
+    };
+
+    fetch("https://api2.amplitude.com/2/httpapi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Amplitude HTTP " + response.status);
+      }
+
+      return response.json();
+    })
+    .then(function (result) {
+      console.log(
+        "[PathFlow] lp_view sent: lead_id=1791 events_ingested=" +
+        result.events_ingested
+      );
+    })
+    .catch(function (error) {
+      console.error("[PathFlow] Analytics send failed:", error);
+    });
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-main">GARDEN</span>
+    <span class="brand-sub">YOKOHAMA est</span>
+  </div>
+  <a class="top-cta" href="#reserve">メニューを見る</a>
+</header>
+
+<main>
+<section class="hero section">
+  <div class="hero-copy">
+    <p class="eyebrow">YOKOHAMA / HAIR SALON</p>
+    <h1>「なんとなく」を、<br><em>似合う</em>に変える。</h1>
+    <p class="lead">まだ言葉にならないイメージも、うまく説明できない悩みも。丁寧に話しながら、あなたに似合うスタイルを一緒に見つけていくための場所です。</p>
+    <a class="primary-btn" href="#reserve">メニュー・予約情報を見る</a>
+  </div>
+  <figure class="hero-visual">
+    <img src="assets/hero-woman.jpg" alt="やわらかなレイヤースタイルをまとった女性のイメージ">
+    <figcaption>※掲載ビジュアルはイメージです。</figcaption>
+  </figure>
+</section>
+
+<section class="section why">
+  <p class="eyebrow">WHY GARDEN YOKOHAMA est</p>
+  <h2>決めきれないままでも、相談から始められる。</h2>
+  <p class="intro">公開口コミでは、「大まかなイメージ」「髪型を決めずに」「うまく伝えられなくても」といった来店前の不安とともに、提案や相談の丁寧さを評価する声が複数確認できます。</p>
+  <div class="signal-list">
+    <article><span>01</span><h3>イメージを汲み取る</h3><p>ニュアンスや好みを確認しながら、長さ・色・シルエットを一緒に整理していく。</p></article>
+    <article><span>02</span><h3>髪質と日常まで考える</h3><p>その日の仕上がりだけでなく、乾かし方や巻き方、ご自宅での扱いやすさまで視野に入れる。</p></article>
+    <article><span>03</span><h3>少し先まで相談できる</h3><p>今後の伸ばし方やケアまで含めて、次のスタイルにつながる提案へ。</p></article>
+  </div>
+</section>
+
+<section class="section consultation">
+  <div class="consultation-copy">
+    <p class="eyebrow">CONSULTATION</p>
+    <h2>言葉にならない希望を、<br>一緒にほどいていく。</h2>
+    <p>「こんな雰囲気が好き」「前髪から横への流れが気になる」「髪質や毛量が気になる」。曖昧なイメージでも大丈夫。口コミでは、髪質や悩みに合わせた提案、そして安心して相談できたという声が見られます。</p>
+    <p class="note">※口コミはお客様の体験・感想であり、すべての方に同じ結果を保証するものではありません。</p>
+  </div>
+  <figure class="consultation-visual">
+    <img src="assets/consultation-scene.jpg" alt="スタイリストと相談しながらヘアスタイルを考えるイメージ">
+    <figcaption>※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</figcaption>
+  </figure>
+</section>
+
+<section class="section style">
+  <p class="eyebrow">STYLE / SERVICE</p>
+  <h2>似合わせと、<br>毎日の扱いやすさ。</h2>
+  <p class="intro">レイヤーや顔まわり、シルエットづくりから、カラーやケアまで。相談しながら、今の自分にフィットする形へ整えていくイメージです。</p>
+  <div class="style-visuals">
+    <figure>
+      <img src="assets/style-bob.jpg" alt="まとまりのあるボブスタイルのAIイメージ">
+      <figcaption>※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/style-long.jpg" alt="やわらかなロングレイヤースタイルのAIイメージ">
+      <figcaption>※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</figcaption>
+    </figure>
+  </div>
+  <div class="style-copy">
+      <article><h3>Cut</h3><p>レイヤー、顔まわり、ショートボブなど。口コミではシルエットやセットのしやすさへの言及が見られます。</p></article>
+      <article><h3>Color</h3><p>透明感カラー、N.カラー、Rezoカラー等の利用記録を確認。髪の状態や希望に合わせて相談しやすい構成です。</p></article>
+      <article><h3>Care</h3><p>補修トリートメントやmarbb等を含む利用記録があり、まとまりやケアに関する声も確認できます。</p></article>
+  </div>
+</section>
+
+<section class="section voices">
+  <p class="eyebrow">CUSTOMER VOICE</p>
+  <h2>お客様の声から見える、<br>相談のしやすさ。</h2>
+  <div class="quote-stack">
+    <blockquote>「大まかなイメージしか伝えられなくても、満足のいく仕上がり」</blockquote>
+    <blockquote>「髪質に合わせて似合うスタイルを提案してもらえた」</blockquote>
+    <blockquote>「自宅でのスタイリングの仕方も分かりやすかった」</blockquote>
+  </div>
+  <p class="source-note">来店前の参考になるよう、公開口コミの内容を短く要約してご紹介しています。</p>
+</section>
+
+<section class="section atmosphere">
+  <div class="atmos-copy">
+    <p class="eyebrow">SALON ATMOSPHERE</p>
+    <h2>仕上がりまでの時間も、<br>心地よく。</h2>
+    <p>公開口コミには、スタッフの丁寧な対応、シャンプーやマッサージ、落ち着いて過ごせたことへの言及が複数あります。相談しやすい時間そのものも、この店舗価値の一部です。</p>
+  </div>
+  <figure>
+    <img src="assets/salon-atmosphere.jpg" alt="自然光が差し込むサロン空間のAIイメージ">
+    <figcaption>※店内ビジュアルはAI生成のイメージです。実際の店内写真ではありません。</figcaption>
+  </figure>
+</section>
+
+<section class="section info">
+  <p class="eyebrow">STORE INFORMATION</p>
+  <h2>GARDEN YOKOHAMA est</h2>
+  <dl>
+    <div><dt>住所</dt><dd>神奈川県横浜市西区高島２－７－１ ファーストプレイス横浜２A</dd></div>
+    <div><dt>電話</dt><dd><a href="tel:0455770755">045-577-0755</a></dd></div>
+  </dl>
+</section>
+
+<section class="section final" id="reserve">
+  <p class="eyebrow light">READY FOR A NEW STYLE?</p>
+  <h2>まずは、今の髪のことから。</h2>
+  <p>なりたい雰囲気がまだ曖昧でも大丈夫です。メニューや空き状況を確認して、相談から始めてみてください。</p>
+  <a class="primary-btn gold" href="https://beauty.hotpepper.jp/slnH000669832/" rel="noopener noreferrer">Hot Pepper Beautyで確認する</a>
+</section>
+</main>
+
+<footer>
+  <div class="brand"><span class="brand-main">GARDEN</span><span class="brand-sub">YOKOHAMA est</span></div>
+  <p>Path-Flow Creative Candidate / lead_id 1791</p>
+</footer>
+<a class="floating-diagnosis-cta" href="diagnosis/" aria-label="ご希望を確認したい方">
+  <span class="floating-diagnosis-copy">
+    <span class="floating-diagnosis-main">ご希望を確認したい方</span>
+    <span class="floating-diagnosis-sub">約1分で希望を整理</span>
+  </span>
+  <span class="floating-diagnosis-arrow" aria-hidden="true">→</span>
+</a>
+
+</body>
+</html>
