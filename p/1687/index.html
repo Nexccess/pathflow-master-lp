@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ja">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>toledo8 by HEADLIGHT 横浜店｜あなたらしく、扱いやすく。</title>
+  <meta name="description" content="相談しながら決める、あなたらしく扱いやすいヘアスタイル。toledo8 by HEADLIGHT 横浜店。">
+
+<link rel="stylesheet" href="styles.css">
+<!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    const payload = {
+      api_key: amplitudeApiKey,
+      events: [
+        {
+          device_id: getDeviceId(),
+          event_type: "lp_view",
+          time: Date.now(),
+          event_properties: {
+            lead_id: "1687",
+            store_name: "トレドエイト バイ ヘッドライト 横浜店(toledo8 by HEADLIGHT)",
+            variant_code: "STANDARD_LP",
+            lp_version: "TOLEDO1687-11A-PC-v1",
+            diagnosis_version: "1687-spec-v2-dryrun"
+          }
+        }
+      ]
+    };
+
+    fetch("https://api2.amplitude.com/2/httpapi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Amplitude HTTP " + response.status);
+      }
+
+      return response.json();
+    })
+    .then(function (result) {
+      console.log(
+        "[PathFlow] lp_view sent: lead_id=1687 events_ingested=" +
+        result.events_ingested
+      );
+    })
+    .catch(function (error) {
+      console.error("[PathFlow] Analytics send failed:", error);
+    });
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+</head>
+<body>
+
+  <header class="site-head">
+    <a class="brand" href="#top" aria-label="ページ上部へ">toledo<span>8</span></a>
+    <a class="head-link" href="#access">SALON INFO</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img src="assets/hero-layered-olive.png" alt="軽やかなレイヤーと透明感のあるヘアスタイルのイメージ">
+      <div class="hero-copy">
+        <p class="eyebrow">YOKOHAMA / HAIR DESIGN</p>
+        <h1>あなたらしく。<br><em>扱いやすく。</em></h1>
+        <p class="lead">決めきれない日も、言葉にしきれない悩みも。<br>一緒にほどいて、似合う形へ。</p>
+      </div>
+      <p class="image-note">※掲載ビジュアルはイメージです。</p>
+    </section>
+
+    <section class="intro section">
+      <p class="number">01</p>
+      <p class="eyebrow">YOUR HAIR, YOUR RHYTHM</p>
+      <h2>サロン帰りだけでなく、<br>明日の朝にも、しっくり。</h2>
+      <p>顔まわり、髪質、くせ、普段の過ごし方まで。見た目の好みだけでなく、ご自宅での扱いやすさまで考えたスタイルを相談できます。</p>
+      <div class="values" aria-label="大切にしていること">
+        <span>似合わせ</span><span>再現しやすさ</span><span>心地よい距離感</span>
+      </div>
+    </section>
+
+    <section class="consult section-dark">
+      <div class="section-copy">
+        <p class="number">02</p>
+        <p class="eyebrow">DECIDE TOGETHER</p>
+        <h2>決まっていなくても、<br>大丈夫です。</h2>
+        <p>長さやレイヤーの入れ方、色の見え方。マンツーマンで認識を合わせながら、今の気分にフィットする答えを探します。</p>
+      </div>
+      <figure>
+        <img src="assets/consultation.png" alt="スタイリストと相談する様子のイメージ">
+        <figcaption>※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</figcaption>
+      </figure>
+    </section>
+
+    <section class="style section">
+      <p class="number">03</p>
+      <p class="eyebrow">SOFT LAYERS / CLEAR COLOR</p>
+      <h2>軽さも、透明感も。<br>無理なく日常になじむ。</h2>
+      <figure class="style-visual">
+        <img src="assets/style-greige-layer.png" alt="グレージュ系カラーとレイヤーヘアのイメージ">
+        <figcaption>※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</figcaption>
+      </figure>
+      <div class="style-list">
+        <article><b>01</b><h3>FACE FRAME</h3><p>顔まわりの動きまで見ながら、輪郭になじむバランスへ。</p></article>
+        <article><b>02</b><h3>TEXTURE</h3><p>縮毛矯正やトリートメントも、髪の状態と希望に合わせて。</p></article>
+        <article><b>03</b><h3>HOME CARE</h3><p>アイロンやセットの方法まで、ご自宅で再現しやすく。</p></article>
+      </div>
+    </section>
+
+    <section class="voice section-olive">
+      <p class="number">04</p>
+      <p class="eyebrow">WHY THEY RETURN</p>
+      <h2>“またお願いしたい”<br>につながる理由。</h2>
+      <div class="quote-stack">
+        <blockquote>「決まりきっていないところも、優しく提案してくれて安心しました」</blockquote>
+        <blockquote>「セットやホームケアの方法も、分かりやすく教えてもらえました」</blockquote>
+        <blockquote>「会話量も空気を読んで調整してくれました」</blockquote>
+      </div>
+      <p class="voice-note">公開口コミの傾向を、意味を変えない範囲で短く編集しています。個人の感想であり、効果を保証するものではありません。</p>
+    </section>
+
+    <section class="menu section">
+      <p class="number">05</p>
+      <p class="eyebrow">STYLE MENU</p>
+      <h2>今の髪に合わせて、<br>選べるメニュー。</h2>
+      <div class="menu-row"><div><h3>DESIGN CUT</h3><p>似合わせデザインカット＋シャンプー</p></div><strong>¥3,800</strong></div>
+      <div class="menu-row"><div><h3>CUT + N.COLOR</h3><p>N.フルカラー＋カット</p></div><strong>¥8,000</strong></div>
+      <div class="menu-row"><div><h3>HAIR CARE</h3><p>カット＋TOKIOトリートメント</p></div><strong>¥7,800</strong></div>
+      <p class="menu-note">※掲載価格・メニューは2026年9月11日取得時点の公開情報です。条件・対象者・内容は予約画面でご確認ください。</p>
+    </section>
+
+    <section id="access" class="access section-dark">
+      <p class="number">06</p>
+      <p class="eyebrow">SALON INFORMATION</p>
+      <h2>toledo8<br><small>by HEADLIGHT 横浜店</small></h2>
+      <dl>
+        <div><dt>ADDRESS</dt><dd>神奈川県横浜市西区南幸2-12-5<br>城勘ビル3F</dd></div>
+        <div><dt>ACCESS</dt><dd>横浜駅 相鉄口より徒歩8分</dd></div>
+        <div><dt>TEL</dt><dd><a href="tel:0456289499">045-628-9499</a></dd></div>
+      </dl>
+      <a class="cta" href="https://beauty.hotpepper.jp/slnH000301551/" target="_blank" rel="noopener">メニューと空席を確認する<span>→</span></a>
+      <p class="cta-note">Hot Pepper Beautyの店舗ページへ移動します</p>
+    </section>
+  </main>
+
+  <footer><span>toledo8</span><p>by HEADLIGHT YOKOHAMA</p></footer>
+
+<a class="floating-diagnosis-cta" href="diagnosis/" aria-label="ご希望を確認したい方">
+  <span class="floating-diagnosis-copy">
+    <span class="floating-diagnosis-main">ご希望を確認したい方</span>
+    <span class="floating-diagnosis-sub">約1分で希望を整理</span>
+  </span>
+  <span class="floating-diagnosis-arrow" aria-hidden="true">→</span>
+</a>
+</body>
+</html>
