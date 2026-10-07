@@ -1,0 +1,95 @@
+{
+  "lead_id": 1854,
+  "status": "PASS",
+  "release": "RELEASE_READY_11B",
+  "publish": "NOT_EXECUTED",
+  "gates": {
+    "Gate 1 11A Intent Fidelity": {
+      "status": "PASS",
+      "facts": [
+        "Approved LP body/content preserved; only Analytics and Floating Diagnosis CTA inserted",
+        "Diagnosis does not add unsupported store evidence; resonance support is false for all required slots"
+      ]
+    },
+    "Gate 2 Visitor Self-Relevance": {
+      "status": "PASS",
+      "facts": [
+        "4-question discovery covers current priority, decision state, daily life, communication",
+        "Self Discovery result reached in browser DOM test"
+      ]
+    },
+    "Gate 3 Flow Coherence": {
+      "status": "PASS",
+      "facts": [
+        "LP diagnosis CTA points to diagnosis/",
+        "CTA uses target=_blank + rel=noopener noreferrer",
+        "Diagnosis -> 4 questions -> Result -> Hot Pepper CTA completed in DOM test"
+      ]
+    },
+    "Gate 4 Mobile Presentation / Visual Rhythm": {
+      "status": "PASS",
+      "facts": [
+        "320/375/390/430 and 768/1024/1280/1440: horizontal overflow none",
+        "8 LP images loaded in set_content test",
+        "LP max content width 760px; Diagnosis shell max width 720px; neither fixed to smartphone width on PC",
+        "Floating Diagnosis CTA repositioned above the persistent WEB reservation bar: desktop/tablet bottom=90px; mobile <=640px bottom=88px, both safe-area aware"
+      ]
+    },
+    "Gate 5 Integration Integrity": {
+      "status": "PASS",
+      "facts": [
+        "Unresolved placeholders: 0",
+        "Required assets: 8/8",
+        "Customer-facing old Evidence terms: 0",
+        "Theme Role mapping applied with Human-confirmed MUTED/LINE",
+        "CTA position correction changes only 11B integrated CSS; Approved LP source content remains unchanged"
+      ]
+    },
+    "Gate 6 Technical Reliability": {
+      "status": "PASS",
+      "facts": [
+        "Console errors: 0",
+        "Page errors: 0",
+        "All standard tracking events emitted with lead_id=1854",
+        "Normal navigation blocked by environment; v10-approved set_content used after two blocked navigation methods"
+      ]
+    },
+    "Gate 7 Safety / Isolation": {
+      "status": "PASS",
+      "facts": [
+        "Store identity remains AUBE HAIR kanon 横浜2号店",
+        "No other lead_id mixed",
+        "AI visual disclaimers retained",
+        "Unsupported evidence produces CONSULTATION_REQUIRED rather than inferred resonance"
+      ]
+    }
+  },
+  "theme_roles": {
+    "INK": "#2B2622",
+    "BACKGROUND": "#FBF8F4",
+    "SURFACE": "#FFFFFF",
+    "MUTED": "#7C6B60",
+    "LINE": "#E9DDD3",
+    "ACCENT_PRIMARY": "#40362F",
+    "INK_RGB": "43,38,34"
+  },
+  "browser_navigation": {
+    "file_url": "ERR_BLOCKED_BY_ADMINISTRATOR",
+    "localhost_http": "ERR_BLOCKED_BY_ADMINISTRATOR",
+    "fallback": "Playwright set_content per v10"
+  },
+  "external_verification": {
+    "store_and_hotpepper": "verified separately via current web sources"
+  },
+  "lp_preserved_exact_after_removing_11b_insertions": true,
+  "post_release_adjustment": {
+    "reason": "Human visual QA found overlap between Floating Diagnosis CTA and existing WEB reservation sticky CTA",
+    "change": "Move only .floating-diagnosis-cta upward; no copy, theme, evidence, diagnosis logic, tracking, or Approved LP source changes",
+    "desktop_tablet_bottom": "calc(90px + env(safe-area-inset-bottom, 0px))",
+    "mobile_max_640_bottom": "calc(88px + env(safe-area-inset-bottom, 0px))",
+    "affected_gates_rechecked": [
+      "Gate 4 Mobile Presentation / Visual Rhythm",
+      "Gate 5 Integration Integrity"
+    ]
+  }
+}

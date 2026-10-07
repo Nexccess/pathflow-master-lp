@@ -1,0 +1,31 @@
+{
+  "lead_id": 1854,
+  "canonical_revision": 2,
+  "creative_revision": "AUBE1854-11A-PC-v5",
+  "diagnosis_version": "1854-spec-v2-dryrun",
+  "variant_code": "STANDARD_LP",
+  "theme_roles": {
+    "INK": "#2B2622",
+    "BACKGROUND": "#FBF8F4",
+    "SURFACE": "#FFFFFF",
+    "MUTED": "#7C6B60",
+    "LINE": "#E9DDD3",
+    "ACCENT_PRIMARY": "#40362F",
+    "INK_RGB": "43,38,34"
+  },
+  "floating_palette": {
+    "FLOATING_COLOR_01": "#FFFFFF",
+    "FLOATING_RGB_02": "81,100,112",
+    "FLOATING_RGB_03": "66,78,87",
+    "FLOATING_RGB_04": "232,237,240",
+    "FLOATING_RGB_05": "43,38,34",
+    "FLOATING_RGB_06": "86,111,129",
+    "FLOATING_RGB_07": "71,89,102"
+  },
+  "evidence_adapter": {
+    "schema": "UNKNOWN",
+    "supported": 0,
+    "unsupported": 5
+  },
+  "publish": "NOT_EXECUTED"
+}

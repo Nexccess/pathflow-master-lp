@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#40362f">
+<title>AUBE HAIR kanon 横浜2号店｜まだ決めきれなくても、似合うへ。</title>
+<meta name="description" content="相談しながら、毎日に馴染む似合うスタイルへ。AUBE HAIR kanon 横浜2号店の提案LP。"><link rel="stylesheet" href="styles.css"><!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    const payload = {
+      api_key: amplitudeApiKey,
+      events: [
+        {
+          device_id: getDeviceId(),
+          event_type: "lp_view",
+          time: Date.now(),
+          event_properties: {
+            lead_id: "1854",
+            store_name: "AUBE HAIR kanon 横浜2号店",
+            variant_code: "STANDARD_LP",
+            lp_version: "2",
+            diagnosis_version: "1854-spec-v2-dryrun"
+          }
+        }
+      ]
+    };
+
+    fetch("https://api2.amplitude.com/2/httpapi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Amplitude HTTP " + response.status);
+      }
+
+      return response.json();
+    })
+    .then(function (result) {
+      console.log(
+        "[PathFlow] lp_view sent: lead_id=1854 events_ingested=" +
+        result.events_ingested
+      );
+    })
+    .catch(function (error) {
+      console.error("[PathFlow] Analytics send failed:", error);
+    });
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+
+</head>
+<body><main class="page">
+<section class="hero"><img src="assets/hero.png" alt="やわらかなレイヤーと透明感カラーをまとった女性のイメージ"><div class="hero-shade"></div><div class="hero-copy"><div class="brand">AUBE HAIR kanon · YOKOHAMA</div><div class="eyebrow light">CONSULTATION FIRST</div><h1>まだ決めきれなくても、<br>似合うへ。</h1><p class="sub">色も、長さも、雰囲気も。最初から答えを決めて来なくていい。相談しながら、今の自分にちょうどいい着地点を探していく。</p><a class="cta" href="https://beauty.hotpepper.jp/slnH000286582/" target="_blank" rel="noopener">空席・メニューを確認する</a></div><div class="hero-note">※掲載ビジュアルはイメージです。</div></section>
+
+<section class="section why"><div class="eyebrow">WHY KANON</div><h2>“任せやすさ”まで、<br>きれいに。</h2><p class="lead">公開口コミには、カットやカラーの仕上がりに加え、シャンプーの心地よさや、静かにゆっくり過ごせたという声が見られます。</p><div class="signals"><div><b>01</b><strong>相談から始めやすい</strong><span>決めきれていない希望も、会話しながら整理。</span></div><div><b>02</b><strong>毎日に馴染む仕上がり</strong><span>色・長さ・シルエットを、日常の扱いやすさへ。</span></div><div><b>03</b><strong>落ち着いて過ごす</strong><span>施術中の時間まで心地よく。</span></div></div></section>
+
+<section class="section consult"><div class="eyebrow">CONSULTATION</div><h2>「どうしたい？」を、<br>一緒にほどいていく。</h2><figure><img src="assets/consultation.png" alt="ヘアスタイルを相談するカウンセリングのイメージ"><figcaption>※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</figcaption></figure><div class="consult-copy"><p class="lead">髪の状態、普段のセット、好きな雰囲気。言葉になりきっていない希望も、話しながら少しずつ具体化していく。</p><ol><li><span>01</span><div><strong>いま困っていること</strong><p>扱いづらさや気になるポイントから。</p></div></li><li><span>02</span><div><strong>好きな雰囲気</strong><p>写真や色味、長さの印象をすり合わせ。</p></div></li><li><span>03</span><div><strong>日常に合わせる</strong><p>毎日の扱いやすさまで含めて着地点へ。</p></div></li></ol></div></section>
+
+<section class="section style"><div class="eyebrow light">STYLE / SERVICE</div><h2>透明感も、レイヤーも。<br>“似合う”を起点に。</h2><p class="lead pale">公開情報で確認できるカット、透明感カラー、トリートメント、ヘッドスパ。髪の色・質感・シルエットを主役として見せます。</p><article><img src="assets/style-layer.png" alt="毛先の動きと段差がわかる柔らかなレイヤースタイルのイメージ"><div class="style-copy"><div class="style-index">01 / SOFT LAYER</div><h3>毛先の段差と動きで、<br>シルエットをやわらかく。</h3><p>顔まわりから毛先まで、レイヤーの入り方と軽さが見える構図で、印象の変化を視覚化。</p></div><p class="ai-note">※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</p></article><article><img src="assets/style-sheer.png" alt="透明感のあるベージュブラウンカラーとツヤ感のイメージ"><div class="style-copy"><div class="style-index">02 / SHEER COLOR</div><h3>光を通すような、<br>やわらかな透明感。</h3><p>髪表面のツヤ、色の透け感、肌なじみのやわらかさを主役にしたニュアンスカラー表現。</p></div><p class="ai-note">※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</p></article></section>
+
+<section class="section proof"><div class="eyebrow">VISUAL PROOF</div><h2>髪の“表情”が、<br>印象を変える。</h2><p class="lead">長さだけではなく、毛先の動き、表面の軽さ、カラーの透け感。言葉だけでは伝わりづらい価値を、髪そのものの見え方で。</p><div class="proof-gallery"><figure class="proof-card"><img src="assets/proof-layer.png" alt="レイヤーの段差と毛先の動きが見えるイメージ"><figcaption><b>01 / LAYER</b><span>毛先の軽さと段差で、シルエットに動きをつくる。</span></figcaption><p class="ai-note">※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</p></figure><figure class="proof-card"><img src="assets/proof-color.png" alt="やわらかな透明感カラーとツヤ感のイメージ"><figcaption><b>02 / SHEER COLOR</b><span>光の透け方と色のやわらかさで、印象を軽やかに見せる。</span></figcaption><p class="ai-note">※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</p></figure><figure class="proof-card"><img src="assets/proof-texture.png" alt="髪の質感と艶が伝わるイメージ"><figcaption><b>03 / TEXTURE</b><span>表面のツヤとまとまりで、髪そのものの質感価値を伝える。</span></figcaption><p class="ai-note">※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</p></figure></div><div class="proof-points"><span>Layer</span><span>Texture</span><span>Sheer Color</span><span>Silhouette</span></div></section>
+
+<section class="section voice"><div class="eyebrow">CUSTOMER VOICE</div><h2>通った人の言葉に、<br>kanonらしさがにじむ。</h2><div class="voices"><blockquote>「思い通りのカットで、カラーも可愛い色に。」<small>公開口コミ内容の要約</small></blockquote><blockquote>「シャンプーが丁寧で、気持ちよかった。」<small>公開口コミ内容の要約</small></blockquote><blockquote>「ゆっくり静かに過ごせた。」<small>公開口コミ内容の要約</small></blockquote></div><p class="fine">※口コミは個人の感想です。効果・結果を保証するものではありません。</p></section>
+
+<section class="atmosphere"><img src="assets/atmosphere.png" alt="落ち着いたサロン空間のイメージ"><p class="ai-note darknote">※店内ビジュアルはAI生成のイメージです。実際の店内写真ではありません。</p><div class="atmo-copy"><div class="eyebrow">SALON ATMOSPHERE</div><h2>少し力を抜いて、<br>髪と向き合う時間。</h2><p class="lead">通いやすさと、施術中の落ち着いた時間。その両方を大切にしたい人へ。</p></div></section>
+
+<section class="section store"><div class="eyebrow">STORE / ACCESS</div><h2>AUBE HAIR kanon<br>横浜2号店</h2><dl><div><dt>ADDRESS</dt><dd>神奈川県横浜市西区南幸2-16-22 金属ビル2F</dd></div><div><dt>ACCESS</dt><dd>横浜駅西口 徒歩3分</dd></div><div><dt>MENU</dt><dd>カット / カラー / トリートメント / ヘッドスパ ほか</dd></div></dl></section>
+
+<section class="section final"><div class="eyebrow light">READY WHEN YOU ARE</div><h2>決めてから行く、ではなく。<br>相談しに行く。</h2><p>なりたいイメージがはっきりしていなくても。メニューや空席を見ながら、次の髪を考えてみませんか。</p><a class="cta" href="https://beauty.hotpepper.jp/slnH000286582/" target="_blank" rel="noopener">空席・メニューを確認する</a></section>
+<footer>AUBE HAIR kanon 横浜2号店｜Path-Flow Creative Candidate<br>※本ページは公開情報と口コミ傾向をもとに構成した提案用LPです。掲載ビジュアルは注記のとおりイメージを含みます。</footer>
+</main><div class="sticky"><a href="https://beauty.hotpepper.jp/slnH000286582/" target="_blank" rel="noopener">WEB予約・空席確認 →</a></div><a class="floating-diagnosis-cta" href="diagnosis/" target="_blank" rel="noopener noreferrer" aria-label="ご希望を確認したい方">
+  <span class="floating-diagnosis-copy">
+    <span class="floating-diagnosis-main">ご希望を確認したい方</span>
+    <span class="floating-diagnosis-sub">約1分で希望を整理</span>
+  </span>
+  <span class="floating-diagnosis-arrow" aria-hidden="true">→</span>
+</a>
+
+</body></html>

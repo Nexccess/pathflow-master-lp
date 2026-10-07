@@ -1,0 +1,14 @@
+{
+  "unresolved_placeholders": [],
+  "floating_new_context": true,
+  "diagnosis_href": true,
+  "customer_evidence_old_terms_absent": true,
+  "lp_analytics": true,
+  "diagnosis_events": true,
+  "lead_id_present": true,
+  "asset_count": 8,
+  "pass": true,
+  "floating_cta_above_web_reservation_bar": true,
+  "floating_cta_bottom_desktop_tablet": "90px + safe-area",
+  "floating_cta_bottom_mobile": "88px + safe-area"
+}
