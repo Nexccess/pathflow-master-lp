@@ -1,0 +1,61 @@
+{
+  "lead_id": 1855,
+  "store_name": "Asure",
+  "variant_code": "STANDARD_LP",
+  "source_designated_by_user": "C:\\PathFlow\\generated\\approved-lp\\1855\\STANDARD_LP\\rev1\\1855_Asure_11A_FINAL_DELIVERY",
+  "primary_accent": "#b67f84",
+  "theme_roles": {
+    "INK": "#3b2c2d",
+    "BACKGROUND": "#f7f2ee",
+    "SURFACE": "#fffdfb",
+    "MUTED": "#776668",
+    "LINE": "#e9ddd6",
+    "ACCENT_PRIMARY": "#b67f84",
+    "INK_RGB": "59, 44, 45"
+  },
+  "browser_qa": {
+    "normal_navigation": "ERR_BLOCKED_BY_ADMINISTRATOR",
+    "fallback": "Playwright set_content",
+    "mobile_widths": [
+      320,
+      375,
+      390,
+      430
+    ],
+    "horizontal_overflow": false,
+    "floating_cta_overlap": false,
+    "diagnosis_e2e": "PASS",
+    "console_errors": 0
+  },
+  "tracking": {
+    "transport": "Amplitude HTTP V2 direct",
+    "events_verified": [
+      "diagnosis_view",
+      "diagnosis_start",
+      "question_answered",
+      "diagnosis_progress",
+      "diagnosis_complete",
+      "result_view",
+      "cta_click"
+    ],
+    "lp_view_implementation": "present"
+  },
+  "gates": {
+    "1_11A_Intent_Fidelity": "PASS",
+    "2_Visitor_Self_Relevance": "PASS",
+    "3_Flow_Coherence": "PASS",
+    "4_Mobile_Presentation_Visual_Rhythm": "PASS",
+    "5_Integration_Integrity": "PASS",
+    "6_Technical_Reliability": "PASS",
+    "7_Safety_Isolation": "PASS"
+  },
+  "release": "RELEASE_READY_11B",
+  "publish": "NOT_EXECUTED",
+  "notes": [
+    "Approved LP body and original CSS were preserved; 11B additions were integrated into a separate product artifact.",
+    "Floating Diagnosis CTA uses target=_blank rel=noopener noreferrer.",
+    "External Result CTA resolves to https://asure-hair.com/.",
+    "Current public Asure site identifies the store as Asure and confirms Yokohama hair-set service.",
+    "Customer-facing Diagnosis wording was revised from internal Evidence terminology to public-information wording; diagnosis logic and scoring were not changed."
+  ]
+}

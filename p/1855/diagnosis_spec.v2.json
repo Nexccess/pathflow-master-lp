@@ -1,0 +1,170 @@
+{
+  "schema_version": "11b-diagnosis-spec-v2",
+  "lead_id": "1855",
+  "questions": [
+    {
+      "id": "scene",
+      "eyebrow": "01 / SCENE",
+      "title": "今回、どんな予定に向けて整えたいですか？",
+      "help": "いちばん近い予定を選んでください。",
+      "answers": [
+        {
+          "value": "wedding",
+          "label": "結婚式・お呼ばれ"
+        },
+        {
+          "value": "live_event",
+          "label": "ライブ・イベント"
+        },
+        {
+          "value": "special_day",
+          "label": "そのほかの大切な予定"
+        }
+      ]
+    },
+    {
+      "id": "timing",
+      "eyebrow": "02 / TIMING",
+      "title": "当日の時間で、気になっていることはありますか？",
+      "help": "予定前の支度について近いものを選んでください。",
+      "answers": [
+        {
+          "value": "early",
+          "label": "朝が早いので、早めに支度を整えたい"
+        },
+        {
+          "value": "normal",
+          "label": "時間より、予定に合う仕上がりを重視したい"
+        },
+        {
+          "value": "undecided",
+          "label": "まだ時間は決まっていない"
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "eyebrow": "03 / FINISH",
+      "title": "仕上がりは、どんな考え方に近いですか？",
+      "help": "髪型の名前まで決まっていなくても問題ありません。",
+      "answers": [
+        {
+          "value": "fit_scene",
+          "label": "服やその日の雰囲気に合わせて整えたい"
+        },
+        {
+          "value": "clean",
+          "label": "特別な日に合う、きれいな仕上がりにしたい"
+        },
+        {
+          "value": "consult",
+          "label": "まだ決めていないので、相談しながら整理したい"
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "eyebrow": "04 / PRIORITY",
+      "title": "今回いちばん大切にしたいことはどれですか？",
+      "help": "当日の過ごし方に近いものを選んでください。",
+      "answers": [
+        {
+          "value": "smooth",
+          "label": "予定前の準備をできるだけ軽やかにしたい"
+        },
+        {
+          "value": "mood",
+          "label": "イベントへ向かう前の気分まで整えたい"
+        },
+        {
+          "value": "private",
+          "label": "大きすぎない空間で落ち着いて支度したい"
+        }
+      ]
+    }
+  ],
+  "self_discovery": {
+    "title_question": "priority",
+    "title_by_answer": {
+      "smooth": "予定前の準備を、軽やかに整えたい",
+      "mood": "大切な日の気分まで、きれいに整えたい",
+      "private": "落ち着いた空間で、特別な日の支度をしたい"
+    },
+    "consultation_points": {
+      "scene": {
+        "wedding": "結婚式・お呼ばれに合うヘアセットを相談したい",
+        "live_event": "ライブ・イベントに合うヘアセットを相談したい",
+        "special_day": "大切な予定に合うヘアセットを相談したい"
+      },
+      "timing": {
+        "early": "朝の予定に合わせた支度時間について確認したい",
+        "normal": "予定に合う仕上がりを中心に相談したい",
+        "undecided": "予定時間が決まっていない段階で相談したい"
+      },
+      "finish": {
+        "fit_scene": "服やその日の雰囲気に合う仕上がりを相談したい",
+        "clean": "特別な日に合う、きれいな仕上がりを相談したい",
+        "consult": "具体的な髪型は決め切らず、相談しながら整理したい"
+      },
+      "priority": {
+        "smooth": "予定前の準備を軽やかに進めたい",
+        "mood": "イベントへ向かう前の気分まで整えたい",
+        "private": "大きすぎない空間で落ち着いて支度したい"
+      }
+    },
+    "summary": "大切な日の予定・時間・仕上がり・支度で重視したいことを整理した状態です。"
+  },
+  "resonance": {
+    "conditions": [
+      {
+        "evidence_key": "manageability",
+        "any": [
+          {
+            "question_id": "scene",
+            "values": [
+              "wedding",
+              "live_event",
+              "special_day"
+            ]
+          },
+          {
+            "question_id": "timing",
+            "values": [
+              "early",
+              "normal"
+            ]
+          },
+          {
+            "question_id": "priority",
+            "values": [
+              "smooth",
+              "mood"
+            ]
+          }
+        ]
+      },
+      {
+        "evidence_key": "fit_or_proposal",
+        "any": [
+          {
+            "question_id": "finish",
+            "values": [
+              "fit_scene",
+              "consult"
+            ]
+          }
+        ]
+      }
+    ],
+    "thresholds": {
+      "direct_min": 2,
+      "partial_min": 1
+    },
+    "messages": {
+      "DIRECT_RESONANCE": "今回整理した希望と、Asureの公開情報には複数の重なりがあります。具体的なヘアセットは当日の予定や希望を伝えて相談してください。",
+      "PARTIAL_RESONANCE": "今回整理した希望の一部は、Asureの公開情報と重なります。具体的な仕上がりは予定や希望を伝えて相談してください。",
+      "CONSULTATION_REQUIRED": "今回の希望について、確認できる公開情報だけでは十分な一致を判断できません。予定や希望を伝えて相談するのが適切です。"
+    },
+    "no_match_text": "今回の希望と直接照合できる十分な公開情報は確認できませんでした。"
+  }
+}

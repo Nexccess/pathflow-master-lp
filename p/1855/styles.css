@@ -1,0 +1,291 @@
+
+:root{
+  --bg:#f7f2ee;
+  --paper:#fffdfb;
+  --ink:#3b2c2d;
+  --muted:#776668;
+  --line:#e9ddd6;
+  --blush:#cfa0a4;
+  --blush-deep:#b67f84;
+  --taupe:#d9cdc5;
+  --char:#3a3033;
+  --cream:#f9f5f2;
+  --shadow:0 18px 40px rgba(67,45,45,.08);
+  --max:760px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Yu Gothic","Noto Sans JP",system-ui,sans-serif;line-height:1.85}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.page{max-width:var(--max);margin:0 auto;background:var(--paper);box-shadow:0 0 50px rgba(55,35,35,.08)}
+.brand-overline,.section-kicker{margin:0 0 12px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#f7ece8;font-weight:700}
+.section-kicker{color:#a47d7f}
+.section-kicker--light{color:#e8d3d5}
+h1,h2,h3{font-family:"Hiragino Mincho ProN","Yu Mincho",Georgia,serif;font-weight:500;letter-spacing:-.03em}
+h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1.15;margin:.2em 0 .4em}
+h2{font-size:clamp(1.95rem,7vw,3rem);line-height:1.34;margin:.15em 0 .6em}
+h3{font-size:1.04rem;margin:0 0 .45em}
+p{margin:0}
+.hero{background:#efe7e2}
+.hero__image-wrap{position:relative;min-height:700px;overflow:hidden}
+.hero__image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,27,27,.04) 0%,rgba(44,27,27,.15) 38%,rgba(44,27,27,.68) 100%)}
+.hero__copy{position:absolute;left:24px;right:24px;bottom:36px;color:white;z-index:2}
+.hero__lead{font-size:clamp(1rem,4vw,1.22rem);opacity:.98;margin:0 0 22px}
+.hero__actions{display:flex;flex-direction:column;gap:12px;max-width:420px}
+.btn{display:block;text-align:center;border-radius:999px;padding:15px 18px;font-weight:700;transition:.2s}
+.btn--primary{background:var(--blush-deep);color:white;box-shadow:0 10px 24px rgba(147,96,100,.24)}
+.btn--ghost{border:1px solid rgba(255,255,255,.65);color:#fff;background:rgba(255,255,255,.04)}
+.btn--light{background:#fff;color:var(--char)}
+.btn--outline{border:1px solid rgba(255,255,255,.68);color:#fff;background:transparent}
+.hero__note-row{display:grid;grid-template-columns:1fr;gap:1px;background:#544446;color:#fff}
+.hero__note-row>div{background:#4a3b3d;padding:16px 24px}
+.hero__note-row span{display:block;font-size:.67rem;letter-spacing:.12em;color:#e5cfd0;text-transform:uppercase}
+.hero__note-row strong{font-size:.95rem;font-weight:700}
+.caption-note{padding:10px 24px 0;font-size:.72rem;color:#87767a}
+.section{padding:72px 24px;background:var(--paper)}
+.section--why{padding-top:64px}
+.section-lead{font-size:1rem;color:#5b4c4e}
+.fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.fact-card{background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:22px 18px;min-height:122px;display:flex;flex-direction:column;justify-content:space-between}
+.fact-card strong{font-family:"Hiragino Mincho ProN","Yu Mincho",Georgia,serif;font-size:1.28rem;color:var(--ink)}
+.fact-card span{font-size:.86rem;color:var(--muted)}
+.chip-list{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.chip-list li{padding:8px 13px;border-radius:999px;background:var(--cream);border:1px solid var(--line);font-size:.85rem;color:var(--ink)}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.service-grid article{background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:20px 18px;min-height:145px}
+.service-grid p{font-size:.9rem;color:var(--muted)}
+.full-visual{width:100%;border-radius:24px;box-shadow:var(--shadow);background:#efe7e2}
+.voice-list{display:grid;gap:12px;margin-top:24px}
+blockquote{margin:0;background:var(--cream);border-left:3px solid var(--blush);padding:18px 18px 18px 20px;font-size:.98rem;color:#524547}
+.section--salon .section-lead{margin-top:22px}
+.access-card{margin-top:28px;border-radius:26px;overflow:hidden;background:var(--cream);border:1px solid var(--line);box-shadow:var(--shadow)}
+.access-card__image img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.access-card__body{padding:22px 20px}
+dl{margin:0;display:grid;gap:14px}
+dl div{display:grid;gap:3px}
+dt{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#8f7d80;font-weight:700}
+dd{margin:0;font-weight:600;color:var(--ink)}
+.final-cta{padding:82px 24px 94px;background:linear-gradient(180deg,#534042 0%,#35292c 100%);color:#fff;text-align:center}
+.final-cta__actions{display:flex;flex-direction:column;gap:12px;max-width:430px;margin:28px auto 0}
+.final-brand{margin-top:34px}
+.final-brand strong{display:block;font-family:Georgia,"Hiragino Mincho ProN",serif;font-size:2rem;letter-spacing:.07em}
+.final-brand span{display:block;margin-top:4px;font-size:.72rem;letter-spacing:.16em;color:#d8c7c8}
+.sticky-cta{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));max-width:736px;margin:auto;z-index:30;background:var(--blush-deep);color:#fff;text-align:center;padding:14px 16px;border-radius:999px;box-shadow:0 14px 28px rgba(111,67,70,.28);font-weight:700}
+@media (min-width:760px){
+  .hero__copy{left:52px;right:52px}
+  .section,.caption-note{padding-left:52px;padding-right:52px}
+}
+@media (max-width:430px){
+  .hero__image-wrap{min-height:640px}
+  .section{padding-top:62px;padding-bottom:62px}
+  h1{font-size:2.45rem}
+  h2{font-size:1.95rem}
+}
+@media (max-width:390px){
+  .hero__copy{left:20px;right:20px}
+  h1{font-size:2.22rem}
+  h2{font-size:1.82rem}
+}
+@media (max-width:375px){
+  .section,.caption-note{padding-left:20px;padding-right:20px}
+  .fact-card{padding:18px 15px}
+}
+@media (max-width:320px){
+  .hero__image-wrap{min-height:560px}
+  h1{font-size:1.98rem}
+  h2{font-size:1.68rem}
+  .fact-grid,.service-grid{grid-template-columns:1fr}
+  .sticky-cta{left:8px;right:8px;font-size:.9rem}
+}
+
+
+/* =========================================
+   PathFlow 11B Floating Diagnosis CTA
+   ========================================= */
+
+.floating-diagnosis-cta {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  min-width: 230px;
+  min-height: 64px;
+  padding: 11px 13px 11px 20px;
+
+  /* Inject the approved LP accent family. */
+  background:
+    linear-gradient(
+      145deg,
+      rgba(135, 171, 168, 0.56) 0%,
+      rgba(111, 151, 147, 0.52) 100%
+    );
+
+  color: #fffdfb;
+  text-decoration: none;
+
+  border: 1px solid rgba(255, 255, 255,0.34);
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 22px rgba(59, 44, 45, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255,0.30);
+
+  backdrop-filter: blur(11px) saturate(115%);
+  -webkit-backdrop-filter: blur(11px) saturate(115%);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+/* subtle glossy highlight */
+.floating-diagnosis-cta::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 18px;
+  right: 18px;
+  height: 42%;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255,0.20),
+      rgba(255, 255, 255,0.00)
+    );
+
+  pointer-events: none;
+}
+
+.floating-diagnosis-cta:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(126, 165, 161, 0.64) 0%,
+      rgba(98, 140, 136, 0.60) 100%
+    );
+
+  box-shadow:
+    0 10px 26px rgba(59, 44, 45, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255,0.34);
+}
+
+.floating-diagnosis-cta:focus-visible {
+  outline: 2px solid rgba(255, 255, 255,0.95);
+  outline-offset: 3px;
+}
+
+.floating-diagnosis-copy {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.floating-diagnosis-main {
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: .035em;
+  white-space: nowrap;
+}
+
+.floating-diagnosis-sub {
+  font-size: 9px;
+  line-height: 1.3;
+  font-weight: 400;
+  letter-spacing: .08em;
+  opacity: .78;
+  white-space: nowrap;
+}
+
+.floating-diagnosis-arrow {
+  position: relative;
+  z-index: 1;
+
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255,0.13);
+  border: 1px solid rgba(255, 255, 255,0.40);
+
+  color: #fffdfb;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* small speech-tail character */
+.floating-diagnosis-cta::after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  bottom: -5px;
+
+  width: 15px;
+  height: 15px;
+
+  background: rgba(111, 151, 147, 0.52);
+
+  transform: rotate(45deg);
+  border-radius: 2px;
+
+  box-shadow: 4px 4px 10px rgba(59, 44, 45, 0.08);
+
+  z-index: -1;
+}
+
+@media (max-width: 640px) {
+  .floating-diagnosis-cta {
+    right: 13px;
+    bottom: 13px;
+
+    min-width: 205px;
+    min-height: 58px;
+
+    padding: 9px 10px 9px 17px;
+    gap: 12px;
+  }
+
+  .floating-diagnosis-main {
+    font-size: 13px;
+  }
+
+  .floating-diagnosis-sub {
+    font-size: 8px;
+  }
+
+  .floating-diagnosis-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+}
+
+
+/* 1855 integration: avoid overlap with existing bottom sticky CTA */
+.floating-diagnosis-cta{bottom:82px;}
+@media (max-width:640px){.floating-diagnosis-cta{bottom:78px;}}
