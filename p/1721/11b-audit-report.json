@@ -1,0 +1,40 @@
+{
+  "lead_id": 1721,
+  "store_name": "soil by ROMMY.",
+  "status": "COMPLETE",
+  "release": "RELEASE_READY_11B",
+  "publish": "NOT_EXECUTED",
+  "primary_accent": "#c89083",
+  "gates": {
+    "1_11A_Intent_Fidelity": "PASS",
+    "2_Visitor_Self_Relevance": "PASS",
+    "3_Flow_Coherence": "PASS",
+    "4_Mobile_Presentation_Visual_Rhythm": "PASS",
+    "5_Integration_Integrity": "PASS",
+    "6_Technical_Reliability": "PASS",
+    "7_Safety_Isolation": "PASS"
+  },
+  "mobile_widths": {
+    "320": "PASS",
+    "375": "PASS",
+    "390": "PASS",
+    "430": "PASS"
+  },
+  "canonical": {
+    "db_revision": 2,
+    "stage_11a_status": "APPROVED_11A",
+    "next_stage": "11B_DIAGNOSIS_INTEGRATION",
+    "lp_sha256": "a3f9347e224295b57a28c1be6bbd692a4c661c8a6f4c2a487d4081de1c0ca02f",
+    "db_write": false
+  },
+  "product_files": {
+    "assets/consultation.png": "f6e1c801bcf22c4cd7a6bc647001c23e27e5d72433e1d002445f669437599cbe",
+    "assets/hero-consultative-bob.png": "7801a21477808008b67ff82a20aa14867c9c41b4f459e620742d8291f4059bf3",
+    "assets/style-dimensional-brown.png": "bb36de9980a7a5547642296fc3d9607db60b9ba43baefbd404093c74fe411aaf",
+    "diagnosis/app.js": "a844df98e4422e9abe3c8944d9ccb0981103714adeb0e558240e1732e94d015a",
+    "diagnosis/index.html": "2eb4c71d3d96224f00c93868ff2740c9b844c3bd6630fcb7f94c69a86c74dd16",
+    "diagnosis/styles.css": "7c679257edbaff98eeeda2eb362965ef80de47411d40f1dc3a06fd1730b822c6",
+    "index.html": "c06b7ac66a216d8e4282c161b717ebb11365836e2a501fcae32f62bd52c711db",
+    "styles.css": "f49ac21f69df897fd126af3907a58cf3acd725d26ecdd0952ea4ea7fae434c75"
+  }
+}

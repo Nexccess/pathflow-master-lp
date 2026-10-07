@@ -1,0 +1,191 @@
+:root{--ivory:#f8f3eb;--paper:#fffdf9;--ink:#292622;--muted:#746c64;--rose:#c89083;--rose-deep:#9d665c;--sand:#ded0bd;--line:rgba(41,38,34,.16);--serif:"Yu Mincho","Hiragino Mincho ProN",serif;--sans:"Helvetica Neue","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.9;letter-spacing:.035em}img{display:block;width:100%;height:auto}a{color:inherit}.hero{position:relative;min-height:100svh;overflow:hidden;background:#dfd0c2}.hero__image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% center}.hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,26,22,.08),rgba(31,26,22,.02) 38%,rgba(31,26,22,.57) 100%)}.hero__content{position:relative;z-index:1;display:flex;min-height:100svh;flex-direction:column;justify-content:flex-end;padding:clamp(30px,8vw,72px) clamp(24px,7vw,56px) 92px;color:#fff}.brand{margin:10px 0 26px;font:500 clamp(28px,8vw,42px)/1 var(--serif);letter-spacing:.12em}.brand span{font-family:var(--sans);font-size:.36em;letter-spacing:.18em;text-transform:uppercase}.eyebrow{margin:0 0 20px;color:var(--rose-deep);font-size:11px;font-weight:700;letter-spacing:.25em}.hero .eyebrow{color:#fff}.hero h1,.section h2{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:.04em}.hero h1{font-size:clamp(38px,10.6vw,64px);line-height:1.35;text-shadow:0 2px 18px rgba(0,0,0,.12)}.hero__lead{margin:26px 0 30px;font-size:14px;line-height:2}.hero__note{position:absolute;z-index:2;bottom:16px;left:24px;color:rgba(255,255,255,.86)}.ai-note,.source-note{font-size:10px;line-height:1.65;letter-spacing:0;color:var(--muted)}.section{padding:96px 0}.section__inner{width:min(100% - 48px,760px);margin:0 auto}.narrow{width:min(100% - 56px,640px)}.section h2{font-size:clamp(30px,8vw,50px);line-height:1.55}.body-copy{margin:34px 0 0;color:#514b45;line-height:2.15}.intro{background:var(--ivory)}.three-lines{margin:56px 0 0;border-top:1px solid var(--line)}.three-lines p{display:flex;gap:18px;align-items:baseline;margin:0;padding:19px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:17px}.three-lines span{color:var(--rose-deep);font:700 10px/1 var(--sans);letter-spacing:.16em}.consult{padding-top:0;background:var(--paper)}.consult .section__inner{width:min(100%,760px)}.full-bleed{margin:0}.full-bleed img{height:min(132vw,920px);object-fit:cover}.full-bleed figcaption{padding:10px 24px}.copy-panel{margin:-6px 24px 0;padding:62px 28px 10px;background:var(--paper)}.style{background:#302b28;color:#f7f1ea}.style__heading{padding-bottom:46px}.style .eyebrow{color:#d9a99d}.style__visual{margin:0}.style__visual img{max-height:900px;object-fit:cover}.style__visual figcaption{margin-top:10px;color:#c8bdb5}.services{margin-top:56px;border-top:1px solid rgba(255,255,255,.19)}.services article{padding:26px 0;border-bottom:1px solid rgba(255,255,255,.19)}.services__num{margin:0 0 8px;color:#d9a99d;font-size:10px;letter-spacing:.18em}.services h3{margin:0 0 7px;font:500 23px/1.5 var(--serif)}.services article>p:last-child{margin:0;color:#cfc5be;font-size:13px}.voice{background:#e9d7cf}.quote-list{margin:54px 0 34px}.quote-list blockquote{position:relative;margin:0;padding:30px 0 30px 30px;border-bottom:1px solid rgba(81,58,52,.18);font-family:var(--serif);font-size:18px;line-height:1.9}.quote-list blockquote:before{content:"“";position:absolute;left:0;top:23px;color:var(--rose-deep);font-size:32px}.atmosphere{position:relative;overflow:hidden;background:var(--paper)}.soft-shape{height:240px;margin:58px -28px -96px;background:linear-gradient(140deg,#f3e5df 0 52%,#d5b2a7 52% 71%,#c18b7f 71%);border-radius:50% 50% 0 0/75% 75% 0 0;opacity:.78}.access{background:var(--ivory)}.access dl{margin:42px 0 0;border-top:1px solid var(--line)}.access dl div{display:grid;grid-template-columns:74px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}.access dt{color:var(--rose-deep);font-size:9px;font-weight:700;letter-spacing:.15em}.access dd{margin:0;font-size:14px;line-height:1.8}.final-cta{text-align:center;background:#c88e81;color:#fff}.final-cta .brand{margin-top:0}.final-cta h2{font-size:clamp(32px,8.4vw,52px)}.final-cta>div>p:not(.brand){margin:26px auto 34px;max-width:440px;font-size:14px}.button{display:inline-flex;min-height:54px;align-items:center;justify-content:center;padding:15px 26px;border:1px solid currentColor;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.12em}.button--light{align-self:flex-start;color:#fff}.button--dark{width:min(100%,420px);background:#2b2725;border-color:#2b2725;color:#fff}.text-link{display:block;margin:23px auto 0;font-family:var(--serif);font-size:20px;text-underline-offset:6px}footer{padding:28px;background:#2b2725;color:#bfb3ab;text-align:center;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+@media(min-width:700px){.section{padding:128px 0}.consult .section__inner{width:min(100% - 64px,760px)}.full-bleed img{height:860px}.copy-panel{margin:-80px 56px 0;padding:68px 64px 24px;position:relative}.services{display:grid;grid-template-columns:1fr 1fr}.services article:nth-child(odd){padding-right:28px}.services article:nth-child(even){padding-left:28px;border-left:1px solid rgba(255,255,255,.19)}}
+@media(max-width:360px){body{font-size:15px}.hero__content{padding-left:20px;padding-right:20px}.section__inner,.narrow{width:calc(100% - 40px)}.section h2{font-size:29px}.three-lines p{font-size:15px}.copy-panel{margin-left:18px;margin-right:18px;padding-left:20px;padding-right:20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+/* =========================================
+   PathFlow 11B Floating Diagnosis CTA
+   ========================================= */
+
+.floating-diagnosis-cta {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  min-width: 230px;
+  min-height: 64px;
+  padding: 11px 13px 11px 20px;
+
+  /* Inject the approved LP accent family. */
+  background:
+    linear-gradient(
+      145deg,
+      rgba(98, 133, 141, 0.56) 0%,
+      rgba(83, 114, 122, 0.52) 100%
+    );
+
+  color: #ffffff;
+  text-decoration: none;
+
+  border: 1px solid rgba(255, 255, 255,0.34);
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 22px rgba(41, 38, 34, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255,0.30);
+
+  backdrop-filter: blur(11px) saturate(115%);
+  -webkit-backdrop-filter: blur(11px) saturate(115%);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+/* subtle glossy highlight */
+.floating-diagnosis-cta::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 18px;
+  right: 18px;
+  height: 42%;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255,0.20),
+      rgba(255, 255, 255,0.00)
+    );
+
+  pointer-events: none;
+}
+
+.floating-diagnosis-cta:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(86, 122, 130, 0.64) 0%,
+      rgba(72, 105, 113, 0.60) 100%
+    );
+
+  box-shadow:
+    0 10px 26px rgba(41, 38, 34, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255,0.34);
+}
+
+.floating-diagnosis-cta:focus-visible {
+  outline: 2px solid rgba(255, 255, 255,0.95);
+  outline-offset: 3px;
+}
+
+.floating-diagnosis-copy {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.floating-diagnosis-main {
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: .035em;
+  white-space: nowrap;
+}
+
+.floating-diagnosis-sub {
+  font-size: 9px;
+  line-height: 1.3;
+  font-weight: 400;
+  letter-spacing: .08em;
+  opacity: .78;
+  white-space: nowrap;
+}
+
+.floating-diagnosis-arrow {
+  position: relative;
+  z-index: 1;
+
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255,0.13);
+  border: 1px solid rgba(255, 255, 255,0.40);
+
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* small speech-tail character */
+.floating-diagnosis-cta::after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  bottom: -5px;
+
+  width: 15px;
+  height: 15px;
+
+  background: rgba(83, 114, 122, 0.52);
+
+  transform: rotate(45deg);
+  border-radius: 2px;
+
+  box-shadow: 4px 4px 10px rgba(41, 38, 34, 0.08);
+
+  z-index: -1;
+}
+
+@media (max-width: 640px) {
+  .floating-diagnosis-cta {
+    right: 13px;
+    bottom: 13px;
+
+    min-width: 205px;
+    min-height: 58px;
+
+    padding: 9px 10px 9px 17px;
+    gap: 12px;
+  }
+
+  .floating-diagnosis-main {
+    font-size: 13px;
+  }
+
+  .floating-diagnosis-sub {
+    font-size: 8px;
+  }
+
+  .floating-diagnosis-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+}
+
