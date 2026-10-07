@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Asure | 大切な日の、いちばんきれいな私で。</title>
+  <meta name="description" content="横浜で、ヘアセットから始まる特別な一日。結婚式・お呼ばれ・ライブ・イベントなど大切な日のヘアセットならAsure。">
+  <link rel="stylesheet" href="styles.css">
+<!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    const payload = {
+      api_key: amplitudeApiKey,
+      events: [
+        {
+          device_id: getDeviceId(),
+          event_type: "lp_view",
+          time: Date.now(),
+          event_properties: {
+            lead_id: "1855",
+            store_name: "Asure",
+            variant_code: "STANDARD_LP",
+            lp_version: "ASURE1855-11A-FINAL-v1",
+            diagnosis_version: "1855-spec-v2"
+          }
+        }
+      ]
+    };
+
+    fetch("https://api2.amplitude.com/2/httpapi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Amplitude HTTP " + response.status);
+      }
+
+      return response.json();
+    })
+    .then(function (result) {
+      console.log(
+        "[PathFlow] lp_view sent: lead_id=1855 events_ingested=" +
+        result.events_ingested
+      );
+    })
+    .catch(function (error) {
+      console.error("[PathFlow] Analytics send failed:", error);
+    });
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+
+</head>
+<body>
+  <a class="sticky-cta" href="#final-cta">ご予約・お問い合わせ</a>
+  <main class="page">
+    <header class="hero" id="top">
+      <div class="hero__image-wrap">
+        <img class="hero__image" src="assets/hero-special-day.png" alt="横浜の水辺を背景にした特別な日のヘアセットイメージ" loading="eager">
+        <div class="hero__overlay"></div>
+        <div class="hero__copy">
+          <p class="brand-overline">ASURE / YOKOHAMA HAIR SALON</p>
+          <h1>大切な日の、<br>いちばんきれいな私で。</h1>
+          <p class="hero__lead">ヘアセットから始まる、<br>もっと特別な一日を。</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#final-cta">ご予約・お問い合わせ</a>
+            <a class="btn btn--ghost" href="#gallery">スタイルを見る</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero__note-row">
+        <div><span>EARLY MORNING</span><strong>早朝対応OK</strong></div>
+        <div><span>SCENE FIT</span><strong>シーンに合わせたスタイル</strong></div>
+        <div><span>COUNSELING</span><strong>丁寧なカウンセリング</strong></div>
+      </div>
+      <p class="caption-note">※掲載ビジュアルはイメージです。</p>
+    </header>
+
+    <section class="section section--why">
+      <p class="section-kicker">WHY / 選ばれる理由</p>
+      <h2>予定が早い日ほど、<br>準備は軽やかに。</h2>
+      <p class="section-lead">特別な日の朝は、準備をうまく整えられるかどうかで一日の動きやすさも変わります。Asureは、横浜でヘアセットから一日を始めたい方に寄り添うサロンです。</p>
+      <div class="fact-grid">
+        <article class="fact-card"><strong>早朝対応</strong><span>朝の予定にも合わせやすい</span></article>
+        <article class="fact-card"><strong>シーン対応</strong><span>結婚式・お呼ばれ・イベント</span></article>
+        <article class="fact-card"><strong>横浜</strong><span>予定先へ向かいやすい立地感</span></article>
+        <article class="fact-card"><strong>プライベート</strong><span>大きすぎない空間で支度</span></article>
+      </div>
+    </section>
+
+    <section class="section section--consultation">
+      <p class="section-kicker">CONSULTATION</p>
+      <h2>シーンに合わせた、<br>あなただけのスタイルに。</h2>
+      <p class="section-lead">結婚式・お呼ばれ・ライブ・イベント。目的が違えば「似合う」も変わります。口コミから読み取れるのは、特別な日の支度において、時間の合わせやすさと気分が整う仕上がりが求められているということ。Asureは、その日の予定に合うヘアセットを提案できるサロンとしてLPを設計しています。</p>
+      <ul class="chip-list" aria-label="対応シーン">
+        <li>結婚式</li>
+        <li>お呼ばれ</li>
+        <li>ライブ</li>
+        <li>イベント</li>
+        <li>デート</li>
+        <li>卒業式</li>
+      </ul>
+    </section>
+
+    <section class="section section--service">
+      <p class="section-kicker">STYLE / SERVICE</p>
+      <h2>ヘアセットを中心に、<br>特別な日の準備をサポート。</h2>
+      <div class="service-grid">
+        <article>
+          <h3>ヘアセット</h3>
+          <p>大切な日の印象を整える、主役のメニュー。</p>
+        </article>
+        <article>
+          <h3>シーン提案</h3>
+          <p>服装や予定に合わせた雰囲気づくりへ。</p>
+        </article>
+        <article>
+          <h3>通常メニュー</h3>
+          <p>カット・カラーなど通常の美容メニューにも対応。</p>
+        </article>
+        <article>
+          <h3>予約導線</h3>
+          <p>予定に合わせて、事前相談・問い合わせへつなぎやすく。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--gallery" id="gallery">
+      <p class="section-kicker">VISUAL PROOF / GALLERY</p>
+      <h2>シーンに合わせた、<br>あなたらしいヘアに。</h2>
+      <img class="full-visual" src="assets/gallery-hairstyles.png" alt="結婚式、お呼ばれ、ライブ、特別な日向けのヘアスタイルギャラリー" loading="lazy">
+      <p class="caption-note">※人物・髪型ビジュアルはAI生成のイメージです。実際の施術例・お客様写真ではありません。</p>
+    </section>
+
+    <section class="section section--voice">
+      <p class="section-kicker">CUSTOMER VOICE</p>
+      <h2>特別な日の支度を、<br>気持ちよく始めたい人へ。</h2>
+      <div class="voice-list">
+        <blockquote>「朝の予定でも、慌ただしくなりすぎず支度しやすい。」</blockquote>
+        <blockquote>「イベントに向かう前の気分まで整うようなヘアセットが嬉しい。」</blockquote>
+        <blockquote>「その日の服や雰囲気に合わせて、きれいに仕上げたい。」</blockquote>
+      </div>
+      <p class="caption-note">※口コミの傾向をもとに、Customer Valueとして再構成した表現です。数値や件数はLPには直接掲載していません。</p>
+    </section>
+
+    <section class="section section--salon">
+      <p class="section-kicker">SALON ATMOSPHERE</p>
+      <h2>落ち着いたプライベート空間で、<br>ゆったりとした時間を。</h2>
+      <img class="full-visual" src="assets/salon-space.png" alt="落ち着いたプライベートサロン空間のイメージ" loading="lazy">
+      <p class="section-lead">大きすぎないサロンだからこそ、一人ひとりに丁寧に向き合うような空気感を大切に。支度の時間そのものが、特別な日の気持ちを整える時間になるよう設計しています。</p>
+      <p class="caption-note">※サロン空間ビジュアルはAI生成のイメージです。実際の店内写真ではありません。</p>
+    </section>
+
+    <section class="section section--access">
+      <p class="section-kicker">STORE / ACCESS</p>
+      <h2>横浜で、<br>予定につながりやすい立地。</h2>
+      <div class="access-card">
+        <div class="access-card__image">
+          <img src="assets/access-yokohama.png" alt="横浜みなとみらいの風景イメージ" loading="lazy">
+        </div>
+        <div class="access-card__body">
+          <dl>
+            <div><dt>Salon</dt><dd>Asure（アシュア）</dd></div>
+            <div><dt>Area</dt><dd>横浜・南幸エリア</dd></div>
+            <div><dt>Access</dt><dd>横浜駅徒歩圏で、予定先へつなぎやすい立地感</dd></div>
+            <div><dt>Scene</dt><dd>結婚式 / お呼ばれ / ライブ / イベント / デート / 卒業式</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="final-cta">
+      <p class="section-kicker section-kicker--light">FINAL CTA</p>
+      <h2>その日の予定に合わせて、<br>まずは相談してみる。</h2>
+      <p>ヘアセットから始まる特別な一日を、横浜で。</p>
+      <div class="final-cta__actions">
+        <a class="btn btn--primary btn--light" href="https://asure-hair.com/" target="_blank" rel="noopener">ご予約・お問い合わせ</a>
+        <a class="btn btn--outline" href="#gallery">スタイルをもっと見る</a>
+      </div>
+      <div class="final-brand">
+        <strong>Asure</strong>
+        <span>YOKOHAMA HAIR SALON</span>
+      </div>
+    </section>
+  </main>
+<a class="floating-diagnosis-cta" href="diagnosis/" target="_blank" rel="noopener noreferrer" aria-label="ご希望を確認したい方">
+  <span class="floating-diagnosis-copy">
+    <span class="floating-diagnosis-main">ご希望を確認したい方</span>
+    <span class="floating-diagnosis-sub">約1分で希望を整理</span>
+  </span>
+  <span class="floating-diagnosis-arrow" aria-hidden="true">→</span>
+</a>
+
+</body>
+</html>
