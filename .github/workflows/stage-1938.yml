@@ -1,0 +1,59 @@
+name: Stage PathFlow 1938
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/stage-1938.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  stage-1938:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download verified 1938 product
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-4494-8206-9896-4759b5679282/raw?se=2026-10-07T03%3A55%3A27Z&sp=r&sv=2026-02-06&sr=b&scid=2677ce23-ce43-54ed-9299-a305f02114e8&skoid=3e273c3d-5ea1-4088-9e18-79685531b184&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-07T02%3A43%3A44Z&ske=2026-10-08T02%3A43%3A44Z&sks=b&skv=2026-02-06&sig=pWEn4XnjhdXr7ExDOhLwVH7Jx6csqU8Okr/7wSv7Cks%3D' -o /tmp/1938-product.zip
+          echo '699282a4a7f1495d24c43d94c5b05a0624e5ca6d2851690189675b16a191fa1d  /tmp/1938-product.zip' | sha256sum -c -
+          test ! -e p/1938
+          mkdir -p p/1938
+          unzip -q /tmp/1938-product.zip -d p/1938
+          test -f p/1938/index.html
+          test -f p/1938/diagnosis/index.html
+          test -f p/1938/diagnosis/app.js
+          test -f p/1938/assets/lp-master.png
+          echo '5812c11ab64795a6cd163b436673f522b93946f035c49960e90fbd8555c4eca8  p/1938/assets/lp-master.png' | sha256sum -c -
+          python - <<'PY'
+          import json
+          with open('p/1938/manifest.json', encoding='utf-8') as f:
+              m=json.load(f)
+          assert m['lead_id'] == 1938
+          assert m['status'] == 'RELEASE_READY_11B'
+          with open('p/1938/audit-report.json', encoding='utf-8') as f:
+              a=json.load(f)
+          assert a['status'] == 'PASS'
+          assert all(g['status'] == 'PASS' for g in a['gates'])
+          PY
+
+      - name: Commit production store and remove staging workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/stage-1938.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add p/1938 .github/workflows/stage-1938.yml
+          git commit -m 'Add production PathFlow store 1938'
+          git push origin HEAD:main
