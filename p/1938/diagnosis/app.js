@@ -413,20 +413,20 @@ function buildResonance() {
   if (score >= 3) {
     type = "DIRECT_RESONANCE";
     message =
-      "今回整理した相談内容と、店舗で確認されているEvidenceには複数の重なりがあります。具体的な施術内容は、髪の状態を見てもらいながら相談するのが適切です。";
+      "今回整理した相談内容と、店舗情報には複数の重なりがあります。具体的な施術内容は、髪の状態を見てもらいながら相談するのが適切です。";
   } else if (score >= 1) {
     type = "PARTIAL_RESONANCE";
     message =
-      "相談内容の一部は店舗Evidenceと重なります。一方で、すべてを事前に判断できる情報はないため、希望を伝えて確認するのが適切です。";
+      "相談内容の一部は店舗情報と重なります。一方で、すべてを事前に判断できる情報はないため、希望を伝えて確認するのが適切です。";
   } else {
     type = "CONSULTATION_REQUIRED";
     message =
-      "今回の希望について、公開Evidenceだけでは十分な一致を確認できません。これは失敗ではなく、専門家へ直接相談することが適切な状態です。";
+      "今回の希望について、公開情報だけでは十分な一致を確認できません。これは失敗ではなく、専門家へ直接相談することが適切な状態です。";
   }
 
   if (matched.length === 0) {
     matched.push(
-      "今回の希望と直接照合できる十分な公開Evidenceは確認できませんでした。"
+      "今回の希望と直接照合できる十分な公開情報は確認できませんでした。"
     );
   }
 
@@ -459,7 +459,7 @@ function renderResult() {
   });
 
   document.getElementById("resonanceIntro").textContent =
-    "あなたの回答を確定した後、SECTION 横浜石川町の公開Evidenceと照合しました。";
+    "あなたの回答を確定した後、SECTION 横浜石川町の公開情報と照合しました。";
 
   const resonancePoints =
     document.getElementById("resonancePoints");
