@@ -1,0 +1,57 @@
+{
+  "lead_id": 1858,
+  "qa_method": "Playwright set_content",
+  "scope": "unconfirmed Browser QA portions only",
+  "gate_4": {
+    "status": "PASS",
+    "basis": {
+      "mobile_widths": {
+        "320": {
+          "overflow": false,
+          "console_errors": []
+        },
+        "375": {
+          "overflow": false,
+          "console_errors": []
+        },
+        "390": {
+          "overflow": false,
+          "console_errors": []
+        },
+        "430": {
+          "overflow": false,
+          "console_errors": []
+        }
+      },
+      "diagnosis_width_390_overflow": false
+    }
+  },
+  "gate_6": {
+    "status": "PASS",
+    "basis": {
+      "console_errors": [],
+      "diagnosis_start_to_result_dom_e2e": true,
+      "restart_to_start_dom_e2e": true,
+      "required_event_handlers_fired_under_stubbed_fetch": [
+        "cta_click",
+        "diagnosis_complete",
+        "diagnosis_progress",
+        "diagnosis_start",
+        "diagnosis_view",
+        "question_answered",
+        "result_view"
+      ],
+      "all_required_event_handlers_fired": true
+    }
+  },
+  "not_tested_by_set_content": [
+    "real_network_reachability",
+    "public_url_reachability",
+    "deploy_state",
+    "real_Amplitude_ingestion"
+  ],
+  "implementation_changed": false,
+  "pass_gates_reexecuted": false,
+  "release_state": "RELEASE_READY_11B",
+  "publish_state": "NOT_EXECUTED"
+}

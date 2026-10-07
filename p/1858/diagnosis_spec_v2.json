@@ -1,0 +1,49 @@
+{
+  "schema_version": "11b-diagnosis-spec-v2",
+  "lead_id": 1858,
+  "store_name": "コルテ 反町店(corte)",
+  "variant_code": "STANDARD_LP",
+  "lp_version": "CORTE1858-11A-DELIVERY-v3",
+  "diagnosis_version": "1858-11b-v1",
+  "primary_value": "希望が曖昧でも、丁寧なヒアリングと提案を通じて、相談しながら自分に合うスタイルを決められる安心感。",
+  "customer_voice_summary": "丁寧なヒアリング・提案、翌日以降の扱いやすさ、再現性、安心して任せられるという内容の口コミが確認できる。",
+  "service_signals": {
+    "cut": true,
+    "color": true,
+    "treatment": true,
+    "consultation_strength": true,
+    "manageability_strength": true
+  },
+  "distinctiveness_available": false,
+  "resonance": [
+    {
+      "supported": true,
+      "text": "丁寧なヒアリングと、相談しながら決めていく提案が確認されています。"
+    },
+    {
+      "supported": true,
+      "text": "骨格・髪質・生え癖を見ながら、ライフスタイルに合わせた提案が確認されています。"
+    },
+    {
+      "supported": true,
+      "text": "翌日以降の扱いやすさ・再現性に関する口コミが確認されています。"
+    },
+    {
+      "supported": false,
+      "text": "くせ・広がり・まとまりへの直接的な対応内容は、公開Evidenceだけでは十分に確認できません。"
+    }
+  ],
+  "cta_url": "https://beauty.hotpepper.jp/slnH000537589/",
+  "cta_note": "外部サイト（Hot Pepper Beauty）で掲載情報を確認できます。",
+  "theme": {
+    "INK": "#252723",
+    "BACKGROUND": "#fbf8f2",
+    "SURFACE": "#ffffff",
+    "MUTED": "#76776e",
+    "LINE": "#c9c3b8",
+    "ACCENT_PRIMARY": "#405247",
+    "ACCENT_SECONDARY": "#536a5a",
+    "ACCENT_TERTIARY": "#ded8cd",
+    "INK_RGB": "37,39,35"
+  }
+}

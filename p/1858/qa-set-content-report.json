@@ -1,0 +1,220 @@
+{
+  "method": "Playwright set_content",
+  "network_reachability_tested": false,
+  "deploy_tested": false,
+  "lp": [
+    {
+      "width": 320,
+      "overflow": false,
+      "dims": {
+        "innerWidth": 320,
+        "scrollWidth": 320,
+        "bodyScrollWidth": 320,
+        "scrollHeight": 4870
+      },
+      "console_errors": [],
+      "facts": {
+        "title": "corte 反町店｜似合うだけじゃない。明日から、自分で扱いやすい髪へ。",
+        "h1": "似合うだけじゃない。\n明日から、自分で\n扱いやすい髪へ。",
+        "floating_cta_exists": true,
+        "floating_href": "diagnosis/",
+        "floating_target": "_blank",
+        "floating_rel": "noopener noreferrer",
+        "floating_main": "ご希望を確認したい方",
+        "floating_sub": "約1分で希望を整理",
+        "lp_view_events": [
+          "lp_view"
+        ],
+        "img_count": 6,
+        "image_natural_widths": [
+          470,
+          455,
+          622,
+          390,
+          583,
+          342
+        ]
+      }
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "dims": {
+        "innerWidth": 375,
+        "scrollWidth": 375,
+        "bodyScrollWidth": 375,
+        "scrollHeight": 4734
+      },
+      "console_errors": [],
+      "facts": {
+        "title": "corte 反町店｜似合うだけじゃない。明日から、自分で扱いやすい髪へ。",
+        "h1": "似合うだけじゃない。\n明日から、自分で\n扱いやすい髪へ。",
+        "floating_cta_exists": true,
+        "floating_href": "diagnosis/",
+        "floating_target": "_blank",
+        "floating_rel": "noopener noreferrer",
+        "floating_main": "ご希望を確認したい方",
+        "floating_sub": "約1分で希望を整理",
+        "lp_view_events": [
+          "lp_view"
+        ],
+        "img_count": 6,
+        "image_natural_widths": [
+          470,
+          455,
+          622,
+          390,
+          583,
+          342
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "dims": {
+        "innerWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "scrollHeight": 4702
+      },
+      "console_errors": [],
+      "facts": {
+        "title": "corte 反町店｜似合うだけじゃない。明日から、自分で扱いやすい髪へ。",
+        "h1": "似合うだけじゃない。\n明日から、自分で\n扱いやすい髪へ。",
+        "floating_cta_exists": true,
+        "floating_href": "diagnosis/",
+        "floating_target": "_blank",
+        "floating_rel": "noopener noreferrer",
+        "floating_main": "ご希望を確認したい方",
+        "floating_sub": "約1分で希望を整理",
+        "lp_view_events": [
+          "lp_view"
+        ],
+        "img_count": 6,
+        "image_natural_widths": [
+          470,
+          455,
+          622,
+          390,
+          583,
+          342
+        ]
+      }
+    },
+    {
+      "width": 430,
+      "overflow": false,
+      "dims": {
+        "innerWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "scrollHeight": 4623
+      },
+      "console_errors": [],
+      "facts": {
+        "title": "corte 反町店｜似合うだけじゃない。明日から、自分で扱いやすい髪へ。",
+        "h1": "似合うだけじゃない。\n明日から、自分で\n扱いやすい髪へ。",
+        "floating_cta_exists": true,
+        "floating_href": "diagnosis/",
+        "floating_target": "_blank",
+        "floating_rel": "noopener noreferrer",
+        "floating_main": "ご希望を確認したい方",
+        "floating_sub": "約1分で希望を整理",
+        "lp_view_events": [
+          "lp_view"
+        ],
+        "img_count": 6,
+        "image_natural_widths": [
+          470,
+          455,
+          622,
+          390,
+          583,
+          342
+        ]
+      }
+    }
+  ],
+  "diagnosis": {
+    "width": 390,
+    "initial": {
+      "startActive": true,
+      "questionActive": false,
+      "resultActive": false,
+      "events": [
+        "diagnosis_view"
+      ],
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "steps": [
+      {
+        "progress": "1 / 4",
+        "q": "今いちばん整えたいのは、どれですか？",
+        "count": 4
+      },
+      {
+        "progress": "2 / 4",
+        "q": "スタイルは、どのくらい決まっていますか？",
+        "count": 3
+      },
+      {
+        "progress": "3 / 4",
+        "q": "日常では、何を大切にしたいですか？",
+        "count": 3
+      },
+      {
+        "progress": "4 / 4",
+        "q": "相談するとき、どんな進め方が安心ですか？",
+        "count": 3
+      }
+    ],
+    "result": {
+      "resultActive": true,
+      "discoveryTitle": "「似合う」を、相談しながら見つけたい",
+      "consultationCount": 4,
+      "resonanceCount": 3,
+      "resultType": "DIRECT_RESONANCE",
+      "resultMessage": "今回整理した相談内容と、店舗で確認されているEvidenceには複数の重なりがあります。具体的な施術内容は、髪の状態を見てもらいながら相談するのが適切です。",
+      "ctaHref": "https://beauty.hotpepper.jp/slnH000537589/",
+      "ctaTarget": "_blank",
+      "ctaRel": "noopener",
+      "events": [
+        "diagnosis_view",
+        "diagnosis_start",
+        "question_answered",
+        "diagnosis_progress",
+        "question_answered",
+        "diagnosis_progress",
+        "question_answered",
+        "diagnosis_progress",
+        "question_answered",
+        "diagnosis_complete",
+        "result_view"
+      ],
+      "width": 390,
+      "scrollWidth": 390
+    },
+    "events_after_cta": [
+      "diagnosis_view",
+      "diagnosis_start",
+      "question_answered",
+      "diagnosis_progress",
+      "question_answered",
+      "diagnosis_progress",
+      "question_answered",
+      "diagnosis_progress",
+      "question_answered",
+      "diagnosis_complete",
+      "result_view",
+      "cta_click"
+    ],
+    "restart": {
+      "startActive": true,
+      "resultActive": false
+    },
+    "console_errors": [],
+    "overflow": false
+  }
+}
