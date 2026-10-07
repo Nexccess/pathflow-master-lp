@@ -1,0 +1,107 @@
+{
+  "lead_id": 1938,
+  "store_name": "SECTION 横浜石川町",
+  "status": "PASS",
+  "release": "RELEASE_READY_11B",
+  "human_exception": {
+    "creative_interpretation": "MISSING",
+    "approved_for_this_run": true
+  },
+  "primary_accent": "#8d6453",
+  "floating_base": "#729bac",
+  "browser_qa": {
+    "status": "ALTERNATE_VERIFICATION",
+    "reason": "ERR_BLOCKED_BY_ADMINISTRATOR on two browser-navigation attempts; per v9 this is not implementation NG",
+    "retry_count": 2
+  },
+  "checks": {
+    "no_unresolved_placeholders": true,
+    "lead_isolation": true,
+    "lp_asset_exists": true,
+    "diagnosis_files_exist": true,
+    "lp_to_diagnosis_blank_context": true,
+    "external_cta_expected": true,
+    "amplitude_http_v2": true,
+    "events_present": true,
+    "common_props": true,
+    "creative_interpretation_not_fabricated": true,
+    "resonance_unsupported_safe": true,
+    "primary_value_present": true,
+    "service_signals_actual": true,
+    "restart_internal_same_context": true,
+    "js_syntax": true,
+    "html_basic": true,
+    "relative_assets_resolve": true
+  },
+  "gates": [
+    {
+      "gate": 1,
+      "name": "11A Intent Fidelity",
+      "status": "PASS",
+      "basis": [
+        "primary_value preserved",
+        "Approved LP image/content retained",
+        "Creative Interpretation remains MISSING under approved one-run exception; no fabrication"
+      ]
+    },
+    {
+      "gate": 2,
+      "name": "Visitor Self-Relevance",
+      "status": "PASS",
+      "basis": [
+        "4-question Self Discovery uses visitor answers only",
+        "Questions collect current priority, decision state, daily preference, communication preference"
+      ]
+    },
+    {
+      "gate": 3,
+      "name": "Flow Coherence",
+      "status": "PASS",
+      "basis": [
+        "LP → Diagnosis → questions → Result → external CTA path present",
+        "Restart remains internal"
+      ]
+    },
+    {
+      "gate": 4,
+      "name": "Mobile Presentation / Visual Rhythm",
+      "status": "PASS",
+      "basis": [
+        "Approved locked LP asset preserved",
+        "Responsive LP/Diagnosis CSS present",
+        "Browser navigation blocked by execution environment twice; v9 alternate structural verification used"
+      ]
+    },
+    {
+      "gate": 5,
+      "name": "Integration Integrity",
+      "status": "PASS",
+      "basis": [
+        "LP CTA opens Diagnosis with target=_blank + noopener noreferrer",
+        "Relative assets resolve",
+        "Result/CTA/Tracking integrated"
+      ]
+    },
+    {
+      "gate": 6,
+      "name": "Technical Reliability",
+      "status": "PASS",
+      "basis": [
+        "diagnosis/app.js node --check PASS",
+        "No unresolved template placeholders",
+        "Amplitude HTTP V2 endpoint and required events present"
+      ]
+    },
+    {
+      "gate": 7,
+      "name": "Safety / Isolation",
+      "status": "PASS",
+      "basis": [
+        "lead_id=1938 only",
+        "No other known lead IDs detected",
+        "Unsupported Resonance slots forced false",
+        "No Creative Interpretation synthesized"
+      ]
+    }
+  ]
+}

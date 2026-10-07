@@ -1,0 +1,24 @@
+{
+  "lead_id": 1938,
+  "store_name": "SECTION 横浜石川町",
+  "status": "RELEASE_READY_11B",
+  "human_exception": {
+    "creative_interpretation": "MISSING",
+    "approved_for_this_run": true
+  },
+  "primary_accent": "#8d6453",
+  "floating_base": "#729bac",
+  "diagnosis_version": "1938-spec-v2-human-exception-v1",
+  "lp_version": "1938-human-exception-final-locked",
+  "files": {
+    "assets/lp-master.png": "5812c11ab64795a6cd163b436673f522b93946f035c49960e90fbd8555c4eca8",
+    "audit-report.json": "12523014671c57c8f15b802bb576653a8fdaf4f66e1c89a1a1ace3b3dc50fe7b",
+    "diagnosis/app.js": "6411dac7aaecc34b87e682eabdefa8e8e8e2a63a516a5a4d4d5d6e591ed2ee3a",
+    "diagnosis/index.html": "c1d6078a068db71bbea00e9a06e1685996700332a66c5388c38e5cdd47352adb",
+    "diagnosis/styles.css": "0c8a961f94aad29a862d4050d9eae284facc665aaa9f1b4a11cd018348dbcac0",
+    "index.html": "33c180d3660b760da67b4c112c108af5cb33b6136cacfb3518f22982472e15b2",
+    "styles.css": "1b7fc4f93e475df8659aead8831980ac15b4579d6aaf87aca69a6aac818079b4"
+  },
+  "release": "RELEASE_READY_11B",
+  "audit": "PASS"
+}
