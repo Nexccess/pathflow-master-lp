@@ -253,3 +253,47 @@ footer{padding:24px 0;border-top:1px solid rgba(0,0,0,.06)}footer .wrap{display:
     font-size: 16px;
   }
 }
+
+/* 1973 urgent bottom fixed CTA patch */
+@media (max-width: 767px) {
+  .sticky,
+  .sticky-cta,
+  .fixed-cta,
+  .cta-fixed,
+  .reserve-fixed,
+  .floating-reserve,
+  .header-fixed-cta,
+  .sp-fixed-cta,
+  .floating-booking-cta {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 14px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: min(calc(100% - 24px), 760px) !important;
+    z-index: 9999 !important;
+  }
+
+  .sticky a,
+  .sticky-cta a,
+  .fixed-cta a,
+  .cta-fixed a,
+  .reserve-fixed a,
+  .floating-reserve a,
+  .header-fixed-cta a,
+  .sp-fixed-cta a,
+  .floating-booking-cta a,
+  .sticky button,
+  .sticky-cta button,
+  .fixed-cta button,
+  .cta-fixed button,
+  .reserve-fixed button,
+  .floating-reserve button,
+  .header-fixed-cta button,
+  .sp-fixed-cta button,
+  .floating-booking-cta button {
+    min-height: 56px !important;
+    width: 100% !important;
+  }
+}
