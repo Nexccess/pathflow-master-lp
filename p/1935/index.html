@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>cocu｜わたしらしい、ちょうどいい。</title>
+<meta name="description" content="髪質やライフスタイルに寄り添い、毎日扱いやすいヘアスタイルを一緒につくる cocu のご案内です。">
+<link rel="stylesheet" href="styles.css">
+<!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    const payload = {
+      api_key: amplitudeApiKey,
+      events: [
+        {
+          device_id: getDeviceId(),
+          event_type: "lp_view",
+          time: Date.now(),
+          event_properties: {
+            lead_id: "1935",
+            store_name: "コクウ(cocu)",
+            variant_code: "CUSTOM_LP",
+            lp_version: "1",
+            diagnosis_version: "1935-spec-v2-dryrun"
+          }
+        }
+      ]
+    };
+
+    fetch("https://api2.amplitude.com/2/httpapi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Amplitude HTTP " + response.status);
+      }
+
+      return response.json();
+    })
+    .then(function (result) {
+      console.log(
+        "[PathFlow] lp_view sent: lead_id=1935 events_ingested=" +
+        result.events_ingested
+      );
+    })
+    .catch(function (error) {
+      console.error("[PathFlow] Analytics send failed:", error);
+    });
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+
+</head>
+<body>
+<header class="site-header">
+  <div class="brand"><span>COCU</span><small>コクウ</small></div>
+  <nav aria-label="メインナビゲーション">
+    <a href="#concept">コンセプト</a><a href="#style">スタイル</a><span>メニュー</span><span>スタイリスト</span><a href="#salon">サロン情報</a>
+  </nav>
+  <a class="header-cta" href="#contact">ご予約はこちら</a>
+</header>
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <h1 id="hero-title" class="sr-only">cocu｜わたしらしい、ちょうどいい。</h1>
+  <img src="assets/hero.jpg" alt="『わたしらしい、ちょうどいい。』をテーマにしたcocuのHeroイメージ">
+  <p class="ai-note hero-note">※掲載ビジュアルはAI生成のイメージです。実際の人物・施術例ではありません。</p>
+</section>
+<section id="concept" class="intro section">
+  <h2>髪から、日常をやさしく整える。</h2>
+  <p>髪質やくせ、普段のスタイリングまで丁寧に伺い、<br class="desktop">あなたに似合い、毎日扱いやすいスタイルを一緒につくります。</p>
+</section>
+<section id="style" class="styles section" aria-label="スタイルイメージ">
+  <div class="style-grid">
+    <figure><img src="assets/style-natural.jpg" alt="ナチュラルなヘアスタイルのイメージ"><figcaption><b>NATURAL</b><span>ナチュラル</span></figcaption></figure>
+    <figure><img src="assets/style-short.jpg" alt="ショートヘアのイメージ"><figcaption><b>SHORT</b><span>ショート</span></figcaption></figure>
+    <figure><img src="assets/style-medium.jpg" alt="ミディアムヘアのイメージ"><figcaption><b>MEDIUM</b><span>ミディアム</span></figcaption></figure>
+    <figure><img src="assets/style-long.jpg" alt="ロングヘアのイメージ"><figcaption><b>LONG</b><span>ロング</span></figcaption></figure>
+  </div>
+  <p class="ai-note">※スタイルビジュアルはAI生成のイメージです。実際の施術例ではありません。</p>
+</section>
+<section id="reasons" class="reasons section">
+  <h2>cocu が選ばれる 3つの理由</h2>
+  <div class="reason-grid">
+    <article><span class="num">01</span><h3>一人ひとりに寄り添う<br>丁寧なカウンセリング</h3><p>髪の悩みや理想のイメージをしっかり伺い、今の髪と毎日の過ごし方に合う選択肢を一緒に見つけます。</p></article>
+    <article><span class="num">02</span><h3>ナチュラルで<br>再現性の高いデザイン</h3><p>サロン帰りだけでなく、ご自宅でも扱いやすく。髪質・くせ・骨格を見ながら、毎日が楽になるスタイルを目指します。</p></article>
+    <article><span class="num">03</span><h3>落ち着いた空間で<br>リラックスできる時間</h3><p>相談しやすく、ゆっくり過ごせることも大切に。髪を整える時間が、気持ちまでほどけるひとときになるように。</p></article>
+  </div>
+</section>
+<section id="salon" class="salon-visual">
+  <div class="salon-copy hand">髪を整える時間が、<br>心を整える時間に。</div>
+  <img src="assets/salon.jpg" alt="明るく落ち着いたサロン空間のイメージ">
+  <p class="ai-note salon-note">※店内ビジュアルはAI生成のイメージです。実際の店内写真ではありません。</p>
+</section>
+<section id="contact" class="final-cta section">
+  <p class="eyebrow">ご予約・お問い合わせ</p>
+  <a class="cta" href="https://beauty.hotpepper.jp/slnH000417408/" rel="noopener">ご予約はこちら <span>›</span></a>
+  <p class="hand english">A small change<br>makes a happier you.</p>
+</section>
+</main>
+<footer>cocu / Path-Flow PRODUCT CANDIDATE</footer>
+<a class="floating-diagnosis-cta" href="diagnosis/" target="_blank" rel="noopener noreferrer" aria-label="ご希望を確認したい方">
+  <span class="floating-diagnosis-copy">
+    <span class="floating-diagnosis-main">ご希望を確認したい方</span>
+    <span class="floating-diagnosis-sub">約1分で希望を整理</span>
+  </span>
+  <span class="floating-diagnosis-arrow" aria-hidden="true">→</span>
+</a>
+
+</body></html>

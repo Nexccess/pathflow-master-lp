@@ -1,0 +1,81 @@
+{
+  "lead_id": 1935,
+  "store_name": "コクウ(cocu)",
+  "canonical_revision": 1,
+  "canonical_lp_sha256": "54907bfe739b4acfa582fb1b4f827980ed7611a6d7d27f0e34d350ef98c4ea0b",
+  "source_identity": "CUSTOM_LP/rev1",
+  "product_path_on_this_runtime": "/mnt/data/11b_1935/runtime/generated/integrated-lp/1935/product",
+  "canonical_windows_product_path": "C:\\PathFlow\\generated\\integrated-lp\\1935\\product\\\\",
+  "canonical_windows_product_written": false,
+  "browser_qa_method": "Playwright set_content (navigation blocked twice ERR_BLOCKED_BY_ADMINISTRATOR)",
+  "browser_qa_widths": [
+    320,
+    375,
+    390,
+    430,
+    768,
+    1024,
+    1280,
+    1440
+  ],
+  "diagnosis_e2e": "PASS in set_content",
+  "event_emit": "PASS with mocked Amplitude HTTP V2",
+  "actual_amplitude_delivery": "NOT_TESTED",
+  "local_http_status": {
+    "LP": 200,
+    "diagnosis/": 200,
+    "diagnosis/app.js": 200,
+    "styles.css": 200,
+    "assets/hero.jpg": 200
+  },
+  "external_store_verification": "https://beauty.hotpepper.jp/slnH000417408/",
+  "evidence_supported_count": 1,
+  "evidence_unsupported_count": 4,
+  "gates": [
+    {
+      "gate": "1",
+      "name": "11A Intent Fidelity",
+      "status": "PASS",
+      "basis": "canonical HTML differs by two integration-only insertions; original CSS byte prefix and all six images unchanged"
+    },
+    {
+      "gate": "2",
+      "name": "Visitor Self-Relevance",
+      "status": "PASS",
+      "basis": "four original Template questions proceed to nonempty self-discovery Result"
+    },
+    {
+      "gate": "3",
+      "name": "Flow Coherence",
+      "status": "PASS",
+      "basis": "separate LP/Diagnosis HTML, target blank/rel noopener, four Q -> Result -> external CTA; URL navigation by browser not confirmed due environment block"
+    },
+    {
+      "gate": "4",
+      "name": "Mobile Presentation / Visual Rhythm",
+      "status": "PASS",
+      "basis": "8 specified widths: zero horizontal overflow and screenshots checked; PC content expands to 1024px"
+    },
+    {
+      "gate": "5",
+      "name": "Integration Integrity",
+      "status": "PASS",
+      "basis": "Template placeholder mapping fully resolved, assets and local routes present, no detected script errors in set_content"
+    },
+    {
+      "gate": "6",
+      "name": "Technical Reliability",
+      "status": "PASS",
+      "basis": "local HTTP routes 200 + byte match, JS parsing and mocked event firing verified; real Amplitude delivery and production not asserted"
+    },
+    {
+      "gate": "7",
+      "name": "Safety / Isolation",
+      "status": "PASS",
+      "basis": "single lead_id 1935 / CUSTOM_LP, conservative Evidence Adapter: supported 1, unsupported 4; customer-facing technical wording removed; Hot Pepper official store identity and address verified"
+    }
+  ],
+  "release_ready": false,
+  "release_ready_reason": "The official Windows product target was not writable from current runtime; local sandbox mirror is not the canonical Windows product",
+  "publish": "NOT_EXECUTED"
+}
