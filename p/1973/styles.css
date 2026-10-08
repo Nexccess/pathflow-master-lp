@@ -253,23 +253,33 @@ footer{padding:24px 0;border-top:1px solid rgba(0,0,0,.06)}footer .wrap{display:
     font-size: 16px;
   }
 }
-/* 1973 exact bottom reserve CTA */
-@media (max-width: 767px) {
+
+/* 1973 exact bottom reserve CTA v2 */
+header .header-reserve-fixed {
+  position: fixed !important;
+  top: auto !important;
+  bottom: 16px !important;
+  left: 16px !important;
+  right: auto !important;
+  transform: none !important;
+
+  width: min(520px, calc(100vw - 330px)) !important;
+  min-width: 240px !important;
+  min-height: 58px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin: 0 !important;
+  z-index: 9998 !important;
+}
+
+@media (max-width: 600px) {
   header .header-reserve-fixed {
-    position: fixed !important;
-    top: auto !important;
-    bottom: 16px !important;
-    left: 16px !important;
-    right: auto !important;
-    transform: none !important;
-    width: calc(100% - 200px) !important;
-    min-width: 220px !important;
-    max-width: 520px !important;
-    min-height: 56px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    z-index: 9998 !important;
-    margin: 0 !important;
+    width: calc(100vw - 190px) !important;
+    min-width: 170px !important;
+    left: 10px !important;
+    bottom: 12px !important;
   }
 }
