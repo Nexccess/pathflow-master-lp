@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美容室 パペポ(PAPEPO)｜天王町</title>
+<meta name="description" content="希望を丁寧に汲み取り、毎日の扱いやすさまで見据えて一緒に整える。横浜市保土ケ谷区天王町の美容室 パペポ(PAPEPO)。">
+<link rel="stylesheet" href="styles.css">
+<!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    const payload = {
+      api_key: amplitudeApiKey,
+      events: [
+        {
+          device_id: getDeviceId(),
+          event_type: "lp_view",
+          time: Date.now(),
+          event_properties: {
+            lead_id: "1973",
+            store_name: "美容室 パペポ(PAPEPO)",
+            variant_code: "STANDARD_LP",
+            lp_version: "1",
+            diagnosis_version: "1973-spec-v2-dryrun"
+          }
+        }
+      ]
+    };
+
+    fetch("https://api2.amplitude.com/2/httpapi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Amplitude HTTP " + response.status);
+      }
+
+      return response.json();
+    })
+    .then(function (result) {
+      console.log(
+        "[PathFlow] lp_view sent: lead_id=1973 events_ingested=" +
+        result.events_ingested
+      );
+    })
+    .catch(function (error) {
+      console.error("[PathFlow] Analytics send failed:", error);
+    });
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="PAPEPO トップ"><span>PAPEPO</span><small>美容室 パペポ</small></a>
+    <nav><a href="#why">選ばれる理由</a><a href="#consultation">相談</a><a href="#service">スタイル</a><a href="#voice">お客様の声</a><a href="#access">アクセス</a></nav>
+    <a class="btn btn-small" href="https://beauty.hotpepper.jp/slnH000141516/" target="_blank" rel="noopener">予約ページを見る</a>
+  </div>
+</header>
+<main id="top">
+  <section class="hero section">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">TENNOCHO / YOKOHAMA</p>
+        <h1>ちゃんと話して、<br>ちゃんと似合う。<br><em>毎日まで扱いやすく。</em></h1>
+        <p class="lead">希望を言葉にしきれない日も、髪の状態や暮らし方まで見ながら。<br>一緒に考えて、無理なく続くスタイルへ整えます。</p>
+        <div class="actions">
+          <a class="btn" href="https://beauty.hotpepper.jp/slnH000141516/" target="_blank" rel="noopener">予約ページを見る</a>
+          <a class="btn ghost" href="tel:0453339277">045-333-9277</a>
+        </div>
+        <p class="visual-note">※掲載ビジュアルはイメージです。</p>
+      </div>
+      <figure class="hero-media card-photo">
+        <img src="assets/hero-main.png" alt="自然光の中で微笑む女性のヘアスタイルイメージ" loading="eager">
+      </figure>
+    </div>
+  </section>
+
+  <section class="value-strip">
+    <div class="wrap value-grid">
+      <article><b>01</b><h3>話して決める</h3><p>抽象的な希望や迷いも、まずは言葉にするところから。</p></article>
+      <article><b>02</b><h3>毎日を考える</h3><p>その日の見た目だけでなく、伸びた後や家での扱いやすさまで。</p></article>
+      <article><b>03</b><h3>長く相談できる</h3><p>地域の美容室らしい温かさで、年齢やシーンを問わず相談しやすく。</p></article>
+    </div>
+  </section>
+
+  <section id="why" class="section why tone-soft">
+    <div class="wrap split">
+      <div><p class="eyebrow">WHY PAPEPO</p><h2>“こうしたい”を、<br>一緒に形にする。</h2></div>
+      <div class="story"><p>髪型を決める前に、まずは話すことから。なりたい雰囲気、扱いにくいところ、朝にかけられる時間まで。</p><p>今の髪を見ながら、一緒に考えて、無理なく続けられる形へ。<strong>サロンを出たあとも扱いやすいこと</strong>まで大切にします。</p></div>
+    </div>
+  </section>
+
+  <section id="consultation" class="section consultation">
+    <div class="wrap consultation-grid">
+      <figure class="card-photo">
+        <img src="assets/consultation-counseling.png" alt="美容室で相談しながらスタイルを決めるイメージ" loading="lazy">
+        <figcaption class="ai-note">※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">CONSULTATION</p>
+        <h2>言葉にしきれなくても、大丈夫。</h2>
+        <div class="steps">
+          <article><span>01</span><h3>話す</h3><p>なりたい雰囲気、困っていること、普段のお手入れ。まとまっていなくても、そのまま聞かせてください。</p></article>
+          <article><span>02</span><h3>見る</h3><p>髪の状態や今の形を確認し、できること・気をつけたいことを整理します。</p></article>
+          <article><span>03</span><h3>一緒に決める</h3><p>スタイルや施術を押しつけず、仕上がりとその後の扱いやすさを考えながら方向を決めます。</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="service" class="section service tone-cream">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="eyebrow">STYLE & SERVICE</p><h2>暮らしに合わせて、<br>必要なものを。</h2></div>
+        <p>髪の状態と、なりたい雰囲気に合わせて。必要なメニューを一緒に選びます。</p>
+      </div>
+
+      <div class="style-gallery">
+        <figure class="style-card style-card--featured"><img src="assets/style-01-short-bob.png" alt="軽やかなショートボブのヘアスタイルイメージ" loading="lazy"><figcaption><strong>軽やかショート</strong><span>すっきり、でもやわらかく。</span></figcaption></figure>
+        <figure class="style-card"><img src="assets/style-02-medium-layer.png" alt="やわらかなミディアムレイヤーのヘアスタイルイメージ" loading="lazy"><figcaption><strong>やわらかミディ</strong><span>動きが出ても、まとまりよく。</span></figcaption></figure>
+        <figure class="style-card"><img src="assets/style-03-long-straight.png" alt="まとまりのあるロングヘアのイメージ" loading="lazy"><figcaption><strong>まとまりロング</strong><span>毎日の扱いやすさを軽やかに。</span></figcaption></figure>
+        <figure class="style-card"><img src="assets/style-04-soft-layer.png" alt="自然な動きのレイヤーヘアのイメージ" loading="lazy"><figcaption><strong>ソフトレイヤー</strong><span>顔まわりに自然なニュアンスを。</span></figcaption></figure>
+        <figure class="style-card style-card--wide"><img src="assets/style-05-natural-wave.png" alt="ナチュラルな毛流れのヘアスタイルイメージ" loading="lazy"><figcaption><strong>ナチュラルウェーブ</strong><span>気負わず楽しめる、やさしい動き。</span></figcaption></figure>
+      </div>
+      <p class="ai-note">※掲載ビジュアルはAI生成のイメージです。実際の施術例・スタッフ・お客様の写真ではありません。</p>
+
+      <div class="service-grid">
+        <article><h3>Cut</h3><p>伸びてもまとまりやすく、朝のセットも軽やかに。</p></article>
+        <article><h3>Color</h3><p>色味に迷っても大丈夫。相談しながら似合う方向へ。</p></article>
+        <article><h3>Straight</h3><p>髪の状態を見ながら、毎日が扱いやすいストレートへ。</p></article>
+        <article><h3>Care</h3><p>カットやカラーと一緒に。髪と気分を心地よく。</p></article>
+        <article><h3>Hair Set</h3><p>特別な日に。イメージを合わせて、似合うセットへ。</p></article>
+        <article><h3>Kids</h3><p>お子さまのカットも。家族で通いやすく。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="voice" class="section voice">
+    <div class="wrap">
+      <p class="eyebrow">WHY PAPEPO</p>
+      <h2>通うほど、<br>毎日が少しラクになる。</h2>
+      <p class="voice-lead">サロンにいる時間だけでなく、その次の朝まで。PAPEPOが大切にしている3つのこと。</p>
+      <div class="voice-grid">
+        <article><span class="voice-num">01</span><h3>話しやすいから、決めやすい。</h3><p>ぼんやりした希望でも大丈夫。髪のことも、暮らしのことも話しながら、一緒に似合う形を探します。</p></article>
+        <article><span class="voice-num">02</span><h3>朝が少し、ラクになる。</h3><p>乾かして整いやすく、伸びてもまとまりやすく。忙しい日にも無理なく続くスタイルへ。</p></article>
+        <article><span class="voice-num">03</span><h3>気負わず、また相談できる。</h3><p>構えずに話せる温かな空気の中で、次の髪のことも、その先のことも相談できます。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section atmosphere tone-soft">
+    <div class="wrap consultation-grid reverse">
+      <figure class="card-photo">
+        <img src="assets/salon-atmosphere.png" alt="自然光と木の温もりが感じられるサロン空間のイメージ" loading="lazy">
+        <figcaption class="ai-note">※店内ビジュアルはAI生成のイメージです。実際の店内写真ではありません。</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">SALON ATMOSPHERE</p>
+        <h2>構えずに話せる、<br>まちの美容室。</h2>
+        <p>気取らず、構えず、髪のことを話せる場所。地域の美容室らしい親しみやすさの中で、ゆっくり相談できる時間を大切にしています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="access" class="section access">
+    <div class="wrap">
+      <p class="eyebrow">STORE / ACCESS</p>
+      <h2>美容室 パペポ(PAPEPO)</h2>
+      <div class="access-grid">
+        <dl>
+          <dt>住所</dt><dd>神奈川県横浜市保土ケ谷区天王町１-32-5</dd>
+          <dt>電話</dt><dd><a href="tel:0453339277">045-333-9277</a></dd>
+        </dl>
+        <div class="access-cta"><p>予約・メニューの最新情報は掲載元ページでご確認ください。</p><a class="btn" href="https://beauty.hotpepper.jp/slnH000141516/" target="_blank" rel="noopener">Hot Pepper Beautyで確認</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <p class="eyebrow">TALK, SHAPE, LIVE.</p>
+      <h2>髪が整うと、<br>毎日が少し軽くなる。</h2>
+      <p>まずは、今の髪と、こうなったら嬉しいを聞かせてください。</p>
+      <div class="actions center"><a class="btn light" href="https://beauty.hotpepper.jp/slnH000141516/" target="_blank" rel="noopener">予約ページを見る</a><a class="btn outline-light" href="tel:0453339277">電話する</a></div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><strong>PAPEPO</strong><span>美容室 パペポ / 横浜市保土ケ谷区天王町</span></div></footer>
+<a class="floating-diagnosis-cta" href="diagnosis/" target="_blank" rel="noopener noreferrer" aria-label="ご希望を確認したい方">
+  <span class="floating-diagnosis-copy">
+    <span class="floating-diagnosis-main">ご希望を確認したい方</span>
+    <span class="floating-diagnosis-sub">約1分で希望を整理</span>
+  </span>
+  <span class="floating-diagnosis-arrow" aria-hidden="true">→</span>
+</a>
+
+</body>
+</html>
