@@ -1,0 +1,45 @@
+{
+  "lead_id": 1973,
+  "store_name": "美容室 パペポ(PAPEPO)",
+  "canonical_revision": 1,
+  "canonical_lp_sha256": "c6b968c2b71e67370740fb4229e6a709b1a6387651595b8d2d423d677c04739e",
+  "official_site_verification": {
+    "provider": "HOT PEPPER Beauty / Recruit",
+    "url": "https://beauty.hotpepper.jp/slnH000141516/",
+    "store_name": "PAPEPO",
+    "address": "神奈川県横浜市保土ケ谷区天王町１-32-5"
+  },
+  "browser_method": "Playwright set_content (two attempts ERR_BLOCKED_BY_ADMINISTRATOR); original images verified by PIL and downsampled for DOM-only preview",
+  "gates": {
+    "1_11A_Intent_Fidelity": {
+      "status": "PASS",
+      "evidence": "Integrated LP reverse-diff matches canonical lp_html byte-for-byte after removing additions; hash matches canonical"
+    },
+    "2_Visitor_Self_Relevance": {
+      "status": "PASS",
+      "evidence": "Four question template and user-choice based self-discovery result reached"
+    },
+    "3_Flow_Coherence": {
+      "status": "PASS",
+      "evidence": "LP CTA href/target and Diagnosis -> Result -> reservation CTA verified"
+    },
+    "4_Mobile_Presentation_Visual_Rhythm": {
+      "status": "PASS",
+      "evidence": "Browser set_content all 8 widths overflow absent and CTA visible; same-lead image files integrity verified"
+    },
+    "5_Integration_Integrity": {
+      "status": "PASS",
+      "evidence": "Separated LP/diagnosis HTML; styles, scripts, images and targets resolve; 11A content unchanged"
+    },
+    "6_Technical_Reliability": {
+      "status": "PASS",
+      "evidence": "Browser DOM four-step diagnosis E2E completed, JS parse and console exception 0, 7 diagnosis event names present and event handlers fired (HTTP delivery simulated due environment)"
+    },
+    "7_Safety_Isolation": {
+      "status": "PASS",
+      "evidence": "Same-lead canonical Evidence, LP, store_name and booking URL consistent; customer-facing Evidence terms mapped; no new store claims"
+    }
+  },
+  "release": "RELEASE_READY_11B",
+  "publish": "NOT_EXECUTED"
+}
