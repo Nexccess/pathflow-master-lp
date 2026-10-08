@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ヘア相談整理｜美容室Nexc（ねくす）</title>
+<meta name="description" content="今の希望や悩みを整理して、サロンで相談しやすい形にまとめます。">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="app-shell">
+<header class="app-header"><p class="brand">美容室Nexc（ねくす）</p><p class="step-label" id="stepLabel">HAIR DISCOVERY</p></header>
+<section id="startScreen" class="panel active"><p class="eyebrow">BEFORE YOUR CONSULTATION</p><h1>まだ決まっていなくても、<br>大丈夫です。</h1><p class="lead">今の髪について感じていることを、いくつか選ぶだけです。最後に、サロンで相談しやすい形へ整理します。</p><div class="notice"><strong>この診断で決めること</strong><p>髪型をAIが決定するのではなく、「何を相談したいか」を整理します。</p></div><button id="startButton" class="primary-button" type="button">診断を始める</button></section>
+<section id="questionScreen" class="panel"><div class="progress-wrap"><div class="progress-track"><div id="progressBar" class="progress-bar"></div></div><p id="progressText" class="progress-text"></p></div><p id="questionEyebrow" class="eyebrow"></p><h2 id="questionTitle"></h2><p id="questionHelp" class="question-help"></p><div id="answerList" class="answer-list"></div><div class="nav-row"><button id="backButton" class="secondary-button" type="button">戻る</button></div></section>
+<section id="resultScreen" class="panel"><p class="eyebrow">YOUR DISCOVERY</p><h2>今、相談したいことが<br>整理できました。</h2><div class="result-card"><p class="result-label">SELF DISCOVERY</p><h3 id="discoveryTitle"></h3><p id="discoverySummary"></p></div><div class="result-card"><p class="result-label">WHAT TO TELL YOUR STYLIST</p><ul id="consultationPoints"></ul></div><div class="result-card resonance-card"><p class="result-label">お店の公開情報との重なり</p><p id="resonanceIntro"></p><ul id="resonancePoints"></ul></div><div class="result-state"><span id="resultType"></span><p id="resultMessage"></p></div><a id="ctaButton" class="primary-button link-button" href="../#information">サンプル情報を確認する</a><p class="cta-note">サンプル店舗のため、予約受付・空席確認は行っていません。</p><button id="restartButton" class="text-button" type="button">もう一度整理する</button></section>
+</main><script src="app.js"></script></body></html>
