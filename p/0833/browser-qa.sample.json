@@ -1,0 +1,149 @@
+[
+  {
+    "surface": "LP",
+    "width": 320,
+    "overflow": false,
+    "sw": 320,
+    "cw": 320,
+    "errors": []
+  },
+  {
+    "surface": "LP",
+    "width": 375,
+    "overflow": false,
+    "sw": 375,
+    "cw": 375,
+    "errors": []
+  },
+  {
+    "surface": "LP",
+    "width": 390,
+    "overflow": false,
+    "sw": 390,
+    "cw": 390,
+    "errors": []
+  },
+  {
+    "surface": "LP",
+    "width": 430,
+    "overflow": false,
+    "sw": 430,
+    "cw": 430,
+    "errors": []
+  },
+  {
+    "surface": "LP",
+    "width": 768,
+    "overflow": false,
+    "sw": 768,
+    "cw": 768,
+    "errors": []
+  },
+  {
+    "surface": "LP",
+    "width": 1024,
+    "overflow": false,
+    "sw": 1024,
+    "cw": 1024,
+    "errors": []
+  },
+  {
+    "surface": "LP",
+    "width": 1280,
+    "overflow": false,
+    "sw": 1280,
+    "cw": 1280,
+    "errors": []
+  },
+  {
+    "surface": "LP",
+    "width": 1440,
+    "overflow": false,
+    "sw": 1440,
+    "cw": 1440,
+    "errors": []
+  },
+  {
+    "surface": "DIAGNOSIS",
+    "width": 320,
+    "overflow": false,
+    "sw": 320,
+    "cw": 320,
+    "errors": []
+  },
+  {
+    "surface": "DIAGNOSIS",
+    "width": 375,
+    "overflow": false,
+    "sw": 375,
+    "cw": 375,
+    "errors": []
+  },
+  {
+    "surface": "DIAGNOSIS",
+    "width": 390,
+    "overflow": false,
+    "sw": 390,
+    "cw": 390,
+    "errors": []
+  },
+  {
+    "surface": "DIAGNOSIS",
+    "width": 430,
+    "overflow": false,
+    "sw": 430,
+    "cw": 430,
+    "errors": []
+  },
+  {
+    "surface": "DIAGNOSIS",
+    "width": 768,
+    "overflow": false,
+    "sw": 768,
+    "cw": 768,
+    "errors": []
+  },
+  {
+    "surface": "DIAGNOSIS",
+    "width": 1024,
+    "overflow": false,
+    "sw": 1024,
+    "cw": 1024,
+    "errors": []
+  },
+  {
+    "surface": "DIAGNOSIS",
+    "width": 1280,
+    "overflow": false,
+    "sw": 1280,
+    "cw": 1280,
+    "errors": []
+  },
+  {
+    "surface": "DIAGNOSIS",
+    "width": 1440,
+    "overflow": false,
+    "sw": 1440,
+    "cw": 1440,
+    "errors": []
+  },
+  {
+    "diagnosis_e2e": true,
+    "result_visible": true,
+    "result_type": "DIRECT_RESONANCE",
+    "cta_href": "../#information",
+    "events": [
+      "diagnosis_view",
+      "diagnosis_start",
+      "question_answered",
+      "diagnosis_progress",
+      "question_answered",
+      "diagnosis_progress",
+      "question_answered",
+      "diagnosis_progress",
+      "question_answered",
+      "diagnosis_complete",
+      "result_view"
+    ]
+  }
+]

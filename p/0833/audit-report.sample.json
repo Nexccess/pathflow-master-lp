@@ -1,0 +1,78 @@
+{
+  "lead_id": "0833",
+  "store_name": "美容室Nexc（ねくす）",
+  "audit_standard": "11B v11 official 7 Gate",
+  "execution_class": "SAMPLE_HUMAN_EXCEPTION",
+  "formal_11a_input": false,
+  "formal_release_ready_11b": false,
+  "sample_publication_requested_by_human": true,
+  "input_note": "User-supplied SAMPLE LP / Creative Draft is explicitly NOT_APPROVED_11A. Canonical DB and Current Pointer are not written or forged.",
+  "gates": [
+    {
+      "gate": 1,
+      "name": "11A Intent Fidelity",
+      "result": "PASS_SAMPLE",
+      "basis": "Root LP body/copy/assets preserved from supplied sample; only 11B CTA/tracking/integration added. Formal APPROVED_11A precondition is bypassed only as explicit sample exception."
+    },
+    {
+      "gate": 2,
+      "name": "Visitor Self-Relevance",
+      "result": "PASS_SAMPLE",
+      "basis": "Diagnosis organizes priority, decision state, daily handling, and communication preference without deciding hairstyle for visitor."
+    },
+    {
+      "gate": 3,
+      "name": "Flow Coherence",
+      "result": "PASS_SAMPLE",
+      "basis": "LP → separate-context Diagnosis CTA; Diagnosis start → Q1-Q4 → Result → sample-safe CTA verified by DOM E2E."
+    },
+    {
+      "gate": 4,
+      "name": "Mobile Presentation / Visual Rhythm",
+      "result": "PASS_SAMPLE",
+      "basis": "set_content browser QA at 320/375/390/430/768/1024/1280/1440: no horizontal overflow for LP or Diagnosis; 390 and 1440 LP visual checks completed; diagnosis 390 visual check completed."
+    },
+    {
+      "gate": 5,
+      "name": "Integration Integrity",
+      "result": "PASS_SAMPLE",
+      "basis": "Required root/diagnosis/assets exist; CTA href diagnosis/ with target=_blank and rel=noopener noreferrer; no unresolved template placeholders."
+    },
+    {
+      "gate": 6,
+      "name": "Technical Reliability",
+      "result": "PASS_SAMPLE_WITH_PRODUCTION_PENDING",
+      "basis": "diagnosis/app.js node syntax PASS; DOM E2E reaches Result; events generated: diagnosis_view/start, question_answered, progress, complete, result_view, cta_click; LP lp_view code present. Real production HTTP/hash and live Amplitude delivery remain publication-stage checks."
+    },
+    {
+      "gate": 7,
+      "name": "Safety / Isolation",
+      "result": "PASS_SAMPLE",
+      "basis": "lead_id=0833 only; sample disclosure retained; booking/availability disabled; customer-facing Evidence terminology removed; no Canonical DB write."
+    }
+  ],
+  "responsive_widths": [
+    320,
+    375,
+    390,
+    430,
+    768,
+    1024,
+    1280,
+    1440
+  ],
+  "tracking_events": [
+    "lp_view",
+    "diagnosis_view",
+    "diagnosis_start",
+    "question_answered",
+    "diagnosis_progress",
+    "diagnosis_complete",
+    "result_view",
+    "cta_click"
+  ],
+  "publication_state": "LOCAL_PUBLISH_REQUIRED",
+  "product_sync": "PENDING_PRODUCTION",
+  "master_db_write": "NOT_EXECUTED_SAMPLE",
+  "geo_write": "NOT_EXECUTED_SAMPLE"
+}

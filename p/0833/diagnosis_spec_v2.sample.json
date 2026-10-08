@@ -1,0 +1,34 @@
+{
+  "schema_version": "11b-diagnosis-spec-v2",
+  "lead_id": "0833",
+  "store_name": "美容室Nexc（ねくす）",
+  "variant_code": "SAMPLE_LP",
+  "input_class": "SAMPLE_EXCEPTION",
+  "source_status": "NOT_APPROVED_11A",
+  "formal_release_eligible": false,
+  "primary_value": "希望を言語化できなくても、髪質や骨格に合う提案を受けられた",
+  "customer_voice_summary": "希望を言語化できなくても、髪質や骨格に合う提案を受けられた／サロンの後の日常で扱いやすい髪／透明感を重視したカラー表現",
+  "service_signals": [
+    "髪質・骨格を踏まえた提案",
+    "カット時の形・量感調節",
+    "透明感・ニュアンスのあるカラー"
+  ],
+  "theme": {
+    "ink": "#313a33",
+    "background": "#f8f7f2",
+    "surface": "#f8f7f2",
+    "muted": "#747d73",
+    "line": "#dcded5",
+    "primary_accent": "#748f7c"
+  },
+  "cta": {
+    "type": "SAMPLE_INFO_ONLY",
+    "url": "../#information",
+    "note": "サンプル店舗のため、予約受付・空席確認は行っていません。"
+  },
+  "source_constraints": [
+    "架空サンプル",
+    "原典口コミをNexcの実績として扱わない",
+    "正式APPROVED_11Aではない"
+  ]
+}
