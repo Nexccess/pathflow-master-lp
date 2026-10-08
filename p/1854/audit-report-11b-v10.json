@@ -2,7 +2,7 @@
   "lead_id": 1854,
   "status": "PASS",
   "release": "RELEASE_READY_11B",
-  "publish": "NOT_EXECUTED",
+  "publish": "PASS",
   "gates": {
     "Gate 1 11A Intent Fidelity": {
       "status": "PASS",
@@ -29,9 +29,11 @@
     "Gate 4 Mobile Presentation / Visual Rhythm": {
       "status": "PASS",
       "facts": [
-        "320/375/390/430 and 768/1024/1280/1440: horizontal overflow none",
+        "320/375/390/430: prior mobile PASS retained; not rerun by this post-publish PC-only adjustment",
         "8 LP images loaded in set_content test",
-        "LP max content width 760px; Diagnosis shell max width 720px; neither fixed to smartphone width on PC",
+        "PC/tablet responsive expansion applied at >=768px: page width=min(calc(100% - 48px),1240px); viewport widths 768/1024/1280/1440 resolve to 720/976/1232/1240px",
+        "Direct PC Gate 4 recheck at 768/1024/1280/1440: horizontal overflow none; text overflow 0; sticky CTA and Floating Diagnosis CTA visible; all sections retain positive layout dimensions",
+        "Image layout remains aspect-ratio safe: ordinary images keep width:100%/height:auto; Hero/Atmosphere retain object-fit:cover",
         "Floating Diagnosis CTA repositioned above the persistent WEB reservation bar: desktop/tablet bottom=90px; mobile <=640px bottom=88px, both safe-area aware"
       ]
     },
@@ -42,7 +44,8 @@
         "Required assets: 8/8",
         "Customer-facing old Evidence terms: 0",
         "Theme Role mapping applied with Human-confirmed MUTED/LINE",
-        "CTA position correction changes only 11B integrated CSS; Approved LP source content remains unchanged"
+        "CTA position correction changes only 11B integrated CSS; Approved LP source content remains unchanged",
+        "PC responsive correction changes only 11B integrated CSS/layout; LP copy, Evidence, Value, Creative, images, colors, Diagnosis logic, Result, CTA text, and Tracking remain unchanged"
       ]
     },
     "Gate 6 Technical Reliability": {
@@ -91,5 +94,54 @@
       "Gate 4 Mobile Presentation / Visual Rhythm",
       "Gate 5 Integration Integrity"
     ]
+  },
+  "responsive_post_publish_adjustment": {
+    "reason": "Human production QA found LP body remained near smartphone width on PC",
+    "scope": "Responsive CSS / layout only",
+    "change": "At >=768px expand .page responsively to min(calc(100% - 48px),1240px), preserve centered max-width content, and widen persistent sticky CTA proportionally",
+    "verification_widths": [
+      768,
+      1024,
+      1280,
+      1440
+    ],
+    "measured_page_widths_px": [
+      720,
+      976,
+      1232,
+      1240
+    ],
+    "horizontal_overflow": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "text_overflow_count": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "affected_gate_rechecked": "Gate 4 Mobile Presentation / Visual Rhythm",
+    "unchanged": [
+      "LP copy",
+      "Evidence",
+      "Value",
+      "Creative",
+      "image content",
+      "colors",
+      "Diagnosis logic",
+      "Result decision",
+      "CTA copy",
+      "Tracking"
+    ]
+  },
+  "production": {
+    "branch": "main",
+    "commit_before_responsive_fix": "a42ef4e",
+    "lp_url": "https://sample.pathflow.org/p/1854/",
+    "diagnosis_url": "https://sample.pathflow.org/p/1854/diagnosis/",
+    "status_before_responsive_fix": "PUBLIC_PASS"
   }
 }
