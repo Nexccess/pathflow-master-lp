@@ -1,0 +1,102 @@
+{
+  "campaign_id": "PF-HAIR-YOKOHAMA-001",
+  "purpose": "11A initial Creative validation queue before Sales Ready",
+  "reference_case": {
+    "store_id": "9",
+    "store_name": "Violet Yokohama (バイオレットヨコハマ/横浜店)",
+    "role": "quality_baseline_only"
+  },
+  "selection_rule": "Yokohama hair salons from recovered leads_database; prefer strong public evidence and direct/brand-owned web presence. Sales contactability is not implied by selection.",
+  "sales_contactability_status": "NOT_CONFIRMED",
+  "stores": [
+    {
+      "store_id": "11",
+      "store_name": "hair salon Gallica 横浜店",
+      "category": "美容室",
+      "area": "横浜駅",
+      "rating": 4.9,
+      "review_count": 224,
+      "website_url": "https://www.hair-salon-gallica.com/",
+      "lead_db_status": "FAILED",
+      "queue_reason": "high evidence volume; direct official site; existing Lead 11 technical history"
+    },
+    {
+      "store_id": "15",
+      "store_name": "girasol",
+      "category": "美容室",
+      "area": "横浜駅",
+      "rating": 4.9,
+      "review_count": 72,
+      "website_url": "https://girasol-hair-yokohama.com/",
+      "lead_db_status": "UNPROCESSED",
+      "queue_reason": "direct official site; clear salon positioning; strong rating"
+    },
+    {
+      "store_id": "2",
+      "store_name": "EARTH 横浜店",
+      "category": "美容室",
+      "area": "横浜駅",
+      "rating": 4.8,
+      "review_count": 360,
+      "website_url": "https://map.hairmake-earth.com/salon/162",
+      "lead_db_status": "UNPROCESSED",
+      "queue_reason": "large review evidence; official brand store page"
+    },
+    {
+      "store_id": "12",
+      "store_name": "LODAT 横浜 by little(ロダットバイリトル)",
+      "category": "美容室",
+      "area": "横浜駅",
+      "rating": 4.8,
+      "review_count": 271,
+      "website_url": "https://little-hairsalon.com/",
+      "lead_db_status": "FAILED",
+      "queue_reason": "large review evidence; official brand site"
+    },
+    {
+      "store_id": "5",
+      "store_name": "美容院 Lumi 横浜駅店",
+      "category": "美容室",
+      "area": "横浜駅",
+      "rating": 4.8,
+      "review_count": 145,
+      "website_url": "https://lumi-style.jp/store/yokohama/",
+      "lead_db_status": "UNPROCESSED",
+      "queue_reason": "direct official store page; strong evidence and visual information"
+    },
+    {
+      "store_id": "16",
+      "store_name": "Frais Tout",
+      "category": "美容室",
+      "area": "横浜駅",
+      "rating": 4.5,
+      "review_count": 173,
+      "website_url": "https://frais-tout.com/",
+      "lead_db_status": "UNPROCESSED",
+      "queue_reason": "direct official site; clear service strengths and staff evidence"
+    },
+    {
+      "store_id": "18",
+      "store_name": "マーブルズ 横浜店",
+      "category": "美容室",
+      "area": "横浜駅",
+      "rating": 4.3,
+      "review_count": 76,
+      "website_url": "https://marbles-yokohama.com/",
+      "lead_db_status": "UNPROCESSED",
+      "queue_reason": "direct official site; customer voice and style evidence available"
+    },
+    {
+      "store_id": "8",
+      "store_name": "CoL by KENJE",
+      "category": "美容室",
+      "area": "横浜駅",
+      "rating": 4.9,
+      "review_count": 230,
+      "website_url": "https://hairbook.jp/salons/5435/",
+      "lead_db_status": "UNPROCESSED",
+      "queue_reason": "high rating and review volume; useful contrast case for evidence-source quality"
+    }
+  ],
+  "gate_note": "These stores are candidates for 11A Creative generation/QA only. Do not move any store to Sales Live Send until Contactability, Approved Creative Package, 11B integration, deployment, tracking, DRY-RUN and final Sales Ready Gate all pass."
+}

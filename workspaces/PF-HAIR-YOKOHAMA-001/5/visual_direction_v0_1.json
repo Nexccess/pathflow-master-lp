@@ -1,0 +1,65 @@
+{
+  "rule_version": "0.1",
+  "store_id": "5",
+  "store_name": "Lumi 横浜駅店",
+  "visual_direction_status": "READY_FOR_LP_GENERATION",
+  "visual_objective": {
+    "visual_objective": "曖昧な希望から似合う方向が見えてくる感覚を、提案力とスタイル選択の明快さで可視化する。",
+    "intended_first_impression": "洗練・親しみ・提案力・選びやすさ",
+    "emotional_transition_to_support": "uncertainty → clarity → confidence"
+  },
+  "color_direction": {
+    "primary_color_direction": "soft charcoal / taupe / neutral brown family",
+    "secondary_color_direction": "clean off-white",
+    "accent_color_direction": "muted rose-beige or soft metallic neutral",
+    "background_direction": "bright neutral with selective warm panels",
+    "saturation_level": "LOW_TO_MEDIUM",
+    "contrast_level": "MEDIUM_TO_HIGH",
+    "evidence_or_reasoning": [
+      "Existing exact brand colors are not yet structured, so avoid inventing a signature palette.",
+      "Creative Concept requires clarity and style comparison rather than condition-anxiety calmness.",
+      "Neutral base allows multiple style directions to remain visually primary."
+    ]
+  },
+  "typography_direction": {
+    "heading_style": "modern serif or refined geometric sans mix",
+    "body_style": "high-legibility Japanese sans-serif",
+    "emphasis_style": "clear medium/bold sans for choice labels",
+    "tone": "modern / polished / approachable",
+    "legibility_constraints": ["mobile-first", "clear hierarchy", "avoid overly decorative type that weakens choice clarity"]
+  },
+  "photography_direction": {
+    "primary_subjects": ["multiple style directions", "face/hair balance", "consultation / suggestion scene"],
+    "secondary_subjects": ["interior", "stylist presence", "hair texture"],
+    "future_state_visuals": ["distinct but wearable style options", "before-choice to clearer-style direction experience", "finished looks with different impressions"],
+    "evidence_visuals": ["consultation", "stylist suggestion", "official Yokohama store visual"],
+    "avoid_visuals": ["single-look-only imagery", "generic luxury-only imagery", "medical treatment imagery"],
+    "usage_constraints": ["official public image usage is NOT_CONFIRMED; final commercial production needs approved/licensed/generated alternatives"]
+  },
+  "layout_density_direction": {
+    "overall_density": "MEDIUM",
+    "whitespace_direction": "clean but more structured than girasol",
+    "hero_structure_direction": "strong style visual plus concise uncertainty-to-clarity message",
+    "visual_text_balance": "balanced with stronger style-gallery presence",
+    "card_usage_direction": "use for style/choice comparison and short proof points",
+    "full_bleed_usage_direction": "selective; use for key style or consultation proof",
+    "section_variation_direction": "alternate uncertainty, style options, fit logic, customer voice, proposal experience, diagnosis"
+  },
+  "category_profile": "BEAUTY",
+  "cta_treatment_direction": {
+    "visual_prominence": "HIGH_BUT_RESTRAINED",
+    "sticky_cta_behavior_direction": "compact persistent mobile CTA after hero; keep gallery content unobstructed",
+    "obstruction_risk_limit": "LOW",
+    "button_tone": "neutral dark or brand-following accent with clear contrast"
+  },
+  "visual_proof_contract": {
+    "proof_required": true,
+    "required_proof_types": ["multiple style directions", "consultation/suggestion experience", "finished style imagery"],
+    "minimum_proof_role": "Customer must be able to imagine moving from a vague request to a clearer suitable style direction.",
+    "evidence_limitations": ["legacy review evidence is theme-level", "current public asset commercial reuse rights not confirmed", "interior/facility specifics require recheck before claim use"]
+  },
+  "genericness_check": {
+    "risk": "LOW_TO_MEDIUM",
+    "notes": "Direction is specific only if style comparison and fit/suggestion are visually central; neutral beauty styling alone would be generic."
+  }
+}

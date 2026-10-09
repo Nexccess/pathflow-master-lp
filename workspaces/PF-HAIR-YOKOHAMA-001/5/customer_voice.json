@@ -1,0 +1,40 @@
+{
+  "campaign_id": "PF-HAIR-YOKOHAMA-001",
+  "store_id": "5",
+  "store_name": "Lumi 横浜駅店",
+  "source_type": "public_reviews",
+  "source_url": "https://beauty.hotpepper.jp/slnH000462638/review/",
+  "observed_at": "2026-09-02",
+  "themes": [
+    {
+      "theme": "曖昧な希望を汲み取るカウンセリング",
+      "evidence_summary": "ざっくりした要望や迷いがある状態でも、希望を聞き取りながら似合う方向へ提案してもらえたという評価が複数見られる。"
+    },
+    {
+      "theme": "骨格・髪質に合わせた提案",
+      "evidence_summary": "骨格や髪質を踏まえたアドバイス、顔立ちに合うレイヤー、白髪やカラーの悩みへの提案が評価されている。"
+    },
+    {
+      "theme": "仕上がりの質感・再現性",
+      "evidence_summary": "カラーやカットの仕上がり、サラサラ感、日常で扱いやすいスタイルへの満足が繰り返し確認できる。"
+    },
+    {
+      "theme": "相談しやすさと安心",
+      "evidence_summary": "初めての縮毛矯正など不安があるケースで、質問に丁寧に答えてもらい安心できたという声がある。"
+    },
+    {
+      "theme": "移動負担の少ない施術体験",
+      "evidence_summary": "シャンプー時に席を移動しない設備・運用を楽だと評価する声が確認できる。"
+    }
+  ],
+  "message_opportunities": [
+    "まだ髪型が決まっていなくても相談できる",
+    "骨格・髪質・普段の扱いやすさから希望を整理する",
+    "初めてのカラーや縮毛矯正でも不安点を整理してから相談できる"
+  ],
+  "prohibited_inference": [
+    "全スタッフが同一の提案力・設備体験を提供すると断定しない",
+    "仕上がり効果を保証しない"
+  ],
+  "status": "EVIDENCE_READY"
+}

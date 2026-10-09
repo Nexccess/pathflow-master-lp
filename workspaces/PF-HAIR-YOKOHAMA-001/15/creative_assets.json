@@ -1,0 +1,14 @@
+{
+  "store_id": "15",
+  "store_name": "girasol",
+  "status": "SPEC_READY",
+  "required_assets": [
+    {"slot": "hero", "brief": "大人女性の自然な艶髪。落ち着きと安心感を優先し、過度に若いモデルや派手色は避ける"},
+    {"slot": "consultation", "brief": "髪や頭皮の状態を確認しながら相談していることが伝わる静かなカウンセリング場面"},
+    {"slot": "style_set", "brief": "白髪・うねり・広がり・艶不足を抱える人が自分事化しやすい、自然な仕上がりの複数スタイル"},
+    {"slot": "customer_voice", "brief": "実口コミを要約して見せる上品なカード。原文の長文転載はしない"},
+    {"slot": "diagnosis_cta", "brief": "低彩度・常時表示でも邪魔にならない『希望を整理する（無料・5問）』CTA"}
+  ],
+  "brand_rule": "Violetの見た目を流用せず、girasol固有の大人女性・ケア志向に合わせる",
+  "asset_generation_status": "NOT_GENERATED"
+}

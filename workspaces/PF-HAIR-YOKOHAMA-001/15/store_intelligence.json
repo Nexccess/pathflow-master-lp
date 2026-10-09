@@ -1,0 +1,42 @@
+{
+  "campaign_id": "PF-HAIR-YOKOHAMA-001",
+  "store_id": "15",
+  "store_name": "girasol",
+  "category": "美容室",
+  "research_status": "READY_FOR_MESSAGE_STRATEGY",
+  "observed_at": "2026-09-02",
+  "store_facts": {
+    "address": "神奈川県横浜市西区高島2-10-28 双洋ビル横浜2F",
+    "access": "横浜駅徒歩3分と案内",
+    "positioning": [
+      "ノンダメージ協会認定サロンを訴求",
+      "高濃度水素ケア・髪質改善を主要訴求",
+      "イルミナカラー・オーガニックカラー・TOKIO等を扱う",
+      "丁寧なカウンセリングと髪・頭皮状態に合わせた提案を重視"
+    ],
+    "customer_segment_signal": "Hot Pepperの観測分布では40代・50代以上の女性比率が高い",
+    "review_signal": {
+      "hotpepper_average": 4.79,
+      "hotpepper_review_count_observed": 216,
+      "atmosphere": 4.8,
+      "service": 4.8,
+      "finish": 4.8,
+      "price": 4.5
+    }
+  },
+  "commercial_hypotheses": [
+    "髪を傷ませたくない大人女性の不安に対し、健康状態を見ながら施術する安心感が強い",
+    "髪質改善の価値は見た目だけでなく、朝の手入れのしやすさ・手触り改善まで訴求可能",
+    "白髪・うねり・広がりなど年齢変化由来の悩みとの適合が高い"
+  ],
+  "evidence_urls": [
+    "https://girasol-hair-yokohama.com/",
+    "https://girasol-hair-yokohama.com/sm/",
+    "https://beauty.hotpepper.jp/slnH000035722/review/"
+  ],
+  "guardrails": [
+    "水素ケア等の効果を医学的・永久的効果として表現しない",
+    "口コミ由来の効果は個人の体験として扱う",
+    "価格・メニューは公開情報の更新可能性があるため断定前に再確認する"
+  ]
+}

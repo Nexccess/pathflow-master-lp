@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.0",
+  "store_intelligence_status": "READY_FOR_INTERPRETATION",
+  "identity": {
+    "store_id": "5",
+    "campaign_id": "PF-HAIR-YOKOHAMA-001",
+    "store_name": "Lumi 横浜駅店",
+    "category": "美容室",
+    "area": "横浜",
+    "official_website_url": "https://lumi-style.jp/store/yokohama/",
+    "brand_name": "Lumi",
+    "group_name": null,
+    "branch_name": "横浜駅店",
+    "google_maps_url": null,
+    "hotpepper_url": "https://beauty.hotpepper.jp/slnH000462638/review/",
+    "instagram_url": null,
+    "other_public_urls": ["https://lumi-style.jp/"]
+  },
+  "contact_location": {
+    "address": {
+      "value": "神奈川県横浜市西区平沼1-38-21 コスモ横浜東口102",
+      "evidence_ids": ["EV-LUMI-OFFICIAL-001"]
+    },
+    "nearest_station": {
+      "value": "横浜駅",
+      "evidence_ids": ["EV-LUMI-OFFICIAL-001"]
+    },
+    "walking_minutes": {
+      "value": 5,
+      "evidence_ids": ["EV-LUMI-OFFICIAL-001"]
+    },
+    "business_hours": {
+      "value": "平日10:00〜22:00、土日祝10:00〜20:00",
+      "evidence_ids": ["EV-LUMI-OFFICIAL-001"]
+    },
+    "phone": null,
+    "email": null,
+    "inquiry_url": null,
+    "reservation_url": null,
+    "closed_days": null
+  },
+  "services": {
+    "major_services": [
+      {"value": "カット", "evidence_ids": ["EV-LUMI-OFFICIAL-001"]},
+      {"value": "カラー", "evidence_ids": ["EV-LUMI-OFFICIAL-001"]},
+      {"value": "美髪／縮毛矯正", "evidence_ids": ["EV-LUMI-OFFICIAL-001"]},
+      {"value": "トリートメント", "evidence_ids": ["EV-LUMI-OFFICIAL-001"]}
+    ],
+    "signature_services": [],
+    "price_examples": [],
+    "product_or_treatment_names": ["オリジナルシャンプー", "オリジナルトリートメント"],
+    "service_notes": ["Service presence is recorded without inferring effectiveness."]
+  },
+  "customer_voice": {
+    "review_sources": [{"source": "Hot Pepper Beauty", "evidence_id": "EV-LUMI-REVIEW-001"}],
+    "review_count_observed": null,
+    "rating_observed": null,
+    "positive_voice_samples": [],
+    "negative_or_anxiety_voice_samples": [],
+    "recurring_keywords": ["相談", "似合わせ", "髪質", "骨格", "扱いやすさ", "落ち着いた空間"],
+    "repeated_praise_themes": [
+      {
+        "theme_name": "曖昧な希望でも相談しながら方向を決めやすい",
+        "supporting_evidence_ids": ["EV-LUMI-REVIEW-001"],
+        "evidence_count": null,
+        "confidence": "MEDIUM",
+        "observation_type": "AGGREGATED_PATTERN"
+      },
+      {
+        "theme_name": "髪質や骨格を踏まえた提案への評価",
+        "supporting_evidence_ids": ["EV-LUMI-REVIEW-001", "EV-LUMI-OFFICIAL-001"],
+        "evidence_count": null,
+        "confidence": "MEDIUM",
+        "observation_type": "AGGREGATED_PATTERN"
+      }
+    ],
+    "repeated_concern_themes": [],
+    "repeated_desire_themes": [
+      {
+        "theme_name": "似合う方向性を一緒に具体化したい",
+        "supporting_evidence_ids": ["EV-LUMI-REVIEW-001"],
+        "evidence_count": null,
+        "confidence": "MEDIUM",
+        "observation_type": "AGGREGATED_PATTERN"
+      }
+    ],
+    "repeated_experience_themes": [
+      {
+        "theme_name": "落ち着いた空間で相談しやすい体験",
+        "supporting_evidence_ids": ["EV-LUMI-REVIEW-001"],
+        "evidence_count": null,
+        "confidence": "LOW",
+        "observation_type": "AGGREGATED_PATTERN"
+      }
+    ],
+    "repeated_result_themes": []
+  },
+  "store_facts": {
+    "stated_store_philosophy": [],
+    "stated_strengths": [
+      {
+        "value": "髪質・骨格を踏まえた提案を掲げる",
+        "evidence_ids": ["EV-LUMI-OFFICIAL-001"],
+        "observation_type": "SOURCE_SUMMARY"
+      }
+    ],
+    "facilities": [],
+    "staff_features": [{"value": "スタッフ情報・店内写真が公式サイトで公開されている", "evidence_ids": ["EV-LUMI-OFFICIAL-001"], "observation_type": "OBSERVED_FACT"}],
+    "accessibility_features": [],
+    "location_features": [{"value": "横浜駅東口から徒歩5分と公式案内", "evidence_ids": ["EV-LUMI-OFFICIAL-001"], "observation_type": "OBSERVED_FACT"}],
+    "awards_or_credentials": [],
+    "explicit_target_statements": []
+  },
+  "brand_visual_facts": {
+    "logo_available": true,
+    "logo_source": "https://lumi-style.jp/store/yokohama/",
+    "existing_primary_colors": [],
+    "existing_secondary_colors": [],
+    "typography_observed": null,
+    "website_visual_tone_observed": [],
+    "interior_visual_tone_observed": ["落ち着いた空間というレビュー信号あり。設備Factとしての確定は下流利用前に再確認が必要"],
+    "exterior_visual_tone_observed": [],
+    "photo_subjects_observed": ["staff", "interior", "hair style"]
+  },
+  "visual_assets": [
+    {
+      "asset_id": "ASSET-LUMI-OFFICIAL-HERO",
+      "asset_type": "hero",
+      "source_url_or_repo_path": "https://lumi-style.jp/wp-content/themes/beauty-front/assets/images/yokohama/yokohama-main-image.webP",
+      "subject": "official Yokohama store main visual",
+      "orientation": null,
+      "resolution_if_known": null,
+      "visual_quality": "UNKNOWN",
+      "commercial_usage_status": "NOT_CONFIRMED",
+      "evidence_source": "EV-LUMI-OFFICIAL-001"
+    }
+  ],
+  "competitor_market_context": {
+    "nearby_competitors": [],
+    "observed_positioning_patterns": [],
+    "common_market_claims": [],
+    "obvious_similarity_risks": []
+  },
+  "claim_safety": {
+    "prohibited_claims": ["口コミ由来の仕上がり・安心感を保証された結果として表現すること"],
+    "unverified_claims": ["半個室など設備仕様の現状確認前の断定"],
+    "medical_or_treatment_risk_terms": [],
+    "guarantee_risk_terms": ["必ず", "完全"],
+    "fact_conflicts": []
+  },
+  "evidence_registry": [
+    {
+      "evidence_id": "EV-LUMI-OFFICIAL-001",
+      "evidence_type": "OFFICIAL",
+      "source_name": "Lumi 横浜駅店 official page",
+      "source_url": "https://lumi-style.jp/store/yokohama/",
+      "captured_at_or_checked_at": "2026-09-02",
+      "supported_fields": ["identity", "contact_location", "services", "store_facts", "brand_visual_facts", "visual_assets"],
+      "confidence": "HIGH",
+      "notes": null
+    },
+    {
+      "evidence_id": "EV-LUMI-OFFICIAL-002",
+      "evidence_type": "OFFICIAL",
+      "source_name": "Lumi group official site",
+      "source_url": "https://lumi-style.jp/",
+      "captured_at_or_checked_at": "2026-09-02",
+      "supported_fields": ["services", "brand_visual_facts"],
+      "confidence": "MEDIUM",
+      "notes": "Group-level facts must remain separated from Yokohama-store-specific facts."
+    },
+    {
+      "evidence_id": "EV-LUMI-REVIEW-001",
+      "evidence_type": "REVIEW",
+      "source_name": "Hot Pepper Beauty reviews",
+      "source_url": "https://beauty.hotpepper.jp/slnH000462638/review/",
+      "captured_at_or_checked_at": "2026-09-02",
+      "supported_fields": ["customer_voice"],
+      "confidence": "MEDIUM",
+      "notes": "Legacy research retained theme-level findings; sample-level evidence should be captured in future automated ingestion."
+    }
+  ],
+  "unknown_missing": {
+    "missing_required_fields": [],
+    "missing_optional_fields": ["phone", "email", "inquiry_url", "reservation_url", "closed_days", "price_examples", "review_count_observed", "rating_observed", "positive_voice_samples", "negative_or_anxiety_voice_samples", "existing_primary_colors", "existing_secondary_colors", "typography_observed", "detailed_visual_assets"],
+    "unresolved_conflicts": [],
+    "insufficient_visual_assets": false,
+    "insufficient_customer_voice": false
+  },
+  "migration_status": "COMPLETE_WITH_LEGACY_EVIDENCE_LIMITATIONS",
+  "migration_notes": [
+    "Removed commercial_hypotheses because final target/positioning interpretation belongs downstream.",
+    "Kept equipment/space claims conservative where current fact status needs reconfirmation.",
+    "No missing value was invented."
+  ]
+}

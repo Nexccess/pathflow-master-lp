@@ -1,0 +1,20 @@
+{
+  "store_id": "2",
+  "store_name": "EARTH 横浜店",
+  "status": "DRAFT_READY_FOR_RENDER",
+  "hero": {
+    "headline": "メニューを決める前に、なりたい印象を整理する。",
+    "subcopy": "初めてでも、髪型やメニューを決めきっていなくても大丈夫。今の悩みと希望を整理してから相談できる横浜のヘアサロン。",
+    "primary_cta": "希望を整理する（無料・5問）"
+  },
+  "sections": [
+    {"type": "empathy", "title": "何を選べばいいか分からないところから始められる。"},
+    {"type": "why_store", "title": "EARTH 横浜店で相談しやすい理由", "items": ["初回来店でも希望を相談しやすい", "幅広い年代・性別に対応しやすい選択肢", "なりたい印象と今の悩みを整理して施術を考える"]},
+    {"type": "customer_voice", "title": "相談のしやすさと仕上がりへの安心感。"},
+    {"type": "diagnosis_entry", "title": "5問で、なりたい印象と今の悩みを整理。", "cta": "希望を整理する（無料・5問）"},
+    {"type": "store_contact", "title": "整理した希望を、そのまま相談へ。", "cta": "EARTH 横浜店に問い合わせる"}
+  ],
+  "floating_cta": "希望を整理する（無料・5問）",
+  "mobile_first": true,
+  "quality_note": "全国ブランドの見た目に寄せすぎず、横浜店としての相談しやすさ・分かりやすさを中心に設計"
+}

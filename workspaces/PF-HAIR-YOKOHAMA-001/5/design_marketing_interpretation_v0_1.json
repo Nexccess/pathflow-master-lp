@@ -1,0 +1,145 @@
+{
+  "rule_version": "0.1",
+  "store_id": "5",
+  "store_name": "Lumi 横浜駅店",
+  "interpretation_status": "READY_FOR_CONCEPT",
+  "customer_signals": {
+    "primary_customer_signal": [
+      {
+        "statement": "なりたいイメージが曖昧でも、自分に似合う方向を一緒に具体化したい顧客",
+        "evidence_ids": ["EV-LUMI-REVIEW-001", "EV-LUMI-OFFICIAL-001"],
+        "confidence": "HIGH"
+      }
+    ],
+    "secondary_customer_signal": [
+      {
+        "statement": "髪質や骨格、日常の扱いやすさまで含めて提案を受けたい顧客",
+        "evidence_ids": ["EV-LUMI-REVIEW-001", "EV-LUMI-OFFICIAL-001"],
+        "confidence": "HIGH"
+      }
+    ],
+    "customer_desires": [
+      {
+        "statement": "似合う方向性を相談しながら具体化したい",
+        "evidence_ids": ["EV-LUMI-REVIEW-001"],
+        "confidence": "HIGH"
+      },
+      {
+        "statement": "髪質・骨格を踏まえた提案を受けたい",
+        "evidence_ids": ["EV-LUMI-OFFICIAL-001", "EV-LUMI-REVIEW-001"],
+        "confidence": "HIGH"
+      }
+    ],
+    "customer_anxieties": [
+      {
+        "statement": "希望をうまく言語化できず、メニューやスタイルを決めにくい",
+        "evidence_ids": ["EV-LUMI-REVIEW-001"],
+        "confidence": "MEDIUM"
+      }
+    ],
+    "customer_decision_barriers": [
+      {
+        "statement": "自分に似合うスタイルの判断軸が分からない",
+        "evidence_ids": ["EV-LUMI-REVIEW-001", "EV-LUMI-OFFICIAL-001"],
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "store_value_signals": {
+    "store_strength_signals": [
+      {
+        "statement": "髪質・骨格を踏まえた提案を掲げている",
+        "evidence_ids": ["EV-LUMI-OFFICIAL-001"],
+        "confidence": "HIGH"
+      },
+      {
+        "statement": "カット・カラー・美髪／縮毛矯正・トリートメントなど複数の選択肢を持つ",
+        "evidence_ids": ["EV-LUMI-OFFICIAL-001"],
+        "confidence": "HIGH"
+      }
+    ],
+    "trust_signals": [
+      {
+        "statement": "曖昧な希望でも相談しながら方向を決めやすいという評価",
+        "evidence_ids": ["EV-LUMI-REVIEW-001"],
+        "confidence": "MEDIUM"
+      }
+    ],
+    "experience_signals": [
+      {
+        "statement": "落ち着いた空間で相談しやすい体験というレビュー信号",
+        "evidence_ids": ["EV-LUMI-REVIEW-001"],
+        "confidence": "LOW"
+      }
+    ],
+    "result_signals": []
+  },
+  "customer_store_fit": [
+    {
+      "customer_need": "なりたいイメージをうまく言葉にできないが、似合う方向を見つけたい",
+      "store_response": "髪質・骨格を踏まえながら、相談して方向を具体化する",
+      "evidence_ids": ["EV-LUMI-REVIEW-001", "EV-LUMI-OFFICIAL-001"],
+      "fit_strength": "HIGH",
+      "notes": "完成結果の保証ではなく、提案プロセスと整理体験を価値として扱う。"
+    }
+  ],
+  "positioning_candidates": [
+    {
+      "positioning_statement": "曖昧なイメージのままでも、髪質・骨格から似合う方向を一緒に具体化する提案型サロン",
+      "supporting_evidence_ids": ["EV-LUMI-REVIEW-001", "EV-LUMI-OFFICIAL-001"],
+      "customer_relevance": "HIGH",
+      "store_specificity": "HIGH",
+      "risk_of_genericness": "LOW",
+      "claim_risk": "LOW"
+    },
+    {
+      "positioning_statement": "スタイルを決めてから行くのではなく、相談しながら自分に合う形を見つけるサロン",
+      "supporting_evidence_ids": ["EV-LUMI-REVIEW-001", "EV-LUMI-OFFICIAL-001"],
+      "customer_relevance": "HIGH",
+      "store_specificity": "MEDIUM",
+      "risk_of_genericness": "MEDIUM",
+      "claim_risk": "LOW"
+    }
+  ],
+  "brand_personality_signals": [
+    {
+      "signal": "consultative",
+      "source_type": "customer voice / service signal",
+      "evidence_ids": ["EV-LUMI-REVIEW-001", "EV-LUMI-OFFICIAL-001"],
+      "confidence": "HIGH"
+    },
+    {
+      "signal": "calm",
+      "source_type": "customer voice",
+      "evidence_ids": ["EV-LUMI-REVIEW-001"],
+      "confidence": "LOW"
+    }
+  ],
+  "existing_visual_constraints_opportunities": {
+    "brand_elements_to_respect": ["Lumi logo / current brand presentation"],
+    "visual_assets_with_high_value": ["ASSET-LUMI-OFFICIAL-HERO"],
+    "visual_asset_gaps": ["multiple style/result imagery with confirmed commercial usage", "current verified interior/facility proof"],
+    "visual_usage_restrictions": ["official public images have NOT_CONFIRMED commercial usage status"],
+    "visual_genericness_risks": ["generic beauty imagery could hide the fit-and-suggestion positioning"]
+  },
+  "future_state_opportunity": {
+    "desired_future_state": [
+      {
+        "statement": "自分に似合う方向が整理され、スタイル選びに迷いにくくなる状態",
+        "evidence_ids": ["EV-LUMI-REVIEW-001", "EV-LUMI-OFFICIAL-001"]
+      }
+    ],
+    "possible_visual_proof_types": ["multiple style directions", "consultation scene", "face/hair-balance styling", "finished style imagery"]
+  },
+  "claim_safety_translation": {
+    "prohibited_message_directions": ["口コミ上の仕上がりや安心感を保証表現へ変換"],
+    "claims_requiring_recheck": ["半個室等の設備仕様", "価格", "予約導線"],
+    "wording_that_must_be_qualified": ["美髪", "縮毛矯正の結果表現"]
+  },
+  "genericness_check": {
+    "uses_store_specific_customer_evidence": true,
+    "uses_store_specific_service_or_experience_evidence": true,
+    "reason_to_choose_beyond_generic_quality_claims": true,
+    "genericness_risk": "LOW"
+  }
+}

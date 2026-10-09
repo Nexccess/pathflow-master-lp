@@ -1,0 +1,24 @@
+{
+  "campaign_id": "PF-HAIR-YOKOHAMA-001",
+  "store_id": "2",
+  "store_name": "HAIR & MAKE EARTH 横浜店",
+  "source_type": "public_reviews",
+  "source_url": "https://beauty.hotpepper.jp/slnH000127899/review/",
+  "observed_at": "2026-09-02",
+  "review_summary": {
+    "average_observed": 4.65,
+    "review_count_observed": 722
+  },
+  "themes": [
+    {"theme": "丁寧なカウンセリング", "evidence_summary": "希望をしっかり聞いた上で似合うスタイルを提案してもらえたという声が確認できる。"},
+    {"theme": "初回来店の安心感", "evidence_summary": "初めての来店時の緊張が、店内環境や接客・会話によって和らいだという評価がある。"},
+    {"theme": "仕上がりと提案", "evidence_summary": "カラーやカットの仕上がり、髪質の悩みへの説明、自宅ケアの助言などが評価されている。"},
+    {"theme": "幅広い顧客層", "evidence_summary": "若年層から50代以上、男性までレビューがあり、単一ペルソナに寄せすぎない方が店舗実態に合う。"}
+  ],
+  "message_opportunities": [
+    "メニューを決めきれなくても、希望・似合い方・髪の悩みを先に整理できる",
+    "初めての店舗でも相談内容をまとめてから来店できる安心",
+    "トレンド変更から日常ケアまで回答に応じて方向を分ける"
+  ],
+  "status": "EVIDENCE_READY"
+}
