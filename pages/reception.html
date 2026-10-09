@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>希望を整理する | Path-Flow</title>
+<style>
+:root{--bg:#f6f3f1;--card:#fff;--ink:#262226;--muted:#766f76;--accent:#756282;--line:#e2dcdf;--danger:#9a4141}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;line-height:1.6}.shell{min-height:100dvh;display:flex;justify-content:center}.panel{width:min(100%,720px);padding:28px 20px 44px}.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700}.title{font-size:clamp(28px,8vw,42px);line-height:1.25;margin:8px 0 10px}.lead{color:var(--muted);margin:0 0 24px}.progress{height:5px;background:#e8e1e5;border-radius:99px;overflow:hidden;margin-bottom:24px}.progress>span{display:block;height:100%;background:var(--accent);width:0;transition:width .25s ease}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 14px 40px rgba(38,34,38,.06)}.step-label{font-size:12px;color:var(--muted);font-weight:700}.question{font-size:22px;line-height:1.4;margin:7px 0 18px}.options{display:grid;gap:10px}.option{width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:15px 16px;font-size:15px;color:var(--ink)}.option:hover,.option:focus{border-color:var(--accent);outline:none}.option.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(117,98,130,.12);background:#fbf9fc}.nav{display:flex;gap:10px;margin-top:18px}.btn{border:0;border-radius:999px;padding:14px 19px;font-size:15px;font-weight:700;cursor:pointer}.btn-primary{background:var(--accent);color:#fff;flex:1}.btn-secondary{background:transparent;color:var(--muted)}.btn:disabled{opacity:.45;cursor:not-allowed}.result{display:none}.result h2{font-size:26px;margin:0 0 10px}.result-block{padding:16px 0;border-top:1px solid var(--line)}.result-block:first-of-type{border-top:0}.result-label{font-size:12px;color:var(--muted);font-weight:700;margin-bottom:5px}.contact{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;border-radius:999px;padding:15px 18px;font-weight:700;margin-top:18px}.note{font-size:12px;color:var(--muted);margin-top:14px;text-align:center}.error{color:var(--danger);font-size:13px;margin-top:12px}.loading{display:none;text-align:center;padding:32px 12px;color:var(--muted)}@media(max-width:520px){.panel{padding:20px 14px 36px}.card{padding:18px;border-radius:18px}.question{font-size:20px}.option{padding:14px}.title{font-size:31px}}
+</style>
+</head>
+<body>
+<main class="shell"><div class="panel">
+  <div class="eyebrow" id="storeName">PATH-FLOW RECEPTION</div>
+  <h1 class="title">希望を整理する</h1>
+  <p class="lead">5つの質問で、来店前に伝えたいことを整理します。正解を当てる診断ではありません。</p>
+  <div class="progress"><span id="progress"></span></div>
+
+  <section class="card" id="questionCard">
+    <div class="step-label" id="stepLabel">読み込み中</div>
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <div class="nav"><button class="btn btn-secondary" id="backBtn">戻る</button><button class="btn btn-primary" id="nextBtn" disabled>次へ</button></div>
+    <div class="error" id="error"></div>
+  </section>
+
+  <section class="card loading" id="loading">回答を整理しています…</section>
+
+  <section class="card result" id="result">
+    <h2 id="headline">希望を整理しました</h2>
+    <div class="result-block"><div class="result-label">今回の希望</div><div id="summary"></div></div>
+    <div class="result-block"><div class="result-label">相談時に伝えるとよいこと</div><div id="suggestion"></div></div>
+    <div class="result-block"><div class="result-label">店舗で確認してほしいこと</div><div id="specialistNote"></div></div>
+    <a class="contact" id="contact" href="#" target="_blank" rel="noopener">お店に問い合わせる</a>
+    <div class="note">Powered by Path-Flow</div>
+  </section>
+</div></main>
+<script>
+(() => {
+  const params=new URLSearchParams(location.search); const storeId=params.get('storeId')||'9';
+  let config=null,index=0; const answers=[];
+  const $=id=>document.getElementById(id);
+  async function track(event,extra={}){try{await fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event,storeId,path:location.pathname,...extra})})}catch(e){}}
+  async function init(){
+    try{
+      const r=await fetch('/api/reception-config?storeId='+encodeURIComponent(storeId)); if(!r.ok) throw new Error('設定を取得できませんでした。');
+      config=await r.json(); $('storeName').textContent=config.storeName; answers.length=config.questions.length; render(); track('reception_open');
+    }catch(e){$('stepLabel').textContent='ERROR';$('question').textContent=e.message;$('error').textContent='店舗設定を確認してください。'}
+  }
+  function render(){
+    const q=config.questions[index]; $('stepLabel').textContent=`${index+1} / ${config.questions.length}`; $('question').textContent=q.text; $('progress').style.width=`${((index+1)/config.questions.length)*100}%`; $('options').innerHTML='';
+    q.options.forEach(opt=>{const b=document.createElement('button');b.className='option'+(answers[index]===opt?' selected':'');b.type='button';b.textContent=opt;b.onclick=()=>{answers[index]=opt;render();track('reception_answer',{questionId:q.id,questionIndex:index+1})};$('options').appendChild(b)});
+    $('backBtn').style.visibility=index===0?'hidden':'visible'; $('nextBtn').disabled=!answers[index]; $('nextBtn').textContent=index===config.questions.length-1?'結果を見る':'次へ'; $('error').textContent='';
+  }
+  $('backBtn').onclick=()=>{if(index>0){index--;render();}};
+  $('nextBtn').onclick=async()=>{if(!answers[index])return;if(index<config.questions.length-1){index++;render();return;} await submit();};
+  async function submit(){
+    $('questionCard').style.display='none';$('loading').style.display='block';track('reception_submit');
+    try{
+      const r=await fetch('/api/reception-flow',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({storeId,answers})}); const data=await r.json(); if(!r.ok) throw new Error(data.error||'結果生成に失敗しました。');
+      $('headline').textContent=data.headline||'希望を整理しました';$('summary').textContent=data.summary||'';$('suggestion').textContent=data.suggestion||'';$('specialistNote').textContent=data.specialistNote||config.resultPolicy?.disclaimer||'';
+      $('contact').textContent=data.contactLabel||config.contactLabel||'お店に問い合わせる';$('contact').href=data.contactUrl||config.contactUrl||'#';$('contact').onclick=()=>track('store_contact_click',{handoffText:data.handoffText||''});
+      $('loading').style.display='none';$('result').style.display='block';track('reception_result');
+    }catch(e){$('loading').style.display='none';$('questionCard').style.display='block';$('error').textContent=e.message;track('reception_error',{message:e.message});}
+  }
+  init();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{
+  "reference_case_id": "VIOLET_REFERENCE_CASE_01",
+  "store_name": "Violet Yokohama",
+  "creative_status": "APPROVED",
+  "creative_version": "reference-case-01-2026-09-01",
+  "approval_type": "HUMAN_APPROVED",
+  "approved_by": "Kei",
+  "approval_note": "Final Violet Reference Case #01 approved after floating CTA restoration. The source review board still contains a REVIEW label from the pre-approval snapshot; this manifest records the later approval state.",
+  "lp_design": {
+    "artifact_name": "VioletサロンLPと承認フロー仕様書.png",
+    "artifact_sha256": "f11d19750c96454d3f7802fe225e9a0660b16bc75451fc4bb0492a4df9444b77",
+    "artifact_dimensions": "1024x1536",
+    "artifact_source": "ChatGPT Library retained source asset"
+  },
+  "message_strategy": "Store-first beauty LP with visitor desire organization as the primary conversion path.",
+  "information_priority": [
+    "hero/store appeal",
+    "floating diagnosis CTA",
+    "why Violet",
+    "customer voice/evidence",
+    "style imagery",
+    "price guidance",
+    "diagnosis entry"
+  ],
+  "visual_direction": {
+    "brand": "Violet",
+    "tone": "premium salon / soft editorial / mobile-first",
+    "accent": "Violet Purple",
+    "floating_cta": "matte, low saturation, persistent, non-obstructive"
+  },
+  "creative_assets": [
+    "hero hairstyle image",
+    "customer voice card",
+    "style image set",
+    "brand typography/iconography"
+  ],
+  "evidence_map": {
+    "customer_voice": "Use real-review/evidence-backed claims only",
+    "store_strengths": "Store-specific facts must remain separated from generic visitor needs"
+  },
+  "cta_placement": {
+    "primary": "floating CTA: 希望を整理する（無料・5問）",
+    "secondary": "large CTA near lower LP section",
+    "result": "お店に問い合わせる"
+  },
+  "diagnosis_entry_point": "Independent 5-question hearing flow opened from persistent floating CTA.",
+  "qa_result": {
+    "decision": "PASS",
+    "commercial_qa": "PASS",
+    "design_qa": "PASS",
+    "human_approval": "PASS"
+  },
+  "handoff_target": "11B-Integration",
+  "creative_owned_fields_locked": true
+}

@@ -6,6 +6,12 @@
     "api/reception.js": {
       "maxDuration": 30
     },
+    "api/reception-config.js": {
+      "maxDuration": 10
+    },
+    "api/reception-flow.js": {
+      "maxDuration": 30
+    },
     "api/save-shigyou.js": {
       "maxDuration": 30
     },
@@ -14,6 +20,10 @@
     }
   },
   "rewrites": [
+    {
+      "source": "/p/:id/reception",
+      "destination": "/pages/reception.html?storeId=:id"
+    },
     {
       "source": "/p/9",
       "destination": "/generated/9/index.html"
