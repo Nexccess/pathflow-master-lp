@@ -10,7 +10,8 @@ const PATHFLOW_ANALYTICS = {
     store_name: "美容室Nexc（ねくす）",
     variant_code: "SAMPLE_LP",
     lp_version: "NEXC0833-11A-SAMPLE-v1",
-    diagnosis_version: DIAGNOSIS_VERSION
+    diagnosis_version: DIAGNOSIS_VERSION,
+    ...window.PathFlowAttribution.properties
   }
 };
 
