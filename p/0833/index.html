@@ -8,13 +8,14 @@
   <title>美容室 Nexc（ねくす）｜「似合う」と「扱いやすい」を、毎日の髪に。</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+<script src="utm.js"></script>
 <!-- PathFlow Analytics START -->
 <script>
 (function(){
   "use strict";
   const amplitudeApiKey="3c4155ba8800bb2242f3bccec4a4053c";
   function getDeviceId(){const k="pathflow_device_id";try{let id=localStorage.getItem(k);if(!id){id="pf-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,12);localStorage.setItem(k,id)}return id}catch(e){return "pf-session-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,12)}}
-  const payload={api_key:amplitudeApiKey,events:[{device_id:getDeviceId(),event_type:"lp_view",time:Date.now(),event_properties:{lead_id:"0833",store_name:"美容室Nexc（ねくす）",variant_code:"SAMPLE_LP",lp_version:"NEXC0833-11A-SAMPLE-v1",diagnosis_version:"0833-sample-v1"}}]};
+  const payload={api_key:amplitudeApiKey,events:[{device_id:getDeviceId(),event_type:"lp_view",time:Date.now(),event_properties:{lead_id:"0833",store_name:"美容室Nexc（ねくす）",variant_code:"SAMPLE_LP",lp_version:"NEXC0833-11A-SAMPLE-v1",diagnosis_version:"0833-sample-v1",...window.PathFlowAttribution.properties}}]};
   fetch("https://api2.amplitude.com/2/httpapi",{method:"POST",headers:{"Content-Type":"application/json","Accept":"*/*"},body:JSON.stringify(payload),keepalive:true}).catch(function(error){console.error("[PathFlow] Analytics send failed:",error)});
 })();
 </script>
