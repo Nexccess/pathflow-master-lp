@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Nexc. デモへ移動</title></head><body><p>Nexc.の公開デモへ移動します。</p><p><a id="target" href="/p/0833/">デモを開く</a></p><script>
+(function(){
+"use strict";
+const sources={nt:["note","article"],fb:["facebook","social"],x:["x","social"],hb:["hatena","social"],th:["threads","social"],ig:["instagram","social"],fa:["facebook","paid_social"]};
+const q=new URLSearchParams(location.search);
+const code=(q.get("s")||"").toLowerCase();
+const pair=sources[code];
+const target=new URL("/p/0833/",location.origin);
+if(pair){
+  target.searchParams.set("utm_source",pair[0]);
+  target.searchParams.set("utm_medium",pair[1]);
+  target.searchParams.set("utm_campaign","nexc_launch");
+  const post=q.get("p")||"";
+  if(/^[a-z0-9_-]{1,40}$/i.test(post))target.searchParams.set("utm_content",post);
+}
+document.getElementById("target").href=target.toString();
+location.replace(target.toString());
+})();
+</script></body></html>
