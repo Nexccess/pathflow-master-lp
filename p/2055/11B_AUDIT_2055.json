@@ -1,0 +1,37 @@
+{
+  "lead_id": "2055",
+  "template_source": "Google Drive 11b_pipeline/template (verified source file IDs)",
+  "template_files": [
+    "index.html",
+    "styles.css",
+    "diagnosis/index.html",
+    "diagnosis/styles.css",
+    "diagnosis/app.js",
+    "partials/lp-analytics.html embedded into template index.html",
+    "partials/floating-cta.html embedded into template index.html"
+  ],
+  "official_template_used": true,
+  "amplitude_http_v2_code_present": true,
+  "amplitude_public_api_key_configured_in_template": true,
+  "amplitude_ingestion_actual": "NOT_TESTED (browser/network restriction)",
+  "events_in_template": [
+    "lp_view",
+    "diagnosis_view",
+    "diagnosis_start",
+    "question_answered",
+    "diagnosis_progress",
+    "diagnosis_complete",
+    "result_view",
+    "cta_click"
+  ],
+  "evidence_supported": 0,
+  "evidence_unsupported": 5,
+  "evidence_claim_policy": "No positive store matching claim",
+  "js_syntax": "PASS",
+  "relative_internal_link": "diagnosis/index.html",
+  "original_assets": "SHA256_BYTE_IDENTICAL",
+  "browser_e2e": "BLOCKED_BY_ENVIRONMENT (Chromium ERR_BLOCKED_BY_ADMINISTRATOR for local file:// and localhost HTTP)",
+  "formal_7_gates": "NOT_ALL_VERIFIED",
+  "human_review": "PENDING",
+  "note": "Official diagnosis template uses fixed current Template questions. Previously made standalone 2055 diagnosis_spec is not injected into customer-facing template under v5."
+}
