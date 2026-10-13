@@ -1,0 +1,33 @@
+{
+  "lead_id": 2072,
+  "revision": 1,
+  "stage_11a_status": "APPROVED_11A",
+  "canonical_lp_sha256": "ec5004f7e61e563fe452c4fafe4fd17cc3cb56129c274b844523dd936f5f154f",
+  "template_source": "Google Drive / 11b_pipeline/template",
+  "approved_package_sha256": "21d03d9988ea2781844819bb14fa19d29ef76ceb41f8606239854f82900fa661",
+  "amplitude_events": [
+    "lp_view",
+    "diagnosis_view",
+    "diagnosis_start",
+    "question_answered",
+    "diagnosis_progress",
+    "diagnosis_complete",
+    "result_view",
+    "cta_click"
+  ],
+  "review_basis": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "R14",
+    "R24"
+  ]
+}
