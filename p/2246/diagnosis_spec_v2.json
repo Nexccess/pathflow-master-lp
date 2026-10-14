@@ -1,0 +1,35 @@
+{
+  "schema_version": "11b-diagnosis-spec-v2",
+  "lead_id": 2246,
+  "store_name": "hair flores by HEADLIGHT 川崎店",
+  "source_revision": 1,
+  "source_lp_sha256": "6e67869956b939fa3dac34a5ea5cc3f6f297aafde4f17aa58156f56d9930b706",
+  "diagnosis_version": "2246-11B-v1",
+  "evidence_review_item_ids": [
+    246,
+    269,
+    247,
+    261,
+    266,
+    249
+  ],
+  "evidence_supported": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": false
+  },
+  "result_policy": "Evidence不足の場合はCONSULTATION_REQUIRED",
+  "template_source": "C:\\PathFlow\\11b_pipeline\\template\\",
+  "amplitude_transport": "HTTP V2",
+  "amplitude_events": [
+    "lp_view",
+    "diagnosis_view",
+    "diagnosis_start",
+    "question_answered",
+    "diagnosis_progress",
+    "diagnosis_complete",
+    "result_view",
+    "cta_click"
+  ]
+}

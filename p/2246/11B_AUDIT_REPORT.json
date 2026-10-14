@@ -1,0 +1,40 @@
+{
+  "lead_id": 2246,
+  "input": {
+    "canonical_db": "PASS",
+    "approved_11a": "PASS",
+    "lp_sha256": "PASS",
+    "template_files": "PASS"
+  },
+  "static_checks": {
+    "required_files": "PASS",
+    "unresolved_placeholders": "PASS",
+    "javascript_syntax": "PASS",
+    "amplitude_event_code_8": "PASS",
+    "lead_id_property": "PASS",
+    "assets": "PASS"
+  },
+  "7_gates": {
+    "Intent Fidelity": "STATIC_PASS / HUMAN_PENDING",
+    "Visitor Self-Relevance": "STATIC_PASS / HUMAN_PENDING",
+    "Flow Coherence": "STATIC_PASS / BROWSER_PENDING",
+    "Mobile Presentation / Visual Rhythm": "UNKNOWN (browser blocked)",
+    "Integration Integrity": "STATIC_PASS",
+    "Technical Reliability": "STATIC_PASS / LIVE_UNKNOWN",
+    "Safety / Isolation": "STATIC_PASS"
+  },
+  "amplitude_live_ingestion": "UNKNOWN",
+  "human_approval": "PENDING",
+  "product_registration": "NOT_STARTED",
+  "publication": "NOT_STARTED",
+  "note": "Browser audit attempted twice but environment blocked file:// and localhost access. API key presence is not live ingestion confirmation.",
+  "link_correction": {
+    "issue": "file:// directory listing at diagnosis/",
+    "modified_file": "index.html",
+    "link": "diagnosis/index.html",
+    "new_window": "target=_blank",
+    "static_check": "PASS",
+    "browser_click_test": "NOT_EXECUTED",
+    "diagnosis_logic_modified": false
+  }
+}
