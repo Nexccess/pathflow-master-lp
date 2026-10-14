@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ja">
+<head>
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#e9e5dd">
+<meta name="description" content="柿生駅徒歩15秒、HAIR RELAX Blono。髪のお悩みに向き合う相談と半個室で過ごす落ち着いた時間。">
+<title>HAIR RELAX Blono｜髪と、気持ちがほどける時間。</title>
+
+
+<link rel="stylesheet" href="styles.css">
+<!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    const payload = {
+      api_key: amplitudeApiKey,
+      events: [
+        {
+          device_id: getDeviceId(),
+          event_type: "lp_view",
+          time: Date.now(),
+          event_properties: {
+            lead_id: "2245",
+            store_name: "HAIR RELAX Blono",
+            variant_code: "STANDARD_LP",
+            lp_version: "2245-11A-APPROVED-r1",
+            diagnosis_version: "2245-11B-DIAGNOSIS-v1"
+          }
+        }
+      ]
+    };
+
+    fetch("https://api2.amplitude.com/2/httpapi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Amplitude HTTP " + response.status);
+      }
+
+      return response.json();
+    })
+    .then(function (result) {
+      console.log(
+        "[PathFlow] lp_view sent: lead_id=2245 events_ingested=" +
+        result.events_ingested
+      );
+    })
+    .catch(function (error) {
+      console.error("[PathFlow] Analytics send failed:", error);
+    });
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+</head>
+<body>
+
+<header class="header"><a class="logo" href="#top"><span>HAIR RELAX</span>Blono<span class="dot">.</span></a><a class="header-cta" href="https://beauty.hotpepper.jp/slnH000757693/" target="_blank" rel="noopener noreferrer">WEB予約 ↗</a></header>
+<main id="top">
+<section class="hero">
+<div class="hero-copy"><div class="kicker">KAKIO · HAIR RELAX SALON</div><h1>髪と、<br>気持ちが<br><em>ほどける時間。</em></h1>
+<p>髪の悩みを、ひとりで抱えない。<br>向き合う時間も、くつろぐ時間も。<br>柿生の半個室サロン、Blono。</p>
+<a class="button" href="https://beauty.hotpepper.jp/slnH000757693/" target="_blank" rel="noopener noreferrer">空席確認・予約する <span>↗</span></a><div class="hero-meta">小田急線 柿生駅 徒歩15秒 / 全席半個室</div></div>
+<div class="hero-visual"><img src="assets/hero.jpg" alt="ヘアスタイルのイメージ写真"><span>IMAGE VISUAL</span></div></section>
+<section class="intro wrap"><div class="section-tag">01 / PHILOSOPHY</div><div><h2>「どうしたらいいか分からない」<br>その気持ちから、話してみる。</h2><p>他店でのケアに迷っていた方、髪の扱いにくさが気になっていた方。Blonoの口コミには、施術だけでなく、悩みを聞く姿勢や、髪の状態に合わせた提案への声が寄せられています。</p></div></section>
+<section class="feature"><div class="wrap"><div class="section-tag">02 / THE BLONO EXPERIENCE</div><h2>髪だけで終わらない、<br>3つの心地よさ。</h2>
+<div class="features">
+<article><div class="feature-no">01</div><h3>悩みに向き合う<br>カウンセリング</h3><p>髪や頭皮の悩みを相談し、状態に合わせたケアの提案を受けたという声が届いています。</p></article>
+<article><div class="feature-no">02</div><h3>その先の毎日を<br>考えた仕上がり</h3><p>「乾かすだけで朝が楽」「施術後も扱いやすい」など、自宅での変化を語る口コミがあります。</p></article>
+<article><div class="feature-no">03</div><h3>半個室で過ごす<br>穏やかな時間</h3><p>仕切りのある席で、周囲を気にせず落ち着いて過ごせたという感想が寄せられています。</p></article>
+</div></div></section>
+<section class="editorial wrap"><div class="editorial-photo"><img src="assets/hair.jpg" alt="ヘアスタイルのイメージ写真"></div><div class="editorial-copy"><div class="section-tag">03 / HAIR CARE</div><h2>一人ひとりの髪に、<br>必要な選択を。</h2><p>髪質改善トリートメント、カラー、縮毛矯正、カット。口コミには、希望や髪の状態を踏まえた施術の提案が印象に残ったという声があります。</p><div class="mini">髪質改善 / カラー / 縮毛矯正 / カット / marbb洗浄</div></div></section>
+<section class="voices"><div class="wrap"><div class="section-tag">04 / REAL VOICES</div><h2>お客様から届いた声。</h2><p class="small">以下は保存済み口コミの要約です。個人の感想であり、効果や仕上がりを保証するものではありません。</p>
+<div class="voice-grid">
+<blockquote><span class="quote-mark">“</span><p>髪の悩みに親身になってアドバイスしてもらえた。通う中で髪の状態の変化を感じた。</p><footer>2026年10月7日 投稿 / 60代のお客様の声を要約</footer></blockquote>
+<blockquote><span class="quote-mark">“</span><p>髪質改善に加え、縮毛矯正も提案してもらい、数日たっても扱いやすかった。</p><footer>2026年10月3日 投稿 / 20代のお客様の声を要約</footer></blockquote>
+<blockquote><span class="quote-mark">“</span><p>仕切りのある落ち着いた空間で、待ち時間も周りを気にせず過ごせた。</p><footer>2026年9月22日 投稿 / 30代のお客様の声を要約</footer></blockquote>
+</div><a class="textlink" href="https://beauty.hotpepper.jp/slnH000757693/" target="_blank" rel="noopener noreferrer">掲載情報と口コミを確認する ↗</a></div></section>
+<section class="relax"><div class="relax-photo"><img src="assets/interior.jpg" alt="くつろぎの空間を表現したイメージ写真。実店舗の写真ではありません"></div><div class="relax-copy"><div class="section-tag">05 / PRIVATE TIME</div><h2>周りを気にせず、<br>髪と向き合う。</h2><p>全席半個室。落ち着いた時間を過ごしたい方にも。Blonoは、髪を整えるための時間そのものも大切にしています。</p><span class="disclaimer">写真は生成イメージです。実際の店内ではありません。</span></div></section>
+<section class="info wrap"><div class="section-tag">06 / SALON INFORMATION</div><h2>柿生駅から、すぐ。</h2><div class="info-grid"><div><h3>HAIR RELAX Blono</h3><p>ヘアリラックス ブローノ</p><dl><dt>住所</dt><dd>神奈川県川崎市麻生区上麻生5-40-3<br>プライムスクエア 2F</dd><dt>アクセス</dt><dd>小田急小田原線 柿生駅 徒歩15秒</dd><dt>営業時間</dt><dd>9:30–20:30</dd><dt>定休日</dt><dd>不定休</dd></dl></div><div class="last-cta"><p>髪のこと、まずは相談してみませんか。</p><a class="button" href="https://beauty.hotpepper.jp/slnH000757693/" target="_blank" rel="noopener noreferrer">メニュー・空席を確認する <span>↗</span></a><small>予約・料金・営業時間の最新情報は予約サイトでご確認ください。</small></div></div></section>
+</main>
+<footer class="footer"><div>HAIR RELAX <b>Blono.</b></div><p>このページは提供された店舗情報・口コミをもとに制作したLP案です。店舗公式制作物ではありません。掲載写真は生成イメージです。</p><small>© 2026 Blono LP Concept / lead_id 2245</small></footer>
+<div class="sticky"><span>柿生駅徒歩15秒 <strong>HAIR RELAX Blono</strong></span><a href="https://beauty.hotpepper.jp/slnH000757693/" target="_blank" rel="noopener noreferrer">予約する ↗</a></div>
+
+<a id="floatingDiagnosisCta" class="floating-diagnosis-cta" href="diagnosis/index.html" target="_blank" rel="noopener noreferrer" aria-label="ご希望を確認したい方" title="診断を別ウインドウで開く">
+  <span class="floating-diagnosis-copy">
+    <span class="floating-diagnosis-main">ご希望を確認したい方</span>
+    <span class="floating-diagnosis-sub">約1分で希望を整理</span>
+  </span>
+  <span class="floating-diagnosis-arrow" aria-hidden="true">→</span>
+</a>
+
+<script>
+(function () {
+  var cta = document.getElementById("floatingDiagnosisCta");
+  if (!cta) return;
+  cta.addEventListener("click", function (event) {
+    try {
+      var win = window.open("diagnosis/index.html", "_blank", "noopener");
+      if (win) {
+        event.preventDefault();
+        try { win.opener = null; } catch (e) {}
+      }
+    } catch (e) {
+      /* Fallback to anchor default */
+    }
+  });
+})();
+</script>
+</body>
+</html>
