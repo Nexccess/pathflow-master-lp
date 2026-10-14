@@ -1,0 +1,20 @@
+{
+  "lead_id": 2247,
+  "source": "Canonical DB sync READ ONLY",
+  "evidence_id": 22,
+  "variant_id": 15,
+  "variant_revision_id": 15,
+  "stage_11a_status": "APPROVED_11A",
+  "package_sha256_verified": true,
+  "lp_sha256_verified": true,
+  "template": "C:\\PathFlow\\11b_pipeline\\template",
+  "unresolved_placeholders": 0,
+  "js_syntax": "PASS",
+  "amplitude_events_static": "8/8",
+  "amplitude_delivery": "UNKNOWN (requires browser/network test)",
+  "mobile_visual": "UNKNOWN (Human review)",
+  "formal_7_gates": "NOT_YET_FULLY_PASSED",
+  "production": "NOT_STARTED",
+  "master_registration": "NOT_STARTED",
+  "evidence_note": "Review IDs and original approved LP retained; source material does not guarantee specific outcomes"
+}
