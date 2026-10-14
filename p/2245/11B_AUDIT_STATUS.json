@@ -1,0 +1,31 @@
+{
+  "lead_id": 2245,
+  "source": "Canonical 11A approved evidence id=20 revision=1, + approved ZIP",
+  "source_lp_sha256": "8795822b9f39041d881253480c667749665bf873f2fecd5e86a64d7ee322af08",
+  "next_stage": "11B",
+  "next_stage_contract": "11B_DIAGNOSIS_INTEGRATION",
+  "next_stage_exact_match": false,
+  "store_evidence": "UNAVAILABLE_IN_11A_APPROVED_RECORD",
+  "resonance_enabled": false,
+  "template": "C:\\PathFlow\\11b_pipeline\\template",
+  "analytics_events": [
+    "lp_view",
+    "diagnosis_view",
+    "diagnosis_start",
+    "question_answered",
+    "diagnosis_progress",
+    "diagnosis_complete",
+    "result_view",
+    "cta_click"
+  ],
+  "amplitude_live_delivery": "NOT_TESTED",
+  "human_review": "PENDING_REVIEW_V2",
+  "approval": "NOT_RELEASE_READY",
+  "browser_e2e": "UNKNOWN: browser navigation blocked by sandbox administrator",
+  "static_js_syntax": "PASS: node --check",
+  "placeholder_substitution": "PASS",
+  "zip_integrity": "PASS",
+  "source_zip_sha256": "96bb81edccaf5f90ed3de871c367229a77d0121872f736f0f5f276ab2d8886a6",
+  "delivery_revision": "v2",
+  "diagnosis_launch": "PASS: diagnosis/index.html opens in separate window/tab via target=_blank + window.open fallback"
+}
