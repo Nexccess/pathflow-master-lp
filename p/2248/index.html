@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#f7f3ed" name="theme-color"/><meta content="Iris by artina 武蔵小杉店。ご希望の伝え方や、カラー・カットの相談に関する来店者の声をご紹介します。" name="description"/><title>Iris by artina 武蔵小杉店｜あなたの『なんとなく』から、似合う髪へ。</title><link href="styles.css" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css">
+<!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    const payload = {
+      api_key: amplitudeApiKey,
+      events: [
+        {
+          device_id: getDeviceId(),
+          event_type: "lp_view",
+          time: Date.now(),
+          event_properties: {
+            lead_id: "2248",
+            store_name: "Iris by artina 武蔵小杉店【イリス バイ アルティナ】",
+            variant_code: "STANDARD_LP",
+            lp_version: "IRIS2248-11A-PC-v1",
+            diagnosis_version: "2248-11b-v1"
+          }
+        }
+      ]
+    };
+
+    fetch("https://api2.amplitude.com/2/httpapi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Amplitude HTTP " + response.status);
+      }
+
+      return response.json();
+    })
+    .then(function (result) {
+      console.log(
+        "[PathFlow] lp_view sent: lead_id=2248 events_ingested=" +
+        result.events_ingested
+      );
+    })
+    .catch(function (error) {
+      console.error("[PathFlow] Analytics send failed:", error);
+    });
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+</head>
+<body>
+
+<header class="bar"><a class="logo" href="#top"><small>IRIS BY ARTINA</small><b>iris<span>.</span></b></a><a class="bar-link" href="#access">SALON INFO <span aria-hidden="true">↗</span></a></header>
+<main id="top"><section class="hero"><div class="hero-visual"><img alt="柔らかな光の中のヘアスタイル。店舗・施術の実写ではないイメージ画像。" src="assets/hero.webp"/><span class="hero-img-label">VISUAL IMAGE</span></div><div class="hero-copy"><span class="eyebrow">IRIS BY ARTINA · MUSASHI-KOSUGI</span><h1>「なんとなく」も、<br/>あなたの<span>希望</span>。</h1><p>うまく言葉にできない髪型も。<br/>迷っているカラーの色味も。<br/>まずは、その気持ちから。</p><a class="button" href="https://beauty.hotpepper.jp/slnH000431386/" rel="noopener noreferrer" target="_blank">店舗ページを見る <span>↗</span></a></div><div class="hero-bottom">A STYLE THAT STARTS WITH A CONVERSATION <span>01 / 04</span></div></section>
+<section class="intro section"><span class="eyebrow">WHAT VISITORS SAY</span><h2>決めきれないまま、<br/>来店しても。</h2><p>「ざっくりしたオーダー」「カラーを迷っていた」「数ヶ月後の髪型まで相談した」。そんな声が、Iris by artina 武蔵小杉店の口コミに残されています。</p><div class="vertical-note">Your words matter.</div></section>
+<section class="features"><article class="feature"><div class="feature-photo"><img alt="ショートヘアのイメージ画像" src="assets/bob.webp"/></div><div class="feature-body"><span class="feature-id">01 / CONSULTATION</span><h3>曖昧な希望も、<br/>一緒に考える。</h3><p>髪色や長さを迷う場面で、相談に乗ってもらえたという来店者の声。最初から完成形を決めておかなくても、希望を伝えるきっかけがあります。</p></div></article><article class="feature reverse"><div class="feature-photo"><img alt="ヘアカラーのイメージ画像" src="assets/color.webp"/></div><div class="feature-body"><span class="feature-id">02 / COLOR &amp; CUT</span><h3>今の髪と、<br/>これからの髪。</h3><p>髪癖への配慮、過去の縮毛矯正、色持ち、伸びたあとのこと。そうした点まで相談したという口コミが寄せられています。</p></div></article><article class="feature"><div class="feature-photo"><img alt="ヘアケアを想起させるイメージ画像" src="assets/detail.webp"/></div><div class="feature-body"><span class="feature-id">03 / YOUR TIME</span><h3>仕上がりだけでなく、<br/>過ごした時間も。</h3><p>落ち着いた雰囲気、会話の心地よさ、丁寧な説明を評価する口コミもあります。感じ方には個人差があるため、実際の声をご覧ください。</p></div></article></section>
+<section class="voices section" id="voices"><span class="eyebrow">REAL WORDS / FROM REVIEW RECORDS</span><h2>来店した方の、<br/>そのままの言葉。</h2><p class="section-lead">掲載する文章は口コミ原文の抜粋です。全来店者の感想を代表するものではありません。</p><div class="reviews"><blockquote class="review"><div class="review-n">VOICE 01</div><p>「ざっくりしたオーダーだったにもかかわらず、親身になって一緒に考えてくださりありがとうございます！」</p><span>来店者口コミより · 2026/10/9</span></blockquote><blockquote class="review"><div class="review-n">VOICE 02</div><p>「曖昧なこちらの要望にも丁寧に対応して頂き、また数ヶ月後に髪が伸びてきた後のことまで考えて髪型の相談にのって下さいました。」</p><span>来店者口コミより · 2026/10/9</span></blockquote><blockquote class="review"><div class="review-n">VOICE 03</div><p>「色持ちやなりたいイメージの相談にたくさん乗ってくださったので、安心してお任せすることができました。」</p><span>来店者口コミより · 2026/10/7</span></blockquote></div><a class="quiet-link" href="https://beauty.hotpepper.jp/slnH000431386/review/" rel="noopener noreferrer" target="_blank">ほかの口コミも確認する ↗</a></section>
+<section class="close section"><span class="eyebrow">IRIS BY ARTINA</span><h2>次の髪型は、<br/>会話から。</h2><p>なりたいイメージが決まっていても、まだ迷っていても。来店者の言葉を参考に、ご自身に合うかを確かめてください。</p><a class="button light" href="https://beauty.hotpepper.jp/slnH000431386/" rel="noopener noreferrer" target="_blank">店舗・予約情報を見る <span>↗</span></a><a class="diagnosis" href="diagnosis/index.html" rel="noopener noreferrer" target="_blank">ヘアスタイル希望整理（別ウィンドウ） ↗</a></section>
+<section class="access section" id="access"><span class="eyebrow">SALON INFORMATION</span><h2>Iris by artina<br/><em>武蔵小杉店</em></h2><dl><dt>住所</dt><dd>神奈川県川崎市中原区市ノ坪131-5 ソアーズ1F</dd><dt>電話番号</dt><dd><a href="tel:0449487335">044-948-7335</a></dd><dt>店舗公式情報</dt><dd><a href="https://www.artina-group.com/contents?id=11003" rel="noopener noreferrer" target="_blank">公式店舗ページ ↗</a></dd></dl></section></main>
+<footer><span>IRIS BY ARTINA / MUSASHI-KOSUGI</span><small>本ページは店舗情報・来店者口コミに基づく紹介用サンプルLPです。写真は生成イメージであり、実際の店舗・施術例ではありません。口コミ抜粋の出典：Hot Pepper Beauty（取得記録 2026-10-12）。</small></footer>
+<a class="floating-diagnosis-cta" href="diagnosis/index.html" target="_blank" rel="noopener noreferrer" aria-label="ご希望を確認したい方">
+  <span class="floating-diagnosis-copy">
+    <span class="floating-diagnosis-main">ご希望を確認したい方</span>
+    <span class="floating-diagnosis-sub">約1分で希望を整理</span>
+  </span>
+  <span class="floating-diagnosis-arrow" aria-hidden="true">→</span>
+</a>
+</body>
+</html>
