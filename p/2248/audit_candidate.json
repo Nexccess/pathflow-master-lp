@@ -1,0 +1,34 @@
+{
+  "lead_id": 2248,
+  "source_zip": "11A_2248_Iris_by_artina_LP.zip",
+  "source_zip_sha256": "eeb2d6c20806b21b97335f1d1be5e145cca8cb0183938868715c447622629da5",
+  "template": "11b_pipeline/template synchronized files",
+  "canonical_db_query": "UNKNOWN (not directly accessible)",
+  "approval": "Human approval informed; prior master registration log PASS",
+  "evidence": "11A approved LP and evidence_2248.json",
+  "theme_source": "approved CSS variables; primary accent #354c43",
+  "release": "HUMAN_REVIEW_CANDIDATE",
+  "checks": {
+    "placeholder": "PASS",
+    "JS_syntax": "PENDING",
+    "7_gates": "NOT_FULLY_VERIFIED",
+    "Amplitude_live_delivery": "UNKNOWN",
+    "browser_visual": "PENDING",
+    "production": "NOT_PUBLISHED",
+    "diagnosis_link_local_file": "CODE_VERIFIED",
+    "diagnosis_new_tab": "CODE_VERIFIED"
+  },
+  "files_sha256": {
+    "assets/bob.webp": "95285a166fceedcd89070ad8cc9c9239614e9fa9ffb07166fad8c8c4b0e204f2",
+    "assets/color.webp": "d32eb7dfdb34967065f1015a72364508b240aaa527de0247794d27b8f56f50d0",
+    "assets/detail.webp": "c07d848eb0911a36d8f7608eb0cc23c72c2ab1927a5f9e626f89aaf031f181d2",
+    "assets/hero.webp": "cf8628c6b1ab5e6dd3946029cca929ffad8703a97eb536d800fbbd9394fd721b",
+    "diagnosis/app.js": "7c337ab1d8740b099174793bfda765fbf151937f4ff3ea5479ac33b42516cd67",
+    "diagnosis/index.html": "5dca4d62840ad1bdc7c6883857cf60b9a75679537e5aad0de99ca950d74a368b",
+    "diagnosis/styles.css": "87af8127764007923a9ff96b352b87a9e470884144ec54b345c8bed9ce7ccb4d",
+    "index.html": "1eaebaedc18db8777309544a98ca19973d4d965bc0091c3904932f6e4c0529a0",
+    "styles.css": "565501a919b21a71bbc0028893e2b355018627486d8a554ccf5371d9905b9926"
+  },
+  "revision": "REV1",
+  "correction": "Explicit diagnosis/index.html navigation for file:// and HTTPS; all diagnosis links open in new tab/window"
+}
