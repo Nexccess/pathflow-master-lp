@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathflow.org/contracts/approved_creative_package.schema.json",
+  "title": "Path-Flow Approved Creative Package",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "lp_design",
+    "message_strategy",
+    "information_priority",
+    "visual_direction",
+    "creative_assets",
+    "evidence_map",
+    "cta_placement",
+    "diagnosis_entry_point",
+    "creative_status",
+    "creative_version",
+    "qa_result",
+    "approval_type"
+  ],
+  "properties": {
+    "lp_design": {},
+    "message_strategy": {},
+    "information_priority": {},
+    "visual_direction": {},
+    "creative_assets": {},
+    "evidence_map": {},
+    "cta_placement": {},
+    "diagnosis_entry_point": {},
+    "creative_status": {"const": "APPROVED"},
+    "creative_version": {"type": "string", "minLength": 1},
+    "qa_result": {},
+    "approval_type": {"enum": ["HUMAN_APPROVED", "AUTO_APPROVED"]}
+  }
+}

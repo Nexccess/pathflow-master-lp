@@ -1,0 +1,36 @@
+name: Violet Sales Ready Gate
+
+on:
+  pull_request:
+    paths:
+      - 'generated/9/**'
+      - 'reference_cases/violet_01/**'
+      - 'pages/reception.html'
+      - 'vercel.json'
+      - 'scripts/verify_violet_sales_ready.py'
+      - '.github/workflows/violet-sales-ready-gate.yml'
+  push:
+    branches:
+      - sales-ready-violet-production
+    paths:
+      - 'generated/9/**'
+      - 'reference_cases/violet_01/**'
+      - 'pages/reception.html'
+      - 'vercel.json'
+      - 'scripts/verify_violet_sales_ready.py'
+      - '.github/workflows/violet-sales-ready-gate.yml'
+
+jobs:
+  violet-sales-ready-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify Approved Creative integration contract
+        run: python scripts/verify_violet_sales_ready.py
