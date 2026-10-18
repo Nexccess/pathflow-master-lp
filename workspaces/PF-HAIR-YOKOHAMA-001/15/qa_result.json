@@ -1,0 +1,22 @@
+{
+  "store_id": "15",
+  "store_name": "girasol",
+  "decision": "REVISION_READY_FOR_VISUAL_REVIEW",
+  "commercial_qa": "HOLD",
+  "design_qa": "REVISED_NOT_YET_VISUALLY_CONFIRMED",
+  "checks": {
+    "store_specific_message": "PASS",
+    "customer_voice_grounding": "PASS",
+    "diagnosis_role": "PASS",
+    "mobile_first_structure": "PASS_BY_STRUCTURE",
+    "persistent_diagnosis_cta": "PASS_BY_STRUCTURE",
+    "violet_template_copy": "PASS_NOT_COPIED",
+    "medical_or_guaranteed_claims": "PASS_AVOIDED",
+    "commercial_visual_revision": "DONE_FOR_GIRASOL_ONLY",
+    "actual_browser_render": "NOT_CONFIRMED",
+    "official_image_display": "NOT_CONFIRMED",
+    "diagnosis_connection": "PROPOSED_NOT_CONNECTED"
+  },
+  "review_reason": "The earlier simple Hero/text/card draft was rejected as too close to a generic lightweight LP. girasol has been redesigned as the single-store commercial-quality pilot. Do not scale to the other four stores until the actual rendered page is visually confirmed. The five-question diagnosis proposal is ready but must not be handed to 11B before creative approval.",
+  "sales_eligible": false
+}

@@ -1,0 +1,23 @@
+{
+  "campaign_id": "PF-HAIR-YOKOHAMA-001",
+  "store_id": "16",
+  "store_name": "Frais Tout",
+  "source_type": "public_reviews",
+  "source_url": "https://beauty.hotpepper.jp/slnH000211086/review/",
+  "observed_at": "2026-09-02",
+  "review_summary": {
+    "average_observed": 4.75,
+    "review_count_observed": 388
+  },
+  "themes": [
+    {"theme": "カウンセリング", "evidence_summary": "施術前に希望を丁寧に聞く対応が評価されている。"},
+    {"theme": "仕上がり", "evidence_summary": "カットやカラーの仕上がりへの高い満足が確認できる。"},
+    {"theme": "リラックス", "evidence_summary": "シャンプーや施術時間を心地よく過ごせたという評価が見られる。"},
+    {"theme": "似合わせとケア", "evidence_summary": "似合わせに加えて髪質改善やヘアケアも相談したい顧客との適合が高い。"}
+  ],
+  "message_opportunities": [
+    "似合う形と髪のケアを一緒に相談できる",
+    "希望を聞いてから施術方針を整理する安心感"
+  ],
+  "status": "EVIDENCE_READY"
+}

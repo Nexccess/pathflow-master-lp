@@ -1,0 +1,10 @@
+{
+  "store_id": "16",
+  "store_name": "Frais Tout",
+  "status": "READY",
+  "primary_cta": "希望を整理する（無料・5問）",
+  "primary_placement": ["Hero直下", "モバイル下部の常時表示", "似合わせ・ケア説明後"],
+  "secondary_cta": "診断結果から店舗へ問い合わせる",
+  "cta_intent": "似合わせと髪の状態、どちらを優先したいか整理してから相談へ進む",
+  "avoid": ["施術効果を断定するCTA", "高価格メニューへの誘導を前面に出す"]
+}

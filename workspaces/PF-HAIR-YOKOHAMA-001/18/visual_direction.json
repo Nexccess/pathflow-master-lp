@@ -1,0 +1,12 @@
+{
+  "store_id": "18",
+  "store_name": "マーブルズ 横浜店",
+  "status": "READY",
+  "tone": "都会的・親しみやすい・ニュートラル・男女どちらにも開かれた印象",
+  "visual_keywords": ["urban neutral", "approachable", "gender-balanced", "modern texture"],
+  "layout": "mobile-first / dynamic editorial blocks / balanced image-text rhythm / persistent diagnosis CTA",
+  "image_direction": ["女性・男性の両方を想起できるスタイル構成", "カットとカラーの質感が分かる写真", "可愛さ一辺倒・メンズ特化の両極端は避ける"],
+  "color_direction": "ホワイト・チャコール・ライトグレーを基調に、低彩度のテラコッタまたはネイビー系アクセント",
+  "typography": "モダンで視認性の高いサンセリフ中心。過度に装飾しない",
+  "do_not_copy_violet": true
+}

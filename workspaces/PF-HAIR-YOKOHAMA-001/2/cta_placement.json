@@ -1,0 +1,10 @@
+{
+  "store_id": "2",
+  "store_name": "EARTH 横浜店",
+  "status": "READY",
+  "primary_cta": "希望を整理する（無料・5問）",
+  "primary_placement": ["Hero直下", "モバイル下部の常時表示", "相談力・口コミ提示後"],
+  "secondary_cta": "診断結果から店舗へ問い合わせる",
+  "cta_intent": "メニュー選択前に、なりたい印象と今の悩みを整理してから相談へ進む",
+  "avoid": ["割引・クーポンだけを主役にするCTA", "全国ブランド名だけで行動を促すCTA"]
+}

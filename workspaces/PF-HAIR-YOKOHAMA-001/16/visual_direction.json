@@ -1,0 +1,12 @@
+{
+  "store_id": "16",
+  "store_name": "Frais Tout",
+  "status": "READY",
+  "tone": "落ち着き・上質・温かさ・ケア志向",
+  "visual_keywords": ["calm premium", "warm salon", "care-oriented", "soft texture"],
+  "layout": "mobile-first / warm editorial / spacious sections / persistent diagnosis CTA",
+  "image_direction": ["髪の質感が自然に伝わる仕上がり", "スパやケアを連想させる静かな空気感", "過剰なラグジュアリー・広告モデル感は避ける"],
+  "color_direction": "オフホワイト・ウォームグレー・低彩度のブラウンを基調に、落ち着いたベージュ系アクセント",
+  "typography": "上品だが親しみやすい。本文の可読性を優先",
+  "do_not_copy_violet": true
+}

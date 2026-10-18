@@ -1,0 +1,73 @@
+{
+  "rule_version": "0.1",
+  "store_id": "5",
+  "store_name": "Lumi 横浜駅店",
+  "concept_status": "READY_FOR_VISUAL_DIRECTION",
+  "primary_creative_concept": {
+    "concept_statement": "曖昧な希望のままでも、髪質・骨格から似合う方向を一緒に具体化する提案型サロン。",
+    "concept_type": "FIT_AND_SUGGESTION_CLARITY",
+    "evidence_ids": ["EV-LUMI-OFFICIAL-001", "EV-LUMI-REVIEW-001"],
+    "source_positioning_candidate": "曖昧なイメージのままでも、髪質・骨格から似合う方向を一緒に具体化する提案型サロン",
+    "customer_need": "希望をうまく言語化できないが、自分に似合う方向を見つけたい",
+    "store_response": "髪質・骨格を踏まえ、相談しながらスタイル方向を具体化する",
+    "desired_future_state": "自分に似合う方向が整理され、スタイル選びに迷いにくくなる",
+    "confidence": "HIGH"
+  },
+  "reason_to_choose": {
+    "reason_to_choose": "完成イメージを決めてから行かなくても、髪質・骨格を踏まえた提案で似合う方向を一緒に整理できること。",
+    "evidence_ids": ["EV-LUMI-OFFICIAL-001", "EV-LUMI-REVIEW-001"],
+    "claim_risk": "LOW"
+  },
+  "message_territory": {
+    "must_express": [
+      "曖昧な希望でも相談できる",
+      "髪質・骨格を踏まえる",
+      "似合う方向を一緒に具体化する",
+      "スタイル選びの迷いを減らす"
+    ],
+    "may_express": [
+      "カット・カラー・美髪／縮毛矯正・トリートメントの選択肢",
+      "落ち着いて相談しやすい体験"
+    ],
+    "must_not_express": [
+      "必ず似合うという保証",
+      "仕上がり結果の保証",
+      "未確認の設備仕様の断定"
+    ]
+  },
+  "customer_journey_emphasis": {
+    "dominant_transition": "uncertainty → clarity → confidence",
+    "notes": "希望を決められない状態から、自分に合う方向が見える状態へ導く。"
+  },
+  "future_state_contract": {
+    "future_state_statement": "自分に似合うスタイル方向が見え、次の一歩を迷わず相談できる状態。",
+    "required_visual_or_experiential_proof": [
+      "異なる似合わせスタイルVisual",
+      "相談・提案体験のVisualまたは表現",
+      "髪質・骨格を意識したスタイル選択が伝わる構成"
+    ],
+    "evidence_ids": ["EV-LUMI-OFFICIAL-001", "EV-LUMI-REVIEW-001"]
+  },
+  "pathflow_diagnosis_role": {
+    "diagnosis_role": "来店前に、なりたい印象・避けたいこと・普段の困りごとを整理し、似合う方向を相談しやすくする。",
+    "diagnosis_should_help_user_organize": [
+      "なりたい印象",
+      "変えたい部分",
+      "残したい部分",
+      "普段の扱いづらさ",
+      "避けたい仕上がり"
+    ],
+    "diagnosis_must_not_do": [
+      "似合うスタイルの断定",
+      "仕上がり保証",
+      "特定施術の自動確定"
+    ]
+  },
+  "store_specificity_check": {
+    "genericness_risk": "LOW",
+    "uses_customer_voice": true,
+    "uses_store_facts": true,
+    "meaningful_customer_store_fit": true
+  },
+  "claim_safety_check": "PASS"
+}

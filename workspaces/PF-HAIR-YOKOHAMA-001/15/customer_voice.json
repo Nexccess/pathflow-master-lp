@@ -1,0 +1,41 @@
+{
+  "campaign_id": "PF-HAIR-YOKOHAMA-001",
+  "store_id": "15",
+  "store_name": "girasol",
+  "source_type": "public_reviews",
+  "source_url": "https://beauty.hotpepper.jp/slnH000035722/review/",
+  "observed_at": "2026-09-02",
+  "review_summary": {
+    "average_observed": 4.79,
+    "review_count_observed": 216,
+    "dominant_segments": ["女性40代", "女性50代以上"]
+  },
+  "themes": [
+    {
+      "theme": "髪と頭皮への配慮・安心感",
+      "evidence_summary": "施術前の状態確認、保護剤、薬剤刺激への確認など、髪と頭皮の状態を見ながら進める点が繰り返し評価されている。"
+    },
+    {
+      "theme": "髪質改善後の扱いやすさ",
+      "evidence_summary": "うねりや広がりが落ち着き、手触りが良く、日常の手入れが楽になったという体験が確認できる。"
+    },
+    {
+      "theme": "丁寧で流れ作業ではない対応",
+      "evidence_summary": "一人ひとりの髪の状態を考えたヒアリングや施術が安心につながっている。"
+    },
+    {
+      "theme": "技術と人柄による継続来店",
+      "evidence_summary": "技術への信頼に加え、スタッフの温かさや居心地を理由に継続利用する声が見られる。"
+    }
+  ],
+  "message_opportunities": [
+    "傷ませたくない・将来の髪も大切にしたい人向けの相談価値",
+    "白髪・うねり・広がりを、希望と髪の状態を見ながら整理する導線",
+    "仕上がりだけでなく毎日の扱いやすさまで相談できる安心"
+  ],
+  "prohibited_inference": [
+    "水素ケアが損傷を完全に防ぐと断定しない",
+    "すべての利用者に同じ持続期間・改善結果が出ると表現しない"
+  ],
+  "status": "EVIDENCE_READY"
+}

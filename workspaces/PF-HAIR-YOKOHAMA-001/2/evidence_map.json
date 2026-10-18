@@ -1,0 +1,13 @@
+{
+  "store_id": "2",
+  "store_name": "EARTH 横浜店",
+  "status": "READY",
+  "sources": [
+    {"type": "official_brand", "url": "https://hairmake-earth.com/", "use": ["ブランド方針・全店共通サービス表現の確認"]},
+    {"type": "official_location", "url": "https://map.hairmake-earth.com/salon/area/kanagawa", "use": ["横浜店の所在地・店舗存在確認"]},
+    {"type": "customer_reviews", "url": "https://beauty.hotpepper.jp/slnH000127899/review/", "use": ["丁寧な相談", "初回来店時の安心感", "提案", "仕上がり・ホームケアへの評価"]}
+  ],
+  "approved_claim_types": ["横浜駅北西口から徒歩圏", "初回来店でも相談しやすいという口コミ傾向", "幅広い年代・性別が利用を検討しやすいサービス構成"],
+  "prohibited_claims": ["全国ブランドの実績を横浜店固有実績として扱う", "全店共通情報を横浜店固有事実として断定する", "口コミ原文の長文転載"],
+  "fact_separation_rule": "全国ブランド共通事実・横浜店固有事実・口コミ傾向を明確に分ける"
+}

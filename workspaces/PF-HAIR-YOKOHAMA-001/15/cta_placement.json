@@ -1,0 +1,10 @@
+{
+  "store_id": "15",
+  "store_name": "girasol",
+  "status": "READY",
+  "primary_cta": "希望を整理する（無料・5問）",
+  "primary_placement": ["Hero直下", "モバイル下部の常時表示", "口コミ・強み提示後"],
+  "secondary_cta": "診断結果から店舗へ問い合わせる",
+  "cta_intent": "予約を急がせず、まず髪の悩みと避けたいことを整理する",
+  "avoid": ["予約を煽る表現", "初回から問い合わせだけを強制する導線"]
+}

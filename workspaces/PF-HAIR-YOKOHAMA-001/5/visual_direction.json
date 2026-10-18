@@ -1,0 +1,12 @@
+{
+  "store_id": "5",
+  "store_name": "美容院 Lumi 横浜駅店",
+  "status": "READY",
+  "tone": "明るい・清潔・洗練・相談しやすい",
+  "visual_keywords": ["bright clean", "modern feminine", "consultative", "glossy natural hair"],
+  "layout": "mobile-first / light editorial layout / clean cards / persistent diagnosis CTA",
+  "image_direction": ["自然光を感じる明るい髪の仕上がり", "幅広い女性が自分事化できるモデル", "作り込みすぎたモード表現は避ける"],
+  "color_direction": "ホワイト・ライトベージュを基調に、淡いグレージュまたは低彩度のローズ系アクセント",
+  "typography": "細めで洗練された見出し＋読みやすい本文。可愛さに寄せすぎない",
+  "do_not_copy_violet": true
+}

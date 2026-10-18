@@ -1,0 +1,14 @@
+{
+  "store_id": "2",
+  "store_name": "EARTH 横浜店",
+  "status": "SPEC_READY",
+  "required_assets": [
+    {"slot": "hero", "brief": "幅広い年代・性別が自分事化できる、清潔感のあるモダンな仕上がり。初来店でも入りやすい印象"},
+    {"slot": "consultation", "brief": "メニューを決める前に希望と悩みを聞いている自然なカウンセリング場面"},
+    {"slot": "style_set", "brief": "年代・性別に偏りすぎない複数スタイル。全国ブランド広告のような画一感は避ける"},
+    {"slot": "customer_voice", "brief": "相談の丁寧さ・提案・初回来店時の安心感・仕上がり評価を要約したカード"},
+    {"slot": "diagnosis_cta", "brief": "明快で視認性の高い『希望を整理する（無料・5問）』CTA"}
+  ],
+  "brand_rule": "Violetの見た目を流用せず、EARTH横浜店としての分かりやすさ・相談しやすさ・幅広さを表現する",
+  "asset_generation_status": "NOT_GENERATED"
+}

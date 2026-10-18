@@ -1,0 +1,263 @@
+{
+  "schema_version": "1.0",
+  "store_intelligence_status": "READY_FOR_INTERPRETATION",
+  "identity": {
+    "store_id": "15",
+    "campaign_id": "PF-HAIR-YOKOHAMA-001",
+    "store_name": "girasol",
+    "category": "美容室",
+    "area": "横浜",
+    "official_website_url": "https://girasol-hair-yokohama.com/",
+    "brand_name": "girasol",
+    "group_name": null,
+    "branch_name": null,
+    "google_maps_url": null,
+    "hotpepper_url": "https://beauty.hotpepper.jp/slnH000035722/review/",
+    "instagram_url": null,
+    "other_public_urls": [
+      "https://girasol-hair-yokohama.com/sm/"
+    ]
+  },
+  "contact_location": {
+    "address": {
+      "value": "神奈川県横浜市西区高島2-10-28 双洋ビル横浜2F",
+      "evidence_ids": ["EV-OFFICIAL-001"]
+    },
+    "nearest_station": {
+      "value": "横浜駅",
+      "evidence_ids": ["EV-OFFICIAL-001"]
+    },
+    "walking_minutes": {
+      "value": 3,
+      "evidence_ids": ["EV-OFFICIAL-001"]
+    },
+    "phone": null,
+    "email": null,
+    "inquiry_url": null,
+    "reservation_url": null,
+    "business_hours": null,
+    "closed_days": null
+  },
+  "services": {
+    "major_services": [
+      {"value": "イルミナカラー", "evidence_ids": ["EV-OFFICIAL-002"]},
+      {"value": "オーガニックカラー", "evidence_ids": ["EV-OFFICIAL-002"]},
+      {"value": "TOKIOトリートメント", "evidence_ids": ["EV-OFFICIAL-002"]},
+      {"value": "高濃度水素ケア", "evidence_ids": ["EV-OFFICIAL-001"]},
+      {"value": "髪質改善", "evidence_ids": ["EV-OFFICIAL-001"]}
+    ],
+    "signature_services": [],
+    "price_examples": [],
+    "product_or_treatment_names": ["イルミナカラー", "オーガニックカラー", "TOKIO", "高濃度水素ケア"],
+    "service_notes": [
+      "Service presence is recorded as an offered service only; effectiveness is not inferred."
+    ]
+  },
+  "customer_voice": {
+    "review_sources": [
+      {
+        "source": "Hot Pepper Beauty",
+        "evidence_id": "EV-REVIEW-001"
+      }
+    ],
+    "review_count_observed": 216,
+    "rating_observed": 4.79,
+    "positive_voice_samples": [],
+    "negative_or_anxiety_voice_samples": [],
+    "recurring_keywords": [
+      "カウンセリング",
+      "髪の状態",
+      "頭皮",
+      "扱いやすさ",
+      "安心"
+    ],
+    "repeated_praise_themes": [
+      {
+        "theme_name": "丁寧な相談・ヒアリング",
+        "supporting_evidence_ids": ["EV-REVIEW-001"],
+        "evidence_count": null,
+        "confidence": "MEDIUM",
+        "observation_type": "AGGREGATED_PATTERN"
+      },
+      {
+        "theme_name": "髪や頭皮の状態を見ながら提案してもらえる安心感",
+        "supporting_evidence_ids": ["EV-REVIEW-001"],
+        "evidence_count": null,
+        "confidence": "MEDIUM",
+        "observation_type": "AGGREGATED_PATTERN"
+      }
+    ],
+    "repeated_concern_themes": [
+      {
+        "theme_name": "ダメージや髪・頭皮状態への不安",
+        "supporting_evidence_ids": ["EV-REVIEW-001"],
+        "evidence_count": null,
+        "confidence": "MEDIUM",
+        "observation_type": "AGGREGATED_PATTERN"
+      }
+    ],
+    "repeated_desire_themes": [
+      {
+        "theme_name": "毎日の扱いやすさ",
+        "supporting_evidence_ids": ["EV-REVIEW-001"],
+        "evidence_count": null,
+        "confidence": "MEDIUM",
+        "observation_type": "AGGREGATED_PATTERN"
+      }
+    ],
+    "repeated_experience_themes": [
+      {
+        "theme_name": "相談しながら方向を決める体験",
+        "supporting_evidence_ids": ["EV-REVIEW-001"],
+        "evidence_count": null,
+        "confidence": "MEDIUM",
+        "observation_type": "AGGREGATED_PATTERN"
+      }
+    ],
+    "repeated_result_themes": []
+  },
+  "store_facts": {
+    "stated_store_philosophy": [],
+    "stated_strengths": [
+      {
+        "value": "ノンダメージ協会認定サロンを訴求",
+        "evidence_ids": ["EV-OFFICIAL-001"],
+        "observation_type": "SOURCE_SUMMARY"
+      },
+      {
+        "value": "髪・頭皮状態に合わせた提案を重視している",
+        "evidence_ids": ["EV-OFFICIAL-001", "EV-REVIEW-001"],
+        "observation_type": "SOURCE_SUMMARY"
+      }
+    ],
+    "facilities": [],
+    "staff_features": [],
+    "accessibility_features": [],
+    "location_features": [
+      {
+        "value": "横浜駅徒歩3分と案内",
+        "evidence_ids": ["EV-OFFICIAL-001"],
+        "observation_type": "OBSERVED_FACT"
+      }
+    ],
+    "awards_or_credentials": [],
+    "explicit_target_statements": [],
+    "customer_segment_observations": [
+      {
+        "value": "Hot Pepperの観測分布では40代・50代以上の女性比率が高い",
+        "evidence_ids": ["EV-REVIEW-001"],
+        "observation_type": "SOURCE_SUMMARY",
+        "restriction": "Do not convert this observation into a final target persona at Store Intelligence stage."
+      }
+    ]
+  },
+  "brand_visual_facts": {
+    "logo_available": true,
+    "logo_source": "https://girasol-hair-yokohama.com/",
+    "existing_primary_colors": [],
+    "existing_secondary_colors": [],
+    "typography_observed": null,
+    "website_visual_tone_observed": [],
+    "interior_visual_tone_observed": [],
+    "exterior_visual_tone_observed": [],
+    "photo_subjects_observed": ["hair style", "salon/interior"]
+  },
+  "visual_assets": [
+    {
+      "asset_id": "ASSET-OFFICIAL-TOP1",
+      "asset_type": "hero",
+      "source_url_or_repo_path": "https://girasol-hair-yokohama.com/wp-content/uploads/sites/602/2022/04/TOP1.jpg",
+      "subject": "official website hair / salon visual",
+      "orientation": null,
+      "resolution_if_known": null,
+      "visual_quality": "UNKNOWN",
+      "commercial_usage_status": "NOT_CONFIRMED",
+      "evidence_source": "EV-OFFICIAL-001"
+    }
+  ],
+  "competitor_market_context": {
+    "nearby_competitors": [],
+    "observed_positioning_patterns": [],
+    "common_market_claims": [],
+    "obvious_similarity_risks": []
+  },
+  "claim_safety": {
+    "prohibited_claims": [
+      "高濃度水素ケア等を医学的・永久的効果として表現すること",
+      "口コミ由来の個人体験を保証された効果として表現すること"
+    ],
+    "unverified_claims": [
+      "水素ケアの医学的効果",
+      "永久的な髪質改善効果"
+    ],
+    "medical_or_treatment_risk_terms": ["治療", "診断", "治る", "永久改善"],
+    "guarantee_risk_terms": ["必ず", "完全", "永久"],
+    "fact_conflicts": []
+  },
+  "evidence_registry": [
+    {
+      "evidence_id": "EV-OFFICIAL-001",
+      "evidence_type": "OFFICIAL",
+      "source_name": "girasol official website",
+      "source_url": "https://girasol-hair-yokohama.com/",
+      "captured_at_or_checked_at": "2026-09-02",
+      "supported_fields": [
+        "identity",
+        "contact_location",
+        "services",
+        "store_facts",
+        "brand_visual_facts",
+        "visual_assets"
+      ],
+      "confidence": "HIGH",
+      "notes": null
+    },
+    {
+      "evidence_id": "EV-OFFICIAL-002",
+      "evidence_type": "OFFICIAL",
+      "source_name": "girasol official menu page",
+      "source_url": "https://girasol-hair-yokohama.com/sm/",
+      "captured_at_or_checked_at": "2026-09-02",
+      "supported_fields": ["services"],
+      "confidence": "HIGH",
+      "notes": null
+    },
+    {
+      "evidence_id": "EV-REVIEW-001",
+      "evidence_type": "REVIEW",
+      "source_name": "Hot Pepper Beauty reviews",
+      "source_url": "https://beauty.hotpepper.jp/slnH000035722/review/",
+      "captured_at_or_checked_at": "2026-09-02",
+      "supported_fields": ["customer_voice", "store_facts.customer_segment_observations"],
+      "confidence": "MEDIUM",
+      "notes": "Old Store Intelligence retained aggregate review signals; sample-level evidence still needs structured capture."
+    }
+  ],
+  "unknown_missing": {
+    "missing_required_fields": [],
+    "missing_optional_fields": [
+      "phone",
+      "email",
+      "inquiry_url",
+      "reservation_url",
+      "business_hours",
+      "closed_days",
+      "price_examples",
+      "positive_voice_samples",
+      "negative_or_anxiety_voice_samples",
+      "existing_primary_colors",
+      "existing_secondary_colors",
+      "typography_observed",
+      "detailed_visual_assets"
+    ],
+    "unresolved_conflicts": [],
+    "insufficient_visual_assets": false,
+    "insufficient_customer_voice": false
+  },
+  "migration_status": "COMPLETE_WITH_LEGACY_EVIDENCE_LIMITATIONS",
+  "migration_notes": [
+    "Removed prior commercial_hypotheses from Store Intelligence because they belong to downstream Design / Marketing Interpretation.",
+    "Legacy evidence was URL-level; field-level evidence links were reconstructed only where source relationship was clear.",
+    "No missing fact was invented."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "store_id": "16",
+  "store_name": "Frais Tout",
+  "status": "READY",
+  "sources": [
+    {"type": "official", "url": "https://frais-tout.com/", "use": ["骨格・くせを踏まえたカット", "低ダメージ施術", "スパ・ヘアケア", "店舗の空気感"]},
+    {"type": "customer_reviews", "url": "https://beauty.hotpepper.jp/slnH000211086/review/", "use": ["希望を聞く姿勢", "仕上がり評価", "シャンプー・リラックス感"]}
+  ],
+  "approved_claim_types": ["骨格やくせを踏まえたカットを訴求している", "ケア・スパの選択肢がある", "口コミで相談・仕上がり・リラックス感が評価されている"],
+  "prohibited_claims": ["受賞歴から技術結果を保証する表現", "髪質改善・ケアの効果保証", "口コミ原文の長文転載"],
+  "fact_separation_rule": "店舗公式事実・口コミ傾向・訪問者一般ニーズを混同しない"
+}

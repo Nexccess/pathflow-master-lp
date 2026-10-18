@@ -1,0 +1,151 @@
+{
+  "rule_version": "0.1",
+  "store_id": "15",
+  "store_name": "girasol",
+  "interpretation_status": "READY_FOR_CONCEPT",
+  "customer_signals": {
+    "primary_customer_signal": [
+      {
+        "statement": "髪や頭皮の状態を気にしながら、無理のない施術方針を相談したい顧客",
+        "evidence_ids": ["EV-REVIEW-001", "EV-OFFICIAL-001"],
+        "confidence": "HIGH"
+      }
+    ],
+    "secondary_customer_signal": [
+      {
+        "statement": "40代・50代以上の女性比率が高い観測があり、年齢変化に伴う髪悩みとの接続余地がある",
+        "evidence_ids": ["EV-REVIEW-001"],
+        "confidence": "MEDIUM"
+      }
+    ],
+    "customer_desires": [
+      {
+        "statement": "毎日の扱いやすさを高めたい",
+        "evidence_ids": ["EV-REVIEW-001"],
+        "confidence": "MEDIUM"
+      },
+      {
+        "statement": "髪の状態を見ながら自分に合う方法を相談したい",
+        "evidence_ids": ["EV-REVIEW-001", "EV-OFFICIAL-001"],
+        "confidence": "HIGH"
+      }
+    ],
+    "customer_anxieties": [
+      {
+        "statement": "ダメージや髪・頭皮状態への不安",
+        "evidence_ids": ["EV-REVIEW-001"],
+        "confidence": "MEDIUM"
+      }
+    ],
+    "customer_decision_barriers": [
+      {
+        "statement": "複数のカラー・ケア選択肢の中から何が自分に合うか判断しにくい",
+        "evidence_ids": ["EV-OFFICIAL-002", "EV-REVIEW-001"],
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "store_value_signals": {
+    "store_strength_signals": [
+      {
+        "statement": "髪・頭皮状態に合わせて提案する方針",
+        "evidence_ids": ["EV-OFFICIAL-001", "EV-REVIEW-001"],
+        "confidence": "HIGH"
+      },
+      {
+        "statement": "カラー・トリートメント・水素ケア・髪質改善など複数の選択肢を持つ",
+        "evidence_ids": ["EV-OFFICIAL-001", "EV-OFFICIAL-002"],
+        "confidence": "HIGH"
+      }
+    ],
+    "trust_signals": [
+      {
+        "statement": "丁寧な相談・ヒアリングへの継続的な評価",
+        "evidence_ids": ["EV-REVIEW-001"],
+        "confidence": "MEDIUM"
+      }
+    ],
+    "experience_signals": [
+      {
+        "statement": "相談しながら施術方向を決める体験",
+        "evidence_ids": ["EV-REVIEW-001", "EV-OFFICIAL-001"],
+        "confidence": "HIGH"
+      }
+    ],
+    "result_signals": [
+      {
+        "statement": "毎日の扱いやすさへの期待",
+        "evidence_ids": ["EV-REVIEW-001"],
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "customer_store_fit": [
+    {
+      "customer_need": "髪を必要以上に傷ませたくない／状態を理解してから選びたい",
+      "store_response": "髪・頭皮状態を見ながら、複数の施術選択肢から相談して決める",
+      "evidence_ids": ["EV-OFFICIAL-001", "EV-OFFICIAL-002", "EV-REVIEW-001"],
+      "fit_strength": "HIGH",
+      "notes": "効果保証ではなく、相談・選択プロセスを価値として扱う。"
+    }
+  ],
+  "positioning_candidates": [
+    {
+      "positioning_statement": "髪を無理に変える前に、今の状態から一緒に整え方を考える相談型サロン",
+      "supporting_evidence_ids": ["EV-OFFICIAL-001", "EV-REVIEW-001"],
+      "customer_relevance": "HIGH",
+      "store_specificity": "HIGH",
+      "risk_of_genericness": "LOW",
+      "claim_risk": "LOW"
+    },
+    {
+      "positioning_statement": "ダメージ不安と日常の扱いやすさを同時に相談できる大人女性向けサロン",
+      "supporting_evidence_ids": ["EV-REVIEW-001", "EV-OFFICIAL-001"],
+      "customer_relevance": "HIGH",
+      "store_specificity": "MEDIUM",
+      "risk_of_genericness": "MEDIUM",
+      "claim_risk": "LOW"
+    }
+  ],
+  "brand_personality_signals": [
+    {
+      "signal": "calm",
+      "source_type": "customer voice / consultation experience",
+      "evidence_ids": ["EV-REVIEW-001"],
+      "confidence": "MEDIUM"
+    },
+    {
+      "signal": "trustworthy",
+      "source_type": "service / review signal",
+      "evidence_ids": ["EV-OFFICIAL-001", "EV-REVIEW-001"],
+      "confidence": "MEDIUM"
+    }
+  ],
+  "existing_visual_constraints_opportunities": {
+    "brand_elements_to_respect": ["girasol logo"],
+    "visual_assets_with_high_value": ["ASSET-OFFICIAL-TOP1"],
+    "visual_asset_gaps": ["style/result/texture/counseling imagery with confirmed commercial usage"],
+    "visual_usage_restrictions": ["official public images have NOT_CONFIRMED commercial usage status"],
+    "visual_genericness_risks": ["generic glossy-hair imagery could weaken girasol-specific consultation positioning"]
+  },
+  "future_state_opportunity": {
+    "desired_future_state": [
+      {
+        "statement": "今の髪の状態に合う方法が整理され、毎日扱いやすい髪を目指せる状態",
+        "evidence_ids": ["EV-REVIEW-001", "EV-OFFICIAL-001"]
+      }
+    ],
+    "possible_visual_proof_types": ["manageable hair texture", "natural gloss", "consultation experience", "salon atmosphere"]
+  },
+  "claim_safety_translation": {
+    "prohibited_message_directions": ["水素ケアを医学的・永久的改善として訴求", "口コミ結果を保証表現へ変換"],
+    "claims_requiring_recheck": ["価格", "現行営業時間", "詳細メニュー"],
+    "wording_that_must_be_qualified": ["髪質改善", "高濃度水素ケア"]
+  },
+  "genericness_check": {
+    "uses_store_specific_customer_evidence": true,
+    "uses_store_specific_service_or_experience_evidence": true,
+    "reason_to_choose_beyond_generic_quality_claims": true,
+    "genericness_risk": "LOW"
+  }
+}

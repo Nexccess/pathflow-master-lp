@@ -1,0 +1,12 @@
+{
+  "store_id": "2",
+  "store_name": "EARTH 横浜店",
+  "status": "READY",
+  "tone": "モダン・明快・信頼・幅広い層に開かれた印象",
+  "visual_keywords": ["modern clear", "broad demographic", "trustworthy", "accessible salon"],
+  "layout": "mobile-first / clear hierarchy / modular editorial sections / persistent diagnosis CTA",
+  "image_direction": ["年代・性別に偏りすぎないスタイル構成", "初回でも相談しやすい清潔感", "全国ブランドの広告素材だけに見える画一感は避ける"],
+  "color_direction": "ホワイト・ライトグレーを基調に、ブランドと競合しない低彩度のダークアクセント",
+  "typography": "視認性を最優先したモダンなサンセリフ。情報量が多くても整理して見えること",
+  "do_not_copy_violet": true
+}

@@ -1,0 +1,13 @@
+{
+  "store_id": "5",
+  "store_name": "美容院 Lumi 横浜駅店",
+  "status": "READY",
+  "sources": [
+    {"type": "official", "url": "https://lumi-style.jp/store/yokohama/", "use": ["所在地", "営業時間", "店舗案内", "横浜駅東口徒歩圏"]},
+    {"type": "official_group", "url": "https://lumi-style.jp/", "use": ["ブランド方針・サービス表現の確認"]},
+    {"type": "customer_reviews", "url": "https://beauty.hotpepper.jp/slnH000462638/review/", "use": ["曖昧な希望への対応", "骨格・髪質を踏まえた助言", "相談時の安心感", "仕上がり評価"]}
+  ],
+  "approved_claim_types": ["希望が曖昧でも相談しやすい", "骨格・髪質を踏まえた提案への評価がある", "横浜駅東口から徒歩圏で営業時間が長い"],
+  "prohibited_claims": ["髪質改善の効果保証", "口コミ原文の長文転載", "公式にない独自治療表現"],
+  "fact_separation_rule": "店舗公式事実・口コミ傾向・訪問者一般ニーズを混同しない"
+}

@@ -1,0 +1,24 @@
+{
+  "campaign_id": "PF-HAIR-YOKOHAMA-001",
+  "store_id": "18",
+  "store_name": "marbles 横浜店",
+  "source_type": "public_reviews",
+  "source_url": "https://beauty.hotpepper.jp/slnH000192905/review/",
+  "observed_at": "2026-09-02",
+  "review_summary": {
+    "average_observed": 4.59,
+    "service_observed": 4.7,
+    "finish_observed": 4.6
+  },
+  "themes": [
+    {"theme": "丁寧な仕上げ", "evidence_summary": "初めてのスタイルでも丁寧に仕上げてもらい満足したという声が確認できる。"},
+    {"theme": "継続利用の安心感", "evidence_summary": "繰り返し利用し、毎回の仕上がりを評価するレビューが見られる。"},
+    {"theme": "メンズ技術", "evidence_summary": "刈り上げやメンズカットを強く評価する声もあり、女性専用の訴求に限定しない方が店舗実態に合う。"},
+    {"theme": "大人世代の利用", "evidence_summary": "レビュー分布では40代・50代以上の女性が多く、カラー・白髪・ケアを含む相談需要が想定できる。"}
+  ],
+  "message_opportunities": [
+    "カラーやケアの選択肢を、希望と悩みから整理して相談する",
+    "大きく変えたい人だけでなく、今の髪を少し整えたい人にも使える受付導線"
+  ],
+  "status": "EVIDENCE_READY"
+}

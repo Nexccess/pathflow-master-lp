@@ -1,0 +1,76 @@
+{
+  "rule_version": "0.1",
+  "store_id": "15",
+  "store_name": "girasol",
+  "concept_status": "READY_FOR_VISUAL_DIRECTION",
+  "primary_creative_concept": {
+    "concept_statement": "髪を無理に変える前に、今の状態から一緒に整え方を考える、大人の相談型サロン。",
+    "concept_type": "CONDITION_AWARE_CONSULTATION",
+    "evidence_ids": ["EV-OFFICIAL-001", "EV-OFFICIAL-002", "EV-REVIEW-001"],
+    "source_positioning_candidate": "髪を無理に変える前に、今の状態から一緒に整え方を考える相談型サロン",
+    "customer_need": "ダメージや髪・頭皮状態に不安があり、自分に合う方法を相談して決めたい",
+    "store_response": "髪・頭皮状態を見ながら複数の施術選択肢から相談して決める",
+    "desired_future_state": "今の髪の状態に合う方向が整理され、毎日の扱いやすさを目指せる",
+    "confidence": "HIGH"
+  },
+  "reason_to_choose": {
+    "reason_to_choose": "メニューを先に決めるのではなく、髪・頭皮状態と不安を整理してから施術方向を相談できること。",
+    "evidence_ids": ["EV-OFFICIAL-001", "EV-OFFICIAL-002", "EV-REVIEW-001"],
+    "claim_risk": "LOW"
+  },
+  "message_territory": {
+    "must_express": [
+      "今の髪の状態から考える",
+      "相談して方向を決める",
+      "ダメージ不安に配慮した選択",
+      "日常の扱いやすさを意識する"
+    ],
+    "may_express": [
+      "大人女性の髪悩み",
+      "白髪・うねり・広がり等の複合的な悩み",
+      "複数のケア／カラー選択肢"
+    ],
+    "must_not_express": [
+      "水素ケアの医学的効果",
+      "永久改善",
+      "必ず傷まない",
+      "口コミ結果の保証"
+    ]
+  },
+  "customer_journey_emphasis": {
+    "dominant_transition": "anxiety → reassurance → clarity",
+    "notes": "不安を煽るのではなく、状態と希望を整理することで安心と選択の明確さへつなげる。"
+  },
+  "future_state_contract": {
+    "future_state_statement": "自分の髪に合う整え方が見え、毎日の扱いやすさを想像できる状態。",
+    "required_visual_or_experiential_proof": [
+      "扱いやすさを想起させる髪質・仕上がりVisual",
+      "相談体験を示すVisualまたは表現",
+      "髪の状態に合わせて選ぶことが伝わる構成"
+    ],
+    "evidence_ids": ["EV-REVIEW-001", "EV-OFFICIAL-001"]
+  },
+  "pathflow_diagnosis_role": {
+    "diagnosis_role": "来店前に、今の髪の悩み・避けたいこと・希望を整理して相談しやすくする。",
+    "diagnosis_should_help_user_organize": [
+      "一番気になる髪悩み",
+      "普段の扱いづらさ",
+      "カラー・白髪の希望",
+      "避けたいこと",
+      "仕上がりで優先したいこと"
+    ],
+    "diagnosis_must_not_do": [
+      "医療診断",
+      "施術効果の保証",
+      "医学的適否判定",
+      "特定メニューの断定的自動選択"
+    ]
+  },
+  "store_specificity_check": {
+    "genericness_risk": "LOW",
+    "uses_customer_voice": true,
+    "uses_store_facts": true,
+    "meaningful_customer_store_fit": true
+  },
+  "claim_safety_check": "PASS"
+}

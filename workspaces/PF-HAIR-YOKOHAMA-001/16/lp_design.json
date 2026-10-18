@@ -1,0 +1,20 @@
+{
+  "store_id": "16",
+  "store_name": "Frais Tout",
+  "status": "DRAFT_READY_FOR_RENDER",
+  "hero": {
+    "headline": "似合うことも、髪を大切にすることも。",
+    "subcopy": "骨格やくせ、今の髪の状態まで見ながら、無理のない整え方を一緒に考えるヘアサロン。",
+    "primary_cta": "希望を整理する（無料・5問）"
+  },
+  "sections": [
+    {"type": "empathy", "title": "きれいにしたい。でも、髪への負担も気になる。"},
+    {"type": "why_store", "title": "Frais Toutで一緒に考えられること", "items": ["骨格・くせを踏まえたカット", "髪の状態を意識した施術選択", "ケアやスパも含めた相談"]},
+    {"type": "customer_voice", "title": "仕上がりだけでなく、相談する時間にも安心を。"},
+    {"type": "diagnosis_entry", "title": "5問で、今いちばん大切にしたいことを整理。", "cta": "希望を整理する（無料・5問）"},
+    {"type": "store_contact", "title": "整理した希望を、そのまま相談へ。", "cta": "Frais Toutに問い合わせる"}
+  ],
+  "floating_cta": "希望を整理する（無料・5問）",
+  "mobile_first": true,
+  "quality_note": "Violetを複製せず、Frais Tout固有の似合わせ・ケア・落ち着いた体験を中心に設計"
+}
