@@ -38,49 +38,174 @@
       }
     }
 
-    const payload = {
-      api_key: amplitudeApiKey,
-      events: [
-        {
-          device_id: getDeviceId(),
-          event_type: "lp_view",
-          time: Date.now(),
-          event_properties: {
-            lead_id: "2245",
-            store_name: "HAIR RELAX Blono",
-            variant_code: "STANDARD_LP",
-            lp_version: "2245-11A-APPROVED-r1",
-            diagnosis_version: "2245-11B-DIAGNOSIS-v1"
-          }
-        }
-      ]
-    };
+    // テスト印：URL に ?test=1 が付くと、このブラウザを以後テスト扱いにする。?test=0 で解除する。
+    function isTestTraffic() {
+      let param = null;
 
-    fetch("https://api2.amplitude.com/2/httpapi", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "*/*"
-      },
-      body: JSON.stringify(payload),
-      keepalive: true
-    })
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error("Amplitude HTTP " + response.status);
+      try {
+        param = new URLSearchParams(window.location.search).get("test");
+      } catch (e) {
+        param = null;
       }
 
-      return response.json();
-    })
-    .then(function (result) {
-      console.log(
-        "[PathFlow] lp_view sent: lead_id=2245 events_ingested=" +
-        result.events_ingested
-      );
-    })
-    .catch(function (error) {
-      console.error("[PathFlow] Analytics send failed:", error);
-    });
+      try {
+        if (param === "1") {
+          localStorage.setItem("pathflow_is_test", "1");
+        } else if (param === "0") {
+          localStorage.removeItem("pathflow_is_test");
+        }
+
+        return localStorage.getItem("pathflow_is_test") === "1";
+      } catch (e) {
+        return param === "1";
+      }
+    }
+
+    const isTest = isTestTraffic();
+
+    function sendEvent(eventType, extra) {
+      const payload = {
+        api_key: amplitudeApiKey,
+        events: [
+          {
+            device_id: getDeviceId(),
+            event_type: eventType,
+            time: Date.now(),
+            event_properties: Object.assign({
+              lead_id: "2245",
+              store_name: "HAIR RELAX Blono",
+              variant_code: "STANDARD_LP",
+              lp_version: "2245-11A-APPROVED-r1",
+              diagnosis_version: "2245-11B-DIAGNOSIS-v1",
+              is_test: isTest
+            }, extra || {})
+          }
+        ]
+      };
+
+      fetch("https://api2.amplitude.com/2/httpapi", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "*/*"
+        },
+        body: JSON.stringify(payload),
+        keepalive: true
+      })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Amplitude HTTP " + response.status);
+        }
+
+        return response.json();
+      })
+      .then(function (result) {
+        console.log(
+          "[PathFlow] " + eventType + " sent: lead_id=2245 is_test=" +
+          isTest + " events_ingested=" +
+          result.events_ingested
+        );
+      })
+      .catch(function (error) {
+        console.error("[PathFlow] Analytics send failed:", error);
+      });
+    }
+
+    sendEvent("lp_view");
+
+    // LP 本文のリンクの種類を、リンク先から決める（ルール。AI は使わない）。
+    function classifyLink(href) {
+      let url = null;
+
+      try {
+        url = new URL(href, window.location.href);
+      } catch (e) {
+        return null;
+      }
+
+      if (url.protocol === "tel:") {
+        return "tel";
+      }
+
+      if (url.protocol !== "http:" && url.protocol !== "https:") {
+        return null;
+      }
+
+      const host = url.hostname;
+
+      if (host === "beauty.hotpepper.jp") {
+        return url.pathname.indexOf("/review") !== -1
+          ? "hotpepper_review"
+          : "hotpepper";
+      }
+
+      if (host === "line.me" || host === "lin.ee" || host.slice(-8) === ".line.me") {
+        return "line";
+      }
+
+      if (host === "maps.app.goo.gl" ||
+          ((host === "www.google.com" || host === "google.com") &&
+            url.pathname.indexOf("/maps") === 0)) {
+        return "map";
+      }
+
+      if (host !== window.location.hostname) {
+        return "other_external";
+      }
+
+      return null;
+    }
+
+    // クリックの記録（追従ボタン→diagnosis_click、LP 本文の外部リンク・電話→lp_link_click）。
+    document.addEventListener("click", function (event) {
+      const target = event.target;
+
+      if (!target || !target.closest) {
+        return;
+      }
+
+      const floating = target.closest("a.floating-diagnosis-cta");
+
+      if (floating) {
+        // テスト時は、診断側へ ?test=1 を引き継ぐ。
+        if (isTest) {
+          try {
+            const url = new URL(floating.getAttribute("href"), window.location.href);
+            url.searchParams.set("test", "1");
+            floating.setAttribute("href", url.toString());
+          } catch (e) {
+            // 付与に失敗してもクリックの記録は続ける
+          }
+        }
+
+        sendEvent("diagnosis_click", {
+          placement: "floating",
+          destination: floating.getAttribute("href")
+        });
+
+        return;
+      }
+
+      const link = target.closest("a[href]");
+
+      if (!link) {
+        return;
+      }
+
+      const destinationType = classifyLink(link.getAttribute("href"));
+
+      if (!destinationType) {
+        return;
+      }
+
+      const section = link.closest("[id]");
+
+      sendEvent("lp_link_click", {
+        destination_type: destinationType,
+        destination: link.getAttribute("href"),
+        section_id: section ? section.id : "none"
+      });
+    }, true);
   })();
   </script>
   <!-- PathFlow Analytics END -->
