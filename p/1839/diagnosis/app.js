@@ -2,10 +2,32 @@
 
 const DIAGNOSIS_VERSION = "1839-spec-v2-dryrun";
 
+function isPathFlowTest() {
+  let param = null;
+
+  try {
+    param = new URLSearchParams(window.location.search).get("test");
+  } catch (error) {
+    param = null;
+  }
+
+  try {
+    if (param === "1") {
+      localStorage.setItem("pathflow_is_test", "1");
+    } else if (param === "0") {
+      localStorage.removeItem("pathflow_is_test");
+    }
+
+    return localStorage.getItem("pathflow_is_test") === "1";
+  } catch (error) {
+    return param === "1";
+  }
+}
+
 const PATHFLOW_ANALYTICS = {
   apiKey: "3c4155ba8800bb2242f3bccec4a4053c",
   endpoint: "https://api2.amplitude.com/2/httpapi",
-  commonProperties: {"lead_id": "1839", "store_name": "Frais Tout", "lp_version": "FT1839-11A-PC-v6", "creative_revision": "FT1839-11A-PC-v6", "diagnosis_version": "1839-spec-v2-dryrun", "variant_code": "STANDARD_LP"}
+  commonProperties: {is_test: isPathFlowTest(), "lead_id": "1839", "store_name": "Frais Tout", "lp_version": "FT1839-11A-PC-v6", "creative_revision": "FT1839-11A-PC-v6", "diagnosis_version": "1839-spec-v2-dryrun", "variant_code": "STANDARD_LP"}
 };
 
 function getPathFlowDeviceId() {

@@ -2,10 +2,32 @@
 
 const DIAGNOSIS_VERSION = "1664-spec-v2";
 
+function isPathFlowTest() {
+  let param = null;
+
+  try {
+    param = new URLSearchParams(window.location.search).get("test");
+  } catch (error) {
+    param = null;
+  }
+
+  try {
+    if (param === "1") {
+      localStorage.setItem("pathflow_is_test", "1");
+    } else if (param === "0") {
+      localStorage.removeItem("pathflow_is_test");
+    }
+
+    return localStorage.getItem("pathflow_is_test") === "1";
+  } catch (error) {
+    return param === "1";
+  }
+}
+
 const PATHFLOW_ANALYTICS = {
   apiKey: "3c4155ba8800bb2242f3bccec4a4053c",
   endpoint: "https://api2.amplitude.com/2/httpapi",
-  commonProperties: {"lead_id":"1664","store_name":"YELLOW CORN 横浜店","lp_version":"YC1664-11A-PC-v1","creative_revision":"YC1664-11A-PC-v1","diagnosis_version":"1664-spec-v2","variant_code":"STANDARD_LP"}
+  commonProperties: {is_test: isPathFlowTest(), "lead_id":"1664","store_name":"YELLOW CORN 横浜店","lp_version":"YC1664-11A-PC-v1","creative_revision":"YC1664-11A-PC-v1","diagnosis_version":"1664-spec-v2","variant_code":"STANDARD_LP"}
 };
 
 function getPathFlowDeviceId() {

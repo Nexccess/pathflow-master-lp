@@ -1,4 +1,204 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f3ed"><meta name="description" content="eMir... 武蔵小杉店。似合うスタイルを一緒に考える、カラー・カット・ヘッドスパ。"><title>eMir... 武蔵小杉店｜好きな私に、自然に近づく。</title><link rel="stylesheet" href="styles.css"></head><body>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f3ed"><meta name="description" content="eMir... 武蔵小杉店。似合うスタイルを一緒に考える、カラー・カット・ヘッドスパ。"><title>eMir... 武蔵小杉店｜好きな私に、自然に近づく。</title><link rel="stylesheet" href="styles.css"><!-- PathFlow Analytics START -->
+  <script>
+  (function () {
+    "use strict";
+
+    const amplitudeApiKey = "3c4155ba8800bb2242f3bccec4a4053c";
+
+    function getDeviceId() {
+      const storageKey = "pathflow_device_id";
+
+      try {
+        let id = localStorage.getItem(storageKey);
+
+        if (!id) {
+          id = "pf-" +
+            Date.now().toString(36) + "-" +
+            Math.random().toString(36).slice(2, 12);
+
+          localStorage.setItem(storageKey, id);
+        }
+
+        return id;
+      } catch (e) {
+        return "pf-session-" +
+          Date.now().toString(36) + "-" +
+          Math.random().toString(36).slice(2, 12);
+      }
+    }
+
+    // テスト印：URL に ?test=1 が付くと、このブラウザを以後テスト扱いにする。?test=0 で解除する。
+    function isTestTraffic() {
+      let param = null;
+
+      try {
+        param = new URLSearchParams(window.location.search).get("test");
+      } catch (e) {
+        param = null;
+      }
+
+      try {
+        if (param === "1") {
+          localStorage.setItem("pathflow_is_test", "1");
+        } else if (param === "0") {
+          localStorage.removeItem("pathflow_is_test");
+        }
+
+        return localStorage.getItem("pathflow_is_test") === "1";
+      } catch (e) {
+        return param === "1";
+      }
+    }
+
+    const isTest = isTestTraffic();
+
+    function sendEvent(eventType, extra) {
+      const payload = {
+        api_key: amplitudeApiKey,
+        events: [
+          {
+            device_id: getDeviceId(),
+            event_type: eventType,
+            time: Date.now(),
+            event_properties: Object.assign({
+              lead_id: "2243",
+              store_name: "eMir... 武蔵小杉店",
+              variant_code: "STANDARD_LP",
+              lp_version: "UNKNOWN",
+              diagnosis_version: "NONE",
+              is_test: isTest
+            }, extra || {})
+          }
+        ]
+      };
+
+      fetch("https://api2.amplitude.com/2/httpapi", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "*/*"
+        },
+        body: JSON.stringify(payload),
+        keepalive: true
+      })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Amplitude HTTP " + response.status);
+        }
+
+        return response.json();
+      })
+      .then(function (result) {
+        console.log(
+          "[PathFlow] " + eventType + " sent: lead_id=2243 is_test=" +
+          isTest + " events_ingested=" +
+          result.events_ingested
+        );
+      })
+      .catch(function (error) {
+        console.error("[PathFlow] Analytics send failed:", error);
+      });
+    }
+
+    sendEvent("lp_view");
+
+    // LP 本文のリンクの種類を、リンク先から決める（ルール。AI は使わない）。
+    function classifyLink(href) {
+      let url = null;
+
+      try {
+        url = new URL(href, window.location.href);
+      } catch (e) {
+        return null;
+      }
+
+      if (url.protocol === "tel:") {
+        return "tel";
+      }
+
+      if (url.protocol !== "http:" && url.protocol !== "https:") {
+        return null;
+      }
+
+      const host = url.hostname;
+
+      if (host === "beauty.hotpepper.jp") {
+        return url.pathname.indexOf("/review") !== -1
+          ? "hotpepper_review"
+          : "hotpepper";
+      }
+
+      if (host === "line.me" || host === "lin.ee" || host.slice(-8) === ".line.me") {
+        return "line";
+      }
+
+      if (host === "maps.app.goo.gl" ||
+          ((host === "www.google.com" || host === "google.com") &&
+            url.pathname.indexOf("/maps") === 0)) {
+        return "map";
+      }
+
+      if (host !== window.location.hostname) {
+        return "other_external";
+      }
+
+      return null;
+    }
+
+    // クリックの記録（追従ボタン→diagnosis_click、LP 本文の外部リンク・電話→lp_link_click）。
+    document.addEventListener("click", function (event) {
+      const target = event.target;
+
+      if (!target || !target.closest) {
+        return;
+      }
+
+      const floating = target.closest("a.floating-diagnosis-cta");
+
+      if (floating) {
+        // テスト時は、診断側へ ?test=1 を引き継ぐ。
+        if (isTest) {
+          try {
+            const url = new URL(floating.getAttribute("href"), window.location.href);
+            url.searchParams.set("test", "1");
+            floating.setAttribute("href", url.toString());
+          } catch (e) {
+            // 付与に失敗してもクリックの記録は続ける
+          }
+        }
+
+        sendEvent("diagnosis_click", {
+          placement: "floating",
+          destination: floating.getAttribute("href")
+        });
+
+        return;
+      }
+
+      const link = target.closest("a[href]");
+
+      if (!link) {
+        return;
+      }
+
+      const destinationType = classifyLink(link.getAttribute("href"));
+
+      if (!destinationType) {
+        return;
+      }
+
+      const section = link.closest("[id]");
+
+      sendEvent("lp_link_click", {
+        destination_type: destinationType,
+        destination: link.getAttribute("href"),
+        section_id: section ? section.id : "none"
+      });
+    }, true);
+  })();
+  </script>
+  <!-- PathFlow Analytics END -->
+</head><body>
 <header class="top"><a class="logo" href="#top">eMir<span>...</span></a><span class="top__loc">MUSASHI-KOSUGI</span><a class="top__book" href="https://beauty.hotpepper.jp/slnH000559358/" target="_blank" rel="noopener">ご予約 ↗</a></header>
 <main id="top"><section class="hero"><img src="assets/hero.jpg" alt="自然な動きのあるレイヤーヘアのイメージ" fetchpriority="high"><div class="hero__veil"></div><div class="hero__txt"><div class="eyebrow">FIND YOUR OWN BEAUTY</div><h1>なりたい、を<br>急がなくていい。</h1><p>迷う気持ちも、髪の悩みも。<br>話しながら見つける、わたしらしいスタイル。</p><span class="hero__brand">eMir... <small>武蔵小杉店</small></span></div><span class="vertical">HAIR &amp; SELF EXPRESSION</span></section>
 <section class="intro wrap"><p class="section-no">01 / OUR PHILOSOPHY</p><p class="kicker">今日は、どんな髪にしたいですか？</p><h2>まだ答えがなくても、<br><em>そのままで。</em></h2><p class="lead">「イメージを決めきれない」という声にも、ほどよい距離感で提案してくれた。そんな口コミが寄せられています。<br>髪の癖や白髪、次に挑戦したいスタイルまで。相談する時間も、大切な美容室体験に。</p></section>
