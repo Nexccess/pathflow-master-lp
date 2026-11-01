@@ -1,0 +1,14 @@
+{
+  "store_id": "5",
+  "store_name": "美容院 Lumi 横浜駅店",
+  "status": "SPEC_READY",
+  "required_assets": [
+    {"slot": "hero", "brief": "自然光を感じる明るい仕上がり。曖昧な希望でも相談できる親しみと洗練を両立"},
+    {"slot": "consultation", "brief": "鏡越しに会話しながら似合う形を具体化しているカウンセリング場面"},
+    {"slot": "style_set", "brief": "艶感・扱いやすさ・自然な女性らしさが伝わる複数スタイル"},
+    {"slot": "customer_voice", "brief": "相談力・提案・仕上がりへの口コミ傾向を短く要約したカード"},
+    {"slot": "diagnosis_cta", "brief": "明るく清潔なデザインに馴染む『希望を整理する（無料・5問）』CTA"}
+  ],
+  "brand_rule": "Violetの見た目を流用せず、Lumi固有の明るさ・清潔感・相談しやすさを表現する",
+  "asset_generation_status": "NOT_GENERATED"
+}

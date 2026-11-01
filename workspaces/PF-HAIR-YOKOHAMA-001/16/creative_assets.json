@@ -1,0 +1,14 @@
+{
+  "store_id": "16",
+  "store_name": "Frais Tout",
+  "status": "SPEC_READY",
+  "required_assets": [
+    {"slot": "hero", "brief": "似合わせと髪のコンディションの両方を大切にする、落ち着いた自然な仕上がり"},
+    {"slot": "consultation", "brief": "骨格やくせ、髪の状態を見ながら相談する丁寧なカウンセリング場面"},
+    {"slot": "care", "brief": "ケア・スパを連想させる静かで上質なディテール"},
+    {"slot": "customer_voice", "brief": "相談・仕上がり・リラックス感への口コミ傾向を短く要約したカード"},
+    {"slot": "diagnosis_cta", "brief": "落ち着いたトーンに馴染む『希望を整理する（無料・5問）』CTA"}
+  ],
+  "brand_rule": "Violetの見た目を流用せず、Frais Tout固有の落ち着き・ケア志向・温かさを表現する",
+  "asset_generation_status": "NOT_GENERATED"
+}

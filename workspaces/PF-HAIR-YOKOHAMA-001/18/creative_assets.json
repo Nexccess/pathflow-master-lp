@@ -1,0 +1,14 @@
+{
+  "store_id": "18",
+  "store_name": "マーブルズ 横浜店",
+  "status": "SPEC_READY",
+  "required_assets": [
+    {"slot": "hero", "brief": "女性・男性どちらにも開かれた都会的で親しみやすいスタイル。変えたい部分と残したい部分を考えられる余白を持たせる"},
+    {"slot": "style_set", "brief": "カット・カラーの質感が分かる男女混成の複数スタイル"},
+    {"slot": "consultation", "brief": "希望の変化量を話しながら決めている自然な相談場面"},
+    {"slot": "customer_voice", "brief": "リピート信頼・丁寧な仕上がり・メンズカット評価を要約したカード"},
+    {"slot": "diagnosis_cta", "brief": "ニュートラルで都会的な『希望を整理する（無料・5問）』CTA"}
+  ],
+  "brand_rule": "Violetの見た目を流用せず、Marbles固有の都市感・男女バランス・親しみやすさを表現する",
+  "asset_generation_status": "NOT_GENERATED"
+}

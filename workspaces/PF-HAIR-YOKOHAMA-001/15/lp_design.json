@@ -1,0 +1,22 @@
+{
+  "store_id": "15",
+  "store_name": "girasol",
+  "status": "DRAFT_READY_FOR_RENDER",
+  "hero": {
+    "eyebrow": "YOKOHAMA / HAIR CARE & DESIGN",
+    "headline": "傷ませたくない。\nでも、きれいにはなりたい。",
+    "subcopy": "白髪、うねり、広がり、艶不足。今の髪の状態を見ながら、これから扱いやすい形を一緒に整理する横浜のヘアサロン。",
+    "primary_cta": "希望を整理する（無料・5問）"
+  },
+  "sections": [
+    {"type": "problem_empathy", "title": "髪の悩みは、ひとつとは限らない。", "points": ["白髪は気になるけれど、カラーの負担も心配", "広がりを抑えたいけれど、ぺたんこにはしたくない", "サロン帰りだけでなく、毎日扱いやすくしたい"]},
+    {"type": "why_store", "title": "girasolで、まず相談から始める理由", "items": ["髪と頭皮の状態を見ながら考える", "ケア・カラー・髪質改善系の選択肢から無理なく選ぶ", "仕上がりだけでなく日々の扱いやすさまで考える"]},
+    {"type": "customer_voice", "title": "相談しながら決められる安心感", "summary": "公開口コミでは、髪や頭皮の状態を見てもらえたこと、相談の丁寧さ、毎日の扱いやすさにつながったという評価が見られます。"},
+    {"type": "style_direction", "title": "目指すのは、無理を重ねないきれいさ。", "copy": "派手に変えることより、今の髪と生活に合う整え方を。"},
+    {"type": "diagnosis_entry", "title": "メニューを決める前に、5問だけ。", "copy": "今の悩みと、できれば避けたいことを整理すると、相談したい内容が見えやすくなります。", "cta": "希望を整理する（無料・5問）"},
+    {"type": "store_contact", "title": "整理した希望を、そのまま相談へ。", "cta": "girasolに問い合わせる"}
+  ],
+  "floating_cta": "希望を整理する（無料・5問）",
+  "mobile_first": true,
+  "quality_note": "Violetの構成コピーではなく、girasol固有の大人女性・ケア志向で設計"
+}

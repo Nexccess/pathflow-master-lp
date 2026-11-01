@@ -1,0 +1,12 @@
+{
+  "store_id": "15",
+  "store_name": "girasol",
+  "status": "READY",
+  "tone": "落ち着いた上質感・大人女性・信頼・やわらかな専門性",
+  "visual_keywords": ["natural premium", "soft editorial", "healthy hair texture", "calm consultation"],
+  "layout": "mobile-first / generous whitespace / editorial cards / persistent diagnosis CTA",
+  "image_direction": ["自然な艶のある大人女性ヘア", "施術そのものより相談・仕上がりの安心感", "過度な若年モデル・派手なカラーは避ける"],
+  "color_direction": "アイボリー・温かいニュートラルを基調に、低彩度の深いグリーンまたはブラウン系アクセント",
+  "typography": "上品だが読みやすい。見出しは静かな強さ、本文は高可読性",
+  "do_not_copy_violet": true
+}

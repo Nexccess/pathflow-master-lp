@@ -1,0 +1,13 @@
+{
+  "store_id": "15",
+  "store_name": "girasol",
+  "status": "READY",
+  "sources": [
+    {"type": "official", "url": "https://girasol-hair-yokohama.com/", "use": ["店舗方針", "取扱施術・ケア", "相談・髪質改善系の店舗訴求"]},
+    {"type": "official_menu", "url": "https://girasol-hair-yokohama.com/sm/", "use": ["メニュー・価格確認"]},
+    {"type": "customer_reviews", "url": "https://beauty.hotpepper.jp/slnH000035722/review/", "use": ["相談の丁寧さ", "髪・頭皮への配慮", "毎日の扱いやすさ", "大人女性の評価傾向"]}
+  ],
+  "approved_claim_types": ["髪や頭皮の状態を見ながら相談できる", "ケア・カラー等の選択肢がある", "口コミで相談・仕上がり・扱いやすさが評価されている"],
+  "prohibited_claims": ["水素による治療・修復効果の断定", "効果保証", "口コミ原文の長文転載"],
+  "fact_separation_rule": "店舗公式事実・口コミ傾向・訪問者一般ニーズを混同しない"
+}

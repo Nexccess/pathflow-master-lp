@@ -1,0 +1,20 @@
+{
+  "store_id": "18",
+  "store_name": "マーブルズ 横浜店",
+  "status": "DRAFT_READY_FOR_RENDER",
+  "hero": {
+    "headline": "変えたいところも、残したいところも。",
+    "subcopy": "大きく変えるか、今の良さを残すか。決めきる前に希望を整理して、自分に合うスタイルを一緒に考える横浜のヘアサロン。",
+    "primary_cta": "希望を整理する（無料・5問）"
+  },
+  "sections": [
+    {"type": "empathy", "title": "イメージを固めすぎなくても大丈夫。"},
+    {"type": "why_store", "title": "Marblesで相談できること", "items": ["カット・カラーを含めたスタイル提案", "女性・男性どちらにも対応する選択肢", "今の良さを残しながら変化量を調整する相談"]},
+    {"type": "customer_voice", "title": "繰り返し任せたくなる信頼感。"},
+    {"type": "diagnosis_entry", "title": "5問で、変えたいところと残したいところを整理。", "cta": "希望を整理する（無料・5問）"},
+    {"type": "store_contact", "title": "整理した希望を、そのまま相談へ。", "cta": "マーブルズ 横浜店に問い合わせる"}
+  ],
+  "floating_cta": "希望を整理する（無料・5問）",
+  "mobile_first": true,
+  "quality_note": "Violetを複製せず、Marbles固有の都会感・男女バランス・相談しやすさを中心に設計"
+}

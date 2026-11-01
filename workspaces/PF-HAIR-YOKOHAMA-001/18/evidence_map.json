@@ -1,0 +1,13 @@
+{
+  "store_id": "18",
+  "store_name": "マーブルズ 横浜店",
+  "status": "READY",
+  "sources": [
+    {"type": "official", "url": "https://marbles-yokohama.com/", "use": ["店舗方針", "横浜駅西口徒歩圏", "カラー・カット・トリートメントの選択肢"]},
+    {"type": "official_coupon", "url": "https://marbles-yokohama.com/coupon/", "use": ["メニュー・価格確認"]},
+    {"type": "customer_reviews", "url": "https://beauty.hotpepper.jp/slnH000192905/review/", "use": ["丁寧な仕上がり", "リピート信頼", "メンズカット評価"]}
+  ],
+  "approved_claim_types": ["女性・男性双方に対応するスタイル選択肢がある", "横浜駅西口から徒歩圏", "口コミで丁寧な仕上がりやリピート信頼が見られる"],
+  "prohibited_claims": ["全顧客に同等の結果を保証する表現", "口コミ原文の長文転載", "クーポン価格を恒久価格として扱うこと"],
+  "fact_separation_rule": "店舗公式事実・口コミ傾向・訪問者一般ニーズを混同しない"
+}

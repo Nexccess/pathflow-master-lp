@@ -1,0 +1,10 @@
+{
+  "store_id": "2",
+  "store_name": "EARTH 横浜店",
+  "status": "READY",
+  "entry_copy": "メニューを決める前に、なりたい印象と今の悩みを5問で整理します。",
+  "entry_promise": "初回来店でも相談しやすい希望メモをつくる",
+  "question_focus": ["なりたい印象", "今の髪の悩み", "変えたい度合い", "普段の手入れ", "相談時に優先したいこと"],
+  "result_direction": "希望と悩みを短い相談メモにまとめ、店舗問い合わせへつなぐ",
+  "not_a_medical_diagnosis": true
+}
