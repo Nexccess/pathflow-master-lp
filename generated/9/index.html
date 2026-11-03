@@ -1,422 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Violet Yokohama (バイオレットヨコハマ/横浜店)様向け Path-Flow 個別提案 | Nexccess</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Violet Hair Salon | 希望を整理する</title>
+<meta name="description" content="Violetで、あなたらしさが一番きれいに見える髪へ。5問で来店前の希望を整理できます。">
 <meta name="pathflow-lead-id" content="9">
-<meta name="pathflow-company" content="Violet Yokohama (バイオレットヨコハマ/横浜店)">
-<meta name="description" content="横浜駅の美容室としての強みと、実際の顧客が来店前に迷いやすい点を分けて整理した個別提案です。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta name="pathflow-approved-creative" content="Violet Reference Case #01">
 <style>
-/* ─── TOKENS ──────────────────────────────────────────────── */
-:root {
-  --navy:       #06101f;
-  --navy-mid:   #0d1e35;
-  --navy-light: #162844;
-  --gold:       #c8a45a;
-  --gold-dim:   #8b6e37;
-  --gold-light: #e8c97a;
-  --white:      #f4f0e8;
-  --muted:      #8a9ab5;
-  --border:     rgba(200,164,90,.18);
-  --glass:      rgba(13,30,53,.72);
-  --crimson:    #8b2635;
-
-  --font-serif: 'Noto Serif JP', serif;
-  --font-sans:  'DM Sans', sans-serif;
-  --font-mono:  'Space Mono', monospace;
-
-  --ease-out: cubic-bezier(.16,1,.3,1);
-  --ease-in:  cubic-bezier(.7,0,.84,0);
-}
-
-/* ─── RESET ───────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  background: var(--navy);
-  color: var(--white);
-  font-family: var(--font-sans);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; border: none; background: none; font-family: inherit; }
-
-/* ─── SCROLLBAR ───────────────────────────────────────────── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--navy); }
-::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
-
-/* ─── NOISE OVERLAY ───────────────────────────────────────── */
-body::before {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
-  pointer-events: none; z-index: 0;
-}
-
-/* ─── NAV ─────────────────────────────────────────────────── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.25rem 3rem;
-  transition: background .4s, backdrop-filter .4s, border-color .4s;
-  border-bottom: 1px solid transparent;
-}
-nav.scrolled {
-  background: var(--glass);
-  backdrop-filter: blur(20px);
-  border-color: var(--border);
-}
-.nav-logo {
-  font-family: var(--font-serif);
-  font-size: .95rem;
-  letter-spacing: .08em;
-  color: var(--gold);
-  display: flex; align-items: center; gap: .75rem;
-}
-.nav-logo-mark {
-  width: 28px; height: 28px;
-  border: 1.5px solid var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  font-size: .65rem; font-family: var(--font-mono); color: var(--gold);
-}
-.nav-links { display: flex; gap: 2.5rem; align-items: center; }
-.nav-links a {
-  font-size: .82rem; letter-spacing: .05em; color: var(--muted);
-  transition: color .2s;
-}
-.nav-links a:hover { color: var(--white); }
-.nav-cta {
-  font-size: .8rem; font-weight: 500; letter-spacing: .08em;
-  padding: .55rem 1.4rem;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  transition: background .2s, color .2s;
-}
-.nav-cta:hover { background: var(--gold); color: var(--navy); }
-
-/* ─── HERO ────────────────────────────────────────────────── */
-#hero {
-  position: relative; min-height: 100vh;
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: flex-start;
-  padding: 8rem 3rem 5rem;
-  overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0; z-index: -1;
-  background:
-    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200,164,90,.07) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(139,38,53,.08) 0%, transparent 60%),
-    linear-gradient(160deg, #06101f 0%, #0a1828 100%);
-}
-.hero-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(200,164,90,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200,164,90,.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 80% at 60% 50%, black 30%, transparent 80%);
-}
-.hero-eyebrow {
-  font-family: var(--font-mono);
-  font-size: .72rem; letter-spacing: .2em;
-  color: var(--gold); margin-bottom: 1.5rem;
-  opacity: 0; animation: fadeUp .8s var(--ease-out) .2s forwards;
-}
-.hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  font-weight: 700; line-height: 1.25;
-  max-width: 720px;
-  opacity: 0; animation: fadeUp .9s var(--ease-out) .35s forwards;
-}
-.hero-title em {
-  font-style: normal; color: var(--gold);
-  display: block;
-}
-.hero-sub {
-  margin-top: 1.5rem; max-width: 520px;
-  font-size: 1rem; color: var(--muted); line-height: 1.8;
-  opacity: 0; animation: fadeUp .9s var(--ease-out) .5s forwards;
-}
-.hero-actions {
-  margin-top: 2.5rem; display: flex; gap: 1rem; align-items: center;
-  opacity: 0; animation: fadeUp .9s var(--ease-out) .65s forwards;
-}
-.btn-primary {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: var(--gold); color: var(--navy);
-  font-size: .88rem; font-weight: 600; letter-spacing: .06em;
-  padding: .85rem 2rem;
-  transition: background .2s, transform .2s;
-}
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-.btn-secondary {
-  font-size: .85rem; color: var(--muted); letter-spacing: .05em;
-  display: flex; align-items: center; gap: .4rem;
-  transition: color .2s;
-}
-.btn-secondary:hover { color: var(--white); }
-.btn-arrow { font-size: 1.1em; transition: transform .2s; }
-.btn-secondary:hover .btn-arrow { transform: translateX(4px); }
-.hero-stats {
-  position: absolute; right: 3rem; bottom: 4rem;
-  display: flex; gap: 3rem;
-  opacity: 0; animation: fadeUp .9s var(--ease-out) .8s forwards;
-}
-.hero-stat-num {
-  font-family: var(--font-serif); font-size: 2.4rem; font-weight: 700;
-  color: var(--gold); line-height: 1;
-}
-.hero-stat-label {
-  font-size: .72rem; color: var(--muted); letter-spacing: .05em; margin-top: .3rem;
-}
-.hero-scroll-hint {
-  position: absolute; bottom: 1.5rem; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: .4rem;
-  font-size: .68rem; letter-spacing: .15em; color: var(--muted);
-  opacity: 0; animation: fadeIn 1s .ease-out 1.2s forwards;
-}
-.scroll-line {
-  width: 1px; height: 40px;
-  background: linear-gradient(var(--gold), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-
-/* ─── SECTIONS ────────────────────────────────────────────── */
-section { position: relative; z-index: 1; }
-.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
-.section-label {
-  font-family: var(--font-mono);
-  font-size: .7rem; letter-spacing: .2em; color: var(--gold);
-  margin-bottom: 1rem;
-}
-.section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  font-weight: 700; line-height: 1.3;
-}
-.section-title em { font-style: normal; color: var(--gold); }
-
-/* ─── PAIN ────────────────────────────────────────────────── */
-#pain {
-  padding: 8rem 0;
-  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
-}
-.pain-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1.5px; margin-top: 4rem;
-  border: 1.5px solid var(--border);
-}
-.pain-card {
-  background: var(--navy-mid); padding: 2.5rem;
-  transition: background .3s;
-}
-.pain-card:hover { background: var(--navy-light); }
-.pain-num {
-  font-family: var(--font-mono); font-size: 2.5rem;
-  color: rgba(200,164,90,.12); font-weight: 700; line-height: 1;
-  margin-bottom: 1.5rem;
-}
-.pain-title { font-size: 1.05rem; font-weight: 600; margin-bottom: .75rem; }
-.pain-desc { font-size: .88rem; color: var(--muted); line-height: 1.8; }
-
-/* ─── FOOTER ──────────────────────────────────────────────── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 3rem; text-align: center;
-}
-.footer-logo {
-  font-family: var(--font-serif); font-size: 1rem;
-  color: var(--gold); margin-bottom: .75rem;
-}
-.footer-copy { font-size: .78rem; color: var(--muted); }
-
-/* ─── ANIMATIONS ──────────────────────────────────────────── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; } to { opacity: 1; }
-}
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
-@keyframes scrollPulse {
-  0%, 100% { opacity: .4; } 50% { opacity: 1; }
-}
-
-/* ─── REVEAL ──────────────────────────────────────────────── */
-.reveal {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ─── RESPONSIVE ──────────────────────────────────────────── */
-@media (max-width: 900px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  #hero { padding: 7rem 1.5rem 4rem; }
-  .hero-stats { position: static; margin-top: 3rem; flex-direction: column; gap: 1.5rem; }
-  .section-inner { padding: 0 1.5rem; }
-}
+:root{--violet:#6f529d;--violet-dark:#46316f;--violet-soft:#ded4ea;--cream:#fbf8f2;--paper:#fffdf9;--ink:#29232f;--muted:#7a7180;--line:#e8e0eb;--shadow:0 12px 32px rgba(70,49,111,.12)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#efeaf2}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;color:var(--ink);background:#efeaf2}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+.page{width:min(100%,480px);margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 50px rgba(48,34,70,.12)}
+header{height:82px;padding:18px 24px 12px;display:flex;align-items:center;justify-content:space-between;background:#fff}
+.brand{font-family:Georgia,"Times New Roman","Yu Mincho",serif;text-align:center;color:var(--violet-dark);line-height:1}
+.brand strong{display:block;font-size:31px;font-weight:500;letter-spacing:.02em}
+.brand small{display:block;font-size:9px;letter-spacing:.32em;margin-top:7px}
+.menu{width:26px;height:19px;display:grid;align-content:space-between}
+.menu i{height:1px;background:var(--violet-dark);display:block}
+.hero{background:linear-gradient(180deg,#fff 0%,#f8f1ea 100%);padding:18px 24px 0}
+.hero h1{font-family:Georgia,"Yu Mincho",serif;color:var(--violet-dark);font-weight:500;font-size:29px;line-height:1.55;letter-spacing:.03em;margin:0 0 10px}
+.hero p{font-size:13px;line-height:1.85;margin:0 0 16px;color:#443d47}
+.hero-photo{position:relative;margin:0 -24px}
+.hero-photo img{height:300px;object-fit:cover;object-position:center top}
+.review-badge{position:absolute;right:16px;bottom:20px;width:142px;padding:14px 13px;border-radius:10px;background:rgba(103,75,147,.9);color:#fff;box-shadow:var(--shadow);font-size:10px;line-height:1.65}
+.review-badge .stars{font-size:14px;letter-spacing:.06em;color:#f2d476;margin:5px 0}
+.primary-cta{display:flex;align-items:center;justify-content:center;gap:12px;margin:-2px 0 0;padding:18px 22px;background:linear-gradient(100deg,#7e62ad,#5c3e8d);color:#fff;font-weight:700;font-size:17px;letter-spacing:.02em;border-radius:32px;box-shadow:0 8px 20px rgba(89,61,138,.22)}
+.primary-cta .arrow{font-size:24px;font-weight:300;line-height:1}
+.hero-note{text-align:center;font-size:11px;color:#725e7d;margin:9px 0 0;padding-bottom:20px}
+.section{padding:34px 22px}
+.section h2{font-family:Georgia,"Yu Mincho",serif;text-align:center;font-size:20px;color:#29232f;margin:0 0 22px;font-weight:600}
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;text-align:center}
+.reason{padding:4px 2px}
+.reason .ico{width:42px;height:42px;border:1.5px solid var(--violet);border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;color:var(--violet);font-size:19px}
+.reason b{display:block;font-size:11px;margin-bottom:6px}
+.reason span{font-size:9px;line-height:1.6;color:#615a64}
+.voices{background:#faf7f3}
+.voice-card{display:grid;grid-template-columns:38px 1fr;gap:11px;padding:14px 12px;border:1px solid #e9e0d8;border-radius:10px;background:#fff;margin-bottom:12px;box-shadow:0 4px 12px rgba(58,47,63,.04)}
+.voice-card img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.voice-card .stars{color:#c79e54;font-size:12px;letter-spacing:.08em}
+.voice-card p{font-size:10px;line-height:1.65;margin:5px 0 0}
+.voice-card small{display:block;text-align:right;color:#756d77;font-size:8px;margin-top:4px}
+.styles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.style img{aspect-ratio:1/1.08;object-fit:cover;border-radius:8px}
+.style p{font-size:8px;text-align:center;line-height:1.5;margin:7px 0 0}
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.price{border:1px solid #ece4de;border-radius:7px;text-align:center;padding:12px 4px;background:#fff}
+.price b{display:block;font-size:9px;margin-bottom:5px}
+.price strong{display:block;font-family:Georgia,serif;font-size:14px;font-weight:500}
+.price small{font-size:7px;color:#766d78}
+.price-note{text-align:center;color:#736b75;font-size:8px;margin:12px 0 0}
+.final{padding:30px 22px 36px;background:linear-gradient(135deg,#5a3e88 0%,#8468ad 100%);color:#fff;text-align:center}
+.final h2{color:#fff;margin-bottom:14px;font-size:17px}
+.final .primary-cta{background:#fff;color:var(--violet-dark);box-shadow:none}
+.final p{font-size:9px;margin:10px 0 0;opacity:.85}
+footer{padding:16px;text-align:center;background:#fff;color:#716a73;font-size:9px}
+.floating{position:fixed;right:max(14px,calc((100vw - 480px)/2 + 14px));bottom:16px;z-index:20;width:104px;height:104px;border-radius:50%;background:rgba(102,76,147,.88);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:11px;line-height:1.35;box-shadow:0 10px 24px rgba(62,40,94,.25);backdrop-filter:blur(8px);transition:transform .18s ease,background .18s ease}
+.floating:hover,.floating:focus{transform:scale(1.05);background:rgba(92,62,141,.96)}
+.floating .spark{font-size:20px;margin-bottom:5px}
+.floating .free{position:absolute;right:-1px;top:-1px;background:#c95f67;color:#fff;font-weight:700;font-size:9px;border-radius:14px;padding:5px 7px}
+@media (max-width:380px){.hero h1{font-size:26px}.reasons{gap:2px}.reason b{font-size:10px}.prices{gap:4px}.price strong{font-size:12px}.floating{width:92px;height:92px;font-size:10px}}
 </style>
-
-<style id="pathflow-visual-direction">
-:root {
-  --navy: #F5F1EA;
-  --navy-mid: #FFFDFC;
-  --navy-light: #ECE5DA;
-  --gold: #6D5B8C;
-  --gold-dim: #CFC5B8;
-  --gold-light: #D8CFE7;
-  --white: #211F1C;
-  --muted: #746E67;
-  --border: #CFC5B8;
-  --glass: #FFFDFCe6;
-  --crimson: #6D5B8C;
-  --black-frame: #1C1B1A;
-}
-body { background:var(--navy); color:var(--white); }
-body::before { opacity:.12; }
-.section-inner { max-width:1120px; }
-.section-title, .hero-title, .footer-logo {
-  font-family:'Noto Serif JP',serif;
-  font-weight:700;
-}
-.section-label { letter-spacing:.18em; }
-nav.scrolled {
-  background:#FFFDFCe8;
-  backdrop-filter:blur(18px);
-}
-.nav-logo, .nav-logo-mark, .section-label { color:var(--gold); }
-.nav-logo-mark { border-color:var(--gold-dim); }
-#hero {
-  min-height:82vh;
-  background:linear-gradient(145deg,#FFFDFC 0%,#F5F1EA 56%,#ECE5DA 100%);
-}
-.hero-bg { background:radial-gradient(ellipse 45% 55% at 78% 30%, #D8CFE755 0%, transparent 70%),radial-gradient(ellipse 55% 65% at 20% 85%, #CFC5B855 0%, transparent 70%),linear-gradient(145deg,#FFFDFC 0%,#F5F1EA 100%); }
-
-.hero-title { max-width:780px; letter-spacing:-.02em; }
-.hero-sub { max-width:650px; }
-.hero-grid { opacity:.12; }
-
-.btn-primary {
-  background:var(--black-frame);
-  color:#FFFDFC;
-  border-radius:999px;
-  padding-inline:1.6rem;
-}
-.btn-primary:hover { opacity:.9; }
-.btn-secondary, .nav-links a { color:var(--muted); }
-.nav-cta {
-  border-color:var(--black-frame);
-  color:var(--black-frame);
-  border-radius:999px;
-}
-.nav-cta:hover { background:var(--black-frame); color:#FFFDFC; }
-#personalized, #customer-voice {
-  padding:calc(clamp(72px, 9vw, 120px) * 1) 0;
-}
-#personalized { background:#FFFDFC; }
-#customer-voice { background:#ECE5DA; }
-#customer-voice .pain-grid {
-  gap:1rem;
-  border:0;
-}
-#customer-voice .pain-card {
-  background:#FFFDFC;
-  border:1px solid rgba(33,31,28,.14);
-  border-radius:16px;
-  box-shadow:0 18px 50px rgba(33,31,28,.08);
-  padding:2.5rem;
-  
-}
-#customer-voice .pain-num {
-  font-size:.72rem;
-  color:var(--gold);
-  margin-bottom:.9rem;
-  letter-spacing:.16em;
-}
-#customer-voice .pain-title {
-  font-family:'Noto Serif JP',serif;
-  font-size:1.08rem;
-  line-height:1.65;
-}
-footer { background:var(--black-frame); color:#F5F1EA; }
-.footer-copy { color:#CFC5B8; }
-</style>
-
 </head>
-<body data-pf-hero="editorial-soft" data-pf-type="serif-editorial" data-pf-cards="soft-rounded" data-pf-density="airy">
+<body>
+<main class="page">
+<header>
+  <div class="brand"><strong>Violet</strong><small>HAIR SALON</small></div>
+  <div class="menu" aria-hidden="true"><i></i><i></i><i></i></div>
+</header>
 
-<!-- ─── NAV ─────────────────────────────────────────────────── -->
-<nav id="nav">
-  <div class="nav-logo">
-    <div class="nav-logo-mark">NX</div>
-    Nexcess
-  </div>
-  <div class="nav-links"><a href="#personalized">店舗別提案</a><a href="#customer-voice">来店前診断</a></div>
-  <a class="nav-cta" href="#customer-voice">来店前の希望を整理する</a>
-</nav>
-
-<!-- ─── HERO ─────────────────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-bg">
-    <div class="hero-grid"></div>
-  </div>
-  <div class="hero-eyebrow">VIOLET YOKOHAMA / PATH-FLOW PERSONALIZED</div>
-  <h1 class="hero-title">Violet Yokohama (バイオレットヨコハマ/横浜店)の魅力を、来店前の不安まで含めて伝える。</h1>
-  <p class="hero-sub">横浜駅の美容室としての強みと、実際の顧客が来店前に迷いやすい点を分けて整理した個別提案です。</p>
-  <div class="hero-actions"><a class="btn-primary" href="#customer-voice">来店前の希望を整理する</a><a href="#personalized" class="btn-secondary">この店舗向け提案を見る <span class="btn-arrow">→</span></a></div>
-  <div class="hero-stats"><div><div class="hero-stat-num">5</div><div class="hero-stat-label">来店前に整理する質問</div></div><div><div class="hero-stat-num">VOICE</div><div class="hero-stat-label">顧客の迷いを分離して反映</div></div><div><div class="hero-stat-num">STORE</div><div class="hero-stat-label">店舗固有情報を優先</div></div></div><div class="hero-scroll-hint">
-    <div class="scroll-line"></div>
-    SCROLL
+<section class="hero">
+  <h1>あなたらしさが、<br>一番きれいに見える髪へ。</h1>
+  <p>Violetは、髪質・骨格・ライフスタイルまで<br>トータルで見極めるパーソナルサロンです。</p>
+  <div class="hero-photo">
+    <img alt="Violet スタイルイメージ" src="data:image/jpeg;base64,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[... ELLIPSIZATION ...]">
+    <div class="style"><img alt="くびれミディ × 顔まわりデザイン" src="data:image/jpeg;base64,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"><p>くびれミディ<br>× 顔まわりデザイン</p></div>
+    <div class="style"><img alt="ナチュラルウェーブ × 抜け感" src="data:image/jpeg;base64,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"><p>ナチュラルウェーブ<br>× 抜け感</p></div>
   </div>
 </section>
 
-<section id="customer-voice">
-  <div class="section-inner">
-    <div class="section-label">CUSTOMER VOICE</div>
-    <h2 class="section-title">美容室を選ぶ前に、<em>何を確認したいか。</em></h2>
-    <p style="max-width:820px;color:var(--muted);margin-top:1.25rem">
-      以下は店舗の口コミ事実ではなく、美容室利用者が来店前に迷いやすい論点を整理した質問です。
-      店舗固有の強みと混同せず、診断入力として扱います。
-    </p>
-    <div class="pain-grid" style="margin-top:2.5rem">
-      <article class="pain-card"><div class="pain-num">01</div><div class="pain-title">今回、一番変えたいのはどこですか？</div><p class="pain-desc">顔まわり・印象 / 長さ・シルエット / カラー・透明感 / 扱いやすさ・髪の状態 / まだ決めきれていない</p></article><article class="pain-card"><div class="pain-num">02</div><div class="pain-title">理想のイメージはどのくらい決まっていますか？</div><p class="pain-desc">参考画像まで決まっている / 雰囲気だけ決まっている / 避けたい仕上がりだけある / 似合う方向を相談したい</p></article><article class="pain-card"><div class="pain-num">03</div><div class="pain-title">絶対に避けたいことはありますか？</div><p class="pain-desc">短くしすぎたくない / 軽く・レイヤーを入れすぎたくない / 職場や学校で浮きたくない / ダメージを増やしたくない / 特にない</p></article><article class="pain-card"><div class="pain-num">04</div><div class="pain-title">普段のスタイリングはどのくらいできますか？</div><p class="pain-desc">毎日アイロンやコテを使える / 5〜10分くらいならできる / できるだけ簡単がいい / ほぼ何もしなくてもまとまってほしい</p></article><article class="pain-card"><div class="pain-num">05</div><div class="pain-title">カウンセリングでは、どんな進め方が近いですか？</div><p class="pain-desc">細かく希望を伝えたい / 画像を見ながらすり合わせたい / 似合う方向を提案してほしい / 髪の状態を見て一緒に決めたい</p></article>
-    </div>
+<section class="section" style="padding-top:18px">
+  <h2>料金の目安</h2>
+  <div class="prices">
+    <div class="price"><b>カット</b><strong>¥5,500〜</strong><small>（税込）</small></div>
+    <div class="price"><b>カラー</b><strong>¥7,700〜</strong><small>（税込）</small></div>
+    <div class="price"><b>カット＋カラー</b><strong>¥12,100〜</strong><small>（税込）</small></div>
+    <div class="price"><b>トリートメント</b><strong>¥4,400〜</strong><small>（税込）</small></div>
   </div>
+  <p class="price-note">※メニュー・料金は一例です。ご希望に合わせてご提案します。</p>
 </section>
 
-<section id="personalized">
-  <div class="section-inner">
-    <div class="section-label">STORE-SPECIFIC DIRECTION</div>
-    <h2 class="section-title">この店舗の情報を起点に、<em>来店前の迷い</em>まで整理する。</h2>
-    <p style="max-width:820px;color:var(--muted);margin-top:1.25rem">
-      店舗の公開情報と顧客側の迷いを分けて整理し、相談・予約前の不安を減らす余地があります。
-    </p>
-    <p style="max-width:820px;margin-top:.75rem">
-      公開情報から確認できる店舗独自の特徴だけを訴求軸として扱います。
-    </p>
-  </div>
+<section class="final">
+  <h2>まずは、あなたの希望を整理しませんか？</h2>
+  <a class="primary-cta" href="/p/9/reception">希望を整理する（無料・5問）<span class="arrow">›</span></a>
+  <p>5問で完了・無理な営業は一切ありません</p>
 </section>
-
-<!-- ─── FOOTER ─────────────────────────────────────────────────── -->
-<footer><div class="footer-logo">Path-Flow</div><p class="footer-copy">店舗ごとの公開情報と顧客側の来店前ニーズを分離して構成した個別提案ページです。</p></footer>
-
+<footer>Powered by Path-Flow</footer>
+</main>
+<a class="floating" href="/p/9/reception" aria-label="無料5問で希望を整理する"><span class="free">無料</span><span class="spark">✧</span><strong>希望を整理する</strong><span>（無料・5問）</span></a>
 </body>
 </html>
