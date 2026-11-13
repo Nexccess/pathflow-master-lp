@@ -1,0 +1,50 @@
+/* Diagnosis styles are scoped. Original PC image rules remain in styles.css. */
+.diagnosis-launch, .mobile-fixed { position:fixed; bottom:max(16px, env(safe-area-inset-bottom)); z-index:9; min-height:56px; border:1px solid #e1e5dc; box-shadow:0 4px 18px #18271e30; background:#536b5d; color:#fff; font:600 14px/1.6 'Noto Sans JP',sans-serif; padding:14px 22px; text-align:center; text-decoration:none; border-radius:4px; cursor:pointer; }
+.diagnosis-launch { right:20px; max-width:calc(50vw - 28px); }
+.mobile-fixed { display:flex; align-items:center; justify-content:center; left:20px; right:auto; max-width:calc(50vw - 28px); }
+.diagnosis-launch[hidden] { display:none; }
+.diagnosis-dialog { color:var(--ink); background:var(--cream); border:1px solid var(--line); border-radius:8px; padding:0; width:min(640px, calc(100% - 24px)); max-width:none; max-height:calc(100vh - 24px); max-height:calc(100dvh - 24px); overflow-y:auto; overscroll-behavior:contain; font-family:inherit; letter-spacing:.02em; }
+.diagnosis-dialog::backdrop { background:#17241ddb; }
+.diagnosis-header { display:flex; gap:12px; align-items:center; justify-content:space-between; padding:14px 24px; border-bottom:1px solid var(--line); }
+.diagnosis-header p { margin:0; font-size:13px; font-weight:600; }
+.diagnosis-dialog button, .diagnosis-dialog a { font:inherit; cursor:pointer; min-height:44px; touch-action:manipulation; }
+.diagnosis-dialog button { border:1px solid #899789; border-radius:4px; padding:10px 16px; color:var(--ink); background:white; }
+.diagnosis-close { flex-shrink:0; }
+.diagnosis-body { padding:24px 32px 28px; }
+#diagnosis-intro { font-size:16px; font-weight:500; margin-bottom:20px; }
+.diagnosis-progress { margin:0 0 6px; color:#455d4d; font-size:14px; }
+#diagnosis-meter { width:100%; height:8px; display:block; accent-color:#536b5d; margin-bottom:24px; }
+#diagnosis-fieldset { margin:0; padding:0; border:0; min-width:0; }
+#diagnosis-question, #diagnosis-result-title { font-size:23px; font-weight:500; line-height:1.65; margin:0 0 20px; padding:0; }
+#diagnosis-options { display:grid; gap:12px; }
+.diagnosis-option { display:flex; gap:12px; align-items:center; border:1px solid #899789; border-radius:4px; background:#fff; min-height:60px; padding:14px; font-size:16px; line-height:1.7; cursor:pointer; }
+.diagnosis-option:has(input:checked) { background:#e5ebe1; border-color:#425b48; }
+.diagnosis-option input { width:20px; height:20px; flex-shrink:0; margin:0; accent-color:#425b48; }
+.diagnosis-actions { display:flex; justify-content:space-between; gap:12px; margin:24px 0 16px; }
+.diagnosis-dialog .diagnosis-primary { background:#536b5d; color:#fff; border:1px solid #536b5d; border-radius:4px; padding:12px 24px; text-align:center; text-decoration:none; font-weight:600; }
+.diagnosis-dialog button:disabled { opacity:.5; cursor:default; }
+.diagnosis-reset { display:block; margin:20px auto 0; }
+.diagnosis-type { color:#455d4d; font-size:14px; font-weight:600; margin:0 0 12px; }
+#diagnosis-result-copy { font-size:16px; }
+#diagnosis-result h3 { font-size:16px; font-weight:600; margin:24px 0 12px; }
+#diagnosis-summary { margin:0; }
+#diagnosis-summary div { padding:12px 0; border-bottom:1px solid var(--line); }
+#diagnosis-summary dt { font-size:13px; color:#455d4d; }
+#diagnosis-summary dd { margin:4px 0 0; font-size:15px; }
+.diagnosis-notice { font-size:13px; line-height:1.9; margin:20px 0; }
+.diagnosis-book { display:flex; align-items:center; justify-content:center; }
+#diagnosis-edit { display:block; width:100%; margin-top:12px; }
+.diagnosis-dialog :focus-visible, .diagnosis-launch:focus-visible, .mobile-fixed:focus-visible { outline:3px solid #294b32; outline-offset:3px; }
+.diagnosis-dialog legend:focus, .diagnosis-dialog h2:focus { outline:none; }
+html.diagnosis-open { overflow:hidden; }
+body.diagnosis-open { position:fixed; width:100%; overflow:hidden; }
+footer { padding-bottom:100px; }
+@media (max-width:767px) {
+  .diagnosis-launch, .mobile-fixed { bottom:max(10px, env(safe-area-inset-bottom)); width:calc(50% - 16px); max-width:none; min-height:66px; padding:10px 12px; font-size:13px; line-height:1.7; }
+  .mobile-fixed { left:10px; right:auto; }
+  .diagnosis-launch { right:10px; }
+  .diagnosis-header { padding:12px 16px; }
+  .diagnosis-body { padding:20px; }
+  #diagnosis-question, #diagnosis-result-title { font-size:21px; }
+}
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
