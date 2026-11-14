@@ -1,0 +1,43 @@
+/* 11B 261113-104: Ou controls adapted to Graph paper, vermilion and fine rules. */
+.diagnosis-launch{position:fixed;right:24px;bottom:24px;z-index:20;max-width:calc(50vw - 32px);min-height:54px;border:1px solid var(--ink);border-radius:0;padding:14px 22px;background:var(--paper);color:var(--red);box-shadow:none;font:600 14px/1.6 var(--sans);cursor:pointer;touch-action:manipulation}
+.diagnosis-launch[hidden],.diagnosis-dialog [hidden]{display:none!important}
+.diagnosis-dialog{color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:0;padding:0;width:min(640px,calc(100% - 24px));max-width:none;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);overflow:auto;overscroll-behavior:contain;font:16px/1.8 var(--sans);letter-spacing:.02em;overflow-wrap:anywhere;scroll-behavior:auto}
+.diagnosis-dialog::backdrop{background:#282820cc}
+.diagnosis-header{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--rule)}
+.diagnosis-header p{font:20px/1.6 var(--serif)}
+.diagnosis-dialog button,.diagnosis-dialog a{font:inherit;cursor:pointer;min-height:44px;touch-action:manipulation}
+.diagnosis-dialog button{border:1px solid var(--muted);border-radius:0;padding:10px 16px;color:var(--ink);background:var(--paper)}
+.diagnosis-close{flex-shrink:0}
+.diagnosis-body{padding:24px 32px 28px}
+#diagnosis-intro{font-size:16px;margin-bottom:12px}
+.diagnosis-privacy{font-size:13px;color:var(--muted);margin-bottom:20px}
+.diagnosis-progress{margin:0 0 6px;font-size:14px}
+#diagnosis-meter{width:100%;height:8px;display:block;accent-color:var(--ink);margin-bottom:24px}
+#diagnosis-fieldset{margin:0;padding:0;border:0;min-width:0}
+#diagnosis-question,#diagnosis-result-title{font:400 23px/1.65 var(--serif);letter-spacing:.04em;margin:0 0 20px;padding:0;width:100%}
+#diagnosis-options{display:grid;gap:12px}
+.diagnosis-option{display:flex;gap:12px;align-items:center;border:1px solid var(--muted);border-radius:0;background:var(--paper);min-height:60px;padding:14px;font-size:16px;line-height:1.7;cursor:pointer}
+.diagnosis-option:has(input:checked){background:#e9dfd1;border:2px solid var(--ink);padding:13px}
+.diagnosis-option input{width:20px;height:20px;flex-shrink:0;margin:0;accent-color:var(--ink)}
+.diagnosis-actions{display:flex;justify-content:space-between;gap:12px;margin:24px 0 16px}
+.diagnosis-dialog .diagnosis-primary{background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-radius:0;padding:12px 24px;text-align:center;text-decoration:none;font-weight:600}
+.diagnosis-dialog button:disabled{opacity:.5;cursor:default}
+.diagnosis-reset{display:block;margin:20px auto 0}
+.diagnosis-type{color:var(--red);font-size:14px;font-weight:600;margin:0 0 12px}
+#diagnosis-result-copy,#diagnosis-wish{font-size:16px}
+#diagnosis-result h3{font:600 16px/1.8 var(--sans);margin:24px 0 12px}
+#diagnosis-summary{margin:0}
+#diagnosis-summary div{padding:12px 0;border-bottom:1px solid var(--rule)}
+#diagnosis-summary dt{font-size:13px;color:var(--muted)}
+#diagnosis-summary dd{margin:4px 0 0;font-size:15px}
+.diagnosis-notice{font-size:13px;line-height:1.9;margin:20px 0}
+.diagnosis-book{display:flex;align-items:center;justify-content:center}
+#diagnosis-edit{display:block;width:100%;margin-top:12px}
+.diagnosis-dialog :focus-visible,.diagnosis-launch:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.diagnosis-dialog legend:focus,.diagnosis-dialog h2:focus{outline:2px solid var(--red);outline-offset:4px}
+html.diagnosis-open{overflow:hidden}
+body.diagnosis-open{position:fixed;width:100%;overflow:hidden}
+
+.diagnosis-end-space{height:96px;pointer-events:none}
+@media(max-width:767px){.diagnosis-launch{right:8px;bottom:max(16px,env(safe-area-inset-bottom));width:calc(100vw - 182px);max-width:190px;min-height:66px;padding:8px;font-size:12px;line-height:1.7}.diagnosis-header{padding:12px 16px}.diagnosis-header p{font-size:18px}.diagnosis-body{padding:20px}#diagnosis-question,#diagnosis-result-title{font-size:21px}}
+@media print{.diagnosis-launch,.diagnosis-dialog,.diagnosis-end-space{display:none!important}}
