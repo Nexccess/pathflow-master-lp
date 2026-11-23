@@ -15,6 +15,10 @@
   },
   "rewrites": [
     {
+      "source": "/261121-118",
+      "destination": "/p/261121-118/index.html"
+    },
+    {
       "source": "/261121-117",
       "destination": "/p/261121-117/index.html"
     },
